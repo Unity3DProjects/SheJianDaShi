@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1089593420832495
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4907365609376445}
+  - component: {fileID: 114328106182467779}
+  m_Layer: 0
+  m_Name: TutorialManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4907365609376445
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089593420832495}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114328106182467779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089593420832495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ec6c25ac577afeb80be7acb7b0702d, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  hintDelayByNoActivationShoot: 1
+  hintDelayByInactivity: 10
+  tutorialWeaponDuel: 31
+  tutorialWeaponApple: 31
+  tutorialWeaponBirds: 31
+  buyCharacterTutorialPrefab: {fileID: 1404279685917000, guid: f4eafe440310857429b06c031df628f9, type: 2}
+  winsToDisableEasyMatches: 5
+  matchesWithLowHealthEnemies: 3
+  lowHealthEnemiesCoeff: 0.6
+  matchesForFirstReminder: 3
+  matchesForRepeatReminder: 2
+  tutorialMatchesCount: 2
+  freeChestsCount: 3
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1089593420832495}
+  m_IsPrefabParent: 1

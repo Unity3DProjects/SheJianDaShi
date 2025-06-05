@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1631722012679940
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4263162704626737}
+  - component: {fileID: 114560867577748048}
+  - component: {fileID: 114849577537019588}
+  - component: {fileID: 114097322638519079}
+  m_Layer: 0
+  m_Name: FatalityJellyFish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4263162704626737
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1631722012679940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114560867577748048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1631722012679940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28194b485790e1b1b9c4f476c98956e5, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeWeapon: 11
+  activationType: 4
+  time: 5
+  explodeForce: 0
+--- !u!114 &114849577537019588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1631722012679940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718e60aba4702e673e43cde15ced9dd9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  explodeEffects: []
+  bloodEffects: []
+  acidEffects: []
+  shockEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_Death_Shock
+      assetGUID: b18892a8329b9462cb3fb057eae711bc
+  - characterType: 2
+    effectPrefab:
+      name: FX_Death_Shock_Beefy
+      assetGUID: cc7c0df92fae546d09029b27f5727cb8
+  - characterType: 3
+    effectPrefab:
+      name: FX_Death_Shock_Plumpy
+      assetGUID: 48bd095911a1d43df88452d7ef1cb433
+  fireEffects: []
+  freezeEffects: []
+  brainEffects: []
+  gutsEffects: []
+  fatalityGUICameraEffects: []
+  gutsPrefab: {fileID: 0}
+  brainPrefab: {fileID: 0}
+  eyePrefab: {fileID: 0}
+  minForceGuts: 0
+  maxForceGuts: 0
+  minForceBrain: 0
+  maxForceBrain: 0
+  minForceEye: 0
+  maxForceEye: 0
+  angularVelosityParts: {x: 0, y: 0, z: 0}
+--- !u!114 &114097322638519079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1631722012679940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName: MaskRemoveAll
+  decalMethodName:
+  decalType: 0
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1631722012679940}
+  m_IsPrefabParent: 1

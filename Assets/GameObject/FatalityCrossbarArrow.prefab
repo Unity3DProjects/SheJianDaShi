@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1967846902184768
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4574078033057840}
+  - component: {fileID: 114099891448990423}
+  - component: {fileID: 114624263799006640}
+  - component: {fileID: 114636558837543988}
+  m_Layer: 0
+  m_Name: FatalityCrossbarArrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4574078033057840
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967846902184768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114099891448990423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967846902184768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbdab173b86ad56f1204154b8b334d2, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeWeapon: 64
+  activationType: 7
+  time: 8
+  explodeForce: 0
+  delayBeforeStart: 2
+  breakUpDelay: 0.5
+  throwUpDirection: {x: 0, y: 1000, z: 0}
+  smokeEffectPrefab:
+    name:
+    assetGUID:
+  firstHitSound:
+  swordHitSound:
+--- !u!114 &114624263799006640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967846902184768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718e60aba4702e673e43cde15ced9dd9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  explodeEffects: []
+  bloodEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  - characterType: 2
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  - characterType: 3
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  acidEffects: []
+  shockEffects: []
+  fireEffects: []
+  freezeEffects: []
+  brainEffects: []
+  gutsEffects: []
+  fatalityGUICameraEffects: []
+  gutsPrefab: {fileID: 54473800662004282, guid: 527ca4c2b3374e641a2da35da99c84a8, type: 2}
+  brainPrefab: {fileID: 0}
+  eyePrefab: {fileID: 0}
+  minForceGuts: 0
+  maxForceGuts: 0
+  minForceBrain: 0
+  maxForceBrain: 0
+  minForceEye: 0
+  maxForceEye: 0
+  angularVelosityParts: {x: 0, y: 0, z: 0}
+--- !u!114 &114636558837543988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967846902184768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName: MaskRemoveBodyByHitBody
+  decalMethodName: DecalOnBody
+  decalType: 0
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1967846902184768}
+  m_IsPrefabParent: 1

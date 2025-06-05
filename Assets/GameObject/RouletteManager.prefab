@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1681246177837132
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4921602335518258}
+  - component: {fileID: 114535774612486959}
+  m_Layer: 0
+  m_Name: RouletteManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4921602335518258
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1681246177837132}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114535774612486959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1681246177837132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ab7e93d3b264f016bc1a9d9f7947d0, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  rouletteChanceWeight: {fileID: 4900000, guid: 19b64ae00b9b85147ba73942b7b26f82, type: 3}
+  rouletteTournamentChanceWeight: {fileID: 4900000, guid: bc35ca6753da1f84c844f9d091868782, type: 3}
+  rouletteAllFreeCharactersBoughtChanceWeight: {fileID: 4900000, guid: ff63bae08f0428b4c9d98981787c73c7, type: 3}
+  rouletteUnfairUser: {fileID: 4900000, guid: 9cb76777ea7b0df4c839948427284e6c, type: 3}
+  smallCoinsCount: 500
+  mediumCoinsCount: 1000
+  largeCoinsCount: 1500
+  smallGemsCount: 1
+  mediumGemsCount: 2
+  largeGemsCount: 5
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1681246177837132}
+  m_IsPrefabParent: 1

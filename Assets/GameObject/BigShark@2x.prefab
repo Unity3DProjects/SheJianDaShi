@@ -1,0 +1,378 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1419606839246125
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4060454619966089}
+  - component: {fileID: 114785990559983624}
+  m_Layer: 0
+  m_Name: BigShark@2x
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4060454619966089
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1419606839246125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114785990559983624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1419606839246125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f28a10f064b0573af11a2e931d98da, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  version: 3
+  materialIdsValid: 1
+  needMaterialInstance: 1
+  spriteDefinitions:
+  - name: big_shark_eye
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 84, y: 84, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 84, y: 84, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -42, y: -42, z: 0}
+    - {x: 42, y: -42, z: 0}
+    - {x: -42, y: 42, z: 0}
+    - {x: 42, y: 42, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.09393444, y: 0.0026967656}
+    - {x: 0.17612426, y: 0.0026967656}
+    - {x: 0.09393444, y: 0.11590162}
+    - {x: 0.17612426, y: 0.11590162}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 673ddb52267d54f4b925207f1f684e83, type: 2}
+    materialId: 0
+    sourceTextureGUID: a967e7b39bc364007a03c571ba8ed14a
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: big_shark_right_fin
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 192, y: 184, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 192, y: 184, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -96, y: -92, z: 0}
+    - {x: 96, y: -92, z: 0}
+    - {x: -96, y: 92, z: 0}
+    - {x: 96, y: 92, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.518592, y: 0.0026967656}
+    - {x: 0.70645696, y: 0.0026967656}
+    - {x: 0.518592, y: 0.25067252}
+    - {x: 0.70645696, y: 0.25067252}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 673ddb52267d54f4b925207f1f684e83, type: 2}
+    materialId: 0
+    sourceTextureGUID: 0500ef425f73049c8aadb9dcdfb9c0db
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: big_shark_left_fin
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 166, y: 208, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 166, y: 208, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -83, y: -104, z: 0}
+    - {x: 83, y: -104, z: 0}
+    - {x: -83, y: 104, z: 0}
+    - {x: 83, y: 104, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.3111556, y: 0.0026967656}
+    - {x: 0.3111556, y: 0.22641374}
+    - {x: 0.51467615, y: 0.0026967656}
+    - {x: 0.51467615, y: 0.22641374}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 673ddb52267d54f4b925207f1f684e83, type: 2}
+    materialId: 0
+    sourceTextureGUID: eee9f08e569094470b9c2d9ecabf70d0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: big_shark_jaw
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 290, y: 294, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 290, y: 294, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -145, y: -147, z: 0}
+    - {x: 145, y: -147, z: 0}
+    - {x: -145, y: 147, z: 0}
+    - {x: 145, y: 147, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.7103728, y: 0.0026967656}
+    - {x: 0.7103728, y: 0.39352965}
+    - {x: 0.99804205, y: 0.0026967656}
+    - {x: 0.99804205, y: 0.39352965}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 673ddb52267d54f4b925207f1f684e83, type: 2}
+    materialId: 0
+    sourceTextureGUID: d080d1ffb12924f2bbd6bdaf7f1c4784
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: big_shark_body
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 444, y: 984, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 444, y: 984, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -222, y: -492, z: 0}
+    - {x: 222, y: -492, z: 0}
+    - {x: -222, y: 492, z: 0}
+    - {x: 222, y: 492, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.0019579257, y: 0.3989232}
+    - {x: 0.0019579257, y: 0.99730325}
+    - {x: 0.96477395, y: 0.3989232}
+    - {x: 0.96477395, y: 0.99730325}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 673ddb52267d54f4b925207f1f684e83, type: 2}
+    materialId: 0
+    sourceTextureGUID: 8dd3b89f9915e4f6bb90f9c3d373512f
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: big_shark_eye_2
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 90, y: 58, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 90, y: 58, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -45, y: -29, z: 0}
+    - {x: 45, y: -29, z: 0}
+    - {x: -45, y: 29, z: 0}
+    - {x: 45, y: 29, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.0019579257, y: 0.0026967656}
+    - {x: 0.09001859, y: 0.0026967656}
+    - {x: 0.0019579257, y: 0.08086119}
+    - {x: 0.09001859, y: 0.08086119}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 673ddb52267d54f4b925207f1f684e83, type: 2}
+    materialId: 0
+    sourceTextureGUID: b5e747b072db94dac8adafeaaac308b4
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: big_shark_back_fin
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 118, y: 130, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 118, y: 130, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -59, y: -65, z: 0}
+    - {x: 59, y: -65, z: 0}
+    - {x: -59, y: 65, z: 0}
+    - {x: 59, y: 65, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.18004012, y: 0.0026967656}
+    - {x: 0.18004012, y: 0.16172372}
+    - {x: 0.3072397, y: 0.0026967656}
+    - {x: 0.3072397, y: 0.16172372}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 673ddb52267d54f4b925207f1f684e83, type: 2}
+    materialId: 0
+    sourceTextureGUID: 413c33856cd6a496db1c237680431a9a
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  premultipliedAlpha: 1
+  material: {fileID: 0}
+  materials:
+  - {fileID: 2100000, guid: 673ddb52267d54f4b925207f1f684e83, type: 2}
+  textures: []
+  pngTextures: []
+  streamingTextures:
+  - Assets/StreamingAssets/tk2dTextures/BigShark@2x0.png
+  widthTextures: fe030000
+  heightTextures: e6020000
+  materialPngTextureId: 00000000
+  textureFilterMode: 1
+  textureMipMaps: 0
+  textureLoadAsync: 1
+  allowMultipleAtlases: 0
+  spriteCollectionGUID: 16efa2624e7fe458ca46f37ca8525d95
+  spriteCollectionName: BigShark@2x
+  assetName:
+  loadable: 0
+  invOrthoSize: 2
+  halfTargetHeight: 0.5
+  buildKey: 195872143
+  dataGuid: d49610c903bbe4a8a9452411ce6888fe
+  managedSpriteCollection: 1
+  hasPlatformData: 0
+  spriteCollectionPlatforms: []
+  spriteCollectionPlatformGUIDs: []
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1419606839246125}
+  m_IsPrefabParent: 1

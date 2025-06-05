@@ -1,0 +1,2856 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1076934209441207
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4087026977810909}
+  - component: {fileID: 114275729385360017}
+  m_Layer: 0
+  m_Name: Birds@2x
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4087026977810909
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1076934209441207}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114275729385360017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1076934209441207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f28a10f064b0573af11a2e931d98da, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  version: 3
+  materialIdsValid: 1
+  needMaterialInstance: 1
+  spriteDefinitions:
+  - name: eagle_wing_back
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 130, y: 53, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 130, y: 53, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -65, y: -27, z: 0}
+    - {x: 65, y: -27, z: 0}
+    - {x: -65, y: 26, z: 0}
+    - {x: 65, y: 26, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.36257505, y: 0.19548997}
+    - {x: 0.6159825, y: 0.19548997}
+    - {x: 0.36257505, y: 0.2619035}
+    - {x: 0.6159825, y: 0.2619035}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 2c4c2f84737674d9c8f2e54dafc3622a
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_leg_1
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 28, y: 53, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 28, y: 53, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -14, y: -27, z: 0}
+    - {x: 14, y: -27, z: 0}
+    - {x: -14, y: 26, z: 0}
+    - {x: 14, y: 26, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.14230214, y: 0.015038847}
+    - {x: 0.14230214, y: 0.05012406}
+    - {x: 0.24561208, y: 0.015038847}
+    - {x: 0.24561208, y: 0.05012406}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: a3b4f9ac58e3b481d9b20a14da461009
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_feather
+    boundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 19, y: 44, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 19, y: 44, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -9, y: -22, z: 0}
+    - {x: 10, y: -22, z: 0}
+    - {x: -9, y: 22, z: 0}
+    - {x: 10, y: 22, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.7972729, y: 0.0012543859}
+    - {x: 0.7972729, y: 0.025061404}
+    - {x: 0.883039, y: 0.0012543859}
+    - {x: 0.883039, y: 0.025061404}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 3634029f337ba429f8c68f22cfa1b9d1
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_skeleton_leg
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 20, y: 27, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 20, y: 27, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -10, y: -14, z: 0}
+    - {x: 10, y: -14, z: 0}
+    - {x: -10, y: 13, z: 0}
+    - {x: 10, y: 13, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.8869415, y: 0.0012543859}
+    - {x: 0.8869415, y: 0.026314536}
+    - {x: 0.9395692, y: 0.0012543859}
+    - {x: 0.9395692, y: 0.026314536}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 12047839a2d1740508798e74e131ffde
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_dead_eye_1
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 31, y: 31, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 31, y: 31, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -15, y: -16, z: 0}
+    - {x: 16, y: -16, z: 0}
+    - {x: -15, y: 15, z: 0}
+    - {x: 16, y: 15, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.57115203, y: 0.017545113}
+    - {x: 0.631577, y: 0.017545113}
+    - {x: 0.57115203, y: 0.056389723}
+    - {x: 0.631577, y: 0.056389723}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: e89ed465a16be47de962b5ebb31e9a8e
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_skeleton_dead_head
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 140, y: 56, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 140, y: 56, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -70, y: -28, z: 0}
+    - {x: 70, y: -28, z: 0}
+    - {x: -70, y: 28, z: 0}
+    - {x: 70, y: 28, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.25926122, y: 0.26441228}
+    - {x: 0.5321618, y: 0.26441228}
+    - {x: 0.25926122, y: 0.33458522}
+    - {x: 0.5321618, y: 0.33458522}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 4b8aa8131109c458c8838c7072806434
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_eagle_1
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 22, y: 13, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 22, y: 13, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -11, y: -7, z: 0}
+    - {x: 11, y: -7, z: 0}
+    - {x: -11, y: 6, z: 0}
+    - {x: 11, y: 6, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.6725166, y: 0.0012543859}
+    - {x: 0.71539766, y: 0.0012543859}
+    - {x: 0.6725166, y: 0.017542606}
+    - {x: 0.71539766, y: 0.017542606}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 05f0924cafe9b425186fa01878753e9b
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_body
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 86, y: 66, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 86, y: 66, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -43, y: -33, z: 0}
+    - {x: 43, y: -33, z: 0}
+    - {x: -43, y: 33, z: 0}
+    - {x: 43, y: 33, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.6978577, y: 0.14035213}
+    - {x: 0.6978577, y: 0.24811904}
+    - {x: 0.82650876, y: 0.14035213}
+    - {x: 0.82650876, y: 0.24811904}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 919bc4c87f03a48188fa4ce286f4075d
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_body
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 104, y: 89, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 104, y: 89, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -52, y: -45, z: 0}
+    - {x: 52, y: -45, z: 0}
+    - {x: -52, y: 44, z: 0}
+    - {x: 52, y: 44, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.23976803, y: 0.5839611}
+    - {x: 0.23976803, y: 0.7142845}
+    - {x: 0.4132534, y: 0.5839611}
+    - {x: 0.4132534, y: 0.7142845}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: d13d74fa0119f47f78fd473c9b9c0920
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_tongue
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 20, y: 8, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 20, y: 8, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -10, y: -4, z: 0}
+    - {x: 10, y: -4, z: 0}
+    - {x: -10, y: 4, z: 0}
+    - {x: 10, y: 4, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.001951267, y: 0.0012543859}
+    - {x: 0.040933724, y: 0.0012543859}
+    - {x: 0.001951267, y: 0.011276943}
+    - {x: 0.040933724, y: 0.011276943}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: a93a1cd4841834758b961c03c375fef7
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_dead_body
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 80, y: 96, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 80, y: 96, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -40, y: -48, z: 0}
+    - {x: 40, y: -48, z: 0}
+    - {x: -40, y: 48, z: 0}
+    - {x: 40, y: 48, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.8265127, y: 0.318297}
+    - {x: 0.9824542, y: 0.318297}
+    - {x: 0.8265127, y: 0.43859524}
+    - {x: 0.9824542, y: 0.43859524}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 21581da43d6054d44b6223ab7c0ed891
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_skeleton_dead_wing_back
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 104, y: 60, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 104, y: 60, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -52, y: -30, z: 0}
+    - {x: 52, y: -30, z: 0}
+    - {x: -52, y: 30, z: 0}
+    - {x: 52, y: 30, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.61988497, y: 0.25062782}
+    - {x: 0.82261014, y: 0.25062782}
+    - {x: 0.61988497, y: 0.3258133}
+    - {x: 0.82261014, y: 0.3258133}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: ccd17cf184cbd4f18ab179fe419b94d3
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_skeleton_dead_wing_back
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 86, y: 51, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 86, y: 51, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -43, y: -26, z: 0}
+    - {x: 43, y: -26, z: 0}
+    - {x: -43, y: 25, z: 0}
+    - {x: 43, y: 25, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.37037233, y: 0.11654261}
+    - {x: 0.53800976, y: 0.11654261}
+    - {x: 0.37037233, y: 0.18044987}
+    - {x: 0.53800976, y: 0.18044987}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: d1b46961c73384d478eb0680e628799c
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_eagle_2
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 22, y: 13, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 22, y: 13, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -11, y: -7, z: 0}
+    - {x: 11, y: -7, z: 0}
+    - {x: -11, y: 6, z: 0}
+    - {x: 11, y: 6, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.7193002, y: 0.0012543859}
+    - {x: 0.7621813, y: 0.0012543859}
+    - {x: 0.7193002, y: 0.017542606}
+    - {x: 0.7621813, y: 0.017542606}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: e0d34ffa494c94921b429f0c3fc5fc32
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_dead_wing_back
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 104, y: 60, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 104, y: 60, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -52, y: -30, z: 0}
+    - {x: 52, y: -30, z: 0}
+    - {x: -52, y: 30, z: 0}
+    - {x: 52, y: 30, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.001951267, y: 0.38847244}
+    - {x: 0.20467642, y: 0.38847244}
+    - {x: 0.001951267, y: 0.4636579}
+    - {x: 0.20467642, y: 0.4636579}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: b469ab2243d5e450080e22b766222c8f
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_dead_tail
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 78, y: 61, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 78, y: 61, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -39, y: -31, z: 0}
+    - {x: 39, y: -31, z: 0}
+    - {x: -39, y: 30, z: 0}
+    - {x: 39, y: 30, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.54191226, y: 0.11654261}
+    - {x: 0.6939552, y: 0.11654261}
+    - {x: 0.54191226, y: 0.1929812}
+    - {x: 0.6939552, y: 0.1929812}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: ffa0c1d1a598748869e59c2ffb9fa186
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_dead_willow
+    boundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 63, y: 124, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 63, y: 124, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -31, y: -62, z: 0}
+    - {x: 32, y: -62, z: 0}
+    - {x: -31, y: 62, z: 0}
+    - {x: 32, y: 62, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.6978577, y: 0.44110402}
+    - {x: 0.6978577, y: 0.52004886}
+    - {x: 0.9395692, y: 0.44110402}
+    - {x: 0.9395692, y: 0.52004886}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 2bf336ae548fd4979a8587b5b2054177
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_beak_1
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 41, y: 27, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 41, y: 27, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -20, y: -14, z: 0}
+    - {x: 21, y: -14, z: 0}
+    - {x: -20, y: 13, z: 0}
+    - {x: 21, y: 13, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.001951267, y: 0.015038847}
+    - {x: 0.08186939, y: 0.015038847}
+    - {x: 0.001951267, y: 0.04887093}
+    - {x: 0.08186939, y: 0.04887093}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 0caf8cb46c9164d55835db2a0e9ad4d2
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_leg_2
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 28, y: 53, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 28, y: 53, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -14, y: -27, z: 0}
+    - {x: 14, y: -27, z: 0}
+    - {x: -14, y: 26, z: 0}
+    - {x: 14, y: 26, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.24951462, y: 0.017545113}
+    - {x: 0.24951462, y: 0.052630328}
+    - {x: 0.35282457, y: 0.017545113}
+    - {x: 0.35282457, y: 0.052630328}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 49a2c38e449624357af5f29ef8c9df54
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_skeleton_dead_tail
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 110, y: 56, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 110, y: 56, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -55, y: -28, z: 0}
+    - {x: 55, y: -28, z: 0}
+    - {x: -55, y: 28, z: 0}
+    - {x: 55, y: 28, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.001951267, y: 0.3157907}
+    - {x: 0.21637233, y: 0.3157907}
+    - {x: 0.001951267, y: 0.38596365}
+    - {x: 0.21637233, y: 0.38596365}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: f34cd805f3fc04d598b4c10cfe59bfb2
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_skeleton_dead_wing_front
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 95, y: 57, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 95, y: 57, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -47, y: -29, z: 0}
+    - {x: 48, y: -29, z: 0}
+    - {x: -47, y: 28, z: 0}
+    - {x: 48, y: 28, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.17349122, y: 0.17293358}
+    - {x: 0.35867253, y: 0.17293358}
+    - {x: 0.17349122, y: 0.24435964}
+    - {x: 0.35867253, y: 0.24435964}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: a84e91ebbe4c948139e5d59c2fd98d0c
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_leg1_1
+    boundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 9, y: 28, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 9, y: 28, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -4, y: -14, z: 0}
+    - {x: 5, y: -14, z: 0}
+    - {x: -4, y: 14, z: 0}
+    - {x: 5, y: 14, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.044836257, y: 0.0012543859}
+    - {x: 0.044836257, y: 0.012530075}
+    - {x: 0.09941325, y: 0.0012543859}
+    - {x: 0.09941325, y: 0.012530075}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: eadce331d422342d5b2bc6e0c370c5e3
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck
+    boundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 233, y: 180, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 233, y: 180, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -116, y: -90, z: 0}
+    - {x: 117, y: -90, z: 0}
+    - {x: -116, y: 90, z: 0}
+    - {x: 117, y: 90, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.001951267, y: 0.71679324}
+    - {x: 0.001951267, y: 1.0087707}
+    - {x: 0.35282457, y: 0.71679324}
+    - {x: 0.35282457, y: 1.0087707}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: c14f8dbc8e1fa422d9ca289871f93c02
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_leg2_2
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 21, y: 11, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 21, y: 11, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -10, y: -6, z: 0}
+    - {x: 11, y: -6, z: 0}
+    - {x: -10, y: 5, z: 0}
+    - {x: 11, y: 5, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.29824758, y: 0.0012543859}
+    - {x: 0.33917934, y: 0.0012543859}
+    - {x: 0.29824758, y: 0.015036341}
+    - {x: 0.33917934, y: 0.015036341}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 28ec50efeb032454baed0415b988a6ba
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_skeleton_leg2_2
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 21, y: 11, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 21, y: 11, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -10, y: -6, z: 0}
+    - {x: 11, y: -6, z: 0}
+    - {x: -10, y: 5, z: 0}
+    - {x: 11, y: 5, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.34308186, y: 0.0012543859}
+    - {x: 0.38401365, y: 0.0012543859}
+    - {x: 0.34308186, y: 0.015036341}
+    - {x: 0.38401365, y: 0.015036341}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: d10844da2238943a2aba3c5ef410d021
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_leg
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 20, y: 27, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 20, y: 27, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -10, y: -14, z: 0}
+    - {x: 10, y: -14, z: 0}
+    - {x: -10, y: 13, z: 0}
+    - {x: 10, y: 13, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.9434717, y: 0.0012543859}
+    - {x: 0.9434717, y: 0.026314536}
+    - {x: 0.9960994, y: 0.0012543859}
+    - {x: 0.9960994, y: 0.026314536}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 384fae059657140d997d5e22a0cc2325
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_wing_front
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 130, y: 53, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 130, y: 53, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -65, y: -27, z: 0}
+    - {x: 65, y: -27, z: 0}
+    - {x: -65, y: 26, z: 0}
+    - {x: 65, y: 26, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.001951267, y: 0.24686842}
+    - {x: 0.25535867, y: 0.24686842}
+    - {x: 0.001951267, y: 0.31328195}
+    - {x: 0.25535867, y: 0.31328195}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 6fb233c76560745a4acbb5837775e852
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_skeleton_leg1_2
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 21, y: 11, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 21, y: 11, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -10, y: -6, z: 0}
+    - {x: 11, y: -6, z: 0}
+    - {x: -10, y: 5, z: 0}
+    - {x: 11, y: 5, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.34308186, y: 0.0012543859}
+    - {x: 0.38401365, y: 0.0012543859}
+    - {x: 0.34308186, y: 0.015036341}
+    - {x: 0.38401365, y: 0.015036341}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: be93a793312404011b31d52355c79a18
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_head
+    boundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 107, y: 48, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 107, y: 48, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -53, y: -24, z: 0}
+    - {x: 54, y: -24, z: 0}
+    - {x: -53, y: 24, z: 0}
+    - {x: 54, y: 24, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.15789668, y: 0.110276945}
+    - {x: 0.3664698, y: 0.110276945}
+    - {x: 0.15789668, y: 0.17042482}
+    - {x: 0.3664698, y: 0.17042482}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 3166e2577eb074ab7bb7e52ef916bbf2
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_skeleton_neck
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 90, y: 42, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 90, y: 42, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -45, y: -21, z: 0}
+    - {x: 45, y: -21, z: 0}
+    - {x: -45, y: 21, z: 0}
+    - {x: 45, y: 21, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.10721443, y: 0.0551391}
+    - {x: 0.28264913, y: 0.0551391}
+    - {x: 0.10721443, y: 0.10776817}
+    - {x: 0.28264913, y: 0.10776817}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 927ca27d78b624617933098fb37d7b23
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_skeleton_dead_body
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 127, y: 85, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 127, y: 85, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -63, y: -43, z: 0}
+    - {x: 64, y: -43, z: 0}
+    - {x: -63, y: 42, z: 0}
+    - {x: 64, y: 42, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.41715595, y: 0.7005025}
+    - {x: 0.6647154, y: 0.7005025}
+    - {x: 0.41715595, y: 0.8070163}
+    - {x: 0.6647154, y: 0.8070163}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 1711972b993fe48a9af94b8edf418145
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_skeleton_leg1_1
+    boundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 9, y: 28, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 9, y: 28, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -4, y: -14, z: 0}
+    - {x: 5, y: -14, z: 0}
+    - {x: -4, y: 14, z: 0}
+    - {x: 5, y: 14, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.10331579, y: 0.0012543859}
+    - {x: 0.10331579, y: 0.012530075}
+    - {x: 0.1578928, y: 0.0012543859}
+    - {x: 0.1578928, y: 0.012530075}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 876891d52b86f42ffa23e753f54d5d91
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_leg2_1
+    boundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 9, y: 28, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 9, y: 28, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -4, y: -14, z: 0}
+    - {x: 5, y: -14, z: 0}
+    - {x: -4, y: 14, z: 0}
+    - {x: 5, y: 14, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.16179532, y: 0.0012543859}
+    - {x: 0.16179532, y: 0.012530075}
+    - {x: 0.21637233, y: 0.0012543859}
+    - {x: 0.21637233, y: 0.012530075}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 03c9101243d604c92b9971e4de48cf21
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_dead_wing_back
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 86, y: 51, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 86, y: 51, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -43, y: -26, z: 0}
+    - {x: 43, y: -26, z: 0}
+    - {x: -43, y: 25, z: 0}
+    - {x: 43, y: 25, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.001951267, y: 0.17293358}
+    - {x: 0.1695887, y: 0.17293358}
+    - {x: 0.001951267, y: 0.23684086}
+    - {x: 0.1695887, y: 0.23684086}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 73808a26f2daa42d8bd1ea56bd98b363
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_skeleton_leg_1
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 28, y: 53, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 28, y: 53, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -14, y: -27, z: 0}
+    - {x: 14, y: -27, z: 0}
+    - {x: -14, y: 26, z: 0}
+    - {x: 14, y: 26, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.3567271, y: 0.017545113}
+    - {x: 0.3567271, y: 0.052630328}
+    - {x: 0.46003702, y: 0.017545113}
+    - {x: 0.46003702, y: 0.052630328}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 53478feffb70141f9bb222f54be33ead
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_skeleton_dead_wing_front
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 120, y: 71, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 120, y: 71, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -60, y: -36, z: 0}
+    - {x: 60, y: -36, z: 0}
+    - {x: -60, y: 35, z: 0}
+    - {x: 60, y: 35, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.001951267, y: 0.5839611}
+    - {x: 0.2358655, y: 0.5839611}
+    - {x: 0.001951267, y: 0.6729311}
+    - {x: 0.2358655, y: 0.6729311}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 0722c63433f3a4244907aeea03151d7f
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_wing_front
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 78, y: 46, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 78, y: 46, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -39, y: -23, z: 0}
+    - {x: 39, y: -23, z: 0}
+    - {x: -39, y: 23, z: 0}
+    - {x: 39, y: 23, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.6978577, y: 0.08020175}
+    - {x: 0.8499006, y: 0.08020175}
+    - {x: 0.6978577, y: 0.13784336}
+    - {x: 0.8499006, y: 0.13784336}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 1ffb429c64a404c099f6f828b5d22f6b
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_dead_body
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 127, y: 85, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 127, y: 85, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -63, y: -43, z: 0}
+    - {x: 64, y: -43, z: 0}
+    - {x: -63, y: 42, z: 0}
+    - {x: 64, y: 42, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.6686179, y: 0.7005025}
+    - {x: 0.9161774, y: 0.7005025}
+    - {x: 0.6686179, y: 0.8070163}
+    - {x: 0.9161774, y: 0.8070163}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: ef3d7527cff7e434e842c621a622f101
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_skeleton_dead_willow
+    boundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 63, y: 124, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 63, y: 124, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -31, y: -62, z: 0}
+    - {x: 32, y: -62, z: 0}
+    - {x: -31, y: 62, z: 0}
+    - {x: 32, y: 62, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.4327505, y: 0.4799511}
+    - {x: 0.4327505, y: 0.558896}
+    - {x: 0.67446196, y: 0.4799511}
+    - {x: 0.67446196, y: 0.558896}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: b07118af22fa5416d8ea6ee0ccfbcfc9
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_dead_eye_2
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 27, y: 27, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 27, y: 27, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -13, y: -14, z: 0}
+    - {x: 14, y: -14, z: 0}
+    - {x: -13, y: 13, z: 0}
+    - {x: 14, y: 13, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.08577193, y: 0.015038847}
+    - {x: 0.13839962, y: 0.015038847}
+    - {x: 0.08577193, y: 0.04887093}
+    - {x: 0.13839962, y: 0.04887093}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 446309637d30943fa9d669d1fe262732
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_dead_wing_front
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 95, y: 57, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 95, y: 57, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -47, y: -29, z: 0}
+    - {x: 48, y: -29, z: 0}
+    - {x: -47, y: 28, z: 0}
+    - {x: 48, y: 28, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.8304113, y: 0.1967431}
+    - {x: 0.8304113, y: 0.3157882}
+    - {x: 0.94151855, y: 0.1967431}
+    - {x: 0.94151855, y: 0.3157882}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: e820d1030119446e9bc8ac190a0983bb
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_tail
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 85, y: 39, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 85, y: 39, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -42, y: -20, z: 0}
+    - {x: 43, y: -20, z: 0}
+    - {x: -42, y: 19, z: 0}
+    - {x: 43, y: 19, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.7387934, y: 0.028823309}
+    - {x: 0.9044815, y: 0.028823309}
+    - {x: 0.7387934, y: 0.077692986}
+    - {x: 0.9044815, y: 0.077692986}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 2e469a8e986d74e78b166cd3aa9eefb7
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_skeleton_nose
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 39, y: 11, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 39, y: 11, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -19, y: -6, z: 0}
+    - {x: 20, y: -6, z: 0}
+    - {x: -19, y: 5, z: 0}
+    - {x: 20, y: 5, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.38791618, y: 0.0012543859}
+    - {x: 0.46393567, y: 0.0012543859}
+    - {x: 0.38791618, y: 0.015036341}
+    - {x: 0.46393567, y: 0.015036341}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 53bf749cda7d94fe792293730afef5a1
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_dead_head
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 140, y: 56, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 140, y: 56, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -70, y: -28, z: 0}
+    - {x: 70, y: -28, z: 0}
+    - {x: -70, y: 28, z: 0}
+    - {x: 70, y: 28, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.5360643, y: 0.32832205}
+    - {x: 0.8089649, y: 0.32832205}
+    - {x: 0.5360643, y: 0.398495}
+    - {x: 0.8089649, y: 0.398495}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: d866dff65dc494f9eaec01ba3f39b228
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_skeleton_dead_body
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 80, y: 96, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 80, y: 96, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -40, y: -48, z: 0}
+    - {x: 40, y: -48, z: 0}
+    - {x: -40, y: 48, z: 0}
+    - {x: 40, y: 48, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.001951267, y: 0.46616668}
+    - {x: 0.001951267, y: 0.5664148}
+    - {x: 0.18908188, y: 0.46616668}
+    - {x: 0.18908188, y: 0.5664148}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 04b511c768526499a82336532ce74896
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_wing_front
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 68, y: 113, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 68, y: 113, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -34, y: -57, z: 0}
+    - {x: 34, y: -57, z: 0}
+    - {x: -34, y: 56, z: 0}
+    - {x: 34, y: 56, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.20857894, y: 0.40977567}
+    - {x: 0.20857894, y: 0.4949862}
+    - {x: 0.42884794, y: 0.40977567}
+    - {x: 0.42884794, y: 0.4949862}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 575f7837397734e48bd37baf2f90f777
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_dead_tongue
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 39, y: 11, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 39, y: 11, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -19, y: -6, z: 0}
+    - {x: 20, y: -6, z: 0}
+    - {x: -19, y: 5, z: 0}
+    - {x: 20, y: 5, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.4678382, y: 0.0012543859}
+    - {x: 0.5438577, y: 0.0012543859}
+    - {x: 0.4678382, y: 0.015036341}
+    - {x: 0.5438577, y: 0.015036341}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: ea8e60f023d1d4c59a3d2409f685bb14
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_tail
+    boundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 117, y: 42, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 117, y: 42, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -58, y: -21, z: 0}
+    - {x: 59, y: -21, z: 0}
+    - {x: -58, y: 21, z: 0}
+    - {x: 59, y: 21, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.28655165, y: 0.0551391}
+    - {x: 0.5146179, y: 0.0551391}
+    - {x: 0.28655165, y: 0.10776817}
+    - {x: 0.5146179, y: 0.10776817}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 084faf58e647c4bcdaeb177ef2d56279
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_dead_wing_front
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 120, y: 71, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 120, y: 71, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -60, y: -36, z: 0}
+    - {x: 60, y: -36, z: 0}
+    - {x: -60, y: 35, z: 0}
+    - {x: 60, y: 35, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.65302336, y: 0.6090238}
+    - {x: 0.8869376, y: 0.6090238}
+    - {x: 0.65302336, y: 0.69799376}
+    - {x: 0.8869376, y: 0.69799376}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 69f10d5fca14c4fd0ada5f4d26b5662e
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_skeleton_leg2_1
+    boundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 9, y: 28, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: 0, z: 0}
+    - {x: 9, y: 28, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -4, y: -14, z: 0}
+    - {x: 5, y: -14, z: 0}
+    - {x: -4, y: 14, z: 0}
+    - {x: 5, y: 14, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.10331579, y: 0.0012543859}
+    - {x: 0.10331579, y: 0.012530075}
+    - {x: 0.1578928, y: 0.0012543859}
+    - {x: 0.1578928, y: 0.012530075}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 53b0eda36d77b49b0a852f5ed3600a98
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_dead_tail
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 52, y: 40, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 52, y: 40, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -26, y: -20, z: 0}
+    - {x: 26, y: -20, z: 0}
+    - {x: -26, y: 20, z: 0}
+    - {x: 26, y: 20, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.908384, y: 0.028823309}
+    - {x: 0.908384, y: 0.09398371}
+    - {x: 0.9863528, y: 0.028823309}
+    - {x: 0.9863528, y: 0.09398371}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 069adc590a504422ea1fe40f71007874
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_wing_back
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 68, y: 113, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 68, y: 113, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -34, y: -57, z: 0}
+    - {x: 34, y: -57, z: 0}
+    - {x: -34, y: 56, z: 0}
+    - {x: 34, y: 56, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.42885184, y: 0.56140476}
+    - {x: 0.42885184, y: 0.64661527}
+    - {x: 0.64912087, y: 0.56140476}
+    - {x: 0.64912087, y: 0.64661527}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 15f2ebe847ece459e95f4a2bce20d9cd
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_eye
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 14, y: 14, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 14, y: 14, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -7, y: -7, z: 0}
+    - {x: 7, y: -7, z: 0}
+    - {x: -7, y: 7, z: 0}
+    - {x: 7, y: 7, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.76608384, y: 0.0012543859}
+    - {x: 0.79337037, y: 0.0012543859}
+    - {x: 0.76608384, y: 0.01879574}
+    - {x: 0.79337037, y: 0.01879574}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: ec7beb51abd7746e896e4880c79194cb
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_dead_body
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 119, y: 67, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 119, y: 67, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -59, y: -34, z: 0}
+    - {x: 60, y: -34, z: 0}
+    - {x: -59, y: 33, z: 0}
+    - {x: 60, y: 33, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.1929844, y: 0.497495}
+    - {x: 0.42494932, y: 0.497495}
+    - {x: 0.1929844, y: 0.58145237}
+    - {x: 0.42494932, y: 0.58145237}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 63b17884fc4384d87b5a692aefae1620
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_skeleton_dead_tail
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 52, y: 40, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 52, y: 40, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -26, y: -20, z: 0}
+    - {x: 26, y: -20, z: 0}
+    - {x: -26, y: 20, z: 0}
+    - {x: 26, y: 20, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.001951267, y: 0.0513797}
+    - {x: 0.10331189, y: 0.0513797}
+    - {x: 0.001951267, y: 0.10150251}
+    - {x: 0.10331189, y: 0.10150251}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: d500ac2ff0f48425bb5479e8e55903da
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_wing_back
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 78, y: 46, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 78, y: 46, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -39, y: -23, z: 0}
+    - {x: 39, y: -23, z: 0}
+    - {x: -39, y: 23, z: 0}
+    - {x: 39, y: 23, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.001951267, y: 0.110276945}
+    - {x: 0.15399416, y: 0.110276945}
+    - {x: 0.001951267, y: 0.16791855}
+    - {x: 0.15399416, y: 0.16791855}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: b6144e4c741124f4599efae26e2e9683
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_skeleton_leg_2
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 28, y: 53, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 28, y: 53, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -14, y: -27, z: 0}
+    - {x: 14, y: -27, z: 0}
+    - {x: -14, y: 26, z: 0}
+    - {x: 14, y: 26, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.46393958, y: 0.017545113}
+    - {x: 0.46393958, y: 0.052630328}
+    - {x: 0.56724954, y: 0.017545113}
+    - {x: 0.56724954, y: 0.052630328}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 1ce7152c773114da398b8c51316db6c0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_beak_2
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 38, y: 9, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 38, y: 9, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -19, y: -5, z: 0}
+    - {x: 19, y: -5, z: 0}
+    - {x: -19, y: 4, z: 0}
+    - {x: 19, y: 4, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.22027485, y: 0.0012543859}
+    - {x: 0.29434502, y: 0.0012543859}
+    - {x: 0.22027485, y: 0.012530075}
+    - {x: 0.29434502, y: 0.012530075}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 071c2fabe074d402c9bae23e7111dd2a
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_tail
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 51, y: 31, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 51, y: 31, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -25, y: -16, z: 0}
+    - {x: 26, y: -16, z: 0}
+    - {x: -25, y: 15, z: 0}
+    - {x: 26, y: 15, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.6354795, y: 0.020051379}
+    - {x: 0.7348908, y: 0.020051379}
+    - {x: 0.6354795, y: 0.05889599}
+    - {x: 0.7348908, y: 0.05889599}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: c1ea91563772d4c7196c9ae9e8b9995e
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_body
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 131, y: 61, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 131, y: 61, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -65, y: -31, z: 0}
+    - {x: 66, y: -31, z: 0}
+    - {x: -65, y: 30, z: 0}
+    - {x: 66, y: 30, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.43859845, y: 0.40100375}
+    - {x: 0.6939552, y: 0.40100375}
+    - {x: 0.43859845, y: 0.47744235}
+    - {x: 0.6939552, y: 0.47744235}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 9dbce9e6fdfdc41e089fa48080b72b3d
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_skeleton_dead_body
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 119, y: 67, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 119, y: 67, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -59, y: -34, z: 0}
+    - {x: 60, y: -34, z: 0}
+    - {x: -59, y: 33, z: 0}
+    - {x: 60, y: 33, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.6783645, y: 0.5225576}
+    - {x: 0.91032946, y: 0.5225576}
+    - {x: 0.6783645, y: 0.60651505}
+    - {x: 0.91032946, y: 0.60651505}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 71b58031b325d49a08654dcaca404482
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_neck
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 90, y: 42, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 90, y: 42, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -45, y: -21, z: 0}
+    - {x: 45, y: -21, z: 0}
+    - {x: -45, y: 21, z: 0}
+    - {x: 45, y: 21, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.5185205, y: 0.06140476}
+    - {x: 0.6939552, y: 0.06140476}
+    - {x: 0.5185205, y: 0.11403383}
+    - {x: 0.6939552, y: 0.11403383}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 23d5ceb86b3a049c7ba57b21973c7e87
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: bird_leg1_2
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 21, y: 11, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 21, y: 11, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -10, y: -6, z: 0}
+    - {x: 11, y: -6, z: 0}
+    - {x: -10, y: 5, z: 0}
+    - {x: 11, y: 5, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.54776025, y: 0.0012543859}
+    - {x: 0.588692, y: 0.0012543859}
+    - {x: 0.54776025, y: 0.015036341}
+    - {x: 0.588692, y: 0.015036341}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 46229806b3f4c4e9480e32f5fec5fb51
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_nose
+    boundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 39, y: 11, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: -0.5, z: 0}
+    - {x: 39, y: 11, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -19, y: -6, z: 0}
+    - {x: 20, y: -6, z: 0}
+    - {x: -19, y: 5, z: 0}
+    - {x: 20, y: 5, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.59259456, y: 0.0012543859}
+    - {x: 0.66861403, y: 0.0012543859}
+    - {x: 0.59259456, y: 0.015036341}
+    - {x: 0.66861403, y: 0.015036341}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: d05fc4bd6c69242558c97afcb9cd2caf
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: eagle_dead_tail
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 110, y: 56, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 110, y: 56, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -55, y: -28, z: 0}
+    - {x: 55, y: -28, z: 0}
+    - {x: -55, y: 28, z: 0}
+    - {x: 55, y: 28, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.22027485, y: 0.33709398}
+    - {x: 0.4346959, y: 0.33709398}
+    - {x: 0.22027485, y: 0.4072669}
+    - {x: 0.4346959, y: 0.4072669}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: 4a233ae6f8bf84b5c8cd48117fd09ab7
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: duck_skeleton_dead_tail
+    boundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 78, y: 61, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 78, y: 61, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -39, y: -31, z: 0}
+    - {x: 39, y: -31, z: 0}
+    - {x: -39, y: 30, z: 0}
+    - {x: 39, y: 30, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.8538031, y: 0.096492484}
+    - {x: 0.8538031, y: 0.19423434}
+    - {x: 0.9727076, y: 0.096492484}
+    - {x: 0.9727076, y: 0.19423434}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+    materialId: 0
+    sourceTextureGUID: ef04d0d36382a42ec922046c72f39301
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  premultipliedAlpha: 1
+  material: {fileID: 0}
+  materials:
+  - {fileID: 2100000, guid: b08946d271d00564eb05514a1eb77f15, type: 2}
+  textures: []
+  pngTextures: []
+  streamingTextures:
+  - Assets/StreamingAssets/tk2dTextures/Birds@2x0.png
+  widthTextures: 01020000
+  heightTextures: 1e030000
+  materialPngTextureId: 00000000
+  textureFilterMode: 1
+  textureMipMaps: 0
+  textureLoadAsync: 0
+  allowMultipleAtlases: 0
+  spriteCollectionGUID: bf6b9398d76a84ac5a5d04cb9476817d
+  spriteCollectionName: Birds@2x
+  assetName:
+  loadable: 0
+  invOrthoSize: 2
+  halfTargetHeight: 0.5
+  buildKey: 1468214727
+  dataGuid: 96cc3b179f29f44a3b769ed91decf408
+  managedSpriteCollection: 1
+  hasPlatformData: 0
+  spriteCollectionPlatforms: []
+  spriteCollectionPlatformGUIDs: []
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1076934209441207}
+  m_IsPrefabParent: 1

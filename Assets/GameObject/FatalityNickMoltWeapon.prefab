@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1959224365347722
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4297446154898361}
+  - component: {fileID: 114987574414227602}
+  - component: {fileID: 114474395105975482}
+  - component: {fileID: 114551945969214381}
+  m_Layer: 0
+  m_Name: FatalityNickMoltWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4297446154898361
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1959224365347722}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114987574414227602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1959224365347722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40aed6e7c32c03e49985f5868ffe3f79, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeWeapon: 75
+  activationType: 7
+  time: 5
+  explodeForce: 1000
+  prefabSatelite: {fileID: 0}
+  spawnPoint: {x: 0, y: 0}
+  startVerticalSpeed: -5000
+  delayBeforeStart: 1
+  shouldPierceInGround: 0
+  leftAngleVar: 0
+  rightAngleVar: 0
+  characterCollisionSound:
+  createSound:
+  isExplodeCharacterNeeded: 1
+  groundCollisionEffectPrefab:
+    name:
+    assetGUID:
+  trailEffectPrefab:
+    name:
+    assetGUID:
+  isApplyCharacterRagdollNeeded: 1
+  characterBone:
+    boneName:
+    particleEffectPrefab:
+      name:
+      assetGUID:
+  shakeForce: 5
+  likeAnimation: {fileID: 114046551186851858, guid: f77fd38aa8632a041abc612525d8f856, type: 2}
+  likeEffectPrefab:
+    name: FX_Molt_Nyte_like_surround
+    assetGUID: 957a82a3ea91942c2b9a3d867c378486
+--- !u!114 &114474395105975482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1959224365347722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718e60aba4702e673e43cde15ced9dd9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  explodeEffects: []
+  bloodEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  - characterType: 2
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  - characterType: 3
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  acidEffects: []
+  shockEffects: []
+  fireEffects: []
+  freezeEffects: []
+  brainEffects: []
+  gutsEffects: []
+  fatalityGUICameraEffects: []
+  gutsPrefab: {fileID: 0}
+  brainPrefab: {fileID: 0}
+  eyePrefab: {fileID: 0}
+  minForceGuts: 0
+  maxForceGuts: 0
+  minForceBrain: 0
+  maxForceBrain: 0
+  minForceEye: 0
+  maxForceEye: 0
+  angularVelosityParts: {x: 0, y: 0, z: 0}
+--- !u!114 &114551945969214381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1959224365347722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName: MaskRemoveBodyByHitBody
+  decalMethodName: DecalOnBody
+  decalType: 0
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1959224365347722}
+  m_IsPrefabParent: 1

@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1741103691377786
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4618198087622712}
+  - component: {fileID: 114415232785656059}
+  m_Layer: 5
+  m_Name: GUITwitch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4618198087622712
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1741103691377786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1031.5411, y: -1304.0017, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114415232785656059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1741103691377786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094fe6d4acbff1276b9db91386b1cea6, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  characterNameTypes: 3c000000
+  crownSpritePrefab: {fileID: 114870405514372657, guid: 1fa46f6cebf71174dbd2f3db5a5e452d, type: 2}
+  upgradeCrownSpritePrefab: {fileID: 0}
+  iconShop: {fileID: 114706355966544625, guid: d99deb55c94c3944caac58e4ad56c5ec, type: 2}
+  iconShopName: icon_twitch_girl
+  iconPopupName:
+  checkSprite: {fileID: 114017791878048019, guid: eab0abe7390fed0439b8926d1cd3e4eb, type: 2}
+  circleSprite: {fileID: 114675556662238222, guid: 944ddc4d387e17e4585fde05f8c82fa1, type: 2}
+  newSprite: {fileID: 114878012670621328, guid: c1de7633c0ccc14469a55b97dd6a0643, type: 2}
+  freeSprite: {fileID: 114038236273094668, guid: 37ebf916a6908854d8b83cec03e29bdf, type: 2}
+  vipSprite: {fileID: 114079819392900509, guid: 8b6f804dd26ecfe488253a88e4d43b68, type: 2}
+  choiceFirstSprite: {fileID: 114495185814020359, guid: 60228a225fa79e24caf7feee7991a660, type: 2}
+  choiceSecondSprite: {fileID: 114777591530063991, guid: b09dc352775810c4684b8a2bbcee0536, type: 2}
+  choiceFirstAndSecondSprite: {fileID: 114982618658729250, guid: dc078a7620189844cb0af6dfdc28f6f9, type: 2}
+  scaleCircle:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  iconAvatarName: avatar_twitch_girl
+  weaponIconName: icon_gamepad
+  animationSkeleton: {fileID: 0}
+  dataAssetSkeleton: {fileID: 11400000, guid: c1366f3b17247364b96a461e66effe43, type: 2}
+  characterMode: 0
+  animationIconChoose: {fileID: 114109854114083908, guid: 98d0f5787e566bc44b57d32fe8308ab3, type: 2}
+  spriteCollectionsData:
+  - {fileID: 114742879049943023, guid: e729afd7e6ce7ec4981c1892f39b5010, type: 2}
+  multipleCharacterData: []
+  rouletteSpriteCollectionsData: {fileID: 114610022169552757, guid: b6e926310dcda5f4c8012c665a4f3905, type: 2}
+  rouletteSpriteName: Twitch_girl
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1741103691377786}
+  m_IsPrefabParent: 1

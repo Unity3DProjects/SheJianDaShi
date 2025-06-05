@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1542440437133426
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4105155759635027}
+  - component: {fileID: 114905174863498279}
+  - component: {fileID: 114341364242911673}
+  - component: {fileID: 114124215340359106}
+  - component: {fileID: 114439897984047944}
+  m_Layer: 0
+  m_Name: FatalityMagicSkull
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4105155759635027
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542440437133426}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114905174863498279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542440437133426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb36898598a882c2142527b7bca6f2fe, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeWeapon: 60
+  activationType: 1
+  time: 7
+  explodeForce: 700
+  delayBeforeStart: 1
+  explodeDelay: 2.2
+  explodeCharacterForce: 400
+  runeEffectPrefab:
+    name: FX_Necromancer_Rune
+    assetGUID: f068f8c83d7ea44cbbb5a338f2dcfb1b
+  soulStealingEffectPrefab:
+    name: FX_Necromancy_Soul_Stealing
+    assetGUID: 29b8a2c00d81740e6969be5b210ce43a
+  burningBodyEffectPrefab:
+    name: FX_MagicSkull_Idle
+    assetGUID: c0bce0835565147358a0d9e2ed120805
+--- !u!114 &114341364242911673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542440437133426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718e60aba4702e673e43cde15ced9dd9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  explodeEffects: []
+  bloodEffects: []
+  acidEffects: []
+  shockEffects: []
+  fireEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_Death_Necromancy
+      assetGUID: aadec4ba5900f435a8d266c10e3e9465
+  - characterType: 2
+    effectPrefab:
+      name: FX_Death_Necromancy
+      assetGUID: aadec4ba5900f435a8d266c10e3e9465
+  - characterType: 3
+    effectPrefab:
+      name: FX_Death_Necromancy
+      assetGUID: aadec4ba5900f435a8d266c10e3e9465
+  freezeEffects: []
+  brainEffects: []
+  gutsEffects: []
+  fatalityGUICameraEffects: []
+  gutsPrefab: {fileID: 0}
+  brainPrefab: {fileID: 0}
+  eyePrefab: {fileID: 0}
+  minForceGuts: 0
+  maxForceGuts: 0
+  minForceBrain: 0
+  maxForceBrain: 0
+  minForceEye: 0
+  maxForceEye: 0
+  angularVelosityParts: {x: 0, y: 0, z: 0}
+--- !u!114 &114124215340359106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542440437133426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName: MaskRemoveAll
+  decalMethodName:
+  decalType: 0
+--- !u!114 &114439897984047944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542440437133426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName:
+  decalMethodName: DecalOnBody
+  decalType: 2
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1542440437133426}
+  m_IsPrefabParent: 1

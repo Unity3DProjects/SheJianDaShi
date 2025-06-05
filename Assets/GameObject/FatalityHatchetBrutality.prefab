@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1542198530134098
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4522126414755144}
+  - component: {fileID: 114969682705445830}
+  - component: {fileID: 114009726004361828}
+  - component: {fileID: 114563081186029860}
+  m_Layer: 0
+  m_Name: FatalityHatchetBrutality
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4522126414755144
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542198530134098}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114969682705445830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542198530134098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20204b5005d7e8f117bb2227e962f20, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeWeapon: 80
+  activationType: 7
+  time: 9.3
+  explodeForce: 0
+  fatalityAnimationDelay: 2
+  springValue: 1000000
+  springOffsetValue: 40
+  jointSpeedPerFrame: 1.65
+  raisePositionOffset: 200
+  biteShakeDuration: 0.3
+  biteShakeAmplitude: 10
+  xOffsetToCharacter: 200
+  rotationSpeed: 2000
+  minRotationSpeed: 1000
+  axeSpeed: 30
+  minAxeSpeed: 5
+  timeMoveToCharacter: 1
+  offsetY: 75
+  breakBoneChanse: 0.5
+  breakBoneDelay: 0.2
+  shakeChanse: 0.5
+  hitForce: 50000
+  decalType: 1
+  bloodEffectPrefab:
+    name: FX_onHit_Blood_BLOWN
+    assetGUID: b1128e95b4fb84065a0b4b766b40ca66
+  smallBloodEffectPrefab:
+    name: FX_onHit_Blood_MEDIUM
+    assetGUID: 7cdec28d9cfb44892b8371d9c676566a
+  hatchetRaiseDelay: 0.5
+  bonesPrefabs:
+  - {fileID: 54971553608427709, guid: aad8e22a56ad7a04394a4d98805721c3, type: 2}
+  - {fileID: 54455346702201385, guid: 565a3895fbf499241bbfb50397b6f6b0, type: 2}
+  - {fileID: 54241349286913452, guid: 5baf2d87680af83419e68f09becfed10, type: 2}
+  - {fileID: 54983106540219436, guid: ec978eb4b1e152142b6ad1177f64c2d0, type: 2}
+  - {fileID: 54275788466422598, guid: fd6e12bcbc3896a4cb38fe54c7e09806, type: 2}
+  - {fileID: 54448623690612218, guid: 4bec1179c7a8f954e9c017e3d97a1aba, type: 2}
+  - {fileID: 54422724040068880, guid: 9bec788b789744a43b7944341f204644, type: 2}
+  - {fileID: 54892488096330000, guid: 21887ed8c1bfa054db093facb3de8358, type: 2}
+  minForceBone: 600
+  maxForceBone: 1000
+  angularVelosityBoneParts: {x: 0, y: 0, z: -6000}
+  endFatalityDelay: 6.5
+  brutalityEffectDelay: 8
+--- !u!114 &114009726004361828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542198530134098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718e60aba4702e673e43cde15ced9dd9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  explodeEffects: []
+  bloodEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  - characterType: 2
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  - characterType: 3
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  acidEffects: []
+  shockEffects: []
+  fireEffects: []
+  freezeEffects: []
+  brainEffects: []
+  gutsEffects: []
+  fatalityGUICameraEffects:
+  - type: 2
+    effectPrefab:
+      name: FX_Brutality_Screen_Blood_angle
+      assetGUID: d55568513307745ac9cbab6a641ef1a3
+  gutsPrefab: {fileID: 54473800662004282, guid: 527ca4c2b3374e641a2da35da99c84a8, type: 2}
+  brainPrefab: {fileID: 54821432568180659, guid: 4cd6b9d3ef13ba44395f29ee461e3d5f, type: 2}
+  eyePrefab: {fileID: 54280354845134943, guid: 6ae745b91baec0e45bc44d8e685a8215, type: 2}
+  minForceGuts: 800
+  maxForceGuts: 1100
+  minForceBrain: 1000
+  maxForceBrain: 1200
+  minForceEye: 1000
+  maxForceEye: 1400
+  angularVelosityParts: {x: 0, y: 0, z: -60000}
+--- !u!114 &114563081186029860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542198530134098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName: MaskRemovePartByHitPart
+  decalMethodName: DecalOnBodyX3
+  decalType: 1
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1542198530134098}
+  m_IsPrefabParent: 1

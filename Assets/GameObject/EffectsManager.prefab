@@ -1,0 +1,462 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1578445377989061
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4719085262043373}
+  - component: {fileID: 114941637760002629}
+  m_Layer: 0
+  m_Name: EffectsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4719085262043373
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578445377989061}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114941637760002629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578445377989061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d7260e8ea7db51f86b8d248f84faa5, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  availableEffects:
+  - type: 2001
+    prefabLink:
+      name: FX_Shop_buy_character_common
+      assetGUID: ae28552379f1b49deb5c41c28808d7ec
+  - type: 2002
+    prefabLink:
+      name: FX_Shop_buy_character_common_backshine
+      assetGUID: a4692346ea55e43098443df8070b2928
+  - type: 2003
+    prefabLink:
+      name: FX_Shop_buy_character_rare
+      assetGUID: 4f83a04b8d08a4b3a900c2ecd6670e35
+  - type: 2004
+    prefabLink:
+      name: FX_Shop_buy_character_rare_backshine
+      assetGUID: e5ded0f2c64b44c5989c962772f6b0ce
+  - type: 2011
+    prefabLink:
+      name: FX_CoinCounter_AddCoins
+      assetGUID: 43675335f6ea44a2bb429303f834b479
+  - type: 2012
+    prefabLink:
+      name: FX_Achievement_UnlockingCoinsAdd
+      assetGUID: 5976f03a1cf0e4917aab8fa6916ee678
+  - type: 2005
+    prefabLink:
+      name: FX_GameMode_unlock_button
+      assetGUID: 8c653f9331fca41028d4e7e8839bb94c
+  - type: 2012
+    prefabLink:
+      name: FX_ResultScreen_win_fireworks
+      assetGUID: f8d7316629e184146b8f3094143e6d99
+  - type: 2022
+    prefabLink:
+      name: FX_ResultScreen_win_confetti
+      assetGUID: fce20213eb6d5474ea0e06fcfdcba6f7
+  - type: 2023
+    prefabLink:
+      name: FX_Cup_shine_idle
+      assetGUID: 4e799a8d5ec094d86b3147550cb2105f
+  - type: 2031
+    prefabLink:
+      name: FX_BirdsHunt_TimeAdd
+      assetGUID: 07029c7928c7e4d73a3a6d60e54a0b55
+  - type: 2041
+    prefabLink:
+      name: FX_DailyBonus_coins_idle_L_XL
+      assetGUID: 3515b83065b834c6682d7f1f313442d5
+  - type: 2042
+    prefabLink:
+      name: FX_DailyBonus_coins_S
+      assetGUID: f9a8445388b1b4af0964852a93c0ae8d
+  - type: 2043
+    prefabLink:
+      name: FX_DailyBonus_coins_M
+      assetGUID: 645cf80a36b4a4d94a8c774f02c74246
+  - type: 2044
+    prefabLink:
+      name: FX_DailyBonus_coins_L
+      assetGUID: c968d5d37f3ec4944a58fdb8e8966cb2
+  - type: 2045
+    prefabLink:
+      name: FX_DailyBonus_coins_XL
+      assetGUID: 52967875a23014d34b1372cf8ab0eb54
+  - type: 2046
+    prefabLink:
+      name: FX_DailyBonus_character
+      assetGUID: 0b00d9327c944448a84bbb1f71f19d9f
+  - type: 2047
+    prefabLink:
+      name: FX_DailyBonus_character
+      assetGUID: 0b00d9327c944448a84bbb1f71f19d9f
+  - type: 2048
+    prefabLink:
+      name: FX_DailyBonus_chest
+      assetGUID: e181a52f8cba94df08496b7c3750b566
+  - type: 2051
+    prefabLink:
+      name: FX_ResultScreen_Chest_spawn
+      assetGUID: 6396465eca8354cce94ba5723632539a
+  - type: 2052
+    prefabLink:
+      name: FX_ResultScreen_Chest_shine_idle
+      assetGUID: 73e3be9d6ca1047b3bd9f5dc208542d4
+  - type: 2053
+    prefabLink:
+      name: FX_ResultScreen_Chest_lock_open
+      assetGUID: cc26d2dc827ba46bcae4c988983ed0f8
+  - type: 2054
+    prefabLink:
+      name: FX_ResultScreen_Chest_open
+      assetGUID: f9a28bfde6650426cbe3ed2582a972e4
+  - type: 2055
+    prefabLink:
+      name: FX_Popup_Chest_spawn
+      assetGUID: 0517bd12b860a4d1cab0e60553b182c1
+  - type: 2056
+    prefabLink:
+      name: FX_Popup_Chest_open
+      assetGUID: d89cc743dc351417da95151e725493dc
+  - type: 2057
+    prefabLink:
+      name: FX_Popup_Chest_lock_open
+      assetGUID: ec2e07089afa04951ad961efafdc992b
+  - type: 2061
+    prefabLink:
+      name: FX_Proposals_AllIncluded_idle
+      assetGUID: d8f716354639c4334a4dce085d8566b9
+  - type: 2062
+    prefabLink:
+      name: FX_Proposals_CharactersPack_idle
+      assetGUID: eb79208d2fdbc4b849a0683fcf99701b
+  - type: 2063
+    prefabLink:
+      name: FX_Proposals_CoinsX2_idle
+      assetGUID: 6a51cfcee79d4448f84bff2a1572e715
+  - type: 2064
+    prefabLink:
+      name: FX_Proposals_DailyGift_idle
+      assetGUID: 7f71095161d7f4dcabeeb1c1e4c795e4
+  - type: 2065
+    prefabLink:
+      name: FX_Proposals_FreeChest_idle
+      assetGUID: 520246fa34f934424bb3f804c3a24aa8
+  - type: 2066
+    prefabLink:
+      name: FX_Proposals_FreeCoins_idle
+      assetGUID: 5be9780601d2d4424ab6d688509264d6
+  - type: 2067
+    prefabLink:
+      name: FX_Proposals_TryCharacter_idle
+      assetGUID: bb49cdc50834a4246b9fec2f1c82dc0d
+  - type: 2071
+    prefabLink:
+      name: FX_BuyCharacterPopup_confetti
+      assetGUID: 2a4d4e254690d4263810f93d1af7c422
+  - type: 2072
+    prefabLink:
+      name: FX_Confetti_Gift
+      assetGUID: ad5c435e5c02448d2833083a1456d86a
+  - type: 2073
+    prefabLink:
+      name: FX_Popup_BuyCharacter_idle
+      assetGUID: 280bc02ea5c024d878a7cac8bd677c5e
+  - type: 2081
+    prefabLink:
+      name: FX_Roulette_coins_idle
+      assetGUID: 4664a1508d87a44ee95bd4f5a2c47752
+  - type: 2082
+    prefabLink:
+      name: FX_Roulette_win_coins_SMALL
+      assetGUID: cd247ff7be31f4b9cb9e9445a8dcd05d
+  - type: 2083
+    prefabLink:
+      name: FX_Roulette_win_coins_MEDIUM
+      assetGUID: 53bd30228f7e34559ae30b9d8fd2361f
+  - type: 2084
+    prefabLink:
+      name: FX_Roulette_win_coins_LARGE
+      assetGUID: 5d844e6e40f0e451d9c72d1bb0e3a94e
+  - type: 2087
+    prefabLink:
+      name: FX_Bank_Receiving_gems
+      assetGUID: d88fca5ebadb24b13a07bba1a8396dab
+  - type: 2088
+    prefabLink:
+      name: FX_DailyBonus_gems_L
+      assetGUID: 452a17f893fde4a618d75b09febddefa
+  - type: 2089
+    prefabLink:
+      name: FX_DailyBonus_gems_XL
+      assetGUID: 8956f8388f1bd4f6b871fbe30c97708f
+  - type: 2085
+    prefabLink:
+      name: FX_Roulette_win_character_common
+      assetGUID: aea25d326030f45ef9b0abc003138421
+  - type: 2086
+    prefabLink:
+      name: FX_Roulette_win_character_rare
+      assetGUID: 4baa0fb69d65a4530bda8ba8e09dff1e
+  - type: 2021
+    prefabLink:
+      name: FX_ResultScreen_win_fireworks
+      assetGUID: f8d7316629e184146b8f3094143e6d99
+  - type: 1001
+    prefabLink:
+      name: FX_AlienProbe_shooting
+      assetGUID: c3b832b52d8fb4d24bd9f0bf126c1a7b
+  - type: 1002
+    prefabLink:
+      name: FX_AlienProbe_shooting_floordamage
+      assetGUID: fb9cd7191ffc749d3ab3139a210b3332
+  - type: 1011
+    prefabLink:
+      name: FX_Boomerang_button_shine
+      assetGUID: 43b47b0edfc6f440989473384742e4e3
+  - type: 1021
+    prefabLink:
+      name: FX_Dog_explosion
+      assetGUID: ae650500ef36443ff9cc8ebbc3e77ec1
+  - type: 1031
+    prefabLink:
+      name: FX_TranduilArrow_explosion
+      assetGUID: d99bb1fa2ae9243bf8563e2d9bf85fce
+  - type: 1041
+    prefabLink:
+      name: FX_Trident_activate
+      assetGUID: 0f804d02c643940fc847b4f9d2853dfc
+  - type: 1042
+    prefabLink:
+      name: FX_Upgrade_Shark_Trident_activate
+      assetGUID: 84cd837f595e343f2b629a9af434cfc9
+  - type: 1051
+    prefabLink:
+      name: FX_MolotovCocktail_fire_idle
+      assetGUID: 76c1e7b97e9c1462b843a951bb55328e
+  - type: 1052
+    prefabLink:
+      name: FX_AcidBottle_acidpart
+      assetGUID: 44ded9c9adf3e4d12ad6e1c1fe618a9a
+  - type: 1053
+    prefabLink:
+      name: FX_Electricity_damage_MEDIUM
+      assetGUID: f58150d4a04d24902976950ef4100f97
+  - type: 1055
+    prefabLink:
+      name: FX_Electricity_gold_damage_MEDIUM
+      assetGUID: be38e7675cd31419098242b8f99c14f3
+  - type: 1054
+    prefabLink:
+      name: FX_AlienProbe_damage
+      assetGUID: 97f526d0a885d404a8142ced4ecfa485
+  - type: 3001
+    prefabLink:
+      name: FX_Brooklyn_Window
+      assetGUID: cc5b2573d4f1c4c64b8e30e95de709e3
+  - type: 3002
+    prefabLink:
+      name: FX_Brooklyn_Window_2
+      assetGUID: 06032440e46d0407a89b49f1df6ad9bb
+  - type: 3003
+    prefabLink:
+      name: FX_Brooklyn_Signboard
+      assetGUID: 9dab0fdfef28b41baaee53e045c5831b
+  - type: 3004
+    prefabLink:
+      name: FX_Brooklyn_Lamp
+      assetGUID: 86800be6b9cd24d0da5840308b19c42a
+  - type: 3005
+    prefabLink:
+      name: FX_Brooklyn_TrashCan
+      assetGUID: 1044c8738481e4a01ae76ba1e7c5f2d6
+  - type: 3010
+    prefabLink:
+      name: FX_Cemetry_Glow_Eyes
+      assetGUID: bcd2383f1f883495fbb8a3a7c60c35e3
+  - type: 3021
+    prefabLink:
+      name: FX_City_House_Steam_Solid_2
+      assetGUID: 7a87889fdff274a899aa6ab8ca5be8eb
+  - type: 3020
+    prefabLink:
+      name: FX_City_House_Steam_Solid
+      assetGUID: 2a166d07ba5ff44948e7c237c039cfd5
+  - type: 3022
+    prefabLink:
+      name: FX_City_Leaves
+      assetGUID: 0ff00fda2a59942dfb234c4ddaae4759
+  - type: 3023
+    prefabLink:
+      name: FX_City_Waterfall
+      assetGUID: a9a433daac75f4276a78a190fb0ae6a6
+  - type: 3024
+    prefabLink:
+      name: FX_City_River_Splash
+      assetGUID: cb7f09d6096314bfcbb49432fa0ecd08
+  - type: 3030
+    prefabLink:
+      name: FX_Desert_Dust
+      assetGUID: 6969d3e5fedfb412688c772f7e2401c8
+  - type: 4040
+    prefabLink:
+      name: FX_Space_Hydraponic_windows
+      assetGUID: 2be7cc3839e4642f08854019facc14ee
+  - type: 4041
+    prefabLink:
+      name: FX_Space_Hydraponic_windows_2
+      assetGUID: f617a0c9ab42c4d70a37a68caaf9ed84
+  - type: 4042
+    prefabLink:
+      name: FX_Space_Planet_Shine
+      assetGUID: d0e3352e9975b43a28ecbefe6b076c7f
+  - type: 4043
+    prefabLink:
+      name: FX_Space_Ship_dust
+      assetGUID: 7119b4c124b4d4b038ac3eb6727915fb
+  - type: 4044
+    prefabLink:
+      name: FX_Space_Stars
+      assetGUID: 596a44881834749babf8f41b64a97bd8
+  - type: 4045
+    prefabLink:
+      name: FX_Space_Vulkano_Ground_lava
+      assetGUID: 02d1708b811964f299cf9738755cb676
+  - type: 4046
+    prefabLink:
+      name: FX_Space_Vulkano_Ground_lava_small
+      assetGUID: 0325ba2c8044a494a899b39f85609ed4
+  - type: 4047
+    prefabLink:
+      name: FX_Space_Vulkano_Smoke
+      assetGUID: 7d174056cacd44ff2aa1cceac6113f2c
+  - type: 4048
+    prefabLink:
+      name: FX_Space_Vulkano_Smoke_big
+      assetGUID: 828e7e2a95ab644d992c5dc4d420fb48
+  - type: 4049
+    prefabLink:
+      name: FX_Space_Vulkano_Smoke_far_away
+      assetGUID: ec1ad34b081d1461f8144b8020127773
+  - type: 4050
+    prefabLink:
+      name: FX_Space_Wheel_Dust_l
+      assetGUID: 43c11d1be304e4140b2350da3ca402bd
+  - type: 4051
+    prefabLink:
+      name: FX_Space_Wheel_Dust
+      assetGUID: c4cc5063e27514ec490ac09014873251
+  - type: 3011
+    prefabLink:
+      name: FX_Cemetry_Candles_Idle
+      assetGUID: bfe6f37839ae54acdb540a29f3ea4b7d
+  - type: 3012
+    prefabLink:
+      name: FX_Cemetry_Candles_Idle_2
+      assetGUID: a1d3a36c4077443f18676baf72fe20fa
+  - type: 3013
+    prefabLink:
+      name: FX_Cemetry_Owl_eyes
+      assetGUID: ca9ad12711786482fa6a63ed98815bfa
+  - type: 3014
+    prefabLink:
+      name: FX_Cemetry_scull_eyes
+      assetGUID: d34b2cbf78b6a4997b84e41b12582148
+  - type: 3015
+    prefabLink:
+      name: FX_Cemetry_Stars
+      assetGUID: 8b3e92604871443be89b71aadbf93a1a
+  - type: 3016
+    prefabLink:
+      name: FX_Cemetry_whisper_eyes
+      assetGUID: f40a08e0284d84f6c909c07011acac74
+  - type: 3017
+    prefabLink:
+      name: FX_Cemetry_pumpkin_glow
+      assetGUID: b4673a7167908488a94d772ca977fe0b
+  - type: 2074
+    prefabLink:
+      name: FX_Popup_BuyCharacter_idle_2
+      assetGUID: 099e207c3dd144a65a9ac5247e70546c
+  - type: 2091
+    prefabLink:
+      name: FX_Bank_Receiving_gems
+      assetGUID: d88fca5ebadb24b13a07bba1a8396dab
+  - type: 2101
+    prefabLink:
+      name: FX_Upgrade_Char_light_explosion
+      assetGUID: 5787cd24e13d544f889eb67d6d67904e
+  - type: 2102
+    prefabLink:
+      name: FX_Upgrade_Arrows_shine
+      assetGUID: 5ace1bb84b98f4790b49103239db07e7
+  - type: 2103
+    prefabLink:
+      name: FX_Upgrade_Char_light_idle
+      assetGUID: a021f3e184f00488198c4d093a27b874
+  - type: 5000
+    prefabLink:
+      name: FX_Brutality_Title
+      assetGUID: e3577dbe91ca64625be865d8aa6d47eb
+  - type: 2049
+    prefabLink:
+      name: FX_DailyBonus_gems_L
+      assetGUID: 452a17f893fde4a618d75b09febddefa
+  - type: 2050
+    prefabLink:
+      name: FX_DailyBonus_gems_XL
+      assetGUID: 8956f8388f1bd4f6b871fbe30c97708f
+  - type: 5001
+    prefabLink:
+      name: FX_Brutality_Title_vert
+      assetGUID: 28967462b4f9442d895a6c16b04054b1
+  - type: 6001
+    prefabLink:
+      name: FX_Mystery_box_idle
+      assetGUID: b053cec5bc15b47e9bdcb01bf753d6db
+  - type: 6002
+    prefabLink:
+      name: FX_Mystery_box_appearance
+      assetGUID: 0c821e972315c48a784ec03bfd9b51eb
+  - type: 7001
+    prefabLink:
+      name: FX_Popup_Receiving_Coins
+      assetGUID: 488d6e15173c74db492f20d382df2364
+  - type: 7002
+    prefabLink:
+      name: FX_Popup_Receiving_Gems
+      assetGUID: 3a166990d5ae94855bcca58a9797875c
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1578445377989061}
+  m_IsPrefabParent: 1

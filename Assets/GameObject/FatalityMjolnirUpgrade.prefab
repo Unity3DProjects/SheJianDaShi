@@ -1,0 +1,220 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1507305616549149
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4613753413307711}
+  - component: {fileID: 114996560349121407}
+  - component: {fileID: 114918146651233754}
+  - component: {fileID: 114536738794666782}
+  m_Layer: 0
+  m_Name: FatalityMjolnirUpgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4613753413307711
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1507305616549149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114996560349121407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1507305616549149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb90a6562372054876ca432dc5797c4, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeWeapon: 82
+  activationType: 7
+  time: 1.5
+  explodeForce: 0
+  lightning:
+    name: FX_Hammer_Thor_explosion
+    assetGUID: d65d4d7e052324909b7db3acbea3caeb
+  delayBeforeStart: 2
+  lightningParameters:
+  - delay: 1
+    jumpForce: 2600
+    shakeAmplitude: 30
+  - delay: 0.9
+    jumpForce: 2600
+    shakeAmplitude: 30
+  - delay: 0.9
+    jumpForce: 2400
+    shakeAmplitude: 30
+  - delay: 0.9
+    jumpForce: 2400
+    shakeAmplitude: 30
+  - delay: 0.3
+    jumpForce: 2200
+    shakeAmplitude: 50
+  - delay: 0.3
+    jumpForce: 1400
+    shakeAmplitude: 50
+  - delay: 0.3
+    jumpForce: 1200
+    shakeAmplitude: 50
+  flyingBoneSystems:
+  - boneName: head
+    particleEffectPrefab:
+      name: FX_Thor_brutality_part_fly
+      assetGUID: 7f8c5896eecd842f3bd617132df80a68
+  - boneName: hand_l
+    particleEffectPrefab:
+      name: FX_Thor_brutality_part_fly
+      assetGUID: 7f8c5896eecd842f3bd617132df80a68
+  - boneName: hand_r
+    particleEffectPrefab:
+      name: FX_Thor_brutality_part_fly
+      assetGUID: 7f8c5896eecd842f3bd617132df80a68
+  - boneName: body
+    particleEffectPrefab:
+      name: FX_Thor_brutality_part_fly
+      assetGUID: 7f8c5896eecd842f3bd617132df80a68
+  - boneName: arm_l
+    particleEffectPrefab:
+      name: FX_Thor_brutality_part_fly
+      assetGUID: 7f8c5896eecd842f3bd617132df80a68
+  - boneName: arm_r
+    particleEffectPrefab:
+      name: FX_Thor_brutality_part_fly
+      assetGUID: 7f8c5896eecd842f3bd617132df80a68
+  collidedBoneSystems:
+  - boneName: head
+    particleEffectPrefab:
+      name: FX_Thor_brutality_part_smoke
+      assetGUID: b87ed7d25f2e24939901fbc1d7ed2469
+  - boneName: body
+    particleEffectPrefab:
+      name: FX_Thor_brutality_part_smoke
+      assetGUID: b87ed7d25f2e24939901fbc1d7ed2469
+  - boneName: hand_l
+    particleEffectPrefab:
+      name: FX_Thor_brutality_part_smoke
+      assetGUID: b87ed7d25f2e24939901fbc1d7ed2469
+  - boneName: hand_r
+    particleEffectPrefab:
+      name: FX_Thor_brutality_part_smoke
+      assetGUID: b87ed7d25f2e24939901fbc1d7ed2469
+  - boneName: arm_l
+    particleEffectPrefab:
+      name: FX_Thor_brutality_part_smoke
+      assetGUID: b87ed7d25f2e24939901fbc1d7ed2469
+  - boneName: arm_r
+    particleEffectPrefab:
+      name: FX_Thor_brutality_part_smoke
+      assetGUID: b87ed7d25f2e24939901fbc1d7ed2469
+  brutalityEffectDelay: 7.3
+--- !u!114 &114918146651233754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1507305616549149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718e60aba4702e673e43cde15ced9dd9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  explodeEffects: []
+  bloodEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  - characterType: 2
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  - characterType: 3
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  acidEffects: []
+  shockEffects: []
+  fireEffects: []
+  freezeEffects: []
+  brainEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  - characterType: 2
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  - characterType: 3
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  gutsEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  - characterType: 2
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  - characterType: 3
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  fatalityGUICameraEffects:
+  - type: 2
+    effectPrefab:
+      name: FX_Brutality_Screen_Lightning_angle
+      assetGUID: 89de8a4692f52498695ee226a3bfb298
+  gutsPrefab: {fileID: 0}
+  brainPrefab: {fileID: 0}
+  eyePrefab: {fileID: 0}
+  minForceGuts: 1000
+  maxForceGuts: 1200
+  minForceBrain: 1000
+  maxForceBrain: 1300
+  minForceEye: 1000
+  maxForceEye: 1400
+  angularVelosityParts: {x: 0, y: 0, z: -60000}
+--- !u!114 &114536738794666782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1507305616549149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName: MaskRemoveAll
+  decalMethodName:
+  decalType: 0
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1507305616549149}
+  m_IsPrefabParent: 1

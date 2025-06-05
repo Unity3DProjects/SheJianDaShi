@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1854225872098072
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4467743316270220}
+  - component: {fileID: 114845473211023123}
+  - component: {fileID: 114999357791461605}
+  - component: {fileID: 114539355752347149}
+  - component: {fileID: 114758380502423802}
+  m_Layer: 0
+  m_Name: FatalityEmittedHeart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4467743316270220
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854225872098072}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114845473211023123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854225872098072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692e4d97832455e50e2ab9831993234b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeWeapon: 42
+  activationType: 1
+  time: 5
+  explodeForce: 0
+  boneSystems:
+  - boneName: head
+    particleEffectPrefab:
+      name: FX_Burning_Head_pink
+      assetGUID: f231b46980b354189a2d599c8769e35a
+  - boneName: hand_l
+    particleEffectPrefab:
+      name: FX_Burning_Hand_pink
+      assetGUID: ef8939a109a824bcf88247fe02c17d96
+  - boneName: hand_r
+    particleEffectPrefab:
+      name: FX_Burning_Hand_pink
+      assetGUID: ef8939a109a824bcf88247fe02c17d96
+  - boneName: arm_l
+    particleEffectPrefab:
+      name: FX_Burning_Arm_pink
+      assetGUID: fcf992030dceb4ee984076d9c513c501
+  - boneName: arm_r
+    particleEffectPrefab:
+      name: FX_Burning_Arm_pink
+      assetGUID: fcf992030dceb4ee984076d9c513c501
+  - boneName: forearm_l
+    particleEffectPrefab:
+      name: FX_Burning_Forearm_pink
+      assetGUID: e42bc7ce86d7f441b9b60aea4eb5d85d
+  - boneName: forearm_r
+    particleEffectPrefab:
+      name: FX_Burning_Forearm_pink
+      assetGUID: e42bc7ce86d7f441b9b60aea4eb5d85d
+  masks: {fileID: 114539355752347149}
+  decal: {fileID: 114758380502423802}
+--- !u!114 &114999357791461605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854225872098072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718e60aba4702e673e43cde15ced9dd9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  explodeEffects: []
+  bloodEffects: []
+  acidEffects: []
+  shockEffects: []
+  fireEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_Death_Fire_pink
+      assetGUID: b31da0cf2432e4acc94eed5580ef14c6
+  - characterType: 2
+    effectPrefab:
+      name: FX_Death_Fire_pink_Beefy
+      assetGUID: 87725c5244a984583a88a2442282db81
+  - characterType: 3
+    effectPrefab:
+      name: FX_Death_Fire_pink_Plumpy
+      assetGUID: 8aa86e6c4a4ba46eda8f1a2297369c13
+  freezeEffects: []
+  brainEffects: []
+  gutsEffects: []
+  fatalityGUICameraEffects: []
+  gutsPrefab: {fileID: 0}
+  brainPrefab: {fileID: 0}
+  eyePrefab: {fileID: 0}
+  minForceGuts: 0
+  maxForceGuts: 0
+  minForceBrain: 0
+  maxForceBrain: 0
+  minForceEye: 0
+  maxForceEye: 0
+  angularVelosityParts: {x: 0, y: 0, z: 0}
+--- !u!114 &114539355752347149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854225872098072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName: MaskRemoveAll
+  decalMethodName:
+  decalType: 0
+--- !u!114 &114758380502423802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854225872098072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName:
+  decalMethodName: DecalOnBody
+  decalType: 2
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1854225872098072}
+  m_IsPrefabParent: 1

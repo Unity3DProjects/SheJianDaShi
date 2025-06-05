@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1842732297948240
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4423454502428429}
+  - component: {fileID: 114825604842555924}
+  - component: {fileID: 114220796440697647}
+  m_Layer: 10
+  m_Name: MaskBody
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4423454502428429
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842732297948240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114825604842555924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842732297948240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47d87298d6c41c77fb80fd356656287, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  shaderMask: {fileID: 4800000, guid: e50587f3005f35f4eaa548a1cefb316c, type: 3}
+  skeletonAnimation: {fileID: 0}
+  slotName: body
+  isAnimationUpdateMask: 0
+  fixedMaskedFill: []
+  fixedMaskedCut: []
+--- !u!114 &114220796440697647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842732297948240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f66b62f59e91ac7f311c0e2a716d7b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  characterAnimation: {fileID: 0}
+  prefabsDecal:
+  - {fileID: 114210485984627900, guid: b6decfed0f045ae4c9dc69fdf0fd8582, type: 2}
+  - {fileID: 114990636045753169, guid: 7c408d1af837cbb4f9803d08bef18647, type: 2}
+  - {fileID: 114817763464550594, guid: 2ba54bacaeddaeb4bb39f4b6ac9fcd0f, type: 2}
+  - {fileID: 114975704877129100, guid: d03fbd2abfe750946928e2ace80dec8d, type: 2}
+  - {fileID: 114051136665368582, guid: 5b53b5d0282b01f4dba48399a3f18e1b, type: 2}
+  - {fileID: 114244154572677415, guid: 52050776aef639043b07922b8aadaff9, type: 2}
+  - {fileID: 114904587589500782, guid: 4c0922ca6f460e14c830d213f22eb9ec, type: 2}
+  - {fileID: 114252539743711096, guid: 7acaec0a5f80654468da91914bb5c3f7, type: 2}
+  - {fileID: 114153735782642553, guid: 9537396b9617ccd40a55368b7be2482b, type: 2}
+  prefabsCutDecal:
+  - {fileID: 114875790136654918, guid: a2482853f7543524f8129557da59e15e, type: 2}
+  - {fileID: 114547122082692339, guid: 557f3afb962857d40869708e14c8afde, type: 2}
+  - {fileID: 114434337088524932, guid: 5f47d6f16d5c7994799f69f29acda6fb, type: 2}
+  fxMeatDrop: {fileID: 1065095280477798, guid: 67edd5e46fcc5254393677e7c9e7fdb0, type: 2}
+  additionalCutSlots: []
+  additionalFadeSlots: []
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1842732297948240}
+  m_IsPrefabParent: 1

@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1829304982276902
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4004315888196659}
+  - component: {fileID: 114975933280805480}
+  m_Layer: 0
+  m_Name: Roulette_Footballer@2x
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4004315888196659
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1829304982276902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114975933280805480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1829304982276902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f28a10f064b0573af11a2e931d98da, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  version: 3
+  materialIdsValid: 1
+  needMaterialInstance: 1
+  spriteDefinitions:
+  - name: Footballer
+    boundsData:
+    - {x: 0.5, y: 142.5, z: 0}
+    - {x: 125, y: 285, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.5, y: 142.5, z: 0}
+    - {x: 125, y: 285, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -62, y: 0, z: 0}
+    - {x: 63, y: 0, z: 0}
+    - {x: -62, y: 285, z: 0}
+    - {x: 63, y: 285, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.015511628, y: 0.0069238753}
+    - {x: 0.98448837, y: 0.0069238753}
+    - {x: 0.015511628, y: 0.99307615}
+    - {x: 0.98448837, y: 0.99307615}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: f0a344f6ff4afbd478e9e576fcbf00fc, type: 2}
+    materialId: 0
+    sourceTextureGUID: 57cf93b69f7a647399d325906185ddbe
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 1
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  premultipliedAlpha: 1
+  material: {fileID: 0}
+  materials:
+  - {fileID: 2100000, guid: f0a344f6ff4afbd478e9e576fcbf00fc, type: 2}
+  textures: []
+  pngTextures: []
+  streamingTextures:
+  - Assets/StreamingAssets/tk2dTextures/Roulette_Footballer@2x0.png
+  widthTextures: 81000000
+  heightTextures: 21010000
+  materialPngTextureId: 00000000
+  textureFilterMode: 1
+  textureMipMaps: 0
+  textureLoadAsync: 1
+  allowMultipleAtlases: 0
+  spriteCollectionGUID: f64d0db125e094257bece0a26ee833fb
+  spriteCollectionName: Roulette_Footballer@2x
+  assetName:
+  loadable: 0
+  invOrthoSize: 2
+  halfTargetHeight: 0.5
+  buildKey: 698005467
+  dataGuid: 77b4b62738163424ba7c825bfa4de973
+  managedSpriteCollection: 1
+  hasPlatformData: 0
+  spriteCollectionPlatforms: []
+  spriteCollectionPlatformGUIDs: []
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1829304982276902}
+  m_IsPrefabParent: 1

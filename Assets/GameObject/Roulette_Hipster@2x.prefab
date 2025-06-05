@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1215980119700337
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4909207359744813}
+  - component: {fileID: 114201840634646816}
+  m_Layer: 0
+  m_Name: Roulette_Hipster@2x
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4909207359744813
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1215980119700337}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114201840634646816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1215980119700337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f28a10f064b0573af11a2e931d98da, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  version: 3
+  materialIdsValid: 1
+  needMaterialInstance: 1
+  spriteDefinitions:
+  - name: Hipster
+    boundsData:
+    - {x: 0, y: 126.5, z: 0}
+    - {x: 88, y: 253, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 126.5, z: 0}
+    - {x: 88, y: 253, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -44, y: 0, z: 0}
+    - {x: 44, y: 0, z: 0}
+    - {x: -44, y: 253, z: 0}
+    - {x: 44, y: 253, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.02175, y: 0.007785992}
+    - {x: 0.97825, y: 0.007785992}
+    - {x: 0.02175, y: 0.992214}
+    - {x: 0.97825, y: 0.992214}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 7ec1103b50a7ee94d81816766d52252c, type: 2}
+    materialId: 0
+    sourceTextureGUID: 6e86733c7e4764e21aac98db9d95f588
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 1
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  premultipliedAlpha: 1
+  material: {fileID: 0}
+  materials:
+  - {fileID: 2100000, guid: 7ec1103b50a7ee94d81816766d52252c, type: 2}
+  textures: []
+  pngTextures: []
+  streamingTextures:
+  - Assets/StreamingAssets/tk2dTextures/Roulette_Hipster@2x0.png
+  widthTextures: 5c000000
+  heightTextures: 01010000
+  materialPngTextureId: 00000000
+  textureFilterMode: 1
+  textureMipMaps: 0
+  textureLoadAsync: 1
+  allowMultipleAtlases: 0
+  spriteCollectionGUID: 15eb0f837d9a14b719c9385ea0704d4f
+  spriteCollectionName: Roulette_Hipster@2x
+  assetName:
+  loadable: 0
+  invOrthoSize: 2
+  halfTargetHeight: 0.5
+  buildKey: 1558761328
+  dataGuid: 871859ec5a11a40a4a9d482cc12f8307
+  managedSpriteCollection: 1
+  hasPlatformData: 0
+  spriteCollectionPlatforms: []
+  spriteCollectionPlatformGUIDs: []
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1215980119700337}
+  m_IsPrefabParent: 1

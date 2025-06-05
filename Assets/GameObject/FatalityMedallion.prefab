@@ -1,0 +1,199 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1864604127527994
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4925883911119180}
+  - component: {fileID: 114535234047351407}
+  - component: {fileID: 114461200956650174}
+  - component: {fileID: 114595922995470974}
+  m_Layer: 0
+  m_Name: FatalityMedallion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4925883911119180
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1864604127527994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114535234047351407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1864604127527994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a04175129cf045ae412fc5ee0494a34, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeWeapon: 66
+  activationType: 2
+  time: 8
+  explodeForce: 0
+  prefabSatelite: {fileID: 1776638338358228, guid: ff2d590afa1ca8b428b3f2b0271804ff, type: 2}
+  spawnPoint: {x: 270, y: 1000}
+  startVerticalSpeed: -300
+  delayBeforeStart: 2
+  shouldPierceInGround: 1
+  leftAngleVar: 0
+  rightAngleVar: 0
+  characterCollisionSound:
+  createSound:
+  isExplodeCharacterNeeded: 1
+  groundCollisionEffectPrefab:
+    name:
+    assetGUID:
+  trailEffectPrefab:
+    name:
+    assetGUID:
+  isApplyCharacterRagdollNeeded: 0
+  characterBone:
+    boneName:
+    particleEffectPrefab:
+      name:
+      assetGUID:
+  shakeForce: 5
+  soundEffectPrefab:
+    name: FX_MusicColumn_idle
+    assetGUID: eed5e2d4766ab4e1385dacaac668c945
+  bloodEffectPrefab:
+    name: FX_onHit_Blood_BLOWN
+    assetGUID: b1128e95b4fb84065a0b4b766b40ca66
+  medallionDisappearEffecctPrefab:
+    name: FX_onHit_Medalion_broke
+    assetGUID: e0f06ceeda30044298d37ee26604bfd9
+  moneyRainEffectPrefab:
+    name: FX_Money_rain
+    assetGUID: f189f5011b0dd499a857521da6bafd77
+  delay: 1
+  delayBreakUpCharacter: 2
+  womansCount: 5
+  womansPrefabs:
+  - {fileID: 114662426579035763, guid: 8174827ac64db634aa4b39e8a7c24577, type: 2}
+  - {fileID: 114695122242543115, guid: 73dc30847f9670a4f80af52b6920bd22, type: 2}
+  - {fileID: 114374818337673837, guid: 31c04848dc4bc6e449d232ead85f7585, type: 2}
+  - {fileID: 114305943594089688, guid: 43f81705247d7a244b66fe48c7002597, type: 2}
+  - {fileID: 114616783715704682, guid: 59d4c4e719440f34ba009d3de929c1b6, type: 2}
+  womenOffsetX: 500
+  womenOffsetY: 400
+  songName: twerk_music
+  columnDropSoundName: medallion_fatality_column_drop
+--- !u!114 &114461200956650174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1864604127527994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718e60aba4702e673e43cde15ced9dd9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  explodeEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_onHit_Blood_LARGE
+      assetGUID: 745d2ebdf57fc4d08bd4520a42a667b3
+  - characterType: 2
+    effectPrefab:
+      name: FX_onHit_Blood_LARGE
+      assetGUID: 745d2ebdf57fc4d08bd4520a42a667b3
+  - characterType: 3
+    effectPrefab:
+      name: FX_onHit_Blood_LARGE
+      assetGUID: 745d2ebdf57fc4d08bd4520a42a667b3
+  bloodEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_onHit_Blood_MEDIUM
+      assetGUID: 7cdec28d9cfb44892b8371d9c676566a
+  - characterType: 2
+    effectPrefab:
+      name: FX_onHit_Blood_MEDIUM
+      assetGUID: 7cdec28d9cfb44892b8371d9c676566a
+  - characterType: 3
+    effectPrefab:
+      name: FX_onHit_Blood_MEDIUM
+      assetGUID: 7cdec28d9cfb44892b8371d9c676566a
+  acidEffects: []
+  shockEffects: []
+  fireEffects: []
+  freezeEffects: []
+  brainEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  - characterType: 2
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  - characterType: 3
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  gutsEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  - characterType: 2
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  - characterType: 3
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  fatalityGUICameraEffects: []
+  gutsPrefab: {fileID: 54473800662004282, guid: 527ca4c2b3374e641a2da35da99c84a8, type: 2}
+  brainPrefab: {fileID: 54821432568180659, guid: 4cd6b9d3ef13ba44395f29ee461e3d5f, type: 2}
+  eyePrefab: {fileID: 54280354845134943, guid: 6ae745b91baec0e45bc44d8e685a8215, type: 2}
+  minForceGuts: 1000
+  maxForceGuts: 1200
+  minForceBrain: 1000
+  maxForceBrain: 1300
+  minForceEye: 1000
+  maxForceEye: 1400
+  angularVelosityParts: {x: 0, y: 0, z: -60000}
+--- !u!114 &114595922995470974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1864604127527994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName: MaskRemoveAll
+  decalMethodName:
+  decalType: 0
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1864604127527994}
+  m_IsPrefabParent: 1

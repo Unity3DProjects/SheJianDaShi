@@ -1,0 +1,226 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1620002831909556
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4171476299550289}
+  - component: {fileID: 114537726302345946}
+  m_Layer: 0
+  m_Name: LevelMultiplayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1987969605242007
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4041311413728560}
+  m_Layer: 0
+  m_Name: Archers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1787454745335762
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4668923318400319}
+  m_Layer: 0
+  m_Name: Arrows
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1986318179273655
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4006255914932552}
+  m_Layer: 0
+  m_Name: FXs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4171476299550289
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620002831909556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4041311413728560}
+  - {fileID: 4668923318400319}
+  - {fileID: 4006255914932552}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114537726302345946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620002831909556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2264eaccd9b57cd416f8bfff322ada3b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  charactersTransfrom: {fileID: 4041311413728560}
+  weaponsTransform: {fileID: 4668923318400319}
+  fxsTransform: {fileID: 4006255914932552}
+  gameType: 32
+  isSecondArcherEnabled: 1
+  isForceTurnsChangeDisabled: 1
+  isTurnable: 1
+  isForcedSwitchPlayersEnabled: 1
+  minEnemySpotDistance: 3000
+  maxEnemySpotDistance: 5000
+  weaponLimitLow: -900
+  weaponLimitHigh: 8000
+  cameraMoveToWinnerDuration: 1.2
+  cameraMoveToWinnerCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.48938495
+      value: 0.66622543
+      inSlope: 1.4936924
+      outSlope: 1.4936924
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0.11394223
+      outSlope: 0.11394223
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  arrowDraggerPrefab: {fileID: 114256409429294381, guid: df0e5505eb6f0ac4696449f24c07d929, type: 2}
+  weaponsCacheSize: 3
+  emittedObjectsCacheSize: 10
+  drivenIntoWeaponsCacheSize: 3
+  weaponDeactivationDistance: 1500
+  cameraSettings:
+    size: 1
+    isMoving: 1
+    minScale: 1
+    maxScale: 2.5
+    minY: -540
+    maxY: 580
+    minX: -4550
+    maxX: 4550
+    characterOffset: {x: 0, y: 210}
+  floorSettings:
+  - winsCount: 0
+    maxHeight: 0
+    minHeight: 0
+    minStraightParts: 7
+    maxStraightParts: 13
+  - winsCount: 2
+    maxHeight: 1
+    minHeight: 0
+    minStraightParts: 6
+    maxStraightParts: 13
+  - winsCount: 5
+    maxHeight: 1
+    minHeight: -1
+    minStraightParts: 7
+    maxStraightParts: 12
+  - winsCount: 10
+    maxHeight: 2
+    minHeight: -1
+    minStraightParts: 5
+    maxStraightParts: 10
+  - winsCount: 15
+    maxHeight: 3
+    minHeight: -1
+    minStraightParts: 3
+    maxStraightParts: 7
+  turnTimerClockAnimationDuration: 5
+  misteryBoxPrefab: {fileID: 0}
+  isMisteryBoxAvailable: 0
+  misteryBoxMinMatchesCount: 5
+  misteryBoxLeftSpawnPoint: {x: 0, y: 0, z: 0}
+  misteryBoxRightSpawnPoint: {x: 0, y: 0, z: 0}
+  leftCharacterPositionLeftBorder: -2500
+  leftCharacterPositionRightBorder: -1500
+--- !u!4 &4041311413728560
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1987969605242007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -150}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4171476299550289}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!4 &4668923318400319
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1787454745335762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4171476299550289}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!4 &4006255914932552
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986318179273655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4171476299550289}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1620002831909556}
+  m_IsPrefabParent: 1

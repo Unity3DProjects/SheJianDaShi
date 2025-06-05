@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1607495060679538
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4778228750749073}
+  - component: {fileID: 114850342015324822}
+  m_Layer: 0
+  m_Name: FatalityTNTs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4778228750749073
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607495060679538}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114850342015324822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607495060679538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bd8ce7927e970c4968de2b5702c789, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  brickPrefab: {fileID: 114095946112248308, guid: bd3c152b6b07d864098c803a34e370f3, type: 2}
+  numberOfBricks: 5
+  brickSpawnPoint: {x: 0, y: 1500}
+  brickStartVerticalSpeed: -2000
+  brickDelayBeforeStart: 2
+  delayBetweenBricks: 0.05
+  brickLeftBorder: 200
+  brickRightBorder: 200
+  isBricksVerticalSpeedNeeded: 1
+  soundName:
+  explodeEffectPrefab:
+    name: FX_Boomerang_Explosion_Pixel
+    assetGUID: 12dae158bccf24f32a9038c498f49474
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1607495060679538}
+  m_IsPrefabParent: 1

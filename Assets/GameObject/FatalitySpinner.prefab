@@ -1,0 +1,174 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1487666735745983
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4009798730333266}
+  - component: {fileID: 114077329998661891}
+  - component: {fileID: 114330421263089757}
+  - component: {fileID: 114173272261837492}
+  m_Layer: 0
+  m_Name: FatalitySpinner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4009798730333266
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1487666735745983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114077329998661891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1487666735745983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84e3211f2d073c73da1e45273f72203, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeWeapon: 71
+  activationType: 1
+  time: 80
+  explodeForce: 0
+  collisionObserverPrefab: {fileID: 114723137247157761, guid: acc164c94a69bfe4ca6f0b2a9b7686e0, type: 2}
+  collisionRadiusBegin: 0.01
+  collisionRadiusEnd: 150
+  collisionRadiusChangeDuration: 0.2
+  onlyBodyColliderRelativeRadius: 0.4
+  collisionRadiusChangeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  collisionEffectPrefab:
+    name: FX_Spinner_Fatality
+    assetGUID: 65c9e1bb1a16b455e9f25cedad22b16e
+  removePartEffectPrefab:
+    name: FX_onHit_Blood_LARGE
+    assetGUID: 745d2ebdf57fc4d08bd4520a42a667b3
+  delayBeforeRotation: 0.1
+  delayAfterRotation: 5
+  rotationVelocity: 180
+  rotationDuration: 3
+  forceAfterCollision: 1500
+  forceBodyAfterCollision: 900
+--- !u!114 &114330421263089757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1487666735745983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718e60aba4702e673e43cde15ced9dd9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  explodeEffects: []
+  bloodEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  - characterType: 2
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  - characterType: 3
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  acidEffects: []
+  shockEffects: []
+  fireEffects: []
+  freezeEffects: []
+  brainEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  - characterType: 2
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  - characterType: 3
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  gutsEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  - characterType: 2
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  - characterType: 3
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  fatalityGUICameraEffects: []
+  gutsPrefab: {fileID: 54473800662004282, guid: 527ca4c2b3374e641a2da35da99c84a8, type: 2}
+  brainPrefab: {fileID: 54821432568180659, guid: 4cd6b9d3ef13ba44395f29ee461e3d5f, type: 2}
+  eyePrefab: {fileID: 54280354845134943, guid: 6ae745b91baec0e45bc44d8e685a8215, type: 2}
+  minForceGuts: 1000
+  maxForceGuts: 1500
+  minForceBrain: 1000
+  maxForceBrain: 1500
+  minForceEye: 1000
+  maxForceEye: 1500
+  angularVelosityParts: {x: 0, y: 0, z: 30}
+--- !u!114 &114173272261837492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1487666735745983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName: MaskRemovePartByHitPart
+  decalMethodName:
+  decalType: 0
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1487666735745983}
+  m_IsPrefabParent: 1

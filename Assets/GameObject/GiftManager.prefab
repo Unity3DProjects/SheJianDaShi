@@ -1,0 +1,403 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1272929672622896
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4310283431985072}
+  - component: {fileID: 114690530361102974}
+  m_Layer: 0
+  m_Name: GiftManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4310283431985072
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1272929672622896}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114690530361102974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1272929672622896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7d6488edfd6f285d6ec6ebc2b9f9cc, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  giftsList:
+    infoList:
+    - giftInfos:
+      - type: 3
+        coinsValue: 200
+        coinsType: 1
+        spriteName: daily_gift_today_reward_coin1
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 300
+        coinsType: 2
+        spriteName: daily_gift_today_reward_coin2
+        giftCharacter: 0
+      - type: 2
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_char_deadpool
+        giftCharacter: 10
+      - type: 1
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_gift_chest_reward
+        giftCharacter: 0
+      - type: 4
+        coinsValue: 5
+        coinsType: 3
+        spriteName: daily_gift_today_reward_gem2
+        giftCharacter: 0
+      - type: 2
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_char_adam
+        giftCharacter: 1
+      - type: 3
+        coinsValue: 500
+        coinsType: 2
+        spriteName: daily_gift_today_reward_coin2
+        giftCharacter: 0
+      - type: 4
+        coinsValue: 10
+        coinsType: 4
+        spriteName: daily_gift_today_reward_gem3
+        giftCharacter: 0
+      - type: 2
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_char_necromancer
+        giftCharacter: 37
+      - type: 1
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_gift_chest_reward
+        giftCharacter: 0
+      - type: 2
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_char_freeman
+        giftCharacter: 18
+      - type: 3
+        coinsValue: 700
+        coinsType: 2
+        spriteName: daily_gift_today_reward_coin2
+        giftCharacter: 0
+      - type: 1
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_gift_chest_reward
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 800
+        coinsType: 4
+        spriteName: daily_gift_today_reward_coin4
+        giftCharacter: 0
+      - type: 4
+        coinsValue: 15
+        coinsType: 4
+        spriteName: daily_gift_today_reward_gem4
+        giftCharacter: 0
+      defaultGiftInfos:
+      - type: 3
+        coinsValue: 200
+        coinsType: 1
+        spriteName: daily_gift_today_reward_coin1
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 300
+        coinsType: 2
+        spriteName: daily_gift_today_reward_coin2
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 400
+        coinsType: 3
+        spriteName: daily_gift_today_reward_coin3
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 400
+        coinsType: 4
+        spriteName: daily_gift_today_reward_coin4
+        giftCharacter: 0
+      - type: 1
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_gift_chest_reward
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 500
+        coinsType: 1
+        spriteName: daily_gift_today_reward_coin1
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 500
+        coinsType: 2
+        spriteName: daily_gift_today_reward_coin2
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 600
+        coinsType: 3
+        spriteName: daily_gift_today_reward_coin3
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 600
+        coinsType: 4
+        spriteName: daily_gift_today_reward_coin4
+        giftCharacter: 0
+      - type: 1
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_gift_chest_reward
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 700
+        coinsType: 1
+        spriteName: daily_gift_today_reward_coin1
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 700
+        coinsType: 2
+        spriteName: daily_gift_today_reward_coin2
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 800
+        coinsType: 3
+        spriteName: daily_gift_today_reward_coin3
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 800
+        coinsType: 4
+        spriteName: daily_gift_today_reward_coin4
+        giftCharacter: 0
+      - type: 1
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_gift_chest_reward
+        giftCharacter: 0
+    - giftInfos:
+      - type: 3
+        coinsValue: 200
+        coinsType: 1
+        spriteName: daily_gift_today_reward_coin1
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 300
+        coinsType: 2
+        spriteName: daily_gift_today_reward_coin2
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 400
+        coinsType: 3
+        spriteName: daily_gift_today_reward_coin3
+        giftCharacter: 10
+      - type: 3
+        coinsValue: 400
+        coinsType: 4
+        spriteName: daily_gift_today_reward_coin4
+        giftCharacter: 0
+      - type: 1
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_gift_chest_reward
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 500
+        coinsType: 1
+        spriteName: daily_gift_today_reward_coin1
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 500
+        coinsType: 2
+        spriteName: daily_gift_today_reward_coin2
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 600
+        coinsType: 3
+        spriteName: daily_gift_today_reward_coin3
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 600
+        coinsType: 4
+        spriteName: daily_gift_today_reward_coin4
+        giftCharacter: 37
+      - type: 1
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_gift_chest_reward
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 700
+        coinsType: 1
+        spriteName: daily_gift_today_reward_coin1
+        giftCharacter: 18
+      - type: 3
+        coinsValue: 700
+        coinsType: 2
+        spriteName: daily_gift_today_reward_coin2
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 800
+        coinsType: 3
+        spriteName: daily_gift_today_reward_coin3
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 800
+        coinsType: 4
+        spriteName: daily_gift_today_reward_coin4
+        giftCharacter: 0
+      - type: 1
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_gift_chest_reward
+        giftCharacter: 0
+      defaultGiftInfos:
+      - type: 3
+        coinsValue: 200
+        coinsType: 1
+        spriteName: daily_gift_today_reward_coin1
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 300
+        coinsType: 2
+        spriteName: daily_gift_today_reward_coin2
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 400
+        coinsType: 3
+        spriteName: daily_gift_today_reward_coin3
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 400
+        coinsType: 4
+        spriteName: daily_gift_today_reward_coin4
+        giftCharacter: 0
+      - type: 1
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_gift_chest_reward
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 500
+        coinsType: 1
+        spriteName: daily_gift_today_reward_coin1
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 500
+        coinsType: 2
+        spriteName: daily_gift_today_reward_coin2
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 600
+        coinsType: 3
+        spriteName: daily_gift_today_reward_coin3
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 600
+        coinsType: 4
+        spriteName: daily_gift_today_reward_coin4
+        giftCharacter: 0
+      - type: 1
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_gift_chest_reward
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 700
+        coinsType: 1
+        spriteName: daily_gift_today_reward_coin1
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 700
+        coinsType: 2
+        spriteName: daily_gift_today_reward_coin2
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 800
+        coinsType: 3
+        spriteName: daily_gift_today_reward_coin3
+        giftCharacter: 0
+      - type: 3
+        coinsValue: 800
+        coinsType: 4
+        spriteName: daily_gift_today_reward_coin4
+        giftCharacter: 0
+      - type: 1
+        coinsValue: 0
+        coinsType: 0
+        spriteName: daily_gift_chest_reward
+        giftCharacter: 0
+  videoGiftCharacter: 14
+  multiplayerGiftCharacter: 0
+  tournamentGiftCharacter: 59
+  inviteGiftCharacters:
+  - inviteCharacter: 70
+    inviteCharacterSpriteName: popup_icon_raper
+    invitesNeededCount: 5
+    inviteWeight: 0
+    isForcedShowed: 0
+    forcedWeight: 0
+  subscribeGiftCharacters:
+  - subscribeCharacter: 63
+    subscribeLinks:
+    - type: 1
+      id: https://www.instagram.com/viktorprokopenya
+    subscribeCharacterSpriteName: popup_icon_businessman
+  - subscribeCharacter: 70
+    subscribeLinks:
+    - type: 1
+      id: https://www.instagram.com/shelengovskiy
+    subscribeCharacterSpriteName: popup_icon_raper
+  lockedByTimerCharacters:
+  - lockedCharacter: 72
+    dateWhenUnlocked: 2017-09-01
+  giftInviteGems:
+    gemsCount: 50
+    invitesNeededCount: 5
+  giftSubscribeGems:
+    gemsCount: 5
+    link: https://www.instagram.com/playgendary/
+  giftAdsGems: 1
+  videosForGiftCharacter: 15
+  multiplayerWinsForGiftCharacter: 10
+  legendaryTournamenWinsForGiftCharacter: 1
+  firstRewards:
+  - isCoinsReward: 0
+    reward: 10
+  - isCoinsReward: 1
+    reward: 1000
+  - isCoinsReward: 0
+    reward: 5
+  gemsRewardChanse: 0.1
+  gemsReward: 5
+  coinsReward: 500
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1272929672622896}
+  m_IsPrefabParent: 1

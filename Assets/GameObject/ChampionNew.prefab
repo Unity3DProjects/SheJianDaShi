@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1901343052813040
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4705570727773146}
+  - component: {fileID: 114022838714991139}
+  m_Layer: 0
+  m_Name: ChampionNew
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4705570727773146
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1901343052813040}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114022838714991139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1901343052813040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd13e4e89bd0e886f606a0a10038f43, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  priceTier: 3
+  shopItemID: masterpacksale
+  isExcludeFromArcher: 0
+  isExcludeFromArcherAdFree: 0
+  characters:
+  - {fileID: 114013465445553383, guid: d5e96555095affe4dbfb6d99e319b0b1, type: 2}
+  - {fileID: 114700121814352456, guid: 69cfb697c20674c469c298a53b581eb2, type: 2}
+  - {fileID: 114580864801114730, guid: 6b14695566766a64ab1513c32c7ecf08, type: 2}
+  - {fileID: 114074144218141735, guid: fcbbada7af40a6b48a61f0f27d70be25, type: 2}
+  - {fileID: 114372639448619455, guid: cba2da2674fdbb8469253ec36066216e, type: 2}
+  coinsReward: 5000
+  isNoAdsActive: 0
+  shopItemFullPriceID: masterpack
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1901343052813040}
+  m_IsPrefabParent: 1

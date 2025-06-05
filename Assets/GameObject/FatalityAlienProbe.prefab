@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1723653514982713
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4345885300744485}
+  - component: {fileID: 114270853316096245}
+  - component: {fileID: 114006864028631090}
+  - component: {fileID: 114078566686332298}
+  - component: {fileID: 114137155187477087}
+  m_Layer: 0
+  m_Name: FatalityAlienProbe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4345885300744485
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1723653514982713}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114270853316096245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1723653514982713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692e4d97832455e50e2ab9831993234b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeWeapon: 27
+  activationType: 7
+  time: 5
+  explodeForce: 0
+  boneSystems:
+  - boneName: head
+    particleEffectPrefab:
+      name: FX_AlienProbe_damage
+      assetGUID: 97f526d0a885d404a8142ced4ecfa485
+  - boneName: hand_l
+    particleEffectPrefab:
+      name: FX_AlienProbe_damage
+      assetGUID: 97f526d0a885d404a8142ced4ecfa485
+  - boneName: hand_r
+    particleEffectPrefab:
+      name: FX_AlienProbe_damage
+      assetGUID: 97f526d0a885d404a8142ced4ecfa485
+  - boneName: arm_l
+    particleEffectPrefab:
+      name: FX_AlienProbe_damage
+      assetGUID: 97f526d0a885d404a8142ced4ecfa485
+  - boneName: arm_r
+    particleEffectPrefab:
+      name: FX_AlienProbe_damage
+      assetGUID: 97f526d0a885d404a8142ced4ecfa485
+  masks: {fileID: 114137155187477087}
+  decal: {fileID: 114137155187477087}
+--- !u!114 &114006864028631090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1723653514982713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718e60aba4702e673e43cde15ced9dd9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  explodeEffects: []
+  bloodEffects: []
+  acidEffects: []
+  shockEffects: []
+  fireEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_Death_Fire
+      assetGUID: 5dfcddbb4314b40a3bb9d76b97eb335f
+  - characterType: 2
+    effectPrefab:
+      name: FX_Death_Fire_Beefy
+      assetGUID: 15316e17a03b6449589d778a9a642d91
+  - characterType: 3
+    effectPrefab:
+      name: FX_Death_Fire_Plumpy
+      assetGUID: b491150389f8d4b6083fcfb227907120
+  freezeEffects: []
+  brainEffects: []
+  gutsEffects: []
+  fatalityGUICameraEffects: []
+  gutsPrefab: {fileID: 0}
+  brainPrefab: {fileID: 0}
+  eyePrefab: {fileID: 0}
+  minForceGuts: 0
+  maxForceGuts: 0
+  minForceBrain: 0
+  maxForceBrain: 0
+  minForceEye: 0
+  maxForceEye: 0
+  angularVelosityParts: {x: 0, y: 0, z: 0}
+--- !u!114 &114078566686332298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1723653514982713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName: MaskRemoveAll
+  decalMethodName:
+  decalType: 0
+--- !u!114 &114137155187477087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1723653514982713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName:
+  decalMethodName: DecalOnBody
+  decalType: 2
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1723653514982713}
+  m_IsPrefabParent: 1

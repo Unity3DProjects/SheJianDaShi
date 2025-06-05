@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1312155307874972
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4502265518805365}
+  - component: {fileID: 114944030924095322}
+  - component: {fileID: 114457953236763028}
+  - component: {fileID: 114085455425249491}
+  - component: {fileID: 114651746028666709}
+  - component: {fileID: 114533444776227614}
+  - component: {fileID: 114574697931085668}
+  m_Layer: 0
+  m_Name: MiniclipManagers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4502265518805365
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312155307874972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114944030924095322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312155307874972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a063cdd3eadcc31a3a3da44aeae5192, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+--- !u!114 &114457953236763028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312155307874972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b57caef983b1754f5db6abdab7bfad, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  gameId: 563
+  gameName: bowmasters_mobile
+  apikeyDevelopment: eb1bea86-5788-11e9-b312-06a2aa13cf6c
+  apikeyProduction: eb1be6c2-5788-11e9-b312-06a2aa13cf6c
+  hmacKeyDevelopment: eb1bf53f-5788-11e9-b312-06a2aa13cf6c
+  hmacKeyProduction: eb1bed7f-5788-11e9-b312-06a2aa13cf6c
+  version: v2.12.3
+  endpointUrl: https://goliath.bi.miniclippt.com/
+  maxNumberOfEventsPerPackage: 20
+  maxTransmissionInterval: 10000
+  maxSerializationInterval: 4000
+  SessionBeginSent: 0
+--- !u!114 &114085455425249491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312155307874972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0ca4ac46084803f784e4e94835cbcd, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  _interstitialAdUnit: 9e009b8632d44668b8dabeb0881a8ce8
+  _videoAdUnit: a77ccab49dc342e6ae3a46b2a26d5dff
+  _bannerAdUnit: a0854061091744a4bd33cefde706b275
+--- !u!114 &114651746028666709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312155307874972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99624c24e04a8dcad91c512354bbe249, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  SchedulerObjTag: {fileID: 0}
+--- !u!114 &114533444776227614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312155307874972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0442d760b93019b01804c3a0ee8f4f24, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+--- !u!114 &114574697931085668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312155307874972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e788219967958b02d6f01c6c05e90c98, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1312155307874972}
+  m_IsPrefabParent: 1

@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1116585820684693
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4696578552796672}
+  - component: {fileID: 114707908557765112}
+  m_Layer: 0
+  m_Name: Roulette_Boyscout@2x
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4696578552796672
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1116585820684693}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114707908557765112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1116585820684693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f28a10f064b0573af11a2e931d98da, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  version: 3
+  materialIdsValid: 1
+  needMaterialInstance: 1
+  spriteDefinitions:
+  - name: Boyscout
+    boundsData:
+    - {x: 0, y: 129.5, z: 0}
+    - {x: 114, y: 259, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 129.5, z: 0}
+    - {x: 114, y: 259, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -57, y: 0, z: 0}
+    - {x: 57, y: 0, z: 0}
+    - {x: -57, y: 259, z: 0}
+    - {x: 57, y: 259, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.016957628, y: 0.007608365}
+    - {x: 0.98304236, y: 0.007608365}
+    - {x: 0.016957628, y: 0.99239165}
+    - {x: 0.98304236, y: 0.99239165}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 973f4e2091d2a7345995d0cf91c0c638, type: 2}
+    materialId: 0
+    sourceTextureGUID: cad8cf4bcf8b14c7a9163f67bd2c45c9
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 1
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd:
+    colliderIndicesBack:
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  premultipliedAlpha: 1
+  material: {fileID: 0}
+  materials:
+  - {fileID: 2100000, guid: 973f4e2091d2a7345995d0cf91c0c638, type: 2}
+  textures: []
+  pngTextures: []
+  streamingTextures:
+  - Assets/StreamingAssets/tk2dTextures/Roulette_Boyscout@2x0.png
+  widthTextures: 76000000
+  heightTextures: 07010000
+  materialPngTextureId: 00000000
+  textureFilterMode: 1
+  textureMipMaps: 0
+  textureLoadAsync: 1
+  allowMultipleAtlases: 0
+  spriteCollectionGUID: 7a4ca83bbc6014d54ae61d7b6a8021fa
+  spriteCollectionName: Roulette_Boyscout@2x
+  assetName:
+  loadable: 0
+  invOrthoSize: 2
+  halfTargetHeight: 0.5
+  buildKey: 2146343417
+  dataGuid: f56d097fec0cb4163914ebf96d1773fc
+  managedSpriteCollection: 1
+  hasPlatformData: 0
+  spriteCollectionPlatforms: []
+  spriteCollectionPlatformGUIDs: []
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1116585820684693}
+  m_IsPrefabParent: 1

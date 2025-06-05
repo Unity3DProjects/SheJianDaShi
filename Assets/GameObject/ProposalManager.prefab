@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1710797163320072
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4379865728069143}
+  - component: {fileID: 114182903908991723}
+  m_Layer: 0
+  m_Name: ProposalManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4379865728069143
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1710797163320072}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114182903908991723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1710797163320072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5294a1643336ca28af9851e42ea62fab, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  minMatchesForInterstitial: 6
+  minMatchesForSpecialEvents: 6
+  delayForForcedCrossPromo: 10
+  minMatchesForRouletteCharacters: 5
+  priceMoreAmmo: 1000
+  priceMoreAmmoInGems: 10
+  missesRemovedOnCoins: 3
+  missesRemovedOnVideo: 3
+  weaponMoreAmmo: 3
+  priceMoreTime: 1000
+  priceMoreTimeInGems: 10
+  secondsMoreTime: 30
+  priceMoreLife: 1000
+  priceMoreLifeInGems: 10
+  percentMoreLife: 50
+  shotsCountAfterMoreLifeWithIndividualHitting: 2
+  minProbabilityAfterMoreLife: 0
+  maxProbabilityAfterMoreLife: 0.5
+  priceMoreLifeTournament: 1000
+  priceMoreLifeTournamentInGems: 10
+  percentMoreLifeTournament: 50
+  priceForSecondFatalityChanseInGems: 10
+  minMatchesRate: 3
+  minMinutesRate: 0
+  minutesBetweenRate: 30
+  minMatchesNoAds: 8
+  minMatchesNoAdsInDay: 3
+  minMatchesFoolishSubscrive: 5
+  minMatchesFoolishSubscribeInDay: 3
+  minutesBetweenFreeVideo: 0
+  matchesBetweenInterstitialResult: 1
+  minutesBetweenInterstitialResult: 0
+  gemsForSaveTournamentPrice: 10
+  minMatchesPromoFetcher: 10
+  minMatchesPromoFetcherInDay: 2
+  countCloseSettingsScreen: 0
+  countCloseAchievementsScreen: 0
+  minutesBetweenTryCharacter: 5
+  matchesBetweenTryCharacter: 5
+  minMatchesForTryCharacter: 9
+  matchesBetweenGeneratedTryCharacter: 5
+  priceForTryCharacter: 500
+  priceForTryCharacterGems: 10
+  minMatchesForPack: 14
+  minutesBetweenPack: 300
+  timerPackDuration: 5400
+  minutesBetweenPackAfterPay: 40
+  timerPackDurationAfterPay: 1800
+  minMatchesForVipPack: 0
+  minSpentBucksForVipPack: 5
+  minMinutesInGameForVipPack: 10
+  minutesBetweenVipPack: 300
+  timerVipPackDuration: 5400
+  minutesBetweenVipPackAfterPay: 40
+  timerVipPackDurationAfterPay: 1800
+  maxPercentBoughtCharactersForVipPack: 0.8
+  minutesBetweenChampionPack: 300
+  minMatchesForChampionPack: 6
+  timerChampionPackDuration: 5400
+  minutesBetweenChampionPackAfterPay: 40
+  timerChampionPackDurationAfterPay: 1800
+  minSpentBucksForChampionPack: 1
+  maxSpentBucksForChampionPack: 4
+  charactersBoughtForChampionUnavailable: 2
+  selfCharactersBoughtForChampionUnavailable: 3
+  minMatchesUpgrade: 6
+  minMinutesInGameForUpgrade: 0
+  minutesBetweenUpgrade: 300
+  matchesForForcedUpgrade: 060000000b00000012000000170000002500000033000000410000004f0000005d0000006b0000007900000087000000
+  timerUpgradeDuration: 5400
+  minutesBetweenUpgradeAfterPay: 40
+  timerUpgradeDurationAfterPay: 1800
+  charactersBoughtForUpgradeUnavailable: 2
+  selfCharactersBoughtForUpgradeUnavailable: 2
+  minMatchesForFreeCoins: 0
+  minutesBetweenFreeCoins: 3
+  coinsGetFreeCoins: 500
+  minutesBetweenDoubleCoins: 300
+  minMatchesForDoubleCoins: 12
+  timerDoubleCoinsDuration: 5400
+  minCoinsForDoubleCoinsResultPopup: 100
+  matchesForForcedDoubleCoins: 080000000d000000100000001e0000002c0000003a00000048000000560000006400000072000000800000008e000000
+  minutesBetweenDoubleCoinsAfterPay: 40
+  timerDoubleCoinsDurationAfterPay: 1800
+  minMatchesForFreeChest: 4
+  freeChestTimerDurations: 5802000008070000100e000040380000
+  freeChestJumpDelay: 2
+  minMatchesForDailyGift: 0
+  secondsBeforeFirstGift: 14400
+  minMatchesForSuperGift: 15
+  menuScreensBetweenCrosspromo: 0
+  giftCharacter: {fileID: 0}
+  minutesBetweenProposalsWithTimer: 40
+  minutesBetweenProposalsWithTimerAfterPay: 15
+  minSpentBucksForNewTimers: 1
+  chanseForShowInviteProposal: 0
+  isWhatsNewAvailable: 1
+  proposalsMenuPriority: 050000000900000001000000030000000a000000080000000600000002000000070000000b000000
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1710797163320072}
+  m_IsPrefabParent: 1

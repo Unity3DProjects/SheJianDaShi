@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1069729720257512
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4875442780229589}
+  - component: {fileID: 114315752189466480}
+  - component: {fileID: 114505571821628516}
+  - component: {fileID: 114546664038004143}
+  m_Layer: 0
+  m_Name: FatalityTurkeys
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4875442780229589
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069729720257512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114315752189466480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069729720257512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e65e653ce3e6ad455e1bbd1a83a1ce, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeWeapon: 78
+  activationType: 7
+  time: 12
+  explodeForce: 0
+  turkeyPrefab: {fileID: 114918178057202842, guid: a35334c567ca97e4fa0f0e5cfef099e3, type: 2}
+  numberOfTurkeys: 8
+  breakProbability: 0.6
+  gutsProbability: 0.1
+  turkeySpawnPoint: {x: 0, y: 1500}
+  turkeyStartVerticalSpeed: -250
+  delayBeforeStart: 2
+  maxDelayBetweenTurkeys: 0.4
+  leftBorder: -2000
+  rightBorder: 2000
+  turkeyFinishOffset: 280
+  biteShakeDuration: 0.5
+  biteShakeAmplitude: 0.6
+  brainLocalPosition: {x: 40, y: -10, z: -20}
+  effectMultiplier: 1
+--- !u!114 &114505571821628516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069729720257512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718e60aba4702e673e43cde15ced9dd9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  explodeEffects: []
+  bloodEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_onHit_Blood_LARGE_Loop
+      assetGUID: 0557e2175f0834c2e8caac93742e407d
+  - characterType: 2
+    effectPrefab:
+      name: FX_onHit_Blood_LARGE_Loop
+      assetGUID: 0557e2175f0834c2e8caac93742e407d
+  - characterType: 3
+    effectPrefab:
+      name: FX_onHit_Blood_LARGE_Loop
+      assetGUID: 0557e2175f0834c2e8caac93742e407d
+  acidEffects: []
+  shockEffects: []
+  fireEffects: []
+  freezeEffects: []
+  brainEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  - characterType: 2
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  - characterType: 3
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  gutsEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  - characterType: 2
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  - characterType: 3
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  fatalityGUICameraEffects: []
+  gutsPrefab: {fileID: 54473800662004282, guid: 527ca4c2b3374e641a2da35da99c84a8, type: 2}
+  brainPrefab: {fileID: 54821432568180659, guid: 4cd6b9d3ef13ba44395f29ee461e3d5f, type: 2}
+  eyePrefab: {fileID: 54280354845134943, guid: 6ae745b91baec0e45bc44d8e685a8215, type: 2}
+  minForceGuts: 700
+  maxForceGuts: 900
+  minForceBrain: 0
+  maxForceBrain: 0
+  minForceEye: 600
+  maxForceEye: 850
+  angularVelosityParts: {x: 0, y: 0, z: -60000}
+--- !u!114 &114546664038004143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069729720257512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName: MaskRemovePartByHitPart
+  decalMethodName: DecalOnBodyX3
+  decalType: 1
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1069729720257512}
+  m_IsPrefabParent: 1

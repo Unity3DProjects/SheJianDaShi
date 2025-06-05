@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1571607910387947
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4666414674332987}
+  - component: {fileID: 114320791598012148}
+  m_Layer: 0
+  m_Name: Trooper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4666414674332987
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1571607910387947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114320791598012148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1571607910387947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f28a10f064b0573af11a2e931d98da, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  version: 3
+  materialIdsValid: 0
+  needMaterialInstance: 0
+  spriteDefinitions: []
+  premultipliedAlpha: 0
+  material: {fileID: 0}
+  materials: []
+  textures: []
+  pngTextures: []
+  streamingTextures: []
+  widthTextures:
+  heightTextures:
+  materialPngTextureId:
+  textureFilterMode: 1
+  textureMipMaps: 0
+  textureLoadAsync: 0
+  allowMultipleAtlases: 0
+  spriteCollectionGUID: ec9e8d83625954640892a6c460915cfe
+  spriteCollectionName: Trooper
+  assetName:
+  loadable: 0
+  invOrthoSize: 1
+  halfTargetHeight: 1
+  buildKey: 0
+  dataGuid: c9561e949accd4aa99704bcc5929a4df
+  managedSpriteCollection: 0
+  hasPlatformData: 1
+  spriteCollectionPlatforms:
+  - 4x
+  - 2x
+  spriteCollectionPlatformGUIDs:
+  - 4bde3d73fe11b4a06b27667f9d5f5f98
+  - 264ad40c2c1404b3eaaa4594914b0ecf
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1571607910387947}
+  m_IsPrefabParent: 1

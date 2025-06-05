@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1221926274102753
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4345644067056623}
+  - component: {fileID: 114946132276409499}
+  - component: {fileID: 114117253721762380}
+  - component: {fileID: 114951218290946618}
+  m_Layer: 0
+  m_Name: FatalitySuiteCase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4345644067056623
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1221926274102753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114946132276409499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1221926274102753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae5da1d79af2769fb3e61700c80299c, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  typeWeapon: 70
+  activationType: 7
+  time: 8
+  explodeForce: 400
+  prefabSatelite: {fileID: 1319746052187289, guid: b7d1a0b46141ac9478147544d1d53f3f, type: 2}
+  spawnPoint: {x: 0, y: 1500}
+  startVerticalSpeed: -1000
+  delayBeforeStart: 6
+  shouldPierceInGround: 1
+  leftAngleVar: 0
+  rightAngleVar: 0
+  characterCollisionSound: medallion_fatality_column_drop
+  createSound:
+  isExplodeCharacterNeeded: 1
+  groundCollisionEffectPrefab:
+    name:
+    assetGUID:
+  trailEffectPrefab:
+    name:
+    assetGUID:
+  isApplyCharacterRagdollNeeded: 1
+  characterBone:
+    boneName:
+    particleEffectPrefab:
+      name:
+      assetGUID:
+  shakeForce: 5
+  fatalityBricksPrefab: {fileID: 0}
+  isDumpedSignVerticalSpeedNeeded: 1
+  fatalitiesBricksPrefabs:
+  - {fileID: 114991440127520873, guid: 5c7568e0099911b4287a8c0cfd877235, type: 2}
+  - {fileID: 114863697388240899, guid: bdfff6f80d0098041a937588e12420c4, type: 2}
+  - {fileID: 114117691217051167, guid: f6c44d8f4b9a63644b69ee28f3856055, type: 2}
+  moneyFlightEffectPrefab:
+    name: FX_Money_flight
+    assetGUID: dfcf59cd30b534a9fa8abba72eb47a25
+  fatalityDelay: 0.8
+  delayBetweenBricks: 0.8
+  moneyEffectHeight: 500
+  effectMultiplier: 8
+--- !u!114 &114117253721762380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1221926274102753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718e60aba4702e673e43cde15ced9dd9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  explodeEffects: []
+  bloodEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  - characterType: 2
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  - characterType: 3
+    effectPrefab:
+      name: FX_Blood_Loop
+      assetGUID: 57cb51ae676fb4360ab377d1c05b59b5
+  acidEffects: []
+  shockEffects: []
+  fireEffects: []
+  freezeEffects: []
+  brainEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  - characterType: 2
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  - characterType: 3
+    effectPrefab:
+      name: FX_BloodExplode_MEDIUM
+      assetGUID: d21c0e754a214471da1acdd526f69071
+  gutsEffects:
+  - characterType: 1
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  - characterType: 2
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  - characterType: 3
+    effectPrefab:
+      name: FX_BloodExplode_LARGE
+      assetGUID: 2014e69a6969d4cf4b14f84769d41e0c
+  fatalityGUICameraEffects: []
+  gutsPrefab: {fileID: 0}
+  brainPrefab: {fileID: 0}
+  eyePrefab: {fileID: 0}
+  minForceGuts: 1000
+  maxForceGuts: 1200
+  minForceBrain: 1000
+  maxForceBrain: 1300
+  minForceEye: 1000
+  maxForceEye: 1400
+  angularVelosityParts: {x: 0, y: 0, z: -60000}
+--- !u!114 &114951218290946618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1221926274102753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd5698f989e729bbc180d717f9083be, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maskMethodName: MaskRemoveAll
+  decalMethodName:
+  decalType: 0
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1221926274102753}
+  m_IsPrefabParent: 1

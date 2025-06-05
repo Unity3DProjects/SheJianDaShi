@@ -1,0 +1,792 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Threading;
+using UnityEngine;
+using tk2dRuntime;
+
+[AddComponentMenu("2D Toolkit/Backend/tk2dBaseSprite")]
+public abstract class tk2dBaseSprite : tk2dBaseMesh, ISpriteCollectionForceBuild
+{
+	public enum Anchor
+	{
+		LowerLeft = 0,
+		LowerCenter = 1,
+		LowerRight = 2,
+		MiddleLeft = 3,
+		MiddleCenter = 4,
+		MiddleRight = 5,
+		UpperLeft = 6,
+		UpperCenter = 7,
+		UpperRight = 8
+	}
+
+	[SerializeField]
+	private tk2dSpriteCollectionData collection;
+
+	private tk2dSpriteCollectionData collectionInst;
+
+	[SerializeField]
+	protected Color _color = Color.white;
+
+	[SerializeField]
+	protected Vector3 _scale = new Vector3(1f, 1f, 1f);
+
+	[SerializeField]
+	protected int _spriteId;
+
+	public BoxCollider2D boxCollider2D;
+
+	public List<PolygonCollider2D> polygonCollider2D = new List<PolygonCollider2D>(1);
+
+	public List<EdgeCollider2D> edgeCollider2D = new List<EdgeCollider2D>(1);
+
+	public BoxCollider boxCollider;
+
+	public MeshCollider meshCollider;
+
+	public Vector3[] meshColliderPositions;
+
+	public Mesh meshColliderMesh;
+
+	public bool isLayoutSizeLocked;
+
+	[CompilerGenerated]
+	[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+	private Action<tk2dBaseSprite> m_SpriteChanged;
+
+	[SerializeField]
+	protected int renderLayer;
+
+	public tk2dSpriteCollectionData Collection
+	{
+		get
+		{
+			return collection;
+		}
+		set
+		{
+			collection = value;
+			if ((bool)collection)
+			{
+				collectionInst = collection.inst;
+			}
+		}
+	}
+
+	protected tk2dSpriteCollectionData CollectionInst
+	{
+		get
+		{
+			if (collectionInst == null && collection != null)
+			{
+				collectionInst = collection.inst;
+			}
+			return collectionInst;
+		}
+	}
+
+	public Color color
+	{
+		get
+		{
+			return _color;
+		}
+		set
+		{
+			if (value != _color)
+			{
+				_color = value;
+				UpdateColors();
+			}
+		}
+	}
+
+	public Vector3 scale
+	{
+		get
+		{
+			return _scale;
+		}
+		set
+		{
+			if (value != _scale)
+			{
+				_scale = value;
+				UpdateVertices();
+				UpdateCollider();
+				if (this.SpriteChanged != null)
+				{
+					this.SpriteChanged(this);
+				}
+			}
+		}
+	}
+
+	public int SortingOrder
+	{
+		get
+		{
+			return base.CachedRenderer.sortingOrder;
+		}
+		set
+		{
+			if (base.CachedRenderer.sortingOrder != value)
+			{
+				renderLayer = value;
+				base.CachedRenderer.sortingOrder = value;
+			}
+		}
+	}
+
+	public bool FlipX
+	{
+		get
+		{
+			return _scale.x < 0f;
+		}
+		set
+		{
+			scale = new Vector3(Mathf.Abs(_scale.x) * (float)((!value) ? 1 : (-1)), _scale.y, _scale.z);
+		}
+	}
+
+	public bool FlipY
+	{
+		get
+		{
+			return _scale.y < 0f;
+		}
+		set
+		{
+			scale = new Vector3(_scale.x, Mathf.Abs(_scale.y) * (float)((!value) ? 1 : (-1)), _scale.z);
+		}
+	}
+
+	public int spriteId
+	{
+		get
+		{
+			return _spriteId;
+		}
+		set
+		{
+			if (value != _spriteId)
+			{
+				value = Mathf.Clamp(value, 0, CollectionInst.spriteDefinitions.Length - 1);
+				if (_spriteId < 0 || _spriteId >= CollectionInst.spriteDefinitions.Length || GetCurrentVertexCount() != CollectionInst.spriteDefinitions[value].positions.Length || CollectionInst.spriteDefinitions[_spriteId].complexGeometry != CollectionInst.spriteDefinitions[value].complexGeometry)
+				{
+					_spriteId = value;
+					UpdateGeometry();
+				}
+				else
+				{
+					_spriteId = value;
+					UpdateVertices();
+				}
+				UpdateMaterial();
+				UpdateCollider();
+				if (this.SpriteChanged != null)
+				{
+					this.SpriteChanged(this);
+				}
+			}
+		}
+	}
+
+	public tk2dSpriteDefinition CurrentSprite
+	{
+		get
+		{
+			return (!(CollectionInst == null)) ? CollectionInst.spriteDefinitions[_spriteId] : null;
+		}
+	}
+
+	public event Action<tk2dBaseSprite> SpriteChanged
+	{
+		add
+		{
+			Action<tk2dBaseSprite> action = this.m_SpriteChanged;
+			Action<tk2dBaseSprite> action2;
+			do
+			{
+				action2 = action;
+				action = Interlocked.CompareExchange(ref this.m_SpriteChanged, (Action<tk2dBaseSprite>)Delegate.Combine(action2, value), action);
+			}
+			while (action != action2);
+		}
+		remove
+		{
+			Action<tk2dBaseSprite> action = this.m_SpriteChanged;
+			Action<tk2dBaseSprite> action2;
+			do
+			{
+				action2 = action;
+				action = Interlocked.CompareExchange(ref this.m_SpriteChanged, (Action<tk2dBaseSprite>)Delegate.Remove(action2, value), action);
+			}
+			while (action != action2);
+		}
+	}
+
+	public void SetSprite(int newSpriteId)
+	{
+		spriteId = newSpriteId;
+	}
+
+	public bool SetSprite(string spriteName)
+	{
+		int spriteIdByName = collection.GetSpriteIdByName(spriteName, -1);
+		if (spriteIdByName != -1)
+		{
+			SetSprite(spriteIdByName);
+		}
+		else
+		{
+			CustomDebug.LogError("SetSprite - Sprite not found in collection: " + spriteName);
+		}
+		return spriteIdByName != -1;
+	}
+
+	public void SetSprite(tk2dSpriteCollectionData newCollection, int newSpriteId)
+	{
+		bool flag = false;
+		if (Collection != newCollection)
+		{
+			Collection.RemoveRetain(this);
+			newCollection.AddRetain(this);
+			Collection = newCollection;
+			_spriteId = -1;
+			flag = true;
+		}
+		spriteId = newSpriteId;
+		if (flag)
+		{
+			UpdateMaterial();
+		}
+	}
+
+	public bool SetSprite(tk2dSpriteCollectionData newCollection, string spriteName)
+	{
+		int spriteIdByName = newCollection.GetSpriteIdByName(spriteName, -1);
+		if (spriteIdByName != -1)
+		{
+			SetSprite(newCollection, spriteIdByName);
+		}
+		else
+		{
+			CustomDebug.LogError("SetSprite - Sprite not found in collection: " + spriteName);
+		}
+		return spriteIdByName != -1;
+	}
+
+	public void MakePixelPerfect()
+	{
+		float num = 1f;
+		tk2dCamera tk2dCamera2 = tk2dCamera.CameraForLayer(base.gameObject.layer);
+		if (tk2dCamera2 != null)
+		{
+			if (Collection.version < 2)
+			{
+				CustomDebug.LogError("Need to rebuild sprite collection.");
+			}
+			float distance = base.transform.position.z - tk2dCamera2.transform.position.z;
+			float num2 = Collection.invOrthoSize * Collection.halfTargetHeight;
+			num = tk2dCamera2.GetSizeAtDistance(distance) * num2;
+		}
+		else if ((bool)Camera.main)
+		{
+			if (Camera.main.orthographic)
+			{
+				num = Camera.main.orthographicSize;
+			}
+			else
+			{
+				float zdist = base.transform.position.z - Camera.main.transform.position.z;
+				num = tk2dPixelPerfectHelper.CalculateScaleForPerspectiveCamera(Camera.main.fieldOfView, zdist);
+			}
+			num *= Collection.invOrthoSize;
+		}
+		else
+		{
+			CustomDebug.LogError("Main camera not found.");
+		}
+		scale = new Vector3(Mathf.Sign(scale.x) * num, Mathf.Sign(scale.y) * num, Mathf.Sign(scale.z) * num);
+	}
+
+	protected abstract int GetCurrentVertexCount();
+
+	protected abstract void UpdateColors();
+
+	protected abstract void UpdateVertices();
+
+	protected abstract void UpdateGeometry();
+
+	protected abstract void UpdateMaterial();
+
+	protected override void RoundShiftChanged()
+	{
+		UpdateVertices();
+	}
+
+	protected Vector3 FloorVertex(Vector3 vertex)
+	{
+		return vertex.FloorVector() - base.TotalShift;
+	}
+
+	protected Vector3 RoundVertex(Vector3 vertex)
+	{
+		return vertex.RoundVector() - base.TotalShift;
+	}
+
+	public abstract void Build();
+
+	public int GetSpriteIdByName(string name)
+	{
+		return CollectionInst.GetSpriteIdByName(name);
+	}
+
+	public static T AddComponent<T>(GameObject go, tk2dSpriteCollectionData spriteCollection, int spriteId) where T : tk2dBaseSprite
+	{
+		T val = go.AddComponent<T>();
+		val._spriteId = -1;
+		val.SetSprite(spriteCollection, spriteId);
+		val.Build();
+		return val;
+	}
+
+	public static T AddComponent<T>(GameObject go, tk2dSpriteCollectionData spriteCollection, string spriteName) where T : tk2dBaseSprite
+	{
+		int spriteIdByName = spriteCollection.GetSpriteIdByName(spriteName, -1);
+		if (spriteIdByName == -1)
+		{
+			CustomDebug.LogError(string.Format("Unable to find sprite named {0} in sprite collection {1}", spriteName, spriteCollection.spriteCollectionName));
+			return (T)null;
+		}
+		return AddComponent<T>(go, spriteCollection, spriteIdByName);
+	}
+
+	protected int GetNumVertices()
+	{
+		return CurrentSprite.positions.Length;
+	}
+
+	protected int GetNumIndices()
+	{
+		return CurrentSprite.indices.Length;
+	}
+
+	protected void SetPositions(Vector3[] positions, Vector3[] normals, Vector4[] tangents)
+	{
+		tk2dSpriteDefinition currentSprite = CurrentSprite;
+		int numVertices = GetNumVertices();
+		for (int i = 0; i < numVertices; i++)
+		{
+			positions[i].x = currentSprite.positions[i].x * _scale.x;
+			positions[i].y = currentSprite.positions[i].y * _scale.y;
+			positions[i].z = currentSprite.positions[i].z * _scale.z;
+			if (!isRoundShiftDisabled)
+			{
+				positions[i] = FloorVertex(positions[i]);
+			}
+		}
+		if (normals.Length > 0)
+		{
+			for (int j = 0; j < numVertices; j++)
+			{
+				normals[j] = currentSprite.normals[j];
+			}
+		}
+		if (tangents.Length > 0)
+		{
+			for (int k = 0; k < numVertices; k++)
+			{
+				tangents[k] = currentSprite.tangents[k];
+			}
+		}
+	}
+
+	protected void SetColors(Color32[] dest)
+	{
+		Color color = _color;
+		if (CollectionInst.premultipliedAlpha)
+		{
+			color.r *= color.a;
+			color.g *= color.a;
+			color.b *= color.a;
+		}
+		Color32 color2 = color;
+		int numVertices = GetNumVertices();
+		for (int i = 0; i < numVertices; i++)
+		{
+			dest[i] = color2;
+		}
+	}
+
+	public Bounds GetBounds()
+	{
+		tk2dSpriteDefinition currentSprite = CurrentSprite;
+		return new Bounds(new Vector3(currentSprite.boundsData[0].x * _scale.x, currentSprite.boundsData[0].y * _scale.y, currentSprite.boundsData[0].z * _scale.z), new Vector3(currentSprite.boundsData[1].x * Mathf.Abs(_scale.x), currentSprite.boundsData[1].y * Mathf.Abs(_scale.y), currentSprite.boundsData[1].z * Mathf.Abs(_scale.z)));
+	}
+
+	public Bounds GetUntrimmedBounds()
+	{
+		tk2dSpriteDefinition currentSprite = CurrentSprite;
+		return (currentSprite == null) ? default(Bounds) : new Bounds(new Vector3(currentSprite.untrimmedBoundsData[0].x * _scale.x, currentSprite.untrimmedBoundsData[0].y * _scale.y, currentSprite.untrimmedBoundsData[0].z * _scale.z), new Vector3(currentSprite.untrimmedBoundsData[1].x * Mathf.Abs(_scale.x), currentSprite.untrimmedBoundsData[1].y * Mathf.Abs(_scale.y), currentSprite.untrimmedBoundsData[1].z * Mathf.Abs(_scale.z)));
+	}
+
+	public static Bounds AdjustedMeshBounds(Bounds bounds, int renderLayer)
+	{
+		Vector3 center = bounds.center;
+		center.z = (float)(-renderLayer) * 0.01f;
+		bounds.center = center;
+		return bounds;
+	}
+
+	public virtual void ReshapeBounds(Vector3 dMin, Vector3 dMax)
+	{
+	}
+
+	protected virtual bool NeedBoxCollider()
+	{
+		return false;
+	}
+
+	protected virtual void UpdateCollider()
+	{
+		tk2dSpriteDefinition currentSprite = CurrentSprite;
+		if (currentSprite.physicsEngine == tk2dSpriteDefinition.PhysicsEngine.Physics3D)
+		{
+			if (currentSprite.colliderType == tk2dSpriteDefinition.ColliderType.Box && boxCollider == null)
+			{
+				boxCollider = base.gameObject.GetComponent<BoxCollider>();
+				if (boxCollider == null)
+				{
+					boxCollider = base.gameObject.AddComponent<BoxCollider>();
+				}
+			}
+			if (boxCollider != null)
+			{
+				if (currentSprite.colliderType == tk2dSpriteDefinition.ColliderType.Box)
+				{
+					boxCollider.center = new Vector3(currentSprite.colliderVertices[0].x * _scale.x, currentSprite.colliderVertices[0].y * _scale.y, currentSprite.colliderVertices[0].z * _scale.z);
+					boxCollider.size = new Vector3(2f * currentSprite.colliderVertices[1].x * _scale.x, 2f * currentSprite.colliderVertices[1].y * _scale.y, 2f * currentSprite.colliderVertices[1].z * _scale.z);
+				}
+				else if (currentSprite.colliderType != tk2dSpriteDefinition.ColliderType.Unset && boxCollider != null)
+				{
+					boxCollider.center = new Vector3(0f, 0f, -100000f);
+					boxCollider.size = Vector3.zero;
+				}
+			}
+		}
+		else
+		{
+			if (currentSprite.physicsEngine != tk2dSpriteDefinition.PhysicsEngine.Physics2D)
+			{
+				return;
+			}
+			if (currentSprite.colliderType == tk2dSpriteDefinition.ColliderType.Box)
+			{
+				if (boxCollider2D == null)
+				{
+					boxCollider2D = base.gameObject.GetComponent<BoxCollider2D>();
+					if (boxCollider2D == null)
+					{
+						boxCollider2D = base.gameObject.AddComponent<BoxCollider2D>();
+					}
+				}
+				if (polygonCollider2D.Count > 0)
+				{
+					foreach (PolygonCollider2D item in polygonCollider2D)
+					{
+						if (item != null && item.enabled)
+						{
+							item.enabled = false;
+						}
+					}
+				}
+				if (edgeCollider2D.Count > 0)
+				{
+					foreach (EdgeCollider2D item2 in edgeCollider2D)
+					{
+						if (item2 != null && item2.enabled)
+						{
+							item2.enabled = false;
+						}
+					}
+				}
+				if (!boxCollider2D.enabled)
+				{
+					boxCollider2D.enabled = true;
+				}
+				boxCollider2D.offset = new Vector2(currentSprite.colliderVertices[0].x * _scale.x, currentSprite.colliderVertices[0].y * _scale.y);
+				boxCollider2D.size = new Vector2(Mathf.Abs(2f * currentSprite.colliderVertices[1].x * _scale.x), Mathf.Abs(2f * currentSprite.colliderVertices[1].y * _scale.y));
+			}
+			else if (currentSprite.colliderType == tk2dSpriteDefinition.ColliderType.Mesh)
+			{
+				if (boxCollider2D != null && boxCollider2D.enabled)
+				{
+					boxCollider2D.enabled = false;
+				}
+				int num = currentSprite.polygonCollider2D.Length;
+				for (int i = 0; i < polygonCollider2D.Count; i++)
+				{
+					if (polygonCollider2D[i] == null)
+					{
+						polygonCollider2D[i] = base.gameObject.AddComponent<PolygonCollider2D>();
+					}
+				}
+				while (polygonCollider2D.Count < num)
+				{
+					polygonCollider2D.Add(base.gameObject.AddComponent<PolygonCollider2D>());
+				}
+				for (int j = 0; j < num; j++)
+				{
+					if (!polygonCollider2D[j].enabled)
+					{
+						polygonCollider2D[j].enabled = true;
+					}
+					if (_scale.x != 1f || _scale.y != 1f)
+					{
+						Vector2[] points = currentSprite.polygonCollider2D[j].points;
+						Vector2[] array = new Vector2[points.Length];
+						for (int k = 0; k < points.Length; k++)
+						{
+							array[k] = Vector2.Scale(points[k], _scale);
+						}
+						polygonCollider2D[j].points = array;
+					}
+					else
+					{
+						polygonCollider2D[j].points = currentSprite.polygonCollider2D[j].points;
+					}
+				}
+				for (int l = num; l < polygonCollider2D.Count; l++)
+				{
+					if (polygonCollider2D[l].enabled)
+					{
+						polygonCollider2D[l].enabled = false;
+					}
+				}
+				int num2 = currentSprite.edgeCollider2D.Length;
+				for (int m = 0; m < edgeCollider2D.Count; m++)
+				{
+					if (edgeCollider2D[m] == null)
+					{
+						edgeCollider2D[m] = base.gameObject.AddComponent<EdgeCollider2D>();
+					}
+				}
+				while (edgeCollider2D.Count < num2)
+				{
+					edgeCollider2D.Add(base.gameObject.AddComponent<EdgeCollider2D>());
+				}
+				for (int n = 0; n < num2; n++)
+				{
+					if (!edgeCollider2D[n].enabled)
+					{
+						edgeCollider2D[n].enabled = true;
+					}
+					if (_scale.x != 1f || _scale.y != 1f)
+					{
+						Vector2[] points2 = currentSprite.edgeCollider2D[n].points;
+						Vector2[] array2 = new Vector2[points2.Length];
+						for (int num3 = 0; num3 < points2.Length; num3++)
+						{
+							array2[num3] = Vector2.Scale(points2[num3], _scale);
+						}
+						edgeCollider2D[n].points = array2;
+					}
+					else
+					{
+						edgeCollider2D[n].points = currentSprite.edgeCollider2D[n].points;
+					}
+				}
+				for (int num4 = num2; num4 < edgeCollider2D.Count; num4++)
+				{
+					if (edgeCollider2D[num4].enabled)
+					{
+						edgeCollider2D[num4].enabled = false;
+					}
+				}
+			}
+			else
+			{
+				if (currentSprite.colliderType != tk2dSpriteDefinition.ColliderType.None)
+				{
+					return;
+				}
+				if (boxCollider2D != null && boxCollider2D.enabled)
+				{
+					boxCollider2D.enabled = false;
+				}
+				if (polygonCollider2D.Count > 0)
+				{
+					foreach (PolygonCollider2D item3 in polygonCollider2D)
+					{
+						if (item3 != null && item3.enabled)
+						{
+							item3.enabled = false;
+						}
+					}
+				}
+				if (edgeCollider2D.Count <= 0)
+				{
+					return;
+				}
+				foreach (EdgeCollider2D item4 in edgeCollider2D)
+				{
+					if (item4 != null && item4.enabled)
+					{
+						item4.enabled = false;
+					}
+				}
+			}
+		}
+	}
+
+	protected virtual void CreateCollider()
+	{
+		tk2dSpriteDefinition currentSprite = CurrentSprite;
+		if (currentSprite.colliderType == tk2dSpriteDefinition.ColliderType.Unset)
+		{
+			return;
+		}
+		if (currentSprite.physicsEngine == tk2dSpriteDefinition.PhysicsEngine.Physics3D)
+		{
+			if (GetComponent<Collider>() != null)
+			{
+				boxCollider = GetComponent<BoxCollider>();
+				meshCollider = GetComponent<MeshCollider>();
+			}
+			if ((NeedBoxCollider() || currentSprite.colliderType == tk2dSpriteDefinition.ColliderType.Box) && meshCollider == null)
+			{
+				if (boxCollider == null)
+				{
+					boxCollider = base.gameObject.AddComponent<BoxCollider>();
+				}
+			}
+			else if (currentSprite.colliderType == tk2dSpriteDefinition.ColliderType.Mesh && boxCollider == null)
+			{
+				if (meshCollider == null)
+				{
+					meshCollider = base.gameObject.AddComponent<MeshCollider>();
+				}
+				if (meshColliderMesh == null)
+				{
+					meshColliderMesh = new Mesh();
+				}
+				meshColliderMesh.Clear();
+				meshColliderPositions = new Vector3[currentSprite.colliderVertices.Length];
+				for (int i = 0; i < meshColliderPositions.Length; i++)
+				{
+					meshColliderPositions[i] = new Vector3(currentSprite.colliderVertices[i].x * _scale.x, currentSprite.colliderVertices[i].y * _scale.y, currentSprite.colliderVertices[i].z * _scale.z);
+				}
+				meshColliderMesh.vertices = meshColliderPositions;
+				float num = _scale.x * _scale.y * _scale.z;
+				meshColliderMesh.triangles = ((!(num >= 0f)) ? currentSprite.colliderIndicesBack : currentSprite.colliderIndicesFwd);
+				meshCollider.sharedMesh = meshColliderMesh;
+				meshCollider.convex = currentSprite.colliderConvex;
+				if ((bool)GetComponent<Rigidbody>())
+				{
+					GetComponent<Rigidbody>().centerOfMass = Vector3.zero;
+				}
+			}
+			else if (currentSprite.colliderType != tk2dSpriteDefinition.ColliderType.None && Application.isPlaying)
+			{
+				CustomDebug.LogError("Invalid mesh collider on sprite '" + base.name + "', please remove and try again.");
+			}
+			UpdateCollider();
+		}
+		else if (currentSprite.physicsEngine == tk2dSpriteDefinition.PhysicsEngine.Physics2D)
+		{
+			UpdateCollider();
+		}
+	}
+
+	protected void Awake()
+	{
+		base.CachedRenderer.sortingOrder = renderLayer;
+		Collection.AddRetain(this);
+	}
+
+	private void OnEnable()
+	{
+	}
+
+	protected override void OnDestroy()
+	{
+		Collection.RemoveRetain(this);
+		base.OnDestroy();
+		if ((bool)meshColliderMesh)
+		{
+			UnityEngine.Object.Destroy(meshColliderMesh);
+		}
+	}
+
+	public void CreateSimpleBoxCollider()
+	{
+		if (CurrentSprite == null)
+		{
+			return;
+		}
+		if (CurrentSprite.physicsEngine == tk2dSpriteDefinition.PhysicsEngine.Physics3D)
+		{
+			boxCollider2D = GetComponent<BoxCollider2D>();
+			if (boxCollider2D != null)
+			{
+				UnityEngine.Object.DestroyImmediate(boxCollider2D, true);
+			}
+			boxCollider = GetComponent<BoxCollider>();
+			if (boxCollider == null)
+			{
+				boxCollider = base.gameObject.AddComponent<BoxCollider>();
+			}
+		}
+		else if (CurrentSprite.physicsEngine == tk2dSpriteDefinition.PhysicsEngine.Physics2D)
+		{
+			boxCollider = GetComponent<BoxCollider>();
+			if (boxCollider != null)
+			{
+				UnityEngine.Object.DestroyImmediate(boxCollider, true);
+			}
+			boxCollider2D = GetComponent<BoxCollider2D>();
+			if (boxCollider2D == null)
+			{
+				boxCollider2D = base.gameObject.AddComponent<BoxCollider2D>();
+			}
+		}
+	}
+
+	public bool UsesSpriteCollection(tk2dSpriteCollectionData spriteCollection)
+	{
+		return Collection == spriteCollection;
+	}
+
+	public virtual void ForceBuild()
+	{
+		if (!(collection == null))
+		{
+			if (spriteId < 0 || spriteId >= CollectionInst.spriteDefinitions.Length)
+			{
+				spriteId = 0;
+			}
+			Build();
+			if (this.SpriteChanged != null)
+			{
+				this.SpriteChanged(this);
+			}
+		}
+	}
+
+	public static GameObject CreateFromTexture<T>(Texture texture, tk2dSpriteCollectionSize size, Rect region, Vector2 anchor) where T : tk2dBaseSprite
+	{
+		tk2dSpriteCollectionData tk2dSpriteCollectionData2 = SpriteCollectionGenerator.CreateFromTexture(texture, size, region, anchor);
+		if (tk2dSpriteCollectionData2 == null)
+		{
+			return null;
+		}
+		GameObject gameObject = new GameObject();
+		AddComponent<T>(gameObject, tk2dSpriteCollectionData2, 0);
+		return gameObject;
+	}
+}

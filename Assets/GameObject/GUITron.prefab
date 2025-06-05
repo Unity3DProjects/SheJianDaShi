@@ -1,0 +1,254 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1464127057527519
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4088189692908929}
+  - component: {fileID: 114439808563039733}
+  m_Layer: 5
+  m_Name: GUITron
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1177490525754306
+GameObject:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - component: {fileID: 4249859627383761}
+  - component: {fileID: 33083116092395658}
+  - component: {fileID: 23126318024849756}
+  - component: {fileID: 114302246586804167}
+  - component: {fileID: 114420483372023593}
+  - component: {fileID: 114344455378885001}
+  m_Layer: 5
+  m_Name: Animation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4088189692908929
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1464127057527519}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1921.1768, y: -942.4277, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4249859627383761}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114439808563039733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1464127057527519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094fe6d4acbff1276b9db91386b1cea6, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  characterNameTypes: 39000000
+  crownSpritePrefab: {fileID: 114870405514372657, guid: 1fa46f6cebf71174dbd2f3db5a5e452d, type: 2}
+  upgradeCrownSpritePrefab: {fileID: 0}
+  iconShop: {fileID: 114706355966544625, guid: d99deb55c94c3944caac58e4ad56c5ec, type: 2}
+  iconShopName: icon_tron_guy
+  iconPopupName:
+  checkSprite: {fileID: 114017791878048019, guid: eab0abe7390fed0439b8926d1cd3e4eb, type: 2}
+  circleSprite: {fileID: 114675556662238222, guid: 944ddc4d387e17e4585fde05f8c82fa1, type: 2}
+  newSprite: {fileID: 114878012670621328, guid: c1de7633c0ccc14469a55b97dd6a0643, type: 2}
+  freeSprite: {fileID: 114038236273094668, guid: 37ebf916a6908854d8b83cec03e29bdf, type: 2}
+  vipSprite: {fileID: 114079819392900509, guid: 8b6f804dd26ecfe488253a88e4d43b68, type: 2}
+  choiceFirstSprite: {fileID: 114495185814020359, guid: 60228a225fa79e24caf7feee7991a660, type: 2}
+  choiceSecondSprite: {fileID: 114777591530063991, guid: b09dc352775810c4684b8a2bbcee0536, type: 2}
+  choiceFirstAndSecondSprite: {fileID: 114982618658729250, guid: dc078a7620189844cb0af6dfdc28f6f9, type: 2}
+  scaleCircle:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  iconAvatarName: avatar_tron_guy
+  weaponIconName: icon_disk
+  animationSkeleton: {fileID: 114302246586804167}
+  dataAssetSkeleton: {fileID: 0}
+  characterMode: 0
+  animationIconChoose: {fileID: 114109854114083908, guid: 98d0f5787e566bc44b57d32fe8308ab3, type: 2}
+  spriteCollectionsData:
+  - {fileID: 114345322765277237, guid: 1d86591a940edde45a8d0322717d942e, type: 2}
+  multipleCharacterData: []
+  rouletteSpriteCollectionsData: {fileID: 114357569657689521, guid: bdd228a9d2c547e4bbfa9ced50aa3ed4, type: 2}
+  rouletteSpriteName: TronGuy
+--- !u!4 &4249859627383761
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177490525754306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4088189692908929}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!33 &33083116092395658
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177490525754306}
+  m_Mesh: {fileID: 0}
+--- !u!23 &23126318024849756
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177490525754306}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1998679653
+  m_SortingLayer: 3
+  m_SortingOrder: -10
+--- !u!114 &114302246586804167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177490525754306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd0bd37fc49838d7a3dde5ae4c5a9c6a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  skeletonDataAsset: {fileID: 11400000, guid: 11489310c06ee6941b2f8fe178c0d683, type: 2}
+  initialSkinName: default
+  calculateNormals: 0
+  calculateTangents: 0
+  zSpacing: 0.1
+  renderMeshes: 1
+  immutableTriangles: 0
+  frontFacing: 0
+  logErrors: 0
+  submeshSeparators: []
+  timeScale: 1
+  loop: 1
+  ignoreMonoUpdate: 0
+  _animationName: idle
+--- !u!114 &114420483372023593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177490525754306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a8d89a4e36b8a48dce5769019fc772, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  skeletonAnimation: {fileID: 114302246586804167}
+  bodyTransform: {fileID: 0}
+--- !u!114 &114344455378885001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177490525754306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6245cfe74150be2083258d432199a6f8, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  backgroundIdleEffect:
+    name: FX_Tron_Idle_GUI
+    assetGUID: 0e12dd31cd9fb4e64b3669982faddb03
+  rightArmEffect:
+    name:
+    assetGUID:
+  rightArmByEventEffect:
+    name:
+    assetGUID:
+  rightArmByEventSecondEffect:
+    name:
+    assetGUID:
+  broomEffect:
+    name:
+    assetGUID:
+  broomSplashEffect:
+    name:
+    assetGUID:
+  hammerIdleEffect:
+    name:
+    assetGUID:
+  skullIdleEffect:
+    name:
+    assetGUID:
+  isUnflippedWithScale: 0
+  isBodyUnavailable: 0
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1464127057527519}
+  m_IsPrefabParent: 1
