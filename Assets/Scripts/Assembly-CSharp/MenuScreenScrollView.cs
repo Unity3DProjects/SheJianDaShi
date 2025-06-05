@@ -341,10 +341,7 @@ public class MenuScreenScrollView : GUIScreen
 			if (isCharactersInitialized != value)
 			{
 				isCharactersInitialized = value;
-				if (MenuScreenScrollView.OnCharactersInitialized != null)
-				{
-					MenuScreenScrollView.OnCharactersInitialized(value);
-				}
+				MenuScreenScrollView.m_OnCharactersInitialized?.Invoke(value);
 			}
 		}
 	}
@@ -2213,10 +2210,7 @@ public class MenuScreenScrollView : GUIScreen
 				{
 					firstGUICharacter.StartSpecialIdleAnimations(true, true);
 				}
-				if (MenuScreenScrollView.OnSetPhase != null)
-				{
-					MenuScreenScrollView.OnSetPhase(MenuPhase.Second);
-				}
+				MenuScreenScrollView.m_OnSetPhase?.Invoke(MenuPhase.Second);
 			}
 			else if (base.CachedManagers.CachedGameManager.CurrentGameType == GameType.Multiplayer)
 			{
@@ -2249,10 +2243,7 @@ public class MenuScreenScrollView : GUIScreen
 							tk2dUIItem3.enabled = true;
 						}
 					}
-					if (MenuScreenScrollView.OnDeleteMultiplayerChosenSprites != null)
-					{
-						MenuScreenScrollView.OnDeleteMultiplayerChosenSprites();
-					}
+					MenuScreenScrollView.m_OnDeleteMultiplayerChosenSprites?.Invoke();
 				}
 			}
 			else

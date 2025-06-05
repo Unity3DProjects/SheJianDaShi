@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using AOT;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public sealed class LLSupersonicManager
 {
@@ -337,75 +338,51 @@ public sealed class LLSupersonicManager
 	public static void InterstitialDidLoad(bool result)
 	{
 		Debug.Log("Interstitial loaded = " + result);
-		if (LLSupersonicManager.OnSupersonicInterstitialInitialized != null)
-		{
-			LLSupersonicManager.OnSupersonicInterstitialInitialized(result);
-		}
+		LLSupersonicManager.m_OnSupersonicInterstitialInitialized?.Invoke(result);
 	}
 
 	[MonoPInvokeCallback(typeof(LLSupersonicNativeDelegateStatus))]
 	public static void InterstitialDidPresent(bool result)
 	{
-		if (LLSupersonicManager.OnSupersonicInterstitialShow != null)
-		{
-			LLSupersonicManager.OnSupersonicInterstitialShow(result);
-		}
+		LLSupersonicManager.m_OnSupersonicInterstitialShow?.Invoke(result);
 	}
 
 	[MonoPInvokeCallback(typeof(LLSupersonicNativeDelegate))]
 	public static void InterstitialDidDismiss()
 	{
-		if (LLSupersonicManager.OnSupersonicInterstitialFinish != null)
-		{
-			LLSupersonicManager.OnSupersonicInterstitialFinish();
-		}
+		LLSupersonicManager.m_OnSupersonicInterstitialFinish?.Invoke();
 	}
 
 	[MonoPInvokeCallback(typeof(LLSupersonicNativeDelegate))]
 	private static void InterstitialClicked()
 	{
-		if (LLSupersonicManager.OnSupersonicInterstitialClicked != null)
-		{
-			LLSupersonicManager.OnSupersonicInterstitialClicked();
-		}
+		LLSupersonicManager.m_OnSupersonicInterstitialClicked?.Invoke();
 	}
 
 	[MonoPInvokeCallback(typeof(LLSupersonicNativeDelegateStatus))]
 	public static void VideoDidLoad(bool result)
 	{
 		Debug.Log("Video loaded = " + result);
-		if (LLSupersonicManager.OnSupersonicVideoInitialized != null)
-		{
-			LLSupersonicManager.OnSupersonicVideoInitialized(result);
-		}
+		LLSupersonicManager.m_OnSupersonicVideoInitialized?.Invoke(result);
 	}
 
 	[MonoPInvokeCallback(typeof(LLSupersonicNativeDelegateStatus))]
 	public static void VideoDidDismiss(bool result)
 	{
 		Debug.Log("Video closed" + result);
-		if (LLSupersonicManager.OnSupersonicVideoFinish != null)
-		{
-			LLSupersonicManager.OnSupersonicVideoFinish(result);
-		}
+		LLSupersonicManager.m_OnSupersonicVideoFinish?.Invoke(result);
 	}
 
 	[MonoPInvokeCallback(typeof(LLSupersonicNativeDelegateStatus))]
 	public static void VideoDidPresent(bool result)
 	{
-		if (LLSupersonicManager.OnSupersonicVideoShow != null)
-		{
-			LLSupersonicManager.OnSupersonicVideoShow(result);
-		}
+		LLSupersonicManager.m_OnSupersonicVideoShow?.Invoke(result);
 	}
 
 	[MonoPInvokeCallback(typeof(LLSupersonicNativeDelegateLoad))]
 	private static void BannerDidLoad(string errorText)
 	{
 		CustomDebug.LogFormat("BannerDidLoad error = {0}", errorText);
-		if (LLSupersonicManager.OnSupersonicBannerDidLoad != null)
-		{
-			LLSupersonicManager.OnSupersonicBannerDidLoad(errorText);
-		}
+		LLSupersonicManager.m_OnSupersonicBannerDidLoad?.Invoke(errorText);
 	}
 }

@@ -176,10 +176,7 @@ public class TrashCar : Vehicle
 			isFirstCollided = true;
 			frontCollider.enabled = false;
 			backCollider.enabled = true;
-			if (TrashCar.OnFrontCollide != null)
-			{
-				TrashCar.OnFrontCollide();
-			}
+			TrashCar.m_OnFrontCollide?.Invoke();
 			trashCarAnimation.State.SetAnimation(0, CachedFatalityStrikeAnimation, false);
 			if (bloodEffect == null && bloodEffectPrefab != null && !string.IsNullOrEmpty(bloodEffectPrefab.assetGUID))
 			{
@@ -198,10 +195,7 @@ public class TrashCar : Vehicle
 		{
 			frontCollider.enabled = false;
 			backCollider.enabled = false;
-			if (TrashCar.OnBackCollide != null)
-			{
-				TrashCar.OnBackCollide();
-			}
+			TrashCar.m_OnBackCollide?.Invoke();
 			if (crashEffect == null && crashEffectPrefab != null && !string.IsNullOrEmpty(crashEffectPrefab.assetGUID))
 			{
 				crashEffect = (GameObject)crashEffectPrefab.GetInstance();

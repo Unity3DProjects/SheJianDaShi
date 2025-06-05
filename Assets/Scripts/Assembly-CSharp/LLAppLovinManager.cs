@@ -223,7 +223,7 @@ public sealed class LLAppLovinManager
 	{
 		if (IsInterstitialAvailable(zoneIdentifier))
 		{
-			LLAndroidJavaSingletone<LLAppLovinManager>.CallStatic("LLApplovinShowInterstitial", LLAndroidJavaCallback.ProxyCallback(LLAppLovinManager.OnAppLovinInterstitialShow), LLAndroidJavaCallback.ProxyCallback(LLAppLovinManager.OnAppLovinInterstitialClicked), LLAndroidJavaCallback.ProxyCallback(LLAppLovinManager.OnAppLovinInterstitialFinish));
+			LLAndroidJavaSingletone<LLAppLovinManager>.CallStatic("LLApplovinShowInterstitial", LLAndroidJavaCallback.ProxyCallback(LLAppLovinManager.m_OnAppLovinInterstitialShow), LLAndroidJavaCallback.ProxyCallback(LLAppLovinManager.m_OnAppLovinInterstitialClicked), LLAndroidJavaCallback.ProxyCallback(LLAppLovinManager.m_OnAppLovinInterstitialFinish));
 		}
 	}
 
@@ -231,7 +231,7 @@ public sealed class LLAppLovinManager
 	{
 		if (IsVideoAvailable(zoneIdentifier))
 		{
-			LLAndroidJavaSingletone<LLAppLovinManager>.CallStatic("LLApplovinShowVideo", LLAndroidJavaCallback.ProxyCallback(LLAppLovinManager.OnAppLovinVideoShow), LLAndroidJavaCallback.ProxyCallback(LLAppLovinManager.OnAppLovinVideoClicked), LLAndroidJavaCallback.ProxyCallback(LLAppLovinManager.OnAppLovinVideoFinish));
+			LLAndroidJavaSingletone<LLAppLovinManager>.CallStatic("LLApplovinShowVideo", LLAndroidJavaCallback.ProxyCallback(LLAppLovinManager.m_OnAppLovinVideoShow), LLAndroidJavaCallback.ProxyCallback(LLAppLovinManager.m_OnAppLovinVideoClicked), LLAndroidJavaCallback.ProxyCallback(LLAppLovinManager.m_OnAppLovinVideoFinish));
 		}
 	}
 
@@ -242,30 +242,21 @@ public sealed class LLAppLovinManager
 		{
 			CustomDebug.Log("AppLovin interstitial opened");
 		}
-		if (LLAppLovinManager.OnAppLovinInterstitialShow != null)
-		{
-			LLAppLovinManager.OnAppLovinInterstitialShow(result);
-		}
+		LLAppLovinManager.m_OnAppLovinInterstitialShow?.Invoke(result);
 	}
 
 	[MonoPInvokeCallback(typeof(LLAppLovinNativeDelegate))]
 	private static void InterstitialDidDismiss()
 	{
 		CustomDebug.Log("AppLovin interstitial closed");
-		if (LLAppLovinManager.OnAppLovinInterstitialFinish != null)
-		{
-			LLAppLovinManager.OnAppLovinInterstitialFinish();
-		}
+		LLAppLovinManager.m_OnAppLovinInterstitialFinish?.Invoke();
 	}
 
 	[MonoPInvokeCallback(typeof(LLAppLovinNativeDelegate))]
 	private static void InterstitialClicked()
 	{
 		CustomDebug.Log("AppLovin interstitial clicked");
-		if (LLAppLovinManager.OnAppLovinInterstitialClicked != null)
-		{
-			LLAppLovinManager.OnAppLovinInterstitialClicked();
-		}
+		LLAppLovinManager.m_OnAppLovinInterstitialClicked?.Invoke();
 	}
 
 	[MonoPInvokeCallback(typeof(LLAppLovinNativeDelegateStatus))]
@@ -275,29 +266,20 @@ public sealed class LLAppLovinManager
 		{
 			CustomDebug.Log("AppLovin video opened");
 		}
-		if (LLAppLovinManager.OnAppLovinVideoShow != null)
-		{
-			LLAppLovinManager.OnAppLovinVideoShow(result);
-		}
+		LLAppLovinManager.m_OnAppLovinVideoShow?.Invoke(result);
 	}
 
 	[MonoPInvokeCallback(typeof(LLAppLovinNativeDelegate))]
 	private static void VideoDidDismiss()
 	{
 		CustomDebug.Log("AppLovin video closed");
-		if (LLAppLovinManager.OnAppLovinVideoFinish != null)
-		{
-			LLAppLovinManager.OnAppLovinVideoFinish();
-		}
+		LLAppLovinManager.m_OnAppLovinVideoFinish?.Invoke();
 	}
 
 	[MonoPInvokeCallback(typeof(LLAppLovinNativeDelegate))]
 	private static void VideoClicked()
 	{
 		CustomDebug.Log("AppLovin video clicked");
-		if (LLAppLovinManager.OnAppLovinVideoClicked != null)
-		{
-			LLAppLovinManager.OnAppLovinVideoClicked();
-		}
+		LLAppLovinManager.m_OnAppLovinVideoClicked?.Invoke();
 	}
 }

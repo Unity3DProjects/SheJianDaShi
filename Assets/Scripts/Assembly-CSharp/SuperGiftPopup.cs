@@ -357,36 +357,24 @@ public class SuperGiftPopup : GUIPopup
 				switch (base.CachedManagers.CachedProposalManager.SuperGiftNumber)
 				{
 				case 0:
-					if (SuperGiftPopup.OnRewardReceived != null)
-					{
-						SuperGiftPopup.OnRewardReceived(isFirstRewardInCoins);
-					}
+					SuperGiftPopup.m_OnRewardReceived?.Invoke(isFirstRewardInCoins);
 					SetRewardActivity(firstButtonLayouters, firstNonButtonLayouters, firstNonButtonLabels, SuperGiftRewardState.Received);
 					SetRewardActivity(secondButtonLayouters, secondNonButtonLayouters, secondNonButtonLabels, SuperGiftRewardState.Current);
 					AddReward(isFirstRewardInCoins, firstDayReward, firstRewardEffectTransforms);
 					base.CachedManagers.CachedGiftManager.DateLastSuperGift = DateTime.Now;
 					break;
 				case 1:
-					if (SuperGiftPopup.OnRewardReceived != null)
-					{
-						SuperGiftPopup.OnRewardReceived(isSecondRewardInCoins);
-					}
+					SuperGiftPopup.m_OnRewardReceived?.Invoke(isSecondRewardInCoins);
 					SetRewardActivity(secondButtonLayouters, secondNonButtonLayouters, secondNonButtonLabels, SuperGiftRewardState.Received);
 					SetRewardActivity(thirdButtonLayouters, thirdNonButtonLayouters, thirdNonButtonLabels, SuperGiftRewardState.Current);
 					AddReward(isSecondRewardInCoins, secondDayReward, secondRewardEffectTransforms);
 					break;
 				case 2:
 				{
-					if (SuperGiftPopup.OnRewardReceived != null)
-					{
-						SuperGiftPopup.OnRewardReceived(isThirdRewardInCoins);
-					}
+					SuperGiftPopup.m_OnRewardReceived?.Invoke(isThirdRewardInCoins);
 					SetRewardActivity(thirdButtonLayouters, thirdNonButtonLayouters, thirdNonButtonLabels, SuperGiftRewardState.Received);
 					AddReward(isThirdRewardInCoins, thirdDayReward, thirdRewardEffectTransforms);
-					if (SuperGiftPopup.OnAllRewardsReceived != null)
-					{
-						SuperGiftPopup.OnAllRewardsReceived();
-					}
+					SuperGiftPopup.m_OnAllRewardsReceived?.Invoke();
 					tk2dUIItem[] array = thirdRewardButtons;
 					foreach (tk2dUIItem tk2dUIItem2 in array)
 					{

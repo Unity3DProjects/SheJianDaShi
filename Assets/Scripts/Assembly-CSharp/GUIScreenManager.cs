@@ -486,10 +486,7 @@ public class GUIScreenManager : SingletonMonoBehaviour<GUIScreenManager>
 		{
 			componentsInChildren2[j].RefreshSpriteFonts();
 		}
-		if (GUIScreenManager.OnLanguageFontsChanged != null)
-		{
-			GUIScreenManager.OnLanguageFontsChanged();
-		}
+		GUIScreenManager.m_OnLanguageFontsChanged?.Invoke();
 	}
 
 	private void GameManager_OnGamePause(bool isPaused)

@@ -454,9 +454,9 @@ public class LevelMultiplayer : Level
 
 	public void WeaponAiming(WeaponGeneral weapon)
 	{
-		if (LevelMultiplayer.OnWeaponAiming != null && base.ActiveCharacter == LocalPlayerCharacter)
+		if (LevelMultiplayer.m_OnWeaponAiming != null && base.ActiveCharacter == LocalPlayerCharacter)
 		{
-			LevelMultiplayer.OnWeaponAiming(weapon.EmissionAngle, weapon.StartVelocity);
+			LevelMultiplayer.m_OnWeaponAiming(weapon.EmissionAngle, weapon.StartVelocity);
 		}
 	}
 
@@ -464,20 +464,20 @@ public class LevelMultiplayer : Level
 	{
 		base.ReleaseWeapon();
 		base.IsActiveForcedSwitchPlayerTimer = false;
-		if (LevelMultiplayer.OnWeaponShoot != null && base.ActiveCharacter == LocalPlayerCharacter)
+		if (LevelMultiplayer.m_OnWeaponShoot != null && base.ActiveCharacter == LocalPlayerCharacter)
 		{
-			LevelMultiplayer.OnWeaponShoot(base.CurrentWeapon.EmissionAngle, base.CurrentWeapon.StartVelocity);
+			LevelMultiplayer.m_OnWeaponShoot(base.CurrentWeapon.EmissionAngle, base.CurrentWeapon.StartVelocity);
 		}
 	}
 
 	public override void WeaponWasActivatedByTap(WeaponGeneral weapon)
 	{
-		if (isActivationMessageEnabled && LevelMultiplayer.OnWeaponTapActivation != null)
+		if (isActivationMessageEnabled && LevelMultiplayer.m_OnWeaponTapActivation != null)
 		{
 			WeaponParams weaponParams = new WeaponParams();
 			weaponParams.weaponPosition = weapon.transform.position;
 			weaponParams.weaponRotation = weapon.transform.eulerAngles;
-			LevelMultiplayer.OnWeaponTapActivation(MultiplayerManager.CreateWeaponActivationMessage(weaponParams));
+			LevelMultiplayer.m_OnWeaponTapActivation(MultiplayerManager.CreateWeaponActivationMessage(weaponParams));
 		}
 	}
 
@@ -486,10 +486,7 @@ public class LevelMultiplayer : Level
 		if (!base.IsMultiplayerSecondaryPlayer)
 		{
 			bool isLeftCharacter = character == base.CharacterFirst;
-			if (LevelMultiplayer.OnRagdollApply != null)
-			{
-				LevelMultiplayer.OnRagdollApply(MultiplayerManager.CreateRagdollApplyMessage(isLeftCharacter));
-			}
+			LevelMultiplayer.m_OnRagdollApply?.Invoke(MultiplayerManager.CreateRagdollApplyMessage(isLeftCharacter));
 		}
 	}
 
@@ -498,21 +495,21 @@ public class LevelMultiplayer : Level
 		if (!base.IsMultiplayerSecondaryPlayer)
 		{
 			bool isLeftCharacter = character == base.CharacterFirst;
-			if (LevelMultiplayer.OnWeaponCollideCharacter != null && base.CurrentWeapon != null)
+			if (LevelMultiplayer.m_OnWeaponCollideCharacter != null && base.CurrentWeapon != null)
 			{
 				WeaponParams weaponParams = new WeaponParams();
 				weaponParams.weaponPosition = base.CurrentWeapon.transform.position;
 				weaponParams.weaponRotation = base.CurrentWeapon.transform.eulerAngles;
-				LevelMultiplayer.OnWeaponCollideCharacter(MultiplayerManager.CreateWeaponCollideCharacterMessage(weaponParams, weaponColliderIndex, characterColliderIndex, isDriveIntoLegs, isLeftCharacter));
+				LevelMultiplayer.m_OnWeaponCollideCharacter(MultiplayerManager.CreateWeaponCollideCharacterMessage(weaponParams, weaponColliderIndex, characterColliderIndex, isDriveIntoLegs, isLeftCharacter));
 			}
 		}
 	}
 
 	public void ObjectsWasEmitted(List<EmissionSettings> emissionSettings, List<int> trashCanEmissionObjectsNumbers)
 	{
-		if (LevelMultiplayer.OnObjectsEmitted != null && CachedMultiplayerManager.IsMainPlayer)
+		if (LevelMultiplayer.m_OnObjectsEmitted != null && CachedMultiplayerManager.IsMainPlayer)
 		{
-			LevelMultiplayer.OnObjectsEmitted(MultiplayerManager.CreateEmissionSettingsMessage(emissionSettings, trashCanEmissionObjectsNumbers));
+			LevelMultiplayer.m_OnObjectsEmitted(MultiplayerManager.CreateEmissionSettingsMessage(emissionSettings, trashCanEmissionObjectsNumbers));
 		}
 	}
 
@@ -540,10 +537,7 @@ public class LevelMultiplayer : Level
 		if (CachedMultiplayerManager.IsMainPlayer)
 		{
 			bool arg = currentCharacter as Character == base.CharacterFirst;
-			if (LevelMultiplayer.OnHealthChanged != null)
-			{
-				LevelMultiplayer.OnHealthChanged(health, arg);
-			}
+			LevelMultiplayer.m_OnHealthChanged?.Invoke(health, arg);
 		}
 	}
 
@@ -552,10 +546,7 @@ public class LevelMultiplayer : Level
 		if (CachedMultiplayerManager.IsMainPlayer)
 		{
 			bool isLeftCharacter = restoredCharacter as Character == base.CharacterFirst;
-			if (LevelMultiplayer.OnRagdollRestore != null)
-			{
-				LevelMultiplayer.OnRagdollRestore(MultiplayerManager.CreateRagdollRestoreMessage(restoreXPosition, isLeftCharacter));
-			}
+			LevelMultiplayer.m_OnRagdollRestore?.Invoke(MultiplayerManager.CreateRagdollRestoreMessage(restoreXPosition, isLeftCharacter));
 		}
 	}
 
@@ -567,10 +558,7 @@ public class LevelMultiplayer : Level
 			ragdollParams.ragdollPositions = ragdollPositions;
 			ragdollParams.ragdollRotations = ragdollRotations;
 			ragdollParams.isLeftCharacter = currentCharacter as Character == base.CharacterFirst;
-			if (LevelMultiplayer.OnRagdollPositionChanged != null)
-			{
-				LevelMultiplayer.OnRagdollPositionChanged(MultiplayerManager.CreateRagdollTransformMessage(ragdollParams));
-			}
+			LevelMultiplayer.m_OnRagdollPositionChanged?.Invoke(MultiplayerManager.CreateRagdollTransformMessage(ragdollParams));
 		}
 	}
 
@@ -596,9 +584,9 @@ public class LevelMultiplayer : Level
 		if (CachedMultiplayerManager.IsMainPlayer || !switchArcher)
 		{
 			base.NextTurn(switchArcher);
-			if (switchArcher && LevelMultiplayer.OnSwitchCharacter != null)
+			if (switchArcher && LevelMultiplayer.m_OnSwitchCharacter != null)
 			{
-				LevelMultiplayer.OnSwitchCharacter(MultiplayerManager.CreateSwitchCharacterMessage());
+				LevelMultiplayer.m_OnSwitchCharacter(MultiplayerManager.CreateSwitchCharacterMessage());
 			}
 		}
 	}
@@ -626,10 +614,7 @@ public class LevelMultiplayer : Level
 		if (!base.IsMultiplayerSecondaryPlayer && turnTimer > timerDuration)
 		{
 			SwitchCharacter();
-			if (LevelMultiplayer.OnSwitchCharacter != null)
-			{
-				LevelMultiplayer.OnSwitchCharacter(MultiplayerManager.CreateSwitchCharacterMessage());
-			}
+			LevelMultiplayer.m_OnSwitchCharacter?.Invoke(MultiplayerManager.CreateSwitchCharacterMessage());
 		}
 	}
 

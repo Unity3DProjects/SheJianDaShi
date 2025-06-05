@@ -116,9 +116,9 @@ public abstract class tk2dBaseSprite : tk2dBaseMesh, ISpriteCollectionForceBuild
 				_scale = value;
 				UpdateVertices();
 				UpdateCollider();
-				if (this.SpriteChanged != null)
+				if (this.m_SpriteChanged != null)
 				{
-					this.SpriteChanged(this);
+					this.m_SpriteChanged(this);
 				}
 			}
 		}
@@ -187,9 +187,9 @@ public abstract class tk2dBaseSprite : tk2dBaseMesh, ISpriteCollectionForceBuild
 				}
 				UpdateMaterial();
 				UpdateCollider();
-				if (this.SpriteChanged != null)
+				if (this.m_SpriteChanged != null)
 				{
-					this.SpriteChanged(this);
+					this.m_SpriteChanged(this);
 				}
 			}
 		}
@@ -771,9 +771,9 @@ public abstract class tk2dBaseSprite : tk2dBaseMesh, ISpriteCollectionForceBuild
 				spriteId = 0;
 			}
 			Build();
-			if (this.SpriteChanged != null)
+			if (this.m_SpriteChanged != null)
 			{
-				this.SpriteChanged(this);
+				this.m_SpriteChanged(this);
 			}
 		}
 	}

@@ -82,9 +82,9 @@ public class Crab : MonoBehaviour
 		skeletonAnimation.state.SetAnimation(0, AnimationCrabGrab, false);
 		SingletonMonoBehaviour<Scheduler>.Instance.CallMethodWithDelay(this, delegate
 		{
-			if (this.OnHeadTouched != null)
+			if (this.m_OnHeadTouched != null)
 			{
-				this.OnHeadTouched();
+				this.m_OnHeadTouched();
 			}
 		}, AnimationCrabGrab.Duration);
 	}

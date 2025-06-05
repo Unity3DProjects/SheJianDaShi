@@ -506,14 +506,8 @@ public class tk2dUIItem : MonoBehaviour
 			if ((registerPressFromChildren || sentFromChild == null) && base.enabled)
 			{
 				isPressed = true;
-				if (this.OnDown != null)
-				{
-					this.OnDown();
-				}
-				if (this.OnDownUIItem != null)
-				{
-					this.OnDownUIItem(this);
-				}
+				this.m_OnDown?.Invoke();
+				this.m_OnDownUIItem?.Invoke(this);
 				DoSendMessage(SendMessageOnDownMethodName);
 			}
 			if (parentUIItem != null)
@@ -546,37 +540,16 @@ public class tk2dUIItem : MonoBehaviour
 		if (isPressed)
 		{
 			isPressed = false;
-			if (this.OnUp != null)
-			{
-				this.OnUp();
-			}
-			if (this.OnUpUIItem != null)
-			{
-				this.OnUpUIItem(this);
-			}
+			this.m_OnUp?.Invoke();
+			this.m_OnUpUIItem?.Invoke(this);
 			DoSendMessage(SendMessageOnUpMethodName);
-			if (this.OnClick != null)
-			{
-				this.OnClick();
-			}
-			if (tk2dUIItem.OnStaticClick != null)
-			{
-				tk2dUIItem.OnStaticClick(soundType);
-			}
-			if (this.OnClickUIItem != null)
-			{
-				this.OnClickUIItem(this);
-			}
+			this.m_OnClick?.Invoke();
+			tk2dUIItem.m_OnStaticClick?.Invoke(soundType);
+			this.m_OnClickUIItem?.Invoke(this);
 			DoSendMessage(SendMessageOnClickMethodName);
 		}
-		if (this.OnRelease != null)
-		{
-			this.OnRelease();
-		}
-		if (this.OnReleaseUIItem != null)
-		{
-			this.OnReleaseUIItem(this);
-		}
+		this.m_OnRelease?.Invoke();
+		this.m_OnReleaseUIItem?.Invoke(this);
 		DoSendMessage(SendMessageOnReleaseMethodName);
 		if (parentUIItem != null)
 		{
@@ -632,14 +605,8 @@ public class tk2dUIItem : MonoBehaviour
 		if (isPressed)
 		{
 			isPressed = false;
-			if (this.OnUp != null)
-			{
-				this.OnUp();
-			}
-			if (this.OnUpUIItem != null)
-			{
-				this.OnUpUIItem(this);
-			}
+			this.m_OnUp?.Invoke();
+			this.m_OnUpUIItem?.Invoke(this);
 			DoSendMessage(SendMessageOnUpMethodName);
 		}
 	}
@@ -650,14 +617,8 @@ public class tk2dUIItem : MonoBehaviour
 		tk2dUIItem tk2dUIItem2 = null;
 		if (!isHoverOver)
 		{
-			if (this.OnHoverOver != null)
-			{
-				this.OnHoverOver();
-			}
-			if (this.OnHoverOverUIItem != null)
-			{
-				this.OnHoverOverUIItem(this);
-			}
+			this.m_OnHoverOver?.Invoke();
+			this.m_OnHoverOverUIItem?.Invoke(this);
 			isHoverOver = true;
 		}
 		if (prevHover == this)
@@ -679,14 +640,8 @@ public class tk2dUIItem : MonoBehaviour
 	{
 		if (isHoverOver)
 		{
-			if (this.OnHoverOut != null)
-			{
-				this.OnHoverOut();
-			}
-			if (this.OnHoverOutUIItem != null)
-			{
-				this.OnHoverOutUIItem(this);
-			}
+			this.m_OnHoverOut?.Invoke();
+			this.m_OnHoverOutUIItem?.Invoke(this);
 			isHoverOver = false;
 		}
 		if (parentUIItem != null && parentUIItem.isHoverEnabled)
@@ -719,45 +674,18 @@ public class tk2dUIItem : MonoBehaviour
 
 	public void SimulateClick()
 	{
-		if (this.OnDown != null)
-		{
-			this.OnDown();
-		}
-		if (this.OnDownUIItem != null)
-		{
-			this.OnDownUIItem(this);
-		}
+		this.m_OnDown?.Invoke();
+		this.m_OnDownUIItem?.Invoke(this);
 		DoSendMessage(SendMessageOnDownMethodName);
-		if (this.OnUp != null)
-		{
-			this.OnUp();
-		}
-		if (this.OnUpUIItem != null)
-		{
-			this.OnUpUIItem(this);
-		}
+		this.m_OnUp?.Invoke();
+		this.m_OnUpUIItem?.Invoke(this);
 		DoSendMessage(SendMessageOnUpMethodName);
-		if (this.OnClick != null)
-		{
-			this.OnClick();
-		}
-		if (tk2dUIItem.OnStaticClick != null)
-		{
-			tk2dUIItem.OnStaticClick(soundType);
-		}
-		if (this.OnClickUIItem != null)
-		{
-			this.OnClickUIItem(this);
-		}
+		this.m_OnClick?.Invoke();
+		tk2dUIItem.m_OnStaticClick?.Invoke(soundType);
+		this.m_OnClickUIItem?.Invoke(this);
 		DoSendMessage(SendMessageOnClickMethodName);
-		if (this.OnRelease != null)
-		{
-			this.OnRelease();
-		}
-		if (this.OnReleaseUIItem != null)
-		{
-			this.OnReleaseUIItem(this);
-		}
+		this.m_OnRelease?.Invoke();
+		this.m_OnReleaseUIItem?.Invoke(this);
 		DoSendMessage(SendMessageOnReleaseMethodName);
 	}
 

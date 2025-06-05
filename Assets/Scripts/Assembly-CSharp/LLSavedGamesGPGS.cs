@@ -313,18 +313,12 @@ public sealed class LLSavedGamesGPGS
 			gameProgress = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
 			if (gameProgress != null)
 			{
-				if (LLSavedGamesGPGS.OnProgressLoad != null)
-				{
-					LLSavedGamesGPGS.OnProgressLoad(true);
-				}
+				LLSavedGamesGPGS.m_OnProgressLoad?.Invoke(true);
 				isLoaded = true;
 				return;
 			}
 		}
-		if (LLSavedGamesGPGS.OnProgressLoad != null)
-		{
-			LLSavedGamesGPGS.OnProgressLoad(false);
-		}
+		LLSavedGamesGPGS.m_OnProgressLoad?.Invoke(false);
 	}
 
 	private static void GameProgressSaved(bool success)
@@ -335,9 +329,6 @@ public sealed class LLSavedGamesGPGS
 			isLoaded = false;
 			LoadGameProgress();
 		}
-		if (LLSavedGamesGPGS.OnProgressSaved != null)
-		{
-			LLSavedGamesGPGS.OnProgressSaved(success);
-		}
+		LLSavedGamesGPGS.m_OnProgressSaved?.Invoke(success);
 	}
 }

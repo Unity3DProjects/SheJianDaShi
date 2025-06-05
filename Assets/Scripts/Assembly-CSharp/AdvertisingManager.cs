@@ -457,9 +457,9 @@ public class AdvertisingManager : SingletonMonoBehaviour<AdvertisingManager>
 		{
 			CachedManagers.CachedAudioManager.UnMuteSounds();
 			CachedManagers.CachedGameManager.IsGamePaused = false;
-			if (AdvertisingManager.OnVideoAdFinish != null)
+			if (AdvertisingManager.m_OnVideoAdFinish != null)
 			{
-				AdvertisingManager.OnVideoAdFinish(false);
+				AdvertisingManager.m_OnVideoAdFinish(false);
 			}
 			if (callbackVideo != null)
 			{
@@ -478,9 +478,9 @@ public class AdvertisingManager : SingletonMonoBehaviour<AdvertisingManager>
 	{
 		CachedManagers.CachedAudioManager.UnMuteSounds();
 		CachedManagers.CachedGameManager.IsGamePaused = false;
-		if (AdvertisingManager.OnVideoAdFinish != null)
+		if (AdvertisingManager.m_OnVideoAdFinish != null)
 		{
-			AdvertisingManager.OnVideoAdFinish(result);
+			AdvertisingManager.m_OnVideoAdFinish(result);
 		}
 		if (callbackVideo != null)
 		{

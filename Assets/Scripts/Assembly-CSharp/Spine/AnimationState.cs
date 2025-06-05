@@ -207,9 +207,9 @@ namespace Spine
 				{
 					int loopCount = (int)(num2 / endTime);
 					trackEntry.OnComplete(this, i, loopCount);
-					if (this.Complete != null)
+					if (this.m_Complete != null)
 					{
-						this.Complete(this, i, loopCount);
+						this.m_Complete(this, i, loopCount);
 					}
 				}
 				goto IL_00de;
@@ -280,9 +280,9 @@ namespace Spine
 				{
 					Event e = exposedList.Items[j];
 					trackEntry.OnEvent(this, i, e);
-					if (this.Event != null)
+					if (this.m_Event != null)
 					{
-						this.Event(this, i, e);
+						this.m_Event(this, i, e);
 					}
 				}
 				trackEntry.lastTime = trackEntry.time;
@@ -309,9 +309,9 @@ namespace Spine
 			if (trackEntry != null)
 			{
 				trackEntry.OnEnd(this, trackIndex);
-				if (this.End != null)
+				if (this.m_End != null)
 				{
-					this.End(this, trackIndex);
+					this.m_End(this, trackIndex);
 				}
 				tracks.Items[trackIndex] = null;
 			}
@@ -338,9 +338,9 @@ namespace Spine
 				TrackEntry previous = trackEntry.previous;
 				trackEntry.previous = null;
 				trackEntry.OnEnd(this, index);
-				if (this.End != null)
+				if (this.m_End != null)
 				{
-					this.End(this, index);
+					this.m_End(this, index);
 				}
 				entry.mixDuration = data.GetMix(trackEntry.animation, entry.animation);
 				if (entry.mixDuration > 0f)
@@ -358,9 +358,9 @@ namespace Spine
 			}
 			tracks.Items[index] = entry;
 			entry.OnStart(this, index);
-			if (this.Start != null)
+			if (this.m_Start != null)
 			{
-				this.Start(this, index);
+				this.m_Start(this, index);
 			}
 		}
 

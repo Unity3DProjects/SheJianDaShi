@@ -140,17 +140,17 @@ public abstract class GDPRPopup : GUIPopup
 
 	public virtual void OnButtonAgreedClicked()
 	{
-		this.OnAgreedClicked();
+		this.m_OnAgreedClicked?.Invoke();
 	}
 
 	public virtual void OnButtonRefusedClicked()
 	{
-		this.OnRefusedClicked();
+		this.m_OnRefusedClicked?.Invoke();
 	}
 
 	public virtual void OnButtonCheckPrivacyClicked()
 	{
-		this.OnCheckPrivacyClicked();
+		this.m_OnCheckPrivacyClicked?.Invoke();
 	}
 
 	public override void BackButtonPressed()

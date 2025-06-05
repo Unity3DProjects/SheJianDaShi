@@ -433,9 +433,9 @@ public class GiftManager : SingletonMonoBehaviour<GiftManager>
 			if (isCountdownActive != value)
 			{
 				isCountdownActive = value;
-				if (isCountdownActive && GiftManager.OnTimeForGiftChanged != null)
+				if (isCountdownActive && GiftManager.m_OnTimeForGiftChanged != null)
 				{
-					GiftManager.OnTimeForGiftChanged(TimeNeed);
+					GiftManager.m_OnTimeForGiftChanged(TimeNeed);
 				}
 			}
 		}
@@ -616,16 +616,10 @@ public class GiftManager : SingletonMonoBehaviour<GiftManager>
 				timeSinceLastSecond -= 1f;
 				if (IsGiftAvailable)
 				{
-					if (GiftManager.OnGiftAvailable != null)
-					{
-						GiftManager.OnGiftAvailable();
-					}
+					GiftManager.m_OnGiftAvailable?.Invoke();
 					isCountdownActive = false;
 				}
-				else if (GiftManager.OnTimeForGiftChanged != null)
-				{
-					GiftManager.OnTimeForGiftChanged(TimeNeed);
-				}
+				else GiftManager.m_OnTimeForGiftChanged?.Invoke(TimeNeed);
 			}
 		}
 		timer.UpdateTimer(Time.unscaledDeltaTime);
@@ -665,13 +659,13 @@ public class GiftManager : SingletonMonoBehaviour<GiftManager>
 	{
 		character.OpenCharacter(true, true);
 		LastOpenedSpecialGiftCharacter = character.Infos[0].characterNameType;
-		if (GiftManager.OnSpecialGiftCharacterOpen != null)
+		if (GiftManager.m_OnSpecialGiftCharacterOpen != null)
 		{
-			if (character.IsInviteReward && GiftManager.OnInviteCharacterOpen != null)
+			if (character.IsInviteReward && GiftManager.m_OnInviteCharacterOpen != null)
 			{
-				GiftManager.OnInviteCharacterOpen();
+				GiftManager.m_OnInviteCharacterOpen();
 			}
-			GiftManager.OnSpecialGiftCharacterOpen(character);
+			GiftManager.m_OnSpecialGiftCharacterOpen(character);
 		}
 	}
 
@@ -679,10 +673,7 @@ public class GiftManager : SingletonMonoBehaviour<GiftManager>
 	{
 		CachedStatisticsManager.AddGems(gemsCount);
 		CachedStatisticsManager.FreeGemsReceived++;
-		if (GiftManager.OnGiftGemsOpen != null)
-		{
-			GiftManager.OnGiftGemsOpen();
-		}
+		GiftManager.m_OnGiftGemsOpen?.Invoke();
 		Analytics.CustomEvent("Gems_Invite");
 	}
 
@@ -796,18 +787,12 @@ public class GiftManager : SingletonMonoBehaviour<GiftManager>
 		if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 50, 50f, 50f), "+ day"))
 		{
 			DateLastGift -= TimeSpan.FromDays(1.0);
-			if (GiftManager.OnGiftAvailable != null)
-			{
-				GiftManager.OnGiftAvailable();
-			}
+			GiftManager.m_OnGiftAvailable?.Invoke();
 		}
 		if (GUI.Button(new Rect(Screen.width / 2 + 50, Screen.height - 50, 50f, 50f), "- day"))
 		{
 			DateLastGift += TimeSpan.FromDays(1.0);
-			if (GiftManager.OnGiftAvailable != null)
-			{
-				GiftManager.OnGiftAvailable();
-			}
+			GiftManager.m_OnGiftAvailable?.Invoke();
 		}
 	}
 }

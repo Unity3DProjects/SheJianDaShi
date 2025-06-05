@@ -77,9 +77,9 @@ public class CloudSaveManager : MonoBehaviour
 
 	public static void SaveLoadedCallback()
 	{
-		if (CloudSaveManager.OnSaveLoaded != null)
+		if (CloudSaveManager.m_OnSaveLoaded != null)
 		{
-			CloudSaveManager.OnSaveLoaded();
+			CloudSaveManager.m_OnSaveLoaded();
 		}
 	}
 }

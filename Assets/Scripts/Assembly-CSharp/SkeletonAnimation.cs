@@ -224,19 +224,19 @@ public class SkeletonAnimation : SkeletonRenderer, ISkeletonAnimation
 			skeleton.Update(deltaTime);
 			state.Update(deltaTime);
 			state.Apply(skeleton);
-			if (this._UpdateLocal != null)
+			if (this.m__UpdateLocal != null)
 			{
-				this._UpdateLocal(this);
+				this.m__UpdateLocal(this);
 			}
 			skeleton.UpdateWorldTransform();
-			if (this._UpdateWorld != null)
+			if (this.m__UpdateWorld != null)
 			{
-				this._UpdateWorld(this);
+				this.m__UpdateWorld(this);
 				skeleton.UpdateWorldTransform();
 			}
-			if (this._UpdateComplete != null)
+			if (this.m__UpdateComplete != null)
 			{
-				this._UpdateComplete(this);
+				this.m__UpdateComplete(this);
 			}
 		}
 	}

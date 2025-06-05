@@ -85,10 +85,7 @@ public class StatisticsManager : SingletonMonoBehaviour<StatisticsManager>
 		set
 		{
 			score = value;
-			if (StatisticsManager.OnScoreChanged != null)
-			{
-				StatisticsManager.OnScoreChanged(score);
-			}
+			StatisticsManager.m_OnScoreChanged?.Invoke(score);
 		}
 	}
 
@@ -104,10 +101,7 @@ public class StatisticsManager : SingletonMonoBehaviour<StatisticsManager>
 			{
 				value = Mathf.Max(value, 0);
 				CustomPlayerPrefs.SetInt("Coins", value, true);
-				if (StatisticsManager.OnCoinsChanged != null)
-				{
-					StatisticsManager.OnCoinsChanged(value);
-				}
+				StatisticsManager.m_OnCoinsChanged?.Invoke(value);
 				AudioManager.PlayAudioWithKey("coins_changing");
 			}
 		}
@@ -125,10 +119,7 @@ public class StatisticsManager : SingletonMonoBehaviour<StatisticsManager>
 			{
 				value = Mathf.Max(value, 0);
 				CustomPlayerPrefs.SetInt("Gems", value, true);
-				if (StatisticsManager.OnGemsChanged != null)
-				{
-					StatisticsManager.OnGemsChanged(value);
-				}
+				StatisticsManager.m_OnGemsChanged?.Invoke(value);
 				AudioManager.PlayAudioWithKey("gems_changing");
 			}
 		}

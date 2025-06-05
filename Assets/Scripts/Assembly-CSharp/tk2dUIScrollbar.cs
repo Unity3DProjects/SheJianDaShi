@@ -121,10 +121,7 @@ public class tk2dUIScrollbar : MonoBehaviour
 		set
 		{
 			percent = Mathf.Clamp(value, 0f, 1f);
-			if (this.OnScroll != null)
-			{
-				this.OnScroll(this);
-			}
+			this.m_OnScroll?.Invoke(this);
 			SetScrollThumbPosition();
 			if (SendMessageTarget != null && SendMessageOnScrollMethodName.Length > 0)
 			{

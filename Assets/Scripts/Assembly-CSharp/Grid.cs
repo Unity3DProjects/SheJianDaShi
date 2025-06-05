@@ -123,9 +123,6 @@ public class Grid : MonoBehaviour
 				num2++;
 			}
 		}
-		if (this.OnRepositionEnded != null)
-		{
-			this.OnRepositionEnded();
-		}
+		this.m_OnRepositionEnded?.Invoke();
 	}
 }

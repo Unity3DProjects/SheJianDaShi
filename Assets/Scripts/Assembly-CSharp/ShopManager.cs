@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using Prime31;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class ShopManager : SingletonMonoBehaviour<ShopManager>
 {
@@ -288,10 +289,7 @@ public class ShopManager : SingletonMonoBehaviour<ShopManager>
 			if (!isAllProductsReceived)
 			{
 				isAllProductsReceived = true;
-				if (ShopManager.OnAllProductsReceived != null)
-				{
-					ShopManager.OnAllProductsReceived();
-				}
+				ShopManager.m_OnAllProductsReceived?.Invoke();
 			}
 			return true;
 		}
@@ -614,10 +612,7 @@ public class ShopManager : SingletonMonoBehaviour<ShopManager>
 		{
 			currentPurchaseItems.Remove(shopItem);
 			shopItem.PurchaseComplete(LLTransactionState.Purchased);
-			if (ShopManager.OnTransactionCompleted != null)
-			{
-				ShopManager.OnTransactionCompleted();
-			}
+			ShopManager.m_OnTransactionCompleted?.Invoke();
 			CustomPlayerPrefs.Save();
 		}
 	}

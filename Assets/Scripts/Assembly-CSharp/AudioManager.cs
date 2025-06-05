@@ -63,10 +63,12 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 				SoundsManager.SetCategoryVolume("Music", 0f);
 				CustomPlayerPrefs.SetInt("Music", 0);
 			}
-			if (AudioManager.OnMusicChanged != null)
+			if (AudioManager.m_OnMusicChanged != null)
 			{
-				AudioManager.OnMusicChanged(value);
+				AudioManager.m_OnMusicChanged(value);
 			}
+		
+			
 		}
 	}
 
@@ -89,9 +91,9 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 				DisableSoundsVolume();
 				CustomPlayerPrefs.SetInt("Sounds", 0);
 			}
-			if (AudioManager.OnSoundChanged != null)
+			if (AudioManager.m_OnSoundChanged != null)
 			{
-				AudioManager.OnSoundChanged(value);
+				AudioManager.m_OnSoundChanged(value);
 			}
 		}
 	}

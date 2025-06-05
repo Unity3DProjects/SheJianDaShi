@@ -396,10 +396,7 @@ public class ICloudManager : SingletonMonoBehaviour<ICloudManager>
 					AutosavedAllIncludedBought = savedProgressData.allCharactersBought;
 					CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.RestoreProgress, true, null, true);
 					SaveProgressToICloud();
-					if (ICloudManager.OnProgressDownloaded != null)
-					{
-						ICloudManager.OnProgressDownloaded();
-					}
+					ICloudManager.m_OnProgressDownloaded?.Invoke();
 					MenuScreen menuScreen = CachedManagers.CachedGUIScreenManager.MenuScreen;
 					if (menuScreen != null)
 					{
@@ -415,10 +412,7 @@ public class ICloudManager : SingletonMonoBehaviour<ICloudManager>
 						CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.ICloudLoader, true, null, true);
 						isLoaderShowed = true;
 					}
-					if (ICloudManager.OnProgressReaded != null)
-					{
-						ICloudManager.OnProgressReaded(savedProgressData.coinsProgress, savedProgressData.boughtCharactersID.Count, savedProgressData.gemsProgress, savedProgressData.allCharactersBought);
-					}
+					ICloudManager.m_OnProgressReaded?.Invoke(savedProgressData.coinsProgress, savedProgressData.boughtCharactersID.Count, savedProgressData.gemsProgress, savedProgressData.allCharactersBought);
 				}
 			}
 		}

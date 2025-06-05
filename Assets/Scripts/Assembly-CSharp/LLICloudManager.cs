@@ -162,36 +162,24 @@ public class LLICloudManager : MonoBehaviour
 	[MonoPInvokeCallback(typeof(LLICloudNativeDelegateString))]
 	private static void ProgressDownloaded(string result)
 	{
-		if (LLICloudManager.OnProgressDownloaded != null)
-		{
-			LLICloudManager.OnProgressDownloaded(result);
-		}
+		LLICloudManager.m_OnProgressDownloaded?.Invoke(result);
 	}
 
 	[MonoPInvokeCallback(typeof(LLICloudNativeDelegateVoid))]
 	private static void LoginFailed()
 	{
-		if (LLICloudManager.OnICloudLoginFailed != null)
-		{
-			LLICloudManager.OnICloudLoginFailed();
-		}
+		LLICloudManager.m_OnICloudLoginFailed?.Invoke();
 	}
 
 	[MonoPInvokeCallback(typeof(LLICloudNativeDelegateVoid))]
 	private static void ProgressDownloadFailed()
 	{
-		if (LLICloudManager.OnProgressDownloadFailed != null)
-		{
-			LLICloudManager.OnProgressDownloadFailed();
-		}
+		LLICloudManager.m_OnProgressDownloadFailed?.Invoke();
 	}
 
 	[MonoPInvokeCallback(typeof(LLICloudNativeDelegateVoid))]
 	private static void ProgressUploaded()
 	{
-		if (LLICloudManager.OnProgressUploaded != null)
-		{
-			LLICloudManager.OnProgressUploaded();
-		}
+		LLICloudManager.m_OnProgressUploaded?.Invoke();
 	}
 }

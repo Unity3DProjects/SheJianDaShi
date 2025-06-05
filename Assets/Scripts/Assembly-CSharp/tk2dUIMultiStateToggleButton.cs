@@ -39,10 +39,7 @@ public class tk2dUIMultiStateToggleButton : tk2dUIBaseItemControl
 			{
 				index = value;
 				SetState();
-				if (this.OnStateToggle != null)
-				{
-					this.OnStateToggle(this);
-				}
+				this.m_OnStateToggle?.Invoke(this);
 				DoSendMessage(SendMessageOnStateToggleMethodName, this);
 			}
 		}

@@ -145,10 +145,7 @@ public class tk2dUILayout : MonoBehaviour
 			}
 			layoutItem2.gameObj.transform.position += vector5;
 		}
-		if (this.OnReshape != null)
-		{
-			this.OnReshape(dMin, dMax);
-		}
+		this.m_OnReshape?.Invoke(dMin, dMax);
 	}
 
 	public void SetBounds(Vector3 pMin, Vector3 pMax)

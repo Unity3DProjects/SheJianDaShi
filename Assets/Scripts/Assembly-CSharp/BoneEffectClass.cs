@@ -45,9 +45,9 @@ public class BoneEffectClass : MonoBehaviour
 		if (!isGroundCollided && collision.collider.GetComponent<Ground>() != null)
 		{
 			isGroundCollided = true;
-			if (BoneEffectClass.OnCollided != null)
+			if (BoneEffectClass.m_OnCollided != null)
 			{
-				BoneEffectClass.OnCollided(base.gameObject);
+				BoneEffectClass.m_OnCollided(base.gameObject);
 			}
 			flyingEffect.StopFX(true);
 			flyingEffect = null;

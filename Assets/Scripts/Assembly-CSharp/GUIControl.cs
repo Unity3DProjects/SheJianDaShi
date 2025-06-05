@@ -410,10 +410,7 @@ public class GUIControl : MonoBehaviour
 				yield return new WaitForSecondsRealtime(0.1f);
 			}
 		}
-		if (actionWithInvokes.onFinished != null)
-		{
-			actionWithInvokes.onFinished(this);
-		}
+		actionWithInvokes.onFinished?.Invoke(this);
 		if (IsHidden)
 		{
 			DeactivateObjectsToHide();

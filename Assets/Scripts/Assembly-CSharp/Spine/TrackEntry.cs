@@ -245,33 +245,33 @@ namespace Spine
 
 		internal void OnStart(AnimationState state, int index)
 		{
-			if (this.Start != null)
+			if (this.m_Start != null)
 			{
-				this.Start(state, index);
+				this.m_Start(state, index);
 			}
 		}
 
 		internal void OnEnd(AnimationState state, int index)
 		{
-			if (this.End != null)
+			if (this.m_End != null)
 			{
-				this.End(state, index);
+				this.m_End(state, index);
 			}
 		}
 
 		internal void OnEvent(AnimationState state, int index, Event e)
 		{
-			if (this.Event != null)
+			if (this.m_Event != null)
 			{
-				this.Event(state, index, e);
+				this.m_Event(state, index, e);
 			}
 		}
 
 		internal void OnComplete(AnimationState state, int index, int loopCount)
 		{
-			if (this.Complete != null)
+			if (this.m_Complete != null)
 			{
-				this.Complete(state, index, loopCount);
+				this.m_Complete(state, index, loopCount);
 			}
 		}
 

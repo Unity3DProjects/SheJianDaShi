@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using Mit_Goliath_Native.Utils;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class GDPRManager : SingletonMonoBehaviour<GDPRManager>
 {
@@ -177,10 +178,7 @@ public class GDPRManager : SingletonMonoBehaviour<GDPRManager>
 					TargetedAdsConsent = lastTargetedAdsConsentData.consentIsGiven;
 				}
 			}
-			if (this.OnDataReceived != null)
-			{
-				this.OnDataReceived();
-			}
+			this.m_OnDataReceived?.Invoke();
 		});
 	}
 

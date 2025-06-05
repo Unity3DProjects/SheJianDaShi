@@ -102,10 +102,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 				{
 					Time.timeScale = 1f;
 				}
-				if (GameManager.OnGamePause != null)
-				{
-					GameManager.OnGamePause(isGamePaused);
-				}
+				GameManager.m_OnGamePause?.Invoke(isGamePaused);
 			}
 		}
 	}
@@ -345,10 +342,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 			StartMenu();
 		}
 		IsTapToStartScreenExist = true;
-		if (GameManager.OnGameDownload != null)
-		{
-			GameManager.OnGameDownload();
-		}
+		GameManager.m_OnGameDownload?.Invoke();
 		if (CachedManagers.CachedStatisticsManager.OpenedChestsCount >= 1 && !CachedManagers.CachedStatisticsManager.NewAdsAdded)
 		{
 			CachedManagers.CachedStatisticsManager.NewAdsAdded = true;
@@ -468,10 +462,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 			CachedManagers.CachedGUIScreenManager.ShowScreen(GUIScreenType.Game, delegate
 			{
 				CachedLevelsManager.CreateLevel(CurrentGameType, cameraController);
-				if (GameManager.OnGameStart != null)
-				{
-					GameManager.OnGameStart();
-				}
+				GameManager.m_OnGameStart?.Invoke();
 			}, true);
 		});
 	}
@@ -481,10 +472,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		isGameRunning = false;
 		CloudSaveManager.Instance.SaveToCloud();
 		CachedLevelsManager.RemoveLevel();
-		if (GameManager.OnGameStop != null)
-		{
-			GameManager.OnGameStop();
-		}
+		GameManager.m_OnGameStop?.Invoke();
 	}
 
 	public void RestartGame()

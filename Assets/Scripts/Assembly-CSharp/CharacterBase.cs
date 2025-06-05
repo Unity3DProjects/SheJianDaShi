@@ -1038,9 +1038,9 @@ public class CharacterBase : LevelObject, ICollidable
 			}
 			timeAboveGround = 0f;
 			IsAboveGround = false;
-			if (CharacterBase.OnCharacterGroundCollided != null)
+			if (CharacterBase.m_OnCharacterGroundCollided != null)
 			{
-				CharacterBase.OnCharacterGroundCollided(this);
+				CharacterBase.m_OnCharacterGroundCollided(this);
 			}
 		}
 		if (!IsFinishHim && coll.relativeVelocity.magnitude > restoreVelocityRoot)

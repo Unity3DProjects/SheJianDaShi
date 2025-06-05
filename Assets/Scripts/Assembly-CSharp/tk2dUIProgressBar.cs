@@ -65,10 +65,7 @@ public class tk2dUIProgressBar : MonoBehaviour
 			if (!isProgressComplete && Value == 1f)
 			{
 				isProgressComplete = true;
-				if (this.OnProgressComplete != null)
-				{
-					this.OnProgressComplete();
-				}
+				this.m_OnProgressComplete?.Invoke();
 				if (sendMessageTarget != null && SendMessageOnProgressCompleteMethodName.Length > 0)
 				{
 					sendMessageTarget.SendMessage(SendMessageOnProgressCompleteMethodName, this, SendMessageOptions.RequireReceiver);

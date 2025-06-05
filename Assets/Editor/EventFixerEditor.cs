@@ -54,5 +54,5 @@ public class EventFixerEditor : EditorWindow
       AssetDatabase.Refresh();
       return modifiedCount;
    }
-   }
+   
 }

@@ -156,10 +156,7 @@ public class ProgressBar : GUILayoutCell
 		if (gamescreen != null && currentTime > needTime)
 		{
 			gamescreen.IsBarInterrup = false;
-			if (ProgressBar.OnProgressBarEnded != null)
-			{
-				ProgressBar.OnProgressBarEnded();
-			}
+			ProgressBar.m_OnProgressBarEnded?.Invoke();
 		}
 		UpdateFill(f);
 		if (onFinished != null)

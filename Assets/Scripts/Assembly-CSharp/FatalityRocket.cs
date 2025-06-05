@@ -103,10 +103,7 @@ public class FatalityRocket : FatalityBrick
 		AudioManager.StopAudioWithKey("rocket_activation");
 		OnCollision(collision.collider, utilityBone);
 		AudioManager.PlayAudioWithKey("rocket_explosion");
-		if (this.OnShellCollide != null)
-		{
-			this.OnShellCollide();
-		}
+		this.m_OnShellCollide?.Invoke();
 	}
 
 	public void ExplodeRocket()
@@ -166,9 +163,9 @@ public class FatalityRocket : FatalityBrick
 				}
 			}
 			base.CachedMask.Activate(partCollider, utilityBone);
-			if (FatalityRocket.OnExplode != null)
+			if (FatalityRocket.m_OnExplode != null)
 			{
-				FatalityRocket.OnExplode();
+				FatalityRocket.m_OnExplode();
 			}
 		}
 		base.gameObject.SetActive(false);

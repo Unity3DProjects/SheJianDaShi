@@ -323,28 +323,28 @@ public class TouchManager : SingletonMonoBehaviour<TouchManager>
 	{
 		if (Input.GetKeyDown(KeyCode.UpArrow))
 		{
-			if (TouchManager.MoveUpEvent != null)
+			if (TouchManager.m_MoveUpEvent != null)
 			{
-				TouchManager.MoveUpEvent();
+				TouchManager.m_MoveUpEvent();
 			}
 		}
 		else if (Input.GetKeyDown(KeyCode.DownArrow))
 		{
-			if (TouchManager.MoveDownEvent != null)
+			if (TouchManager.m_MoveDownEvent != null)
 			{
-				TouchManager.MoveDownEvent();
+				TouchManager.m_MoveDownEvent();
 			}
 		}
 		else if (Input.GetKeyDown(KeyCode.LeftArrow))
 		{
-			if (TouchManager.MoveLeftEvent != null)
+			if (TouchManager.m_MoveLeftEvent != null)
 			{
-				TouchManager.MoveLeftEvent();
+				TouchManager.m_MoveLeftEvent();
 			}
 		}
-		else if (Input.GetKeyDown(KeyCode.RightArrow) && TouchManager.MoveRightEvent != null)
+		else if (Input.GetKeyDown(KeyCode.RightArrow) && TouchManager.m_MoveRightEvent != null)
 		{
-			TouchManager.MoveRightEvent();
+			TouchManager.m_MoveRightEvent();
 		}
 	}
 
@@ -358,9 +358,9 @@ public class TouchManager : SingletonMonoBehaviour<TouchManager>
 			mainTouchInfo.startPosition = Input.mousePosition;
 			mainTouchInfo.position = Input.mousePosition;
 			mainTouchInfo.phase = TouchPhase.Began;
-			if (TouchManager.TouchBeganEvent != null)
+			if (TouchManager.m_TouchBeganEvent != null)
 			{
-				TouchManager.TouchBeganEvent(mainTouchInfo);
+				TouchManager.m_TouchBeganEvent(mainTouchInfo);
 			}
 		}
 		if (Input.GetMouseButtonUp(0) && mouseButtonIsDown)
@@ -370,9 +370,9 @@ public class TouchManager : SingletonMonoBehaviour<TouchManager>
 			{
 				mainTouchInfo.UpdatePosition(Input.mousePosition);
 				mainTouchInfo.phase = TouchPhase.Ended;
-				if (TouchManager.TouchEndedEvent != null)
+				if (TouchManager.m_TouchEndedEvent != null)
 				{
-					TouchManager.TouchEndedEvent(mainTouchInfo);
+					TouchManager.m_TouchEndedEvent(mainTouchInfo);
 				}
 				mainTouchInfo = null;
 			}
@@ -385,17 +385,17 @@ public class TouchManager : SingletonMonoBehaviour<TouchManager>
 		if (mainTouchInfo.IsStationary)
 		{
 			mainTouchInfo.phase = TouchPhase.Stationary;
-			if (TouchManager.TouchHoldEvent != null)
+			if (TouchManager.m_TouchHoldEvent != null)
 			{
-				TouchManager.TouchHoldEvent(mainTouchInfo);
+				TouchManager.m_TouchHoldEvent(mainTouchInfo);
 			}
 		}
 		else
 		{
 			mainTouchInfo.phase = TouchPhase.Moved;
-			if (TouchManager.TouchMoveEvent != null)
+			if (TouchManager.m_TouchMoveEvent != null)
 			{
-				TouchManager.TouchMoveEvent(mainTouchInfo);
+				TouchManager.m_TouchMoveEvent(mainTouchInfo);
 			}
 		}
 	}
@@ -409,10 +409,10 @@ public class TouchManager : SingletonMonoBehaviour<TouchManager>
 		{
 			if (Input.touchCount == 4)
 			{
-				if (!quadraTouchFired && TouchManager.QuadraTouchEvent != null)
+				if (!quadraTouchFired && TouchManager.m_QuadraTouchEvent != null)
 				{
 					quadraTouchFired = true;
-					TouchManager.QuadraTouchEvent();
+					TouchManager.m_QuadraTouchEvent();
 				}
 			}
 			else
@@ -448,25 +448,25 @@ public class TouchManager : SingletonMonoBehaviour<TouchManager>
 				if (mainTouchInfo != null)
 				{
 					mainTouchInfo.phase = TouchPhase.Ended;
-					if (TouchManager.TouchEndedEvent != null)
+					if (TouchManager.m_TouchEndedEvent != null)
 					{
-						TouchManager.TouchEndedEvent(mainTouchInfo);
+						TouchManager.m_TouchEndedEvent(mainTouchInfo);
 					}
 					mainTouchInfo = null;
 				}
 				mainTouchInfo = new TouchInfo(touchInfoResult);
-				if (TouchManager.TouchBeganEvent != null)
+				if (TouchManager.m_TouchBeganEvent != null)
 				{
-					TouchManager.TouchBeganEvent(mainTouchInfo);
+					TouchManager.m_TouchBeganEvent(mainTouchInfo);
 				}
 			}
 			else if (touchInfoResult.phase == TouchPhase.Ended && mainTouchInfo != null)
 			{
 				mainTouchInfo.phase = TouchPhase.Ended;
 				mainTouchInfo.UpdatePosition(touchInfoResult.position);
-				if (TouchManager.TouchEndedEvent != null)
+				if (TouchManager.m_TouchEndedEvent != null)
 				{
-					TouchManager.TouchEndedEvent(mainTouchInfo);
+					TouchManager.m_TouchEndedEvent(mainTouchInfo);
 				}
 				mainTouchInfo = null;
 			}
@@ -474,27 +474,27 @@ public class TouchManager : SingletonMonoBehaviour<TouchManager>
 			{
 				mainTouchInfo.phase = TouchPhase.Moved;
 				mainTouchInfo.UpdatePosition(touchInfoResult.position);
-				if (TouchManager.TouchMoveEvent != null)
+				if (TouchManager.m_TouchMoveEvent != null)
 				{
-					TouchManager.TouchMoveEvent(mainTouchInfo);
+					TouchManager.m_TouchMoveEvent(mainTouchInfo);
 				}
 			}
 			else if (mainTouchInfo != null)
 			{
 				mainTouchInfo.phase = TouchPhase.Stationary;
 				mainTouchInfo.UpdatePosition(touchInfoResult.position);
-				if (TouchManager.TouchHoldEvent != null)
+				if (TouchManager.m_TouchHoldEvent != null)
 				{
-					TouchManager.TouchHoldEvent(mainTouchInfo);
+					TouchManager.m_TouchHoldEvent(mainTouchInfo);
 				}
 			}
 		}
 		else if (mainTouchInfo != null)
 		{
 			mainTouchInfo.phase = TouchPhase.Ended;
-			if (TouchManager.TouchEndedEvent != null)
+			if (TouchManager.m_TouchEndedEvent != null)
 			{
-				TouchManager.TouchEndedEvent(mainTouchInfo);
+				TouchManager.m_TouchEndedEvent(mainTouchInfo);
 			}
 			mainTouchInfo = null;
 		}

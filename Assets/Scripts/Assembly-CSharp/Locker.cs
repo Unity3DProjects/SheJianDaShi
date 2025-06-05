@@ -173,18 +173,15 @@ public class Locker : MonoBehaviour
 
 	private void ObserverPhysics_EventTriggerEnter(Collider coll)
 	{
-		if (CachedManager.WithCharacterCollision(coll) && this.OnCharacterHit != null)
+		if (CachedManager.WithCharacterCollision(coll) && this.m_OnCharacterHit != null)
 		{
-			this.OnCharacterHit();
+			this.m_OnCharacterHit?.Invoke();
 		}
 	}
 
 	private void OnFinishMoving(ITweener itw)
 	{
-		if (this.OnGroundStuck != null)
-		{
-			this.OnGroundStuck();
-		}
+		this.m_OnGroundStuck?.Invoke();
 		AudioManager.PlayAudioWithKey("satellite_character_collision");
 		StartCoroutine(CoroutineOnStuck());
 	}
@@ -192,9 +189,6 @@ public class Locker : MonoBehaviour
 	private void OnOpenDoorFinished(ITweener itw)
 	{
 		closedDoorMesh.sortingLayerName = layerAfterDoorOpen;
-		if (this.OnOpenDoor != null)
-		{
-			this.OnOpenDoor();
-		}
+		this.m_OnOpenDoor?.Invoke();
 	}
 }

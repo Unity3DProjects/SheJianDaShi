@@ -7,6 +7,7 @@ using System.Threading;
 using Mit_Goliath_Native.Utils;
 using Prime31;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class MCInnAppsmanager : SingletonMonoBehaviour<MCInnAppsmanager>, ReceiptValidatorDelegate
 {
@@ -14,12 +15,12 @@ public class MCInnAppsmanager : SingletonMonoBehaviour<MCInnAppsmanager>, Receip
 	{
 		public static void OnConsumeSucceeeded(GooglePurchase purchase, Consumable consumable)
 		{
-			SingletonMonoBehaviour<MCInnAppsmanager>.Instance.PurchaseSuccessful(purchase, consumable.Receipt);
+			SingletonMonoBehaviour<MCInnAppsmanager>.Instance.m_PurchaseSuccessful(purchase, consumable.Receipt);
 		}
 
 		public static void OnConsumeFailed(string productId, string error)
 		{
-			SingletonMonoBehaviour<MCInnAppsmanager>.Instance.PurchaseFailed(productId, error);
+			SingletonMonoBehaviour<MCInnAppsmanager>.Instance.m_PurchaseFailed(productId, error);
 		}
 	}
 
@@ -370,10 +371,10 @@ public class MCInnAppsmanager : SingletonMonoBehaviour<MCInnAppsmanager>, Receip
 		CustomPlayerPrefs.SetString("skus_key", JsonConvert.SerializeObject(skusList));
 		CustomPlayerPrefs.Save();
 		activeSubscriptions = ExtractSubsFromPurchases(purchacesList, skusList);
-		this.OnQueryInventoryCompleted(true);
+		this.m_OnQueryInventoryCompleted(true);
 		isQueryingInventory = false;
 		isQueryInventoryOk = true;
-		this.ReceivedProductsIDS(purchases, skusList);
+		this.m_ReceivedProductsIDS(purchases, skusList);
 	}
 
 	private void QueryInventoryFailed(string error)
@@ -383,7 +384,7 @@ public class MCInnAppsmanager : SingletonMonoBehaviour<MCInnAppsmanager>, Receip
 		GoogleIABManager.queryInventoryFailedEvent -= QueryInventoryFailed;
 		isQueryingInventory = false;
 		isQueryInventoryOk = false;
-		this.OnQueryInventoryCompleted(false);
+		this.m_OnQueryInventoryCompleted(false);
 	}
 
 	public void PurchaseProduct(string productID)
@@ -394,7 +395,7 @@ public class MCInnAppsmanager : SingletonMonoBehaviour<MCInnAppsmanager>, Receip
 			QueryInventory();
 			return;
 		}
-		this.OnRequestPurchase();
+		this.m_OnRequestPurchase?.Invoke();
 		GoogleIAB.purchaseProduct(productID);
 		isMakingPurchase = true;
 		attemptedPurchaseProduct = GetStoreProductForGoogleSkuWithID(productID);
@@ -428,7 +429,7 @@ public class MCInnAppsmanager : SingletonMonoBehaviour<MCInnAppsmanager>, Receip
 	private void PurchaseFailedCallback(string message, int response)
 	{
 		Log("PurchaseFailed::" + message + "::" + response);
-		this.PurchaseFailed(attemptedPurchaseProduct.productId, string.Empty);
+		this.m_PurchaseFailed(attemptedPurchaseProduct.productId, string.Empty);
 		attemptedPurchaseProduct = null;
 		isMakingPurchase = false;
 	}
@@ -526,7 +527,7 @@ public class MCInnAppsmanager : SingletonMonoBehaviour<MCInnAppsmanager>, Receip
 		else
 		{
 			isMakingPurchase = false;
-			this.PurchaseFailed(string.Empty, string.Empty);
+			this.m_PurchaseFailed(string.Empty, string.Empty);
 		}
 	}
 
@@ -549,7 +550,7 @@ public class MCInnAppsmanager : SingletonMonoBehaviour<MCInnAppsmanager>, Receip
 		}
 		else
 		{
-			this.PurchaseSuccessful(purchaseProduct, receipt);
+			this.m_PurchaseSuccessful(purchaseProduct, receipt);
 			MiniclipUtils.DismissReceiptValidatingPopup();
 		}
 		if (purchasedProduct != null)

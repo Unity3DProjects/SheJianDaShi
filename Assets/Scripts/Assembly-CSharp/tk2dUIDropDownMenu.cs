@@ -222,10 +222,7 @@ public class tk2dUIDropDownMenu : MonoBehaviour
 		{
 			selectedTextMesh.text = string.Empty;
 		}
-		if (this.OnSelectedItemChange != null)
-		{
-			this.OnSelectedItemChange();
-		}
+		this.m_OnSelectedItemChange?.Invoke();
 		if (SendMessageTarget != null && SendMessageOnSelectedItemChangeMethodName.Length > 0)
 		{
 			SendMessageTarget.SendMessage(SendMessageOnSelectedItemChangeMethodName, this, SendMessageOptions.RequireReceiver);

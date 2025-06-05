@@ -41,10 +41,7 @@ public class NativeEventsWrapper : SingletonMonoBehaviour<NativeEventsWrapper>
 
 	private void ReceiveMemoryWarning(string message)
 	{
-		if (NativeEventsWrapper.OnApplicationDidReceiveMemoryWarning != null)
-		{
-			NativeEventsWrapper.OnApplicationDidReceiveMemoryWarning();
-		}
+		NativeEventsWrapper.m_OnApplicationDidReceiveMemoryWarning?.Invoke();
 		UnloadUnusedAssets();
 	}
 

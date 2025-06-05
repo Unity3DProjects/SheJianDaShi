@@ -74,19 +74,13 @@ public class WarningRestoreProgress : GUIPopup
 
 	private void YesButton_OnClick()
 	{
-		if (WarningRestoreProgress.OnButtonClicked != null)
-		{
-			WarningRestoreProgress.OnButtonClicked(true);
-		}
+		WarningRestoreProgress.m_OnButtonClicked?.Invoke(true);
 		base.Hide();
 	}
 
 	private void NoButton_OnClick()
 	{
-		if (WarningRestoreProgress.OnButtonClicked != null)
-		{
-			WarningRestoreProgress.OnButtonClicked(false);
-		}
+		WarningRestoreProgress.m_OnButtonClicked?.Invoke(false);
 		base.Hide();
 	}
 }

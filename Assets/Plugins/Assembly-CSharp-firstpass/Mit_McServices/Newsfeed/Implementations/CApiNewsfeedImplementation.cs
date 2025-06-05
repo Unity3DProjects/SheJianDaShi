@@ -99,7 +99,8 @@ namespace Mit_McServices.Newsfeed.Implementations
 
 		public void StartNewsfeed(NewsfeedManagerDeleagate managerDelegate)
 		{
-			mc_connection_load_helper();
+			
+			// mc_connection_load_helper();
 			manager = managerDelegate;
 			NewsfeedSettings settings = manager.GetSettings();
 			mc_newsfeed_setNewsfeedBoardWillAppearCallback(BoardWillAppearCallback);

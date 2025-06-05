@@ -80,10 +80,7 @@ public class SplashLoader : MonoBehaviour
 		TweenColor tc = TweenColor.SetColor(base.gameObject, new Color(1f, 1f, 1f, 0f), fadeTime);
 		tc.SetOnFinishedDelegate(delegate
 		{
-			if (SplashLoader.OnSplashRemoved != null)
-			{
-				SplashLoader.OnSplashRemoved();
-			}
+			SplashLoader.m_OnSplashRemoved?.Invoke();
 			UnityEngine.Object.DestroyImmediate(base.gameObject);
 		});
 	}

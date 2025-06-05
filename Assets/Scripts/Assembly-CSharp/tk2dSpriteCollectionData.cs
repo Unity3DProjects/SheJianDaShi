@@ -419,9 +419,9 @@ public class tk2dSpriteCollectionData : MonoBehaviour
 				tk2dSpriteDefinition3.materialInst = tk2dSpriteDefinition3.material;
 			}
 		}
-		if (CustomDebug.Enable && tk2dSpriteCollectionData.OnSpriteCollectionInitialize != null)
+		if (CustomDebug.Enable && tk2dSpriteCollectionData.m_OnSpriteCollectionInitialize != null)
 		{
-			tk2dSpriteCollectionData.OnSpriteCollectionInitialize(this);
+			tk2dSpriteCollectionData.m_OnSpriteCollectionInitialize(this);
 		}
 		tk2dEditorSpriteDataUnloader.Register(this);
 	}
@@ -438,9 +438,9 @@ public class tk2dSpriteCollectionData : MonoBehaviour
 
 	public void ResetPlatformData()
 	{
-		if (CustomDebug.Enable && tk2dSpriteCollectionData.OnSpriteCollectionReset != null)
+		if (CustomDebug.Enable && tk2dSpriteCollectionData.m_OnSpriteCollectionReset != null)
 		{
-			tk2dSpriteCollectionData.OnSpriteCollectionReset(this);
+			tk2dSpriteCollectionData.m_OnSpriteCollectionReset(this);
 		}
 		tk2dEditorSpriteDataUnloader.Unregister(this);
 		if (platformSpecificData != null)

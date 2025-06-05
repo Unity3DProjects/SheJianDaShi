@@ -246,9 +246,9 @@ public class FreeChestPopup : GUIPopup
 			base.CachedManagers.CachedProposalManager.LastFreeChestTimerStart = base.CachedManagers.CachedProposalManager.LastFreeChestTimerStart.AddSeconds(0f - base.CachedManagers.CachedProposalManager.FreeChestTimer.TimerInSeconds);
 			base.CachedManagers.CachedProposalManager.FreeChestTimer.TimerInSeconds = 0f;
 		}
-		if (FreeChestPopup.OnVideoWatched != null)
+		if (FreeChestPopup.m_OnVideoWatched != null)
 		{
-			FreeChestPopup.OnVideoWatched(isProposalPopup);
+			FreeChestPopup.m_OnVideoWatched(isProposalPopup);
 		}
 	}
 

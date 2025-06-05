@@ -64,10 +64,7 @@ public class NotifyManager : SingletonMonoBehaviour<NotifyManager>
 			if (value != IsLocalNotificationsEnable)
 			{
 				CustomPlayerPrefs.SetInt("LocalNotifyEnable", value ? 1 : 0);
-				if (NotifyManager.OnLocalNotificationsEnabled != null)
-				{
-					NotifyManager.OnLocalNotificationsEnabled(value);
-				}
+				NotifyManager.m_OnLocalNotificationsEnabled?.Invoke(value);
 				LocalNotificationEnable(value, 0f, string.Empty);
 			}
 		}

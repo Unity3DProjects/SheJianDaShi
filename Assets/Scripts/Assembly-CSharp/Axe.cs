@@ -84,9 +84,9 @@ public class Axe : WeaponGeneral
 						{
 							isFatalityWeapon = true;
 							base.CachedRigidbody.velocity = Vector3.zero;
-							if (Axe.OnFloor != null)
+							if (Axe.m_OnFloor != null)
 							{
-								Axe.OnFloor(this);
+								Axe.m_OnFloor(this);
 							}
 						}
 					}, 0.5f);
@@ -109,9 +109,9 @@ public class Axe : WeaponGeneral
 			{
 				isFatalityWeapon = true;
 				Collided(collisionInfo);
-				if (Axe.OnFloor != null)
+				if (Axe.m_OnFloor != null)
 				{
-					Axe.OnFloor(this);
+					Axe.m_OnFloor(this);
 				}
 			}
 			break;

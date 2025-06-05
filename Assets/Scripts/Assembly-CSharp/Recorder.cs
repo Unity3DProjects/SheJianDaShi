@@ -87,15 +87,15 @@ public sealed class Recorder : MonoBehaviour
 		}
 		FlushMemory();
 		m_AutoAspect = autoAspect;
-		m_ReflectionUtils.ConstrainMin(Expression.Lambda<Func<Recorder, int>>(Expression.Field(parameterExpression, FieldInfo.GetFieldFromHandle((RuntimeFieldHandle)/*OpCode not supported: LdMemberToken*/)), new ParameterExpression[1] { parameterExpression }), width);
-		if (autoAspect)
-		{
-			m_ReflectionUtils.ConstrainMin(Expression.Lambda<Func<Recorder, int>>(Expression.Field(parameterExpression2, FieldInfo.GetFieldFromHandle((RuntimeFieldHandle)/*OpCode not supported: LdMemberToken*/)), new ParameterExpression[1] { parameterExpression2 }), height);
-		}
-		m_ReflectionUtils.ConstrainRange(Expression.Lambda<Func<Recorder, int>>(Expression.Field(parameterExpression3, FieldInfo.GetFieldFromHandle((RuntimeFieldHandle)/*OpCode not supported: LdMemberToken*/)), new ParameterExpression[1] { parameterExpression3 }), fps);
-		m_ReflectionUtils.ConstrainMin(Expression.Lambda<Func<Recorder, float>>(Expression.Field(parameterExpression4, FieldInfo.GetFieldFromHandle((RuntimeFieldHandle)/*OpCode not supported: LdMemberToken*/)), new ParameterExpression[1] { parameterExpression4 }), bufferSize);
-		m_ReflectionUtils.ConstrainMin(Expression.Lambda<Func<Recorder, int>>(Expression.Field(parameterExpression5, FieldInfo.GetFieldFromHandle((RuntimeFieldHandle)/*OpCode not supported: LdMemberToken*/)), new ParameterExpression[1] { parameterExpression5 }), repeat);
-		m_ReflectionUtils.ConstrainRange(Expression.Lambda<Func<Recorder, int>>(Expression.Field(parameterExpression6, FieldInfo.GetFieldFromHandle((RuntimeFieldHandle)/*OpCode not supported: LdMemberToken*/)), new ParameterExpression[1] { parameterExpression6 }), quality);
+		// m_ReflectionUtils.ConstrainMin(Expression.Lambda<Func<Recorder, int>>(Expression.Field(parameterExpression, FieldInfo.GetFieldFromHandle((RuntimeFieldHandle)/*OpCode not supported: LdMemberToken*/)), new ParameterExpression[1] { parameterExpression }), width);
+		// if (autoAspect)
+		// {
+		// 	m_ReflectionUtils.ConstrainMin(Expression.Lambda<Func<Recorder, int>>(Expression.Field(parameterExpression2, FieldInfo.GetFieldFromHandle((RuntimeFieldHandle)/*OpCode not supported: LdMemberToken*/)), new ParameterExpression[1] { parameterExpression2 }), height);
+		// }
+		// m_ReflectionUtils.ConstrainRange(Expression.Lambda<Func<Recorder, int>>(Expression.Field(parameterExpression3, FieldInfo.GetFieldFromHandle((RuntimeFieldHandle)/*OpCode not supported: LdMemberToken*/)), new ParameterExpression[1] { parameterExpression3 }), fps);
+		// m_ReflectionUtils.ConstrainMin(Expression.Lambda<Func<Recorder, float>>(Expression.Field(parameterExpression4, FieldInfo.GetFieldFromHandle((RuntimeFieldHandle)/*OpCode not supported: LdMemberToken*/)), new ParameterExpression[1] { parameterExpression4 }), bufferSize);
+		// m_ReflectionUtils.ConstrainMin(Expression.Lambda<Func<Recorder, int>>(Expression.Field(parameterExpression5, FieldInfo.GetFieldFromHandle((RuntimeFieldHandle)/*OpCode not supported: LdMemberToken*/)), new ParameterExpression[1] { parameterExpression5 }), repeat);
+		// m_ReflectionUtils.ConstrainRange(Expression.Lambda<Func<Recorder, int>>(Expression.Field(parameterExpression6, FieldInfo.GetFieldFromHandle((RuntimeFieldHandle)/*OpCode not supported: LdMemberToken*/)), new ParameterExpression[1] { parameterExpression6 }), quality);
 		Init();
 	}
 

@@ -80,20 +80,14 @@ public class StoreWarningPopup : GUIPopup
 	private void YesButton_OnClick()
 	{
 		SingletonMonoBehaviour<StatisticsManager>.Instance.ICloudStore = ICLoudSaveType.Needed;
-		if (StoreWarningPopup.OnStoreProgressResumed != null)
-		{
-			StoreWarningPopup.OnStoreProgressResumed();
-		}
+		StoreWarningPopup.m_OnStoreProgressResumed?.Invoke();
 		HideImmediately();
 	}
 
 	private void NoButton_OnClick()
 	{
 		SingletonMonoBehaviour<StatisticsManager>.Instance.ICloudStore = ICLoudSaveType.UnNeeded;
-		if (StoreWarningPopup.OnStoreProgressResumed != null)
-		{
-			StoreWarningPopup.OnStoreProgressResumed();
-		}
+		StoreWarningPopup.m_OnStoreProgressResumed?.Invoke();
 		HideImmediately();
 	}
 }

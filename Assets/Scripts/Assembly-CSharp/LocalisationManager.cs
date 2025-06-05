@@ -237,9 +237,6 @@ public class LocalisationManager : SingletonMonoBehaviour<LocalisationManager>
 			}
 			CurrentLanguageFonts = new List<tk2dFontData>(list);
 		}
-		if (LocalisationManager.OnLanguageChanged != null)
-		{
-			LocalisationManager.OnLanguageChanged();
-		}
+		LocalisationManager.m_OnLanguageChanged?.Invoke();
 	}
 }

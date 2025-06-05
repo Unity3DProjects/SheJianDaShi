@@ -108,10 +108,7 @@ public class GUIOrientationManger : SingletonMonoBehaviour<GUIOrientationManger>
 		currentRotationType = GUILayouterRotationType.Landscape;
 		ScreenDimentions.UpdateUICamera();
 		SingletonMonoBehaviour<GUIScreenManager>.Instance.ForceGUIScaleRecalculation();
-		if (GUIOrientationManger.OnDeviceOrientationChanged != null)
-		{
-			GUIOrientationManger.OnDeviceOrientationChanged(currentRotationType);
-		}
+		GUIOrientationManger.m_OnDeviceOrientationChanged?.Invoke(currentRotationType);
 	}
 
 	public void RotateToPortrait()
@@ -123,9 +120,6 @@ public class GUIOrientationManger : SingletonMonoBehaviour<GUIOrientationManger>
 		currentRotationType = GUILayouterRotationType.Portrait;
 		ScreenDimentions.UpdateUICamera();
 		SingletonMonoBehaviour<GUIScreenManager>.Instance.ForceGUIScaleRecalculation();
-		if (GUIOrientationManger.OnDeviceOrientationChanged != null)
-		{
-			GUIOrientationManger.OnDeviceOrientationChanged(currentRotationType);
-		}
+		GUIOrientationManger.m_OnDeviceOrientationChanged?.Invoke(currentRotationType);
 	}
 }

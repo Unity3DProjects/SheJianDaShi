@@ -184,10 +184,7 @@ public class tk2dUIScrollableArea : MonoBehaviour
 			{
 				UnpressAllUIItemChildren();
 				percent = value;
-				if (this.OnScroll != null)
-				{
-					this.OnScroll(this);
-				}
+				this.m_OnScroll?.Invoke(this);
 				if (isBackgroundButtonDown || isSwipeScrollingInProgress)
 				{
 					if (tk2dUIManager.Instance__NoCreate != null)
@@ -509,10 +506,7 @@ public class tk2dUIScrollableArea : MonoBehaviour
 		{
 			percent = num;
 			ContentContainerOffset = swipeScrollingContentDestLocalPos;
-			if (this.OnScroll != null)
-			{
-				this.OnScroll(this);
-			}
+			this.m_OnScroll?.Invoke(this);
 			TargetOnScrollCallback();
 		}
 		if (scrollBar != null)

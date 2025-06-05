@@ -163,19 +163,13 @@ public static class LLSoundManager
 	[MonoPInvokeCallback(typeof(LLCallbackDelegate))]
 	private static void OnStoppedSoundCallback(string uid)
 	{
-		if (LLSoundManager.OnStoppedSound != null)
-		{
-			LLSoundManager.OnStoppedSound(uid);
-		}
+		LLSoundManager.m_OnStoppedSound?.Invoke(uid);
 	}
 
 	[MonoPInvokeCallback(typeof(LLCallbackDelegate))]
 	private static void OnErrorSoundCallback(string eror)
 	{
 		CustomDebug.Log(eror);
-		if (LLSoundManager.OnErrorSound != null)
-		{
-			LLSoundManager.OnErrorSound(eror);
-		}
+		LLSoundManager.m_OnErrorSound?.Invoke(eror);
 	}
 }

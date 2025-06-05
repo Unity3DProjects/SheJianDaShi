@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using MoPubInternal.ThirdParty.MiniJSON;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class MoPubManager : MonoBehaviour
 {
@@ -827,7 +828,7 @@ public class MoPubManager : MonoBehaviour
 			Debug.LogWarning("No LogLevel received");
 		}
 		MoPubLog.Log("EmitSdkInitializedEvent", "SDK initialized and ready to display ads.  Log Level: {0}", logLevel);
-		Action<string> onSdkInitializedEvent = MoPubManager.OnSdkInitializedEvent;
+		Action<string> onSdkInitializedEvent = MoPubManager.m_OnSdkInitializedEvent;
 		if (onSdkInitializedEvent != null)
 		{
 			onSdkInitializedEvent(obj);
@@ -841,7 +842,7 @@ public class MoPubManager : MonoBehaviour
 		MoPubBase.Consent.Status status = MoPubBase.Consent.FromString(array[1]);
 		bool flag = array[2].ToLower() == "true";
 		MoPubLog.Log("EmitConsentStatusChangedEvent", "Consent changed to {0} from {1}: PII can{2} be collected. Reason: {3}", status, flag);
-		Action<MoPubBase.Consent.Status, MoPubBase.Consent.Status, bool> onConsentStatusChangedEvent = MoPubManager.OnConsentStatusChangedEvent;
+		Action<MoPubBase.Consent.Status, MoPubBase.Consent.Status, bool> onConsentStatusChangedEvent = MoPubManager.m_OnConsentStatusChangedEvent;
 		if (onConsentStatusChangedEvent != null)
 		{
 			onConsentStatusChangedEvent(arg, status, flag);
@@ -851,7 +852,7 @@ public class MoPubManager : MonoBehaviour
 	public void EmitConsentDialogLoadedEvent()
 	{
 		MoPubLog.Log("EmitConsentDialogLoadedEvent", "Consent dialog loaded");
-		Action onConsentDialogLoadedEvent = MoPubManager.OnConsentDialogLoadedEvent;
+		Action onConsentDialogLoadedEvent = MoPubManager.m_OnConsentDialogLoadedEvent;
 		if (onConsentDialogLoadedEvent != null)
 		{
 			onConsentDialogLoadedEvent();
@@ -863,7 +864,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 1);
 		string text = array[0];
 		MoPubLog.Log("EmitConsentDialogFailedEvent", "Consent dialog failed: ({0}) {1}", text);
-		Action<string> onConsentDialogFailedEvent = MoPubManager.OnConsentDialogFailedEvent;
+		Action<string> onConsentDialogFailedEvent = MoPubManager.m_OnConsentDialogFailedEvent;
 		if (onConsentDialogFailedEvent != null)
 		{
 			onConsentDialogFailedEvent(text);
@@ -873,7 +874,7 @@ public class MoPubManager : MonoBehaviour
 	public void EmitConsentDialogShownEvent()
 	{
 		MoPubLog.Log("EmitConsentDialogShownEvent", "Sucessfully showed consent dialog");
-		Action onConsentDialogShownEvent = MoPubManager.OnConsentDialogShownEvent;
+		Action onConsentDialogShownEvent = MoPubManager.m_OnConsentDialogShownEvent;
 		if (onConsentDialogShownEvent != null)
 		{
 			onConsentDialogShownEvent();
@@ -887,7 +888,7 @@ public class MoPubManager : MonoBehaviour
 		string s = array[1];
 		MoPubLog.Log("EmitAdLoadedEvent", "Ad loaded");
 		MoPubLog.Log("EmitAdLoadedEvent", "Ad shown");
-		Action<string, float> onAdLoadedEvent = MoPubManager.OnAdLoadedEvent;
+		Action<string, float> onAdLoadedEvent = MoPubManager.m_OnAdLoadedEvent;
 		if (onAdLoadedEvent != null)
 		{
 			onAdLoadedEvent(arg, float.Parse(s));
@@ -900,7 +901,7 @@ public class MoPubManager : MonoBehaviour
 		string arg = array[0];
 		string text = array[1];
 		MoPubLog.Log("EmitAdFailedEvent", "Ad failed to load: ({0}) {1}", text);
-		Action<string, string> onAdFailedEvent = MoPubManager.OnAdFailedEvent;
+		Action<string, string> onAdFailedEvent = MoPubManager.m_OnAdFailedEvent;
 		if (onAdFailedEvent != null)
 		{
 			onAdFailedEvent(arg, text);
@@ -912,7 +913,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 1);
 		string obj = array[0];
 		MoPubLog.Log("EmitAdClickedEvent", "Ad tapped");
-		Action<string> onAdClickedEvent = MoPubManager.OnAdClickedEvent;
+		Action<string> onAdClickedEvent = MoPubManager.m_OnAdClickedEvent;
 		if (onAdClickedEvent != null)
 		{
 			onAdClickedEvent(obj);
@@ -924,7 +925,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 1);
 		string obj = array[0];
 		MoPubLog.Log("EmitAdExpandedEvent", "Ad expanded");
-		Action<string> onAdExpandedEvent = MoPubManager.OnAdExpandedEvent;
+		Action<string> onAdExpandedEvent = MoPubManager.m_OnAdExpandedEvent;
 		if (onAdExpandedEvent != null)
 		{
 			onAdExpandedEvent(obj);
@@ -936,7 +937,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 1);
 		string obj = array[0];
 		MoPubLog.Log("EmitAdCollapsedEvent", "Ad collapsed");
-		Action<string> onAdCollapsedEvent = MoPubManager.OnAdCollapsedEvent;
+		Action<string> onAdCollapsedEvent = MoPubManager.m_OnAdCollapsedEvent;
 		if (onAdCollapsedEvent != null)
 		{
 			onAdCollapsedEvent(obj);
@@ -948,7 +949,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 1);
 		string obj = array[0];
 		MoPubLog.Log("EmitInterstitialLoadedEvent", "Ad loaded");
-		Action<string> onInterstitialLoadedEvent = MoPubManager.OnInterstitialLoadedEvent;
+		Action<string> onInterstitialLoadedEvent = MoPubManager.m_OnInterstitialLoadedEvent;
 		if (onInterstitialLoadedEvent != null)
 		{
 			onInterstitialLoadedEvent(obj);
@@ -961,7 +962,7 @@ public class MoPubManager : MonoBehaviour
 		string arg = array[0];
 		string text = array[1];
 		MoPubLog.Log("EmitInterstitialFailedEvent", "Ad failed to load: ({0}) {1}", text);
-		Action<string, string> onInterstitialFailedEvent = MoPubManager.OnInterstitialFailedEvent;
+		Action<string, string> onInterstitialFailedEvent = MoPubManager.m_OnInterstitialFailedEvent;
 		if (onInterstitialFailedEvent != null)
 		{
 			onInterstitialFailedEvent(arg, text);
@@ -973,7 +974,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 1);
 		string obj = array[0];
 		MoPubLog.Log("EmitInterstitialDismissedEvent", "Ad did disappear");
-		Action<string> onInterstitialDismissedEvent = MoPubManager.OnInterstitialDismissedEvent;
+		Action<string> onInterstitialDismissedEvent = MoPubManager.m_OnInterstitialDismissedEvent;
 		if (onInterstitialDismissedEvent != null)
 		{
 			onInterstitialDismissedEvent(obj);
@@ -985,7 +986,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 1);
 		string obj = array[0];
 		MoPubLog.Log("EmitInterstitialDidExpireEvent", "Ad expired since it was not shown within {0} minutes of it being loaded");
-		Action<string> onInterstitialExpiredEvent = MoPubManager.OnInterstitialExpiredEvent;
+		Action<string> onInterstitialExpiredEvent = MoPubManager.m_OnInterstitialExpiredEvent;
 		if (onInterstitialExpiredEvent != null)
 		{
 			onInterstitialExpiredEvent(obj);
@@ -997,7 +998,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 1);
 		string obj = array[0];
 		MoPubLog.Log("EmitInterstitialShownEvent", "Ad shown");
-		Action<string> onInterstitialShownEvent = MoPubManager.OnInterstitialShownEvent;
+		Action<string> onInterstitialShownEvent = MoPubManager.m_OnInterstitialShownEvent;
 		if (onInterstitialShownEvent != null)
 		{
 			onInterstitialShownEvent(obj);
@@ -1009,7 +1010,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 1);
 		string obj = array[0];
 		MoPubLog.Log("EmitInterstitialClickedEvent", "Ad tapped");
-		Action<string> onInterstitialClickedEvent = MoPubManager.OnInterstitialClickedEvent;
+		Action<string> onInterstitialClickedEvent = MoPubManager.m_OnInterstitialClickedEvent;
 		if (onInterstitialClickedEvent != null)
 		{
 			onInterstitialClickedEvent(obj);
@@ -1021,7 +1022,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 1);
 		string obj = array[0];
 		MoPubLog.Log("EmitRewardedVideoLoadedEvent", "Ad loaded");
-		Action<string> onRewardedVideoLoadedEvent = MoPubManager.OnRewardedVideoLoadedEvent;
+		Action<string> onRewardedVideoLoadedEvent = MoPubManager.m_OnRewardedVideoLoadedEvent;
 		if (onRewardedVideoLoadedEvent != null)
 		{
 			onRewardedVideoLoadedEvent(obj);
@@ -1034,7 +1035,7 @@ public class MoPubManager : MonoBehaviour
 		string arg = array[0];
 		string text = array[1];
 		MoPubLog.Log("EmitRewardedVideoFailedEvent", "Ad failed to load: ({0}) {1}", text);
-		Action<string, string> onRewardedVideoFailedEvent = MoPubManager.OnRewardedVideoFailedEvent;
+		Action<string, string> onRewardedVideoFailedEvent = MoPubManager.m_OnRewardedVideoFailedEvent;
 		if (onRewardedVideoFailedEvent != null)
 		{
 			onRewardedVideoFailedEvent(arg, text);
@@ -1046,7 +1047,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 1);
 		string obj = array[0];
 		MoPubLog.Log("EmitRewardedVideoExpiredEvent", "Ad expired since it was not shown within {0} minutes of it being loaded");
-		Action<string> onRewardedVideoExpiredEvent = MoPubManager.OnRewardedVideoExpiredEvent;
+		Action<string> onRewardedVideoExpiredEvent = MoPubManager.m_OnRewardedVideoExpiredEvent;
 		if (onRewardedVideoExpiredEvent != null)
 		{
 			onRewardedVideoExpiredEvent(obj);
@@ -1058,7 +1059,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 1);
 		string obj = array[0];
 		MoPubLog.Log("EmitRewardedVideoShownEvent", "Ad shown");
-		Action<string> onRewardedVideoShownEvent = MoPubManager.OnRewardedVideoShownEvent;
+		Action<string> onRewardedVideoShownEvent = MoPubManager.m_OnRewardedVideoShownEvent;
 		if (onRewardedVideoShownEvent != null)
 		{
 			onRewardedVideoShownEvent(obj);
@@ -1070,7 +1071,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 1);
 		string obj = array[0];
 		MoPubLog.Log("EmitRewardedVideoClickedEvent", "Ad tapped");
-		Action<string> onRewardedVideoClickedEvent = MoPubManager.OnRewardedVideoClickedEvent;
+		Action<string> onRewardedVideoClickedEvent = MoPubManager.m_OnRewardedVideoClickedEvent;
 		if (onRewardedVideoClickedEvent != null)
 		{
 			onRewardedVideoClickedEvent(obj);
@@ -1082,7 +1083,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 2);
 		string arg = array[0];
 		string arg2 = array[1];
-		Action<string, string> onRewardedVideoFailedToPlayEvent = MoPubManager.OnRewardedVideoFailedToPlayEvent;
+		Action<string, string> onRewardedVideoFailedToPlayEvent = MoPubManager.m_OnRewardedVideoFailedToPlayEvent;
 		if (onRewardedVideoFailedToPlayEvent != null)
 		{
 			onRewardedVideoFailedToPlayEvent(arg, arg2);
@@ -1096,7 +1097,7 @@ public class MoPubManager : MonoBehaviour
 		string arg2 = array[1];
 		string s = array[2];
 		MoPubLog.Log("EmitRewardedVideoReceivedRewardEvent", "Ad should reward user with {0} {1}");
-		Action<string, string, float> onRewardedVideoReceivedRewardEvent = MoPubManager.OnRewardedVideoReceivedRewardEvent;
+		Action<string, string, float> onRewardedVideoReceivedRewardEvent = MoPubManager.m_OnRewardedVideoReceivedRewardEvent;
 		if (onRewardedVideoReceivedRewardEvent != null)
 		{
 			onRewardedVideoReceivedRewardEvent(arg, arg2, float.Parse(s));
@@ -1108,7 +1109,7 @@ public class MoPubManager : MonoBehaviour
 		string[] array = DecodeArgs(argsJson, 1);
 		string obj = array[0];
 		MoPubLog.Log("EmitRewardedVideoClosedEvent", "Ad did disappear");
-		Action<string> onRewardedVideoClosedEvent = MoPubManager.OnRewardedVideoClosedEvent;
+		Action<string> onRewardedVideoClosedEvent = MoPubManager.m_OnRewardedVideoClosedEvent;
 		if (onRewardedVideoClosedEvent != null)
 		{
 			onRewardedVideoClosedEvent(obj);
@@ -1119,7 +1120,7 @@ public class MoPubManager : MonoBehaviour
 	{
 		string[] array = DecodeArgs(argsJson, 1);
 		string obj = array[0];
-		Action<string> onRewardedVideoLeavingApplicationEvent = MoPubManager.OnRewardedVideoLeavingApplicationEvent;
+		Action<string> onRewardedVideoLeavingApplicationEvent = MoPubManager.m_OnRewardedVideoLeavingApplicationEvent;
 		if (onRewardedVideoLeavingApplicationEvent != null)
 		{
 			onRewardedVideoLeavingApplicationEvent(obj);

@@ -50,38 +50,26 @@ public class tk2dUIUpDownHoverButton : tk2dUIBaseItemControl
 			{
 				isHover = true;
 				SetState();
-				if (this.OnToggleOver != null)
-				{
-					this.OnToggleOver(this);
-				}
+				this.m_OnToggleOver?.Invoke(this);
 			}
 			else if (isDown && isHover)
 			{
 				isDown = false;
 				isHover = false;
 				SetState();
-				if (this.OnToggleOver != null)
-				{
-					this.OnToggleOver(this);
-				}
+				this.m_OnToggleOver?.Invoke(this);
 			}
 			else if (isDown)
 			{
 				isDown = false;
 				SetState();
-				if (this.OnToggleOver != null)
-				{
-					this.OnToggleOver(this);
-				}
+				this.m_OnToggleOver?.Invoke(this);
 			}
 			else
 			{
 				isHover = false;
 				SetState();
-				if (this.OnToggleOver != null)
-				{
-					this.OnToggleOver(this);
-				}
+				this.m_OnToggleOver?.Invoke(this);
 			}
 			DoSendMessage(SendMessageOnToggleOverMethodName, this);
 		}
@@ -160,9 +148,9 @@ public class tk2dUIUpDownHoverButton : tk2dUIBaseItemControl
 		{
 			isDown = false;
 			SetState();
-			if (!isHover && this.OnToggleOver != null)
+			if (!isHover && this.m_OnToggleOver != null)
 			{
-				this.OnToggleOver(this);
+				this.m_OnToggleOver(this);
 			}
 		}
 	}
@@ -173,9 +161,9 @@ public class tk2dUIUpDownHoverButton : tk2dUIBaseItemControl
 		{
 			isDown = true;
 			SetState();
-			if (!isHover && this.OnToggleOver != null)
+			if (!isHover && this.m_OnToggleOver != null)
 			{
-				this.OnToggleOver(this);
+				this.m_OnToggleOver(this);
 			}
 		}
 	}
@@ -186,9 +174,9 @@ public class tk2dUIUpDownHoverButton : tk2dUIBaseItemControl
 		{
 			isHover = true;
 			SetState();
-			if (!isDown && this.OnToggleOver != null)
+			if (!isDown && this.m_OnToggleOver != null)
 			{
-				this.OnToggleOver(this);
+				this.m_OnToggleOver(this);
 			}
 		}
 	}
@@ -199,9 +187,9 @@ public class tk2dUIUpDownHoverButton : tk2dUIBaseItemControl
 		{
 			isHover = false;
 			SetState();
-			if (!isDown && this.OnToggleOver != null)
+			if (!isDown && this.m_OnToggleOver != null)
 			{
-				this.OnToggleOver(this);
+				this.m_OnToggleOver(this);
 			}
 		}
 	}

@@ -89,7 +89,7 @@ public sealed class LLTapdaqManager
 
 	public static void Initialize()
 	{
-		LLAndroidJavaSingletone<LLTapdaqManager>.CallStatic("LLTapdaqSetCallbacks", LLAndroidJavaCallback.ProxyCallback(LLTapdaqManager.OnTapdaqInterstitialShow), LLAndroidJavaCallback.ProxyCallback(LLTapdaqManager.OnTapdaqInterstitialFinish));
+		LLAndroidJavaSingletone<LLTapdaqManager>.CallStatic("LLTapdaqSetCallbacks", LLAndroidJavaCallback.ProxyCallback(LLTapdaqManager.m_OnTapdaqInterstitialShow), LLAndroidJavaCallback.ProxyCallback(LLTapdaqManager.m_OnTapdaqInterstitialFinish));
 		LLAndroidJavaSingletone<LLTapdaqManager>.CallStatic("LLTapdaqInit", LLTapdaqSettings.AppID(), LLTapdaqSettings.ClientKey(), LLTapdaqSettings.PlacementTag(), LLTapdaqSettings.IsPortrait(), LLTapdaqSettings.EnableTestMode());
 	}
 
@@ -101,18 +101,12 @@ public sealed class LLTapdaqManager
 	[MonoPInvokeCallback(typeof(LLTapdaqNativeDelegateStatus))]
 	private static void VideoDidShow(bool result)
 	{
-		if (LLTapdaqManager.OnTapdaqInterstitialShow != null)
-		{
-			LLTapdaqManager.OnTapdaqInterstitialShow(result);
-		}
+		LLTapdaqManager.m_OnTapdaqInterstitialShow?.Invoke(result);
 	}
 
 	[MonoPInvokeCallback(typeof(LLTapdaqNativeDelegate))]
 	private static void VideoDidDismiss()
 	{
-		if (LLTapdaqManager.OnTapdaqInterstitialFinish != null)
-		{
-			LLTapdaqManager.OnTapdaqInterstitialFinish();
-		}
+		LLTapdaqManager.m_OnTapdaqInterstitialFinish?.Invoke();
 	}
 }

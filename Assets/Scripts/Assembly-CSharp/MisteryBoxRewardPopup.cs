@@ -142,10 +142,7 @@ public class MisteryBoxRewardPopup : GUIPopup
 		{
 			base.CachedManagers.CachedStatisticsManager.AddGems(currentReward);
 		}
-		if (MisteryBoxRewardPopup.OnRewardReceived != null)
-		{
-			MisteryBoxRewardPopup.OnRewardReceived(isCurrentCoinsReward);
-		}
+		MisteryBoxRewardPopup.m_OnRewardReceived?.Invoke(isCurrentCoinsReward);
 		Hide(delegate
 		{
 			if (isRepalyPopupNeeded && base.CachedManagers.CachedRemoteManager.GetRemoteValueForKey("IsMisteryBoxReplayEnabled", true))

@@ -444,10 +444,7 @@ public class Tutorial : MonoBehaviour
 	public void ShowTutorialAnimation(TutorialType type, bool isCloseButtonImmediately = true)
 	{
 		LoadTutorialAnimation(type);
-		if (Tutorial.OnTutorialWillAppear != null)
-		{
-			Tutorial.OnTutorialWillAppear();
-		}
+		Tutorial.m_OnTutorialWillAppear?.Invoke();
 		MoveTutorialAnimation(delegate
 		{
 			isTutorialAnimationPlaying = true;
@@ -458,10 +455,7 @@ public class Tutorial : MonoBehaviour
 	{
 		MoveTutorialAnimation(delegate
 		{
-			if (Tutorial.OnTutorialClose != null)
-			{
-				Tutorial.OnTutorialClose();
-			}
+			Tutorial.m_OnTutorialClose?.Invoke();
 		}, false);
 	}
 
@@ -626,9 +620,9 @@ public class Tutorial : MonoBehaviour
 		congratulationsTweener.SetOnFinishedDelegate(delegate
 		{
 			isCongratulationsOnScreen = isAppear;
-			if (!isAppear && Tutorial.OnCongratulationsDisappear != null)
+			if (!isAppear && Tutorial.m_OnCongratulationsDisappear != null)
 			{
-				Tutorial.OnCongratulationsDisappear();
+				Tutorial.m_OnCongratulationsDisappear();
 			}
 		});
 		congratulationsTweener.IsReversed = !isAppear;
@@ -641,10 +635,7 @@ public class Tutorial : MonoBehaviour
 		isTutorialAnimationPlaying = false;
 		EnableCloseButtonTweener();
 		HideTutorialAnimation();
-		if (Tutorial.OnTutorialWillClose != null)
-		{
-			Tutorial.OnTutorialWillClose();
-		}
+		Tutorial.m_OnTutorialWillClose?.Invoke();
 	}
 
 	private void HintButton_OnClick()

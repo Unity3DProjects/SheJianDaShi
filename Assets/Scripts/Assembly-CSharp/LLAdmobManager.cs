@@ -117,7 +117,7 @@ public sealed class LLAdmobManager
 
 	public static void Initialize()
 	{
-		LLAndroidJavaSingletone<LLAdmobManager>.CallStatic("LLAdmobRegisterCallbacks", LLAndroidJavaCallback.ProxyCallback(LLAdmobManager.OnBannerClick), LLAndroidJavaCallback.ProxyCallback(LLAdmobManager.OnBannerLoad));
+		LLAndroidJavaSingletone<LLAdmobManager>.CallStatic("LLAdmobRegisterCallbacks", LLAndroidJavaCallback.ProxyCallback(LLAdmobManager.m_OnBannerClick), LLAndroidJavaCallback.ProxyCallback(LLAdmobManager.m_OnBannerLoad));
 		LLAndroidJavaSingletone<LLAdmobManager>.CallStatic("LLAdmobSetTestDevicesIDs", LLAdmobSettings.IsTestDevicesNeeded(), LLAdmobSettings.TestDevicesIDs());
 		LLAndroidJavaSingletone<LLAdmobManager>.CallStatic("LLAdmobInit", LLAdmobSettings.AppKey(), LLAdmobSettings.UnitID(), LLAdmobSettings.SizeType(), LLAdmobSettings.PositionType());
 	}
@@ -150,18 +150,12 @@ public sealed class LLAdmobManager
 	[MonoPInvokeCallback(typeof(LLNativeDelegate))]
 	private static void OnBannerClickCallback()
 	{
-		if (LLAdmobManager.OnBannerClick != null)
-		{
-			LLAdmobManager.OnBannerClick();
-		}
+		LLAdmobManager.m_OnBannerClick?.Invoke();
 	}
 
 	[MonoPInvokeCallback(typeof(LLNativeDelegateStatus))]
 	private static void OnLoadAd(bool result)
 	{
-		if (LLAdmobManager.OnBannerLoad != null)
-		{
-			LLAdmobManager.OnBannerLoad(result);
-		}
+		LLAdmobManager.m_OnBannerLoad?.Invoke(result);
 	}
 }

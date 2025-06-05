@@ -246,10 +246,7 @@ public class ICloudLoaderPopup : GUIPopup
 		}
 		if (IsLoadDataProfitable)
 		{
-			if (ICloudLoaderPopup.OnRestoreProgressAgreed != null)
-			{
-				ICloudLoaderPopup.OnRestoreProgressAgreed();
-			}
+			ICloudLoaderPopup.m_OnRestoreProgressAgreed?.Invoke();
 		}
 		else
 		{
@@ -291,9 +288,9 @@ public class ICloudLoaderPopup : GUIPopup
 	{
 		if (isAproved)
 		{
-			if (CachedICloudManager.BadChoiceType == ChoiceType.Load && ICloudLoaderPopup.OnRestoreProgressAgreed != null)
+			if (CachedICloudManager.BadChoiceType == ChoiceType.Load && ICloudLoaderPopup.m_OnRestoreProgressAgreed != null)
 			{
-				ICloudLoaderPopup.OnRestoreProgressAgreed();
+				ICloudLoaderPopup.m_OnRestoreProgressAgreed();
 			}
 			else if (CachedICloudManager.BadChoiceType == ChoiceType.Upload)
 			{

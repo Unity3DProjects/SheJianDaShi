@@ -19,7 +19,7 @@ public class MCMoPubManager : MonoBehaviour
 
 		public void OnMoPubInitialized()
 		{
-			MCMoPubManager.OnSdkInitializedEvent();
+			MCMoPubManager.m_OnSdkInitializedEvent?.Invoke();
 			baseClass.RequestInterstitial(MCAdsManager.InterstitialLocation.GAMEPLAY);
 		}
 
@@ -253,7 +253,7 @@ public class MCMoPubManager : MonoBehaviour
 		isMoPubInitialized = Configurator.SetupMoPub(getInterstitialAdUnit());
 		if (isMoPubInitialized)
 		{
-			MCMoPubManager.OnSdkInitializedEvent();
+			MCMoPubManager.m_OnSdkInitializedEvent?.Invoke();
 		}
 		else
 		{

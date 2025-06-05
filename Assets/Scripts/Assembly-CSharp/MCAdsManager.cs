@@ -313,20 +313,14 @@ public class MCAdsManager : SingletonMonoBehaviour<MCAdsManager>
 
 	private void InternalOnVideoTryLoad(bool result)
 	{
-		if (MCAdsManager.OnVideoTryLoad != null)
-		{
-			MCAdsManager.OnVideoTryLoad(result);
-		}
+		MCAdsManager.m_OnVideoTryLoad?.Invoke(result);
 	}
 
 	private void InternalOnVideoShow(bool result)
 	{
 		if (!result)
 		{
-			if (MCAdsManager.OnVideoFinish != null)
-			{
-				MCAdsManager.OnVideoFinish(false);
-			}
+			MCAdsManager.m_OnVideoFinish?.Invoke(false);
 			if (callbackVideo != null)
 			{
 				callbackVideo(false);
@@ -340,10 +334,7 @@ public class MCAdsManager : SingletonMonoBehaviour<MCAdsManager>
 
 	private void InternalOnVideoFinish(bool result)
 	{
-		if (MCAdsManager.OnVideoFinish != null)
-		{
-			MCAdsManager.OnVideoFinish(result);
-		}
+		MCAdsManager.m_OnVideoFinish?.Invoke(result);
 		if (callbackVideo != null)
 		{
 			callbackVideo(result);
@@ -353,17 +344,11 @@ public class MCAdsManager : SingletonMonoBehaviour<MCAdsManager>
 
 	private void OnInternalInterstitialShow(bool result)
 	{
-		if (MCAdsManager.OnInterstitialShow != null)
-		{
-			MCAdsManager.OnInterstitialShow(result);
-		}
+		MCAdsManager.m_OnInterstitialShow?.Invoke(result);
 	}
 
 	private void InternalOnInterstitialFinish()
 	{
-		if (MCAdsManager.OnInterstitialFinish != null)
-		{
-			MCAdsManager.OnInterstitialFinish();
-		}
+		MCAdsManager.m_OnInterstitialFinish?.Invoke();
 	}
 }

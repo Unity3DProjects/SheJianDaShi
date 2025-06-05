@@ -211,10 +211,7 @@ public class ShopItem : MonoBehaviour
 		{
 			OpenShopItem();
 			SingletonMonoBehaviour<StatisticsManager>.Instance.SpentBucks += PriceTier;
-			if (this.OnItemPurchased != null)
-			{
-				this.OnItemPurchased(this);
-			}
+			this.m_OnItemPurchased?.Invoke(this);
 		}
 		if (transactionState == LLTransactionState.Purchased)
 		{
@@ -224,26 +221,17 @@ public class ShopItem : MonoBehaviour
 
 	public virtual void PurchaseFailed()
 	{
-		if (this.OnItemPurchaseFailed != null)
-		{
-			this.OnItemPurchaseFailed(this);
-		}
+		this.m_OnItemPurchaseFailed?.Invoke(this);
 	}
 
 	public virtual void UpdatePrice()
 	{
-		if (this.OnPriceChanged != null)
-		{
-			this.OnPriceChanged(this);
-		}
+		this.m_OnPriceChanged?.Invoke(this);
 	}
 
 	public virtual void PurchaseSuccessful()
 	{
-		if (this.OnItemPurchased != null)
-		{
-			this.OnItemPurchased(this);
-		}
+		this.m_OnItemPurchased?.Invoke(this);
 	}
 
 	protected virtual void WritePurchaseToPrefs()

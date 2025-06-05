@@ -263,9 +263,9 @@ public class tk2dButton : MonoBehaviour
 		{
 			sprite.spriteId = buttonDownSpriteId;
 		}
-		if (this.ButtonDownEvent != null)
+		if (this.m_ButtonDownEvent != null)
 		{
-			this.ButtonDownEvent(this);
+			this.m_ButtonDownEvent(this);
 		}
 		while (true)
 		{
@@ -318,9 +318,9 @@ public class tk2dButton : MonoBehaviour
 				{
 					sprite.spriteId = buttonUpSpriteId;
 				}
-				if (this.ButtonUpEvent != null)
+				if (this.m_ButtonUpEvent != null)
 				{
-					this.ButtonUpEvent(this);
+					this.m_ButtonUpEvent(this);
 				}
 				buttonPressed = false;
 			}
@@ -335,15 +335,15 @@ public class tk2dButton : MonoBehaviour
 				{
 					sprite.spriteId = buttonDownSpriteId;
 				}
-				if (this.ButtonDownEvent != null)
+				if (this.m_ButtonDownEvent != null)
 				{
-					this.ButtonDownEvent(this);
+					this.m_ButtonDownEvent(this);
 				}
 				buttonPressed = true;
 			}
-			if (buttonPressed && this.ButtonAutoFireEvent != null)
+			if (buttonPressed && this.m_ButtonAutoFireEvent != null)
 			{
-				this.ButtonAutoFireEvent(this);
+				this.m_ButtonAutoFireEvent(this);
 			}
 			yield return 0;
 		}
@@ -362,13 +362,13 @@ public class tk2dButton : MonoBehaviour
 			{
 				targetObject.SendMessage(messageName);
 			}
-			if (this.ButtonUpEvent != null)
+			if (this.m_ButtonUpEvent != null)
 			{
-				this.ButtonUpEvent(this);
+				this.m_ButtonUpEvent(this);
 			}
-			if (this.ButtonPressedEvent != null)
+			if (this.m_ButtonPressedEvent != null)
 			{
-				this.ButtonPressedEvent(this);
+				this.m_ButtonPressedEvent(this);
 			}
 			if (base.gameObject.activeInHierarchy)
 			{

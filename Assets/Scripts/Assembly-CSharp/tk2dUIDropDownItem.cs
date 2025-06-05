@@ -87,9 +87,6 @@ public class tk2dUIDropDownItem : tk2dUIBaseItemControl
 
 	private void ItemSelected()
 	{
-		if (this.OnItemSelected != null)
-		{
-			this.OnItemSelected(this);
-		}
+		this.m_OnItemSelected?.Invoke(this);
 	}
 }

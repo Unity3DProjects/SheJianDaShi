@@ -240,10 +240,7 @@ public class GUIPopupManager : SingletonMonoBehaviour<GUIPopupManager>
 		}
 		GUIPopup gUIPopup = ActivePopup;
 		gUIPopup.OnPopupHide = (Action<GUIPopup>)Delegate.Remove(gUIPopup.OnPopupHide, new Action<GUIPopup>(GUIPopup_OnPopupHide));
-		if (GUIPopupManager.OnOverlayedPopupHide != null)
-		{
-			GUIPopupManager.OnOverlayedPopupHide();
-		}
+		GUIPopupManager.m_OnOverlayedPopupHide?.Invoke();
 		UnityEngine.Object.Destroy(ActivePopup.gameObject);
 		ActivePopup = null;
 		if (oldActive != null)

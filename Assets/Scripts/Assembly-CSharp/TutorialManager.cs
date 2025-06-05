@@ -453,10 +453,7 @@ public class TutorialManager : SingletonMonoBehaviour<TutorialManager>
 			if (flag && !isTutorialMatchesEndedEventSended)
 			{
 				isTutorialMatchesEndedEventSended = true;
-				if (TutorialManager.OnTutorialMatchesEnded != null)
-				{
-					TutorialManager.OnTutorialMatchesEnded();
-				}
+				TutorialManager.m_OnTutorialMatchesEnded?.Invoke();
 			}
 			return flag;
 		}

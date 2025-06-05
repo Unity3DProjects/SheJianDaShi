@@ -9,6 +9,7 @@ using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using GooglePlayGames.BasicApi.Multiplayer;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 {
@@ -543,13 +544,10 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 
 	private void LoginUser()
 	{
-		GameCenterManager.OnWillAuthenticate();
+		GameCenterManager.m_OnWillAuthenticate?.Invoke();
 		Social.localUser.Authenticate(delegate(bool success)
 		{
-			if (GameCenterManager.OnAuthentication != null)
-			{
-				GameCenterManager.OnAuthentication(success);
-			}
+			GameCenterManager.m_OnAuthentication?.Invoke(success);
 			CloudSaveManager.Instance.LoadFromCloud();
 			if (success && pendingAction != null)
 			{

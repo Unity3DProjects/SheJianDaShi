@@ -351,49 +351,37 @@ public sealed class LLStoreManager
 	[MonoPInvokeCallback(typeof(LLStoreManagerProductDelegate))]
 	private static void ReceiveProduct(string productID, bool isValidProduct)
 	{
-		if (LLStoreManager.OnReceiveProduct != null)
-		{
-			LLStoreManager.OnReceiveProduct(productID, isValidProduct);
-		}
+		LLStoreManager.m_OnReceiveProduct?.Invoke(productID, isValidProduct);
 	}
 
 	[MonoPInvokeCallback(typeof(LLStoreManagerPurchaseSuccessDelegate))]
 	private static void PurchaseSuccessful(string productID, string rewardID, string transactionID, int transactionState)
 	{
-		if (LLStoreManager.OnPurchaseSuccessful != null)
-		{
-			LLStoreManager.OnPurchaseSuccessful(productID, rewardID, transactionID, (LLTransactionState)transactionState);
-		}
+		LLStoreManager.m_OnPurchaseSuccessful?.Invoke(productID, rewardID, transactionID, (LLTransactionState)transactionState);
 	}
 
 	private static void PurchaseSuccessfulAndroid(string productID, string rewardID, int transactionState)
 	{
-		if (LLStoreManager.OnPurchaseSuccessfulAndroid != null)
+		if (LLStoreManager.m_OnPurchaseSuccessfulAndroid != null)
 		{
 			PurchaseSuccessfulResultAndroid arg = new PurchaseSuccessfulResultAndroid
 			{
 				signature = LLAndroidJavaSingletone<LLStoreManager>.CallStatic<string>("LLStoreManagerGetPurchaseSignature", new object[1] { productID }),
 				purchaseDataJSON = LLAndroidJavaSingletone<LLStoreManager>.CallStatic<string>("LLStoreManagerGetPurchaseData", new object[1] { productID })
 			};
-			LLStoreManager.OnPurchaseSuccessfulAndroid(productID, rewardID, arg, (LLTransactionState)transactionState);
+			LLStoreManager.m_OnPurchaseSuccessfulAndroid(productID, rewardID, arg, (LLTransactionState)transactionState);
 		}
 	}
 
 	[MonoPInvokeCallback(typeof(LLStoreManagerPurchaseFailedDelegate))]
 	private static void PurchaseFailed(string productID, string rewardID)
 	{
-		if (LLStoreManager.OnPurchaseFailed != null)
-		{
-			LLStoreManager.OnPurchaseFailed(productID, rewardID);
-		}
+		LLStoreManager.m_OnPurchaseFailed?.Invoke(productID, rewardID);
 	}
 
 	[MonoPInvokeCallback(typeof(LLStoreManagerRestoreDelegate))]
 	private static void RestoreComplete(bool isSuccessful)
 	{
-		if (LLStoreManager.OnRestoreComplete != null)
-		{
-			LLStoreManager.OnRestoreComplete(isSuccessful);
-		}
+		LLStoreManager.m_OnRestoreComplete?.Invoke(isSuccessful);
 	}
 }

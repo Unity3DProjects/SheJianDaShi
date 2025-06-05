@@ -36,10 +36,7 @@ public class tk2dUIToggleButton : tk2dUIBaseItemControl
 			{
 				isOn = value;
 				SetState();
-				if (this.OnToggle != null)
-				{
-					this.OnToggle(this);
-				}
+				this.m_OnToggle?.Invoke(this);
 			}
 		}
 	}
@@ -127,10 +124,7 @@ public class tk2dUIToggleButton : tk2dUIBaseItemControl
 		{
 			isOn = !isOn;
 			SetState();
-			if (this.OnToggle != null)
-			{
-				this.OnToggle(this);
-			}
+			this.m_OnToggle?.Invoke(this);
 			DoSendMessage(SendMessageOnToggleMethodName, this);
 		}
 	}

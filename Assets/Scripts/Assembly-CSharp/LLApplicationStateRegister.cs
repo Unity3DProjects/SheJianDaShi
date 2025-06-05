@@ -46,9 +46,6 @@ public class LLApplicationStateRegister : MonoBehaviour
 	[MonoPInvokeCallback(typeof(LLNativeDelegate))]
 	private static void ApplicationEnteredBackground(bool isBackgroundEntered)
 	{
-		if (LLApplicationStateRegister.OnApplicationEnteredBackground != null)
-		{
-			LLApplicationStateRegister.OnApplicationEnteredBackground(isBackgroundEntered);
-		}
+		LLApplicationStateRegister.m_OnApplicationEnteredBackground?.Invoke(isBackgroundEntered);
 	}
 }

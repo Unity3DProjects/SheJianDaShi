@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Analytics;
+using Debug = UnityEngine.Debug;
 
 public class Level : MonoBehaviour
 {
@@ -913,10 +914,7 @@ public class Level : MonoBehaviour
 			RefreshDistanceMark(true);
 		}
 		isDistanceMarkEnabled = true;
-		if (Level.OnPlayerChanged != null)
-		{
-			Level.OnPlayerChanged(obj);
-		}
+		Level.m_OnPlayerChanged?.Invoke(obj);
 	}
 
 	public void UpdateArcherPosition()
@@ -1492,10 +1490,7 @@ public class Level : MonoBehaviour
 
 	protected void PlayerChanged(int numberPlayer)
 	{
-		if (Level.OnPlayerChanged != null)
-		{
-			Level.OnPlayerChanged(numberPlayer);
-		}
+		Level.m_OnPlayerChanged?.Invoke(numberPlayer);
 	}
 
 	protected CharacterNameType GetCharacterNameTypeForWeapon(WeaponType type)

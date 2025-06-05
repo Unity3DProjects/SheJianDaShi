@@ -74,18 +74,15 @@ public class GUITimer
 				TimerInSeconds = 0f;
 				IsTimerActive = false;
 			}
-			if (this.OnTimerChanged != null && ((int)num != (int)TimerInSeconds || TimerInSeconds <= 0f))
+			if (this.m_OnTimerChanged != null && ((int)num != (int)TimerInSeconds || TimerInSeconds <= 0f))
 			{
-				this.OnTimerChanged((int)num);
+				this.m_OnTimerChanged((int)num);
 			}
 		}
 	}
 
 	public void ForceTimeChangeEvent()
 	{
-		if (this.OnTimerChanged != null)
-		{
-			this.OnTimerChanged((int)TimerInSeconds);
-		}
+		this.m_OnTimerChanged?.Invoke((int)TimerInSeconds);
 	}
 }

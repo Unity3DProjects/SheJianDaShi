@@ -397,18 +397,12 @@ public class tmBatchedInstance : MonoBehaviour
 
 	private void OnEnable()
 	{
-		if (tmBatchedInstance.OnActivated != null)
-		{
-			tmBatchedInstance.OnActivated(this);
-		}
+		tmBatchedInstance.m_OnActivated?.Invoke(this);
 	}
 
 	private void OnDisable()
 	{
-		if (tmBatchedInstance.OnDisabled != null)
-		{
-			tmBatchedInstance.OnDisabled(this);
-		}
+		tmBatchedInstance.m_OnDisabled?.Invoke(this);
 	}
 
 	private void OnDestroy()
@@ -418,10 +412,7 @@ public class tmBatchedInstance : MonoBehaviour
 			Clear();
 			UnityEngine.Object.Destroy(mesh);
 		}
-		if (this.OnDestroyEvent != null)
-		{
-			this.OnDestroyEvent();
-		}
+		this.m_OnDestroyEvent?.Invoke();
 	}
 
 	public void UpdatePosition(float delta)

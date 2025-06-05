@@ -31,10 +31,7 @@ public class tk2dUIHoverItem : tk2dUIBaseItemControl
 			{
 				isOver = value;
 				SetState();
-				if (this.OnToggleHover != null)
-				{
-					this.OnToggleHover(this);
-				}
+				this.m_OnToggleHover?.Invoke(this);
 				DoSendMessage(SendMessageOnToggleHoverMethodName, this);
 			}
 		}

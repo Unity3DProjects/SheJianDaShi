@@ -160,10 +160,7 @@ public class tk2dUIToggleButtonGroup : MonoBehaviour
 		{
 			selectedToggleButton = toggleButton;
 			SetSelectedIndexFromSelectedToggleButton();
-			if (this.OnChange != null)
-			{
-				this.OnChange(this);
-			}
+			this.m_OnChange?.Invoke(this);
 			if (sendMessageTarget != null && SendMessageOnChangeMethodName.Length > 0)
 			{
 				sendMessageTarget.SendMessage(SendMessageOnChangeMethodName, this, SendMessageOptions.RequireReceiver);

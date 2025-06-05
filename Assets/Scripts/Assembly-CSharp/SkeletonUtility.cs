@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using Spine;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 [RequireComponent(typeof(ISkeletonAnimation))]
 [ExecuteInEditMode]
@@ -315,10 +316,7 @@ public class SkeletonUtility : MonoBehaviour
 
 	private void HandleRendererReset(SkeletonRenderer r)
 	{
-		if (this.OnReset != null)
-		{
-			this.OnReset();
-		}
+		this.m_OnReset?.Invoke();
 		CollectBones();
 	}
 

@@ -201,10 +201,7 @@ public class MicroachievementsManager : SingletonMonoBehaviour<Microachievements
 	private void Notificate(MicroachievementInfo info)
 	{
 		queueAhievements.Enqueue(info);
-		if (MicroachievementsManager.OnReachedAchievement != null)
-		{
-			MicroachievementsManager.OnReachedAchievement(queueAhievements);
-		}
+		MicroachievementsManager.m_OnReachedAchievement?.Invoke(queueAhievements);
 	}
 
 	private void CustomGUI_OnDebugGUI()

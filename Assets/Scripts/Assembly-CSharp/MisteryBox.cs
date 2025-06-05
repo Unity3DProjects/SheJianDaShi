@@ -202,9 +202,9 @@ public class MisteryBox : MonoBehaviour
 
 	private void MisteryBoxAnimation_State_End(Spine.AnimationState state, int trackIndex)
 	{
-		if (misteryBoxAnimation.State.GetCurrent(trackIndex).Animation == CachedDisappearAnimation && this.OnOpenEnd != null)
+		if (misteryBoxAnimation.State.GetCurrent(trackIndex).Animation == CachedDisappearAnimation && this.m_OnOpenEnd != null)
 		{
-			this.OnOpenEnd();
+			this.m_OnOpenEnd?.Invoke();
 		}
 	}
 }

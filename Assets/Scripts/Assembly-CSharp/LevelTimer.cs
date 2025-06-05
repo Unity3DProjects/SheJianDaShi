@@ -79,10 +79,7 @@ public class LevelTimer : MonoBehaviour
 
 	private void Awake()
 	{
-		if (LevelTimer.OnTimerChanged != null)
-		{
-			LevelTimer.OnTimerChanged(time);
-		}
+		LevelTimer.m_OnTimerChanged?.Invoke(time);
 	}
 
 	public void AddTime(float addTime)
@@ -90,10 +87,7 @@ public class LevelTimer : MonoBehaviour
 		if (addTime > 0f)
 		{
 			time += addTime;
-			if (LevelTimer.OnTimeAdd != null)
-			{
-				LevelTimer.OnTimeAdd();
-			}
+			LevelTimer.m_OnTimeAdd?.Invoke();
 		}
 	}
 
@@ -107,10 +101,7 @@ public class LevelTimer : MonoBehaviour
 				time = 0f;
 				level.TimeIsOver();
 			}
-			if (LevelTimer.OnTimerChanged != null)
-			{
-				LevelTimer.OnTimerChanged(time);
-			}
+			LevelTimer.m_OnTimerChanged?.Invoke(time);
 		}
 	}
 }

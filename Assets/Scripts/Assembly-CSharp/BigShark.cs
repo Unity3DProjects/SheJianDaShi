@@ -159,13 +159,13 @@ public class BigShark : MonoBehaviour
 
 	private void SharkAnimation_State_Event(Spine.AnimationState state, int trackIndex, Spine.Event e)
 	{
-		if (e.Data == CachedEventDataBite && this.OnBiten != null)
+		if (e.Data == CachedEventDataBite && this.m_OnBiten != null)
 		{
-			this.OnBiten();
+			this.m_OnBiten();
 		}
-		if (e.Data == CachedEventDataContact && this.OnContacted != null)
+		if (e.Data == CachedEventDataContact && this.m_OnContacted != null)
 		{
-			this.OnContacted();
+			this.m_OnContacted();
 		}
 	}
 }

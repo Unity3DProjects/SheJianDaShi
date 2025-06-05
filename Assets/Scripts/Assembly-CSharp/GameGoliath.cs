@@ -8,6 +8,7 @@ using Mit_Goliath_Native;
 using Mit_Goliath_Native.Utils;
 using Prime31;
 using UnityEngine;
+using Json = MiniJSON.Json;
 
 public class GameGoliath : GoliathManager
 {

@@ -7,6 +7,7 @@ using System.Threading;
 using GooglePlayGames;
 using MiniJSON;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class LLMultiplayerManager : MonoBehaviour
 {
@@ -344,10 +345,7 @@ public class LLMultiplayerManager : MonoBehaviour
 
 	public static void FindMatch()
 	{
-		if (LLMultiplayerManager.OnFindingMatch != null)
-		{
-			LLMultiplayerManager.OnFindingMatch();
-		}
+		LLMultiplayerManager.m_OnFindingMatch?.Invoke();
 		SingletonMonoBehaviour<GUIPopupManager>.Instance.ShowPopup(PopupType.MatchmakingWaiting);
 		PlayGamesPlatform.Instance.RealTime.LeaveRoom();
 		PlayGamesPlatform.Instance.RealTime.CreateWithInvitationScreen(1u, 1u, 1u, AndroidRealTimeMultiplayerListener.Instance);
@@ -360,58 +358,37 @@ public class LLMultiplayerManager : MonoBehaviour
 
 	private void LocalPlayerAuthenticated(string resultJSON)
 	{
-		if (LLMultiplayerManager.OnLocalPlayerAuthenticated != null)
-		{
-			LLMultiplayerManager.OnLocalPlayerAuthenticated();
-		}
+		LLMultiplayerManager.m_OnLocalPlayerAuthenticated?.Invoke();
 	}
 
 	public void AllOpponentsFound(string resultJSON)
 	{
-		if (LLMultiplayerManager.OnAllOpponentsFound != null)
-		{
-			LLMultiplayerManager.OnAllOpponentsFound();
-		}
+		LLMultiplayerManager.m_OnAllOpponentsFound?.Invoke();
 	}
 
 	public void PlayerAcceptedInvitation(string resultJSON)
 	{
-		if (LLMultiplayerManager.OnPlayerAcceptedInvitation != null)
-		{
-			LLMultiplayerManager.OnPlayerAcceptedInvitation();
-		}
+		LLMultiplayerManager.m_OnPlayerAcceptedInvitation?.Invoke();
 	}
 
 	public void ReceiveMessageFromOpponent(string resultJSON)
 	{
-		if (LLMultiplayerManager.OnReceiveMessageFromOpponent != null)
-		{
-			LLMultiplayerManager.OnReceiveMessageFromOpponent(resultJSON);
-		}
+		LLMultiplayerManager.m_OnReceiveMessageFromOpponent?.Invoke(resultJSON);
 	}
 
 	private void PlayerConnected(string resultJSON)
 	{
-		if (LLMultiplayerManager.OnPlayerConnected != null)
-		{
-			LLMultiplayerManager.OnPlayerConnected();
-		}
+		LLMultiplayerManager.m_OnPlayerConnected?.Invoke();
 	}
 
 	public void PlayerDisconnected(string resultJSON)
 	{
 		bool obj = Json.Deserialize<int>(resultJSON) != 0;
-		if (LLMultiplayerManager.OnPlayerDisconnected != null)
-		{
-			LLMultiplayerManager.OnPlayerDisconnected(obj);
-		}
+		LLMultiplayerManager.m_OnPlayerDisconnected?.Invoke(obj);
 	}
 
 	public void MatchmakerCancelled(string resultJSON)
 	{
-		if (LLMultiplayerManager.OnMatchmakerCancelled != null)
-		{
-			LLMultiplayerManager.OnMatchmakerCancelled();
-		}
+		LLMultiplayerManager.m_OnMatchmakerCancelled?.Invoke();
 	}
 }

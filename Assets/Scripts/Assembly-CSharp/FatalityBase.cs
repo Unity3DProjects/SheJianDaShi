@@ -312,10 +312,10 @@ public class FatalityBase : MonoBehaviour
 
 	protected void ShowBrutalityEffect(float delay)
 	{
-		if (!isBrutalityShowed && FatalityBase.OnBrutalityShowed != null)
+		if (!isBrutalityShowed && FatalityBase.m_OnBrutalityShowed != null)
 		{
 			isBrutalityShowed = true;
-			FatalityBase.OnBrutalityShowed(delay);
+			FatalityBase.m_OnBrutalityShowed(delay);
 		}
 	}
 

@@ -56,10 +56,7 @@ public class TweenFOV : Tweener
 
 	public override void Update()
 	{
-		if (this.OnFovUpdate != null)
-		{
-			this.OnFovUpdate();
-		}
+		this.m_OnFovUpdate?.Invoke();
 		base.Update();
 	}
 }

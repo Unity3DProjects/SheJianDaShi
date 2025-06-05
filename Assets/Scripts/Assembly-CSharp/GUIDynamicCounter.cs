@@ -154,15 +154,9 @@ public class GUIDynamicCounter : MonoBehaviour
 		if (num != Mathf.FloorToInt(currentValue))
 		{
 			counterLabel.text = CurrentValueString;
-			if (this.OnCounterValueChanged != null)
-			{
-				this.OnCounterValueChanged();
-			}
+			this.m_OnCounterValueChanged?.Invoke();
 		}
-		else if (this.OnCounterValueChangeEnded != null)
-		{
-			this.OnCounterValueChangeEnded();
-		}
+		else this.m_OnCounterValueChangeEnded?.Invoke();
 	}
 
 	public void SetValue(float v, bool immediately = false, string prefix = null, string postfix = null)

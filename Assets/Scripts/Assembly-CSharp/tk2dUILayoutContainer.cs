@@ -54,10 +54,7 @@ public abstract class tk2dUILayoutContainer : tk2dUILayout
 		bMin -= vector;
 		bMax -= vector;
 		DoChildLayout();
-		if (this.OnChangeContent != null)
-		{
-			this.OnChangeContent();
-		}
+		this.m_OnChangeContent?.Invoke();
 	}
 
 	public void AddLayout(tk2dUILayout layout, tk2dUILayoutItem item)

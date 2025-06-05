@@ -956,30 +956,21 @@ public class MultiplayerManager : SingletonMonoBehaviour<MultiplayerManager>
 			{
 				SendMessageWithoutParams(MultiplayerMessageType.CreateMatch);
 				matchState = MultiplayerMatchState.Game;
-				if (MultiplayerManager.OnMatchCreated != null)
-				{
-					MultiplayerManager.OnMatchCreated();
-				}
+				MultiplayerManager.m_OnMatchCreated?.Invoke();
 			}
 			break;
 		case MultiplayerMessageType.CreateMatch:
 			if (!IsMainPlayer && matchState == MultiplayerMatchState.ReadyToStart)
 			{
 				matchState = MultiplayerMatchState.Game;
-				if (MultiplayerManager.OnMatchCreated != null)
-				{
-					MultiplayerManager.OnMatchCreated();
-				}
+				MultiplayerManager.m_OnMatchCreated?.Invoke();
 			}
 			break;
 		case MultiplayerMessageType.WeaponAiming:
 			if (matchState == MultiplayerMatchState.Game && canReceiveWeaponAimMessage)
 			{
 				MultiplayerMessageShootSettings multiplayerMessageShootSettings2 = Json.Deserialize<MultiplayerMessageShootSettings>(receivedMessage);
-				if (MultiplayerManager.OnWeaponAimingReceived != null)
-				{
-					MultiplayerManager.OnWeaponAimingReceived(multiplayerMessageShootSettings2.shootAngle, multiplayerMessageShootSettings2.shootVelocity);
-				}
+				MultiplayerManager.m_OnWeaponAimingReceived?.Invoke(multiplayerMessageShootSettings2.shootAngle, multiplayerMessageShootSettings2.shootVelocity);
 			}
 			break;
 		case MultiplayerMessageType.WeaponShoot:
@@ -987,80 +978,56 @@ public class MultiplayerManager : SingletonMonoBehaviour<MultiplayerManager>
 			{
 				MultiplayerMessageShootSettings multiplayerMessageShootSettings = Json.Deserialize<MultiplayerMessageShootSettings>(receivedMessage);
 				canReceiveWeaponAimMessage = false;
-				if (MultiplayerManager.OnWeaponShootReceived != null)
-				{
-					MultiplayerManager.OnWeaponShootReceived(multiplayerMessageShootSettings.shootAngle, multiplayerMessageShootSettings.shootVelocity);
-				}
+				MultiplayerManager.m_OnWeaponShootReceived?.Invoke(multiplayerMessageShootSettings.shootAngle, multiplayerMessageShootSettings.shootVelocity);
 			}
 			break;
 		case MultiplayerMessageType.WeaponActivation:
 			if (matchState == MultiplayerMatchState.Game)
 			{
 				MultiplayerMessageWeaponParams obj = Json.Deserialize<MultiplayerMessageWeaponParams>(receivedMessage);
-				if (MultiplayerManager.OnWeaponTapActivationReceived != null)
-				{
-					MultiplayerManager.OnWeaponTapActivationReceived(obj);
-				}
+				MultiplayerManager.m_OnWeaponTapActivationReceived?.Invoke(obj);
 			}
 			break;
 		case MultiplayerMessageType.RestoreRagdoll:
 			if (matchState == MultiplayerMatchState.Game)
 			{
 				MultiplayerMessageRagdollRestore obj7 = Json.Deserialize<MultiplayerMessageRagdollRestore>(receivedMessage);
-				if (MultiplayerManager.OnRagdollRestoreReceived != null)
-				{
-					MultiplayerManager.OnRagdollRestoreReceived(obj7);
-				}
+				MultiplayerManager.m_OnRagdollRestoreReceived?.Invoke(obj7);
 			}
 			break;
 		case MultiplayerMessageType.SwitchCharacter:
 			if (matchState == MultiplayerMatchState.Game)
 			{
 				MultiplayerMessageSwitchCharacter obj4 = Json.Deserialize<MultiplayerMessageSwitchCharacter>(receivedMessage);
-				if (MultiplayerManager.OnSwitchCharacterReceived != null)
-				{
-					MultiplayerManager.OnSwitchCharacterReceived(obj4);
-				}
+				MultiplayerManager.m_OnSwitchCharacterReceived?.Invoke(obj4);
 			}
 			break;
 		case MultiplayerMessageType.EmissionSettings:
 			if (matchState == MultiplayerMatchState.Game)
 			{
 				MultiplayerMessageEmissionSettings obj2 = Json.Deserialize<MultiplayerMessageEmissionSettings>(receivedMessage);
-				if (MultiplayerManager.OnEmissionSettingsReceived != null)
-				{
-					MultiplayerManager.OnEmissionSettingsReceived(obj2);
-				}
+				MultiplayerManager.m_OnEmissionSettingsReceived?.Invoke(obj2);
 			}
 			break;
 		case MultiplayerMessageType.Health:
 			if (matchState == MultiplayerMatchState.Game)
 			{
 				MultiplayerMessageHealth multiplayerMessageHealth = Json.Deserialize<MultiplayerMessageHealth>(receivedMessage);
-				if (MultiplayerManager.OnHealthMessageReceived != null)
-				{
-					MultiplayerManager.OnHealthMessageReceived(multiplayerMessageHealth.health, multiplayerMessageHealth.isLeftCharacter);
-				}
+				MultiplayerManager.m_OnHealthMessageReceived?.Invoke(multiplayerMessageHealth.health, multiplayerMessageHealth.isLeftCharacter);
 			}
 			break;
 		case MultiplayerMessageType.RagdollTransform:
 			if (matchState == MultiplayerMatchState.Game)
 			{
 				MultiplayerMessageRagdollTransform obj6 = Json.Deserialize<MultiplayerMessageRagdollTransform>(receivedMessage);
-				if (MultiplayerManager.OnRagdollPositionsReceived != null)
-				{
-					MultiplayerManager.OnRagdollPositionsReceived(obj6);
-				}
+				MultiplayerManager.m_OnRagdollPositionsReceived?.Invoke(obj6);
 			}
 			break;
 		case MultiplayerMessageType.ApplyRagdoll:
 			if (matchState == MultiplayerMatchState.Game)
 			{
 				MultiplayerMessageRagdollApply obj5 = Json.Deserialize<MultiplayerMessageRagdollApply>(receivedMessage);
-				if (MultiplayerManager.OnRagdollApplyReceived != null)
-				{
-					MultiplayerManager.OnRagdollApplyReceived(obj5);
-				}
+				MultiplayerManager.m_OnRagdollApplyReceived?.Invoke(obj5);
 			}
 			break;
 		case MultiplayerMessageType.WeaponCollideCharacter:
@@ -1068,20 +1035,14 @@ public class MultiplayerManager : SingletonMonoBehaviour<MultiplayerManager>
 			if (matchState == MultiplayerMatchState.Game)
 			{
 				MultiplayerMessageWeaponCollideCharacter obj3 = Json.Deserialize<MultiplayerMessageWeaponCollideCharacter>(receivedMessage);
-				if (MultiplayerManager.OnWeaponCollideCharacterReceived != null)
-				{
-					MultiplayerManager.OnWeaponCollideCharacterReceived(obj3);
-				}
+				MultiplayerManager.m_OnWeaponCollideCharacterReceived?.Invoke(obj3);
 			}
 			break;
 		case MultiplayerMessageType.Emoji:
 			if (matchState == MultiplayerMatchState.Game)
 			{
 				MultiplayerMessageEmoji multiplayerMessageEmoji = Json.Deserialize<MultiplayerMessageEmoji>(receivedMessage);
-				if (MultiplayerManager.OnEmojiReceived != null)
-				{
-					MultiplayerManager.OnEmojiReceived(multiplayerMessageEmoji.emojiType);
-				}
+				MultiplayerManager.m_OnEmojiReceived?.Invoke(multiplayerMessageEmoji.emojiType);
 			}
 			break;
 		case MultiplayerMessageType.PlayerAcceptedInvite:
@@ -1165,10 +1126,7 @@ public class MultiplayerManager : SingletonMonoBehaviour<MultiplayerManager>
 		float delay = ((!(SingletonMonoBehaviour<LevelsManager>.Instance.CurrentLevel == null)) ? 0f : 5f);
 		SingletonMonoBehaviour<Scheduler>.Instance.CallMethodWithDelay(this, delegate
 		{
-			if (MultiplayerManager.OnPlayerDisconnected != null)
-			{
-				MultiplayerManager.OnPlayerDisconnected(isLocalPlayer);
-			}
+			MultiplayerManager.m_OnPlayerDisconnected?.Invoke(isLocalPlayer);
 		}, delay);
 	}
 

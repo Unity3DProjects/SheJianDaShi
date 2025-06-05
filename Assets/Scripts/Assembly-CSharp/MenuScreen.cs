@@ -8,6 +8,7 @@ using Mit_Goliath_Native.Utils;
 using Prime31;
 using Spine;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class MenuScreen : GUIScreen
 {
@@ -1371,17 +1372,11 @@ public class MenuScreen : GUIScreen
 		SetMode(GameType.VSComputer);
 		ProposalManager cachedProposalManager = base.CachedManagers.CachedProposalManager;
 		cachedProposalManager.ResetBuyCharacter();
-		if (MenuScreen.OnInitializeCharacters != null)
-		{
-			MenuScreen.OnInitializeCharacters();
-		}
+		MenuScreen.m_OnInitializeCharacters?.Invoke();
 		if (cachedProposalManager.GiftCharacter != null && !cachedProposalManager.GiftCharacter.Bought)
 		{
 			cachedProposalManager.GiftCharacter.PurchaseComplete(LLTransactionState.RePurchased);
-			if (MenuScreen.OnCheckBoughtCharacters != null)
-			{
-				MenuScreen.OnCheckBoughtCharacters();
-			}
+			MenuScreen.m_OnCheckBoughtCharacters?.Invoke();
 			base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.GiftPopup);
 		}
 		else if (cachedProposalManager.IsForcedPack && !SingletonMonoBehaviour<ShopManager>.Instance.AllIncludedBought)
@@ -1427,10 +1422,7 @@ public class MenuScreen : GUIScreen
 		{
 			cachedProposalManager.ShowInterstitialCrosspromo();
 		}
-		if (MenuScreen.OnCharacterFirstSelection != null)
-		{
-			MenuScreen.OnCharacterFirstSelection(true);
-		}
+		MenuScreen.m_OnCharacterFirstSelection?.Invoke(true);
 		if (SingletonMonoBehaviour<RateMeManager>.Instance.IsRateMeAvalaible)
 		{
 			MCServices.ShowRatePopup();
@@ -1503,14 +1495,8 @@ public class MenuScreen : GUIScreen
 
 	public void OnInvitationReceived(Action callback)
 	{
-		if (MenuScreen.OnMultiplayerInvitationReceived != null)
-		{
-			MenuScreen.OnMultiplayerInvitationReceived(true);
-		}
-		if (MenuScreen.OnCharacterChoosenCallback != null)
-		{
-			MenuScreen.OnCharacterChoosenCallback(callback);
-		}
+		MenuScreen.m_OnMultiplayerInvitationReceived?.Invoke(true);
+		MenuScreen.m_OnCharacterChoosenCallback?.Invoke(callback);
 		if (base.CachedManagers.CachedGUIScreenManager.ActiveScreen == GUIScreenType.Main)
 		{
 			if (LLMultiplayerManager.IsCurrentGameVersionNotTheLatest)
@@ -1527,10 +1513,7 @@ public class MenuScreen : GUIScreen
 	public void UpdateMainMenuScreen(bool isForced)
 	{
 		Update();
-		if (MenuScreen.OnCheckBoughtCharacters != null)
-		{
-			MenuScreen.OnCheckBoughtCharacters();
-		}
+		MenuScreen.m_OnCheckBoughtCharacters?.Invoke();
 		CheckAvailableLevels();
 		base.CachedManagers.CachedProposalManager.GenerateProposalMenu(true);
 		if (isForced)
@@ -1554,15 +1537,12 @@ public class MenuScreen : GUIScreen
 			flag = true;
 		}
 		TweenCallback callback = null;
-		if (currentSelectedMode == GameType.Multiplayer && currentPhase == MenuPhase.First && newPhase == MenuPhase.Mode && MenuScreen.OnStartSpecialIdleAnimations != null)
+		if (currentSelectedMode == GameType.Multiplayer && currentPhase == MenuPhase.First && newPhase == MenuPhase.Mode && MenuScreen.m_OnStartSpecialIdleAnimations != null)
 		{
-			MenuScreen.OnStartSpecialIdleAnimations(true, false);
+			MenuScreen.m_OnStartSpecialIdleAnimations(true, false);
 		}
 		currentPhase = newPhase;
-		if (MenuScreen.OnChangeCurrentPhase != null)
-		{
-			MenuScreen.OnChangeCurrentPhase(currentPhase);
-		}
+		MenuScreen.m_OnChangeCurrentPhase?.Invoke(currentPhase);
 		if (currentPhase != MenuPhase.Mode && isFollowUsShown)
 		{
 			FollowButtonAction(CachedAnimationFollowUsHidden, CachedAnimationFollowUsHidden);
@@ -1645,14 +1625,8 @@ public class MenuScreen : GUIScreen
 				{
 					gameObject4.SetActive(true);
 				}
-				if (MenuScreen.OnUpdateBuyButtons != null)
-				{
-					MenuScreen.OnUpdateBuyButtons();
-				}
-				if (MenuScreen.OnContentPositionChange != null)
-				{
-					MenuScreen.OnContentPositionChange();
-				}
+				MenuScreen.m_OnUpdateBuyButtons?.Invoke();
+				MenuScreen.m_OnContentPositionChange?.Invoke();
 			};
 			break;
 		}
@@ -2018,10 +1992,7 @@ public class MenuScreen : GUIScreen
 
 	private void MenuScreenScrollView_OnDeleteMultiplayerChosenSprites()
 	{
-		if (MenuScreen.OnDeleteMultiplayerChosenSprites != null)
-		{
-			MenuScreen.OnDeleteMultiplayerChosenSprites();
-		}
+		MenuScreen.m_OnDeleteMultiplayerChosenSprites?.Invoke();
 	}
 
 	private void MenuScreenScrollView_OnCharactersInitialized(bool obj)
@@ -2103,18 +2074,15 @@ public class MenuScreen : GUIScreen
 			SetPhase(MenuPhase.Mode);
 			break;
 		case MenuPhase.First:
-			if (currentSelectedMode == GameType.Multiplayer && MenuScreen.OnDeleteMultiplayerChosenSprites != null)
+			if (currentSelectedMode == GameType.Multiplayer && MenuScreen.m_OnDeleteMultiplayerChosenSprites != null)
 			{
-				MenuScreen.OnDeleteMultiplayerChosenSprites();
+				MenuScreen.m_OnDeleteMultiplayerChosenSprites();
 			}
 			SetPhase(MenuPhase.Mode);
 			break;
 		case MenuPhase.Second:
 			SetPhase(MenuPhase.First);
-			if (MenuScreen.OnDeleteMultiplayerChosenSprites != null)
-			{
-				MenuScreen.OnDeleteMultiplayerChosenSprites();
-			}
+			MenuScreen.m_OnDeleteMultiplayerChosenSprites?.Invoke();
 			break;
 		}
 	}
@@ -2146,9 +2114,9 @@ public class MenuScreen : GUIScreen
 				gameObject.transform.localPosition = Vector3.zero;
 				currentEffects.Add(gameObject);
 			}
-			if (isCharactersInitialized && MenuScreen.OnShouldBuyCharacterOnCoinsTutorialLoad != null)
+			if (isCharactersInitialized && MenuScreen.m_OnShouldBuyCharacterOnCoinsTutorialLoad != null)
 			{
-				MenuScreen.OnShouldBuyCharacterOnCoinsTutorialLoad(true);
+				MenuScreen.m_OnShouldBuyCharacterOnCoinsTutorialLoad(true);
 			}
 		}
 	}
@@ -2170,19 +2138,16 @@ public class MenuScreen : GUIScreen
 				gameObject.transform.localPosition = Vector3.zero;
 				currentEffects.Add(gameObject);
 			}
-			if (isCharactersInitialized && MenuScreen.OnShouldBuyCharacterOnGemsTutorialLoad != null)
+			if (isCharactersInitialized && MenuScreen.m_OnShouldBuyCharacterOnGemsTutorialLoad != null)
 			{
-				MenuScreen.OnShouldBuyCharacterOnGemsTutorialLoad(true);
+				MenuScreen.m_OnShouldBuyCharacterOnGemsTutorialLoad(true);
 			}
 		}
 	}
 
 	private void ComputerButton_OnClick()
 	{
-		if (MenuScreen.OnPlayButtonEnable != null)
-		{
-			MenuScreen.OnPlayButtonEnable(true);
-		}
+		MenuScreen.m_OnPlayButtonEnable?.Invoke(true);
 		SetMode(GameType.VSComputer);
 		if (base.CachedManagers.CachedStatisticsManager.IsUnlockedMode(GameType.VSComputer))
 		{
@@ -2192,10 +2157,7 @@ public class MenuScreen : GUIScreen
 
 	private void HumanButton_OnClick()
 	{
-		if (MenuScreen.OnPlayButtonEnable != null)
-		{
-			MenuScreen.OnPlayButtonEnable(true);
-		}
+		MenuScreen.m_OnPlayButtonEnable?.Invoke(true);
 		SetMode(GameType.VSHuman);
 		base.CachedManagers.CachedGUIScreenManager.IsNeedPlayUnlockVSHumanModeEffect = false;
 		if (base.CachedManagers.CachedStatisticsManager.IsUnlockedMode(GameType.VSHuman))
@@ -2206,10 +2168,7 @@ public class MenuScreen : GUIScreen
 
 	private void BirdsHuntButton_OnClick()
 	{
-		if (MenuScreen.OnPlayButtonEnable != null)
-		{
-			MenuScreen.OnPlayButtonEnable(true);
-		}
+		MenuScreen.m_OnPlayButtonEnable?.Invoke(true);
 		SetMode(GameType.BirdsHunt);
 		base.CachedManagers.CachedGUIScreenManager.IsNeedPlayUnlockBirdHuntModeEffect = false;
 		if (base.CachedManagers.CachedStatisticsManager.IsUnlockedMode(GameType.BirdsHunt))
@@ -2230,10 +2189,7 @@ public class MenuScreen : GUIScreen
 
 	private void AppleShootButton_OnClick()
 	{
-		if (MenuScreen.OnPlayButtonEnable != null)
-		{
-			MenuScreen.OnPlayButtonEnable(true);
-		}
+		MenuScreen.m_OnPlayButtonEnable?.Invoke(true);
 		SetMode(GameType.AppleShoot);
 		base.CachedManagers.CachedGUIScreenManager.IsNeedPlayUnlockAppleModeEffect = false;
 		if (base.CachedManagers.CachedStatisticsManager.IsUnlockedMode(GameType.AppleShoot))
@@ -2267,10 +2223,7 @@ public class MenuScreen : GUIScreen
 
 	private void MultiplayerButton_OnClick()
 	{
-		if (MenuScreen.OnPlayButtonEnable != null)
-		{
-			MenuScreen.OnPlayButtonEnable(true);
-		}
+		MenuScreen.m_OnPlayButtonEnable?.Invoke(true);
 		if (Application.internetReachability == NetworkReachability.NotReachable)
 		{
 			base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.NoInternet, true, null, true);
@@ -2302,30 +2255,21 @@ public class MenuScreen : GUIScreen
 	private void TournamentEasyButton_OnClick()
 	{
 		currentTournamentDifficult = TournamentDifficultType.Easy;
-		if (MenuScreen.OnCurrentTournamentDifficult != null)
-		{
-			MenuScreen.OnCurrentTournamentDifficult(currentTournamentDifficult);
-		}
+		MenuScreen.m_OnCurrentTournamentDifficult?.Invoke(currentTournamentDifficult);
 		SetPhase(MenuPhase.First);
 	}
 
 	private void TournamentMediumButton_OnClick()
 	{
 		currentTournamentDifficult = TournamentDifficultType.Medium;
-		if (MenuScreen.OnCurrentTournamentDifficult != null)
-		{
-			MenuScreen.OnCurrentTournamentDifficult(currentTournamentDifficult);
-		}
+		MenuScreen.m_OnCurrentTournamentDifficult?.Invoke(currentTournamentDifficult);
 		SetPhase(MenuPhase.First);
 	}
 
 	private void TournamentHardButton_OnClick()
 	{
 		currentTournamentDifficult = TournamentDifficultType.Hard;
-		if (MenuScreen.OnCurrentTournamentDifficult != null)
-		{
-			MenuScreen.OnCurrentTournamentDifficult(currentTournamentDifficult);
-		}
+		MenuScreen.m_OnCurrentTournamentDifficult?.Invoke(currentTournamentDifficult);
 		SetPhase(MenuPhase.First);
 	}
 
@@ -2349,10 +2293,7 @@ public class MenuScreen : GUIScreen
 
 	private void GiftManager_OnSpecialGiftCharacterOpen(ShopItemCharacter character)
 	{
-		if (MenuScreen.OnInitializeCharacters != null)
-		{
-			MenuScreen.OnInitializeCharacters();
-		}
+		MenuScreen.m_OnInitializeCharacters?.Invoke();
 	}
 
 	private void MicroachievementsManager_OnReachedAchievement(Queue<MicroachievementInfo> queue)
@@ -2389,16 +2330,13 @@ public class MenuScreen : GUIScreen
 
 	private void MCInnAppsmanager_ReceivedProductsIDS(List<GooglePurchase> purchases, List<GoogleSkuInfo> skus)
 	{
-		MenuScreen.OnUpdateBuyButtons();
-		MenuScreen.OnCheckBoughtCharacters();
+		MenuScreen.m_OnUpdateBuyButtons.Invoke();
+		MenuScreen.m_OnCheckBoughtCharacters?.Invoke();
 	}
 
 	private void ShopManager_OnAllProductsReceived()
 	{
-		if (MenuScreen.OnUpdateBuyButtons != null)
-		{
-			MenuScreen.OnUpdateBuyButtons();
-		}
+		MenuScreen.m_OnUpdateBuyButtons?.Invoke();
 	}
 
 	private void ICloudManager_OnProgressDownloaded()
@@ -2408,43 +2346,25 @@ public class MenuScreen : GUIScreen
 
 	private void MultiplayerManager_OnPlayerDisconnected(bool isLocalPlayer)
 	{
-		if (MenuScreen.OnMultiplayerInvitationReceived != null)
-		{
-			MenuScreen.OnMultiplayerInvitationReceived(false);
-		}
-		if (MenuScreen.OnPlayButtonEnable != null)
-		{
-			MenuScreen.OnPlayButtonEnable(true);
-		}
+		MenuScreen.m_OnMultiplayerInvitationReceived?.Invoke(false);
+		MenuScreen.m_OnPlayButtonEnable?.Invoke(true);
 	}
 
 	private void LLMultiplayerManager_OnMatchmakerCancelled()
 	{
-		if (MenuScreen.OnStartSpecialIdleAnimations != null)
-		{
-			MenuScreen.OnStartSpecialIdleAnimations(true, true);
-		}
-		if (MenuScreen.OnPlayButtonEnable != null)
-		{
-			MenuScreen.OnPlayButtonEnable(true);
-		}
-		if (MenuScreen.OnDeleteMultiplayerChosenSprites != null)
-		{
-			MenuScreen.OnDeleteMultiplayerChosenSprites();
-		}
+		MenuScreen.m_OnStartSpecialIdleAnimations?.Invoke(true, true);
+		MenuScreen.m_OnPlayButtonEnable?.Invoke(true);
+		MenuScreen.m_OnDeleteMultiplayerChosenSprites?.Invoke();
 	}
 
 	private void LLMultiplayerManager_OnAllOpponentsFound()
 	{
-		if (MenuScreen.OnPlayButtonEnable != null)
-		{
-			MenuScreen.OnPlayButtonEnable(false);
-		}
+		MenuScreen.m_OnPlayButtonEnable?.Invoke(false);
 		base.CachedManagers.CachedScheduler.CallMethodWithDelay(this, delegate
 		{
-			if (this != null && MenuScreen.OnPlayButtonEnable != null)
+			if (this != null && MenuScreen.m_OnPlayButtonEnable != null)
 			{
-				MenuScreen.OnPlayButtonEnable(true);
+				MenuScreen.m_OnPlayButtonEnable(true);
 			}
 		}, 5f);
 	}
@@ -2510,10 +2430,7 @@ public class MenuScreen : GUIScreen
 			AudioManager.StopAudioWithKey("player_one_choose");
 			AudioManager.PlayAudioWithKey("player_two_choose");
 		}
-		if (MenuScreen.OnUpdateBuyButtons != null)
-		{
-			MenuScreen.OnUpdateBuyButtons();
-		}
+		MenuScreen.m_OnUpdateBuyButtons?.Invoke();
 	}
 
 	private void Timer_OnTimerChanged(int time)

@@ -444,10 +444,7 @@ public class tk2dUIManager : MonoBehaviour
 	private void Update()
 	{
 		tk2dUITime.Update();
-		if (this.OnInputUpdate != null)
-		{
-			this.OnInputUpdate();
-		}
+		this.m_OnInputUpdate?.Invoke();
 		if (!IsEnabledInputTouches)
 		{
 			return;
@@ -461,12 +458,12 @@ public class tk2dUIManager : MonoBehaviour
 		{
 			claimTouches = CheckInputs();
 		}
-		if (this.OnScrollWheelChange != null)
+		if (this.m_OnScrollWheelChange != null)
 		{
 			float axis = Input.GetAxis("Mouse ScrollWheel");
 			if (axis != 0f)
 			{
-				this.OnScrollWheelChange(axis);
+				this.m_OnScrollWheelChange(axis);
 			}
 		}
 	}
@@ -660,9 +657,9 @@ public class tk2dUIManager : MonoBehaviour
 				overUIItem.HoverOut(null);
 			}
 		}
-		if (flag3 && this.OnAnyPress != null)
+		if (flag3 && this.m_OnAnyPress != null)
 		{
-			this.OnAnyPress();
+			this.m_OnAnyPress?.Invoke();
 		}
 		return result;
 	}
@@ -798,9 +795,9 @@ public class tk2dUIManager : MonoBehaviour
 			}
 			flag = true;
 		}
-		if (flag && this.OnAnyPress != null)
+		if (flag && this.m_OnAnyPress != null)
 		{
-			this.OnAnyPress();
+			this.m_OnAnyPress?.Invoke();
 		}
 		return result;
 	}

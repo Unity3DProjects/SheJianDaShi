@@ -139,12 +139,12 @@ public sealed class LLSharingManager
 	public static void ShareAll(string text, string link)
 	{
 		byte[] bytes = Encoding.BigEndianUnicode.GetBytes(text);
-		LLAndroidJavaSingletone<LLSharingManager>.CallStatic("LLSharingManagerShare", LLAndroidJavaCallback.ProxyCallback(LLSharingManager.OnShareComplete), LLAndroidJavaCallback.ProxyCallback(LLSharingManager.OnSeriveOpened), LLAndroidJavaCallback.ProxyCallback(LLSharingManager.OnShareDismiss), bytes, link);
+		LLAndroidJavaSingletone<LLSharingManager>.CallStatic("LLSharingManagerShare", LLAndroidJavaCallback.ProxyCallback(LLSharingManager.m_OnShareComplete), LLAndroidJavaCallback.ProxyCallback(LLSharingManager.m_OnSeriveOpened), LLAndroidJavaCallback.ProxyCallback(LLSharingManager.m_OnShareDismiss), bytes, link);
 	}
 
 	public static void ShareAll(string text, string link, byte[] image)
 	{
-		LLAndroidJavaSingletone<LLSharingManager>.CallStatic("LLSharingManagerShare", LLAndroidJavaCallback.ProxyCallback(LLSharingManager.OnShareComplete), LLAndroidJavaCallback.ProxyCallback(LLSharingManager.OnSeriveOpened), LLAndroidJavaCallback.ProxyCallback(LLSharingManager.OnShareDismiss), text, link, image);
+		LLAndroidJavaSingletone<LLSharingManager>.CallStatic("LLSharingManagerShare", LLAndroidJavaCallback.ProxyCallback(LLSharingManager.m_OnShareComplete), LLAndroidJavaCallback.ProxyCallback(LLSharingManager.m_OnSeriveOpened), LLAndroidJavaCallback.ProxyCallback(LLSharingManager.m_OnShareDismiss), text, link, image);
 	}
 
 	public static void OpenInstagramLink(string link)
@@ -155,27 +155,18 @@ public sealed class LLSharingManager
 	[MonoPInvokeCallback(typeof(LLCallbackString))]
 	private static void ShareServiceComplete(string activity)
 	{
-		if (LLSharingManager.OnShareComplete != null)
-		{
-			LLSharingManager.OnShareComplete(0);
-		}
+		LLSharingManager.m_OnShareComplete?.Invoke(0);
 	}
 
 	[MonoPInvokeCallback(typeof(LLCallbackString))]
 	private static void ShareServiceDismiss(string activity)
 	{
-		if (LLSharingManager.OnShareDismiss != null)
-		{
-			LLSharingManager.OnShareDismiss(0);
-		}
+		LLSharingManager.m_OnShareDismiss?.Invoke(0);
 	}
 
 	[MonoPInvokeCallback(typeof(LLCallbackBool))]
 	private static void OpenService(bool success)
 	{
-		if (LLSharingManager.OnSeriveOpened != null)
-		{
-			LLSharingManager.OnSeriveOpened(success);
-		}
+		LLSharingManager.m_OnSeriveOpened?.Invoke(success);
 	}
 }

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class TapToStartScreen : MonoBehaviour
 {
@@ -150,10 +151,7 @@ public class TapToStartScreen : MonoBehaviour
 
 	protected void LoaderButton_OnClick()
 	{
-		if (TapToStartScreen.OnLoaderRemoved != null)
-		{
-			TapToStartScreen.OnLoaderRemoved();
-		}
+		TapToStartScreen.m_OnLoaderRemoved?.Invoke();
 		UnityEngine.Object.Destroy(base.gameObject);
 		AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.BOWMASTERS_ACTIVITY);
 		androidJavaClass.CallStatic(AndroidPluginNames.BOWMASTERS_ACTIVITY_REMOVE_SPLASH_SCREEN);

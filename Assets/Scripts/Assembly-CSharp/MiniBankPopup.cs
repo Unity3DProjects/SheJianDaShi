@@ -137,10 +137,10 @@ public class MiniBankPopup : GUIPopup
 	private void GUIShopSlot_OnBankItemPurchased()
 	{
 		CloseButton_OnClick();
-		if (MiniBankPopup.OnBankItemPurchsed != null)
+		if (MiniBankPopup.m_OnBankItemPurchsed != null)
 		{
 			bool obj = leftShopItem.GetType() != typeof(ShopItemCoins);
-			MiniBankPopup.OnBankItemPurchsed(obj);
+			MiniBankPopup.m_OnBankItemPurchsed(obj);
 		}
 	}
 }

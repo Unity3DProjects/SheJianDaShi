@@ -185,10 +185,7 @@ public class SuperSonicManager : SingletonMonoBehaviour<SuperSonicManager>
 		{
 			SingletonMonoBehaviour<AudioManager>.Instance.UnMuteSounds();
 			SingletonMonoBehaviour<GameManager>.Instance.IsGamePaused = false;
-			if (SuperSonicManager.OnVideoFinish != null)
-			{
-				SuperSonicManager.OnVideoFinish(false);
-			}
+			SuperSonicManager.m_OnVideoFinish?.Invoke(false);
 			if (callbackVideo != null)
 			{
 				callbackVideo(false);
@@ -204,10 +201,7 @@ public class SuperSonicManager : SingletonMonoBehaviour<SuperSonicManager>
 	{
 		SingletonMonoBehaviour<AudioManager>.Instance.UnMuteSounds();
 		SingletonMonoBehaviour<GameManager>.Instance.IsGamePaused = false;
-		if (SuperSonicManager.OnVideoFinish != null)
-		{
-			SuperSonicManager.OnVideoFinish(result);
-		}
+		SuperSonicManager.m_OnVideoFinish?.Invoke(result);
 		if (callbackVideo != null)
 		{
 			callbackVideo(result);

@@ -68,10 +68,7 @@ public class ShopItemSubscription : ShopItem
 		{
 			OnSubscriptionActive();
 		}
-		if (RemoveAdsPopup.OnRemoveAdsPurchased != null)
-		{
-			RemoveAdsPopup.OnRemoveAdsPurchased();
-		}
+		RemoveAdsPopup.OnRemoveAdsPurchased?.Invoke();
 		if (CachedManagers.CachedGUIScreenManager.MenuScreen != null)
 		{
 			CachedManagers.CachedGUIScreenManager.MenuScreen.MenuScreenScrollView.CheckBoughtCharacters();
