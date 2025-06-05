@@ -2,6 +2,8 @@ using System;
 using GooglePlayGames.BasicApi;
 using GooglePlayGames.Native.Cwrapper;
 using UnityEngine;
+using Types = GooglePlayGames.Native.Cwrapper.Types;
+
 
 namespace GooglePlayGames.Native
 {

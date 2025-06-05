@@ -285,64 +285,64 @@ namespace Prime31
 
 		public void billingSupported(string empty)
 		{
-			GoogleIABManager.billingSupportedEvent.fire();
+			// GoogleIABManager.billingSupportedEvent.fire();
 		}
 
 		public void billingNotSupported(string error)
 		{
-			GoogleIABManager.billingNotSupportedEvent.fire(error);
+			// GoogleIABManager.billingNotSupportedEvent.fire(error);
 		}
 
 		public void queryInventorySucceeded(string json)
 		{
-			if (GoogleIABManager.queryInventorySucceededEvent != null)
-			{
-				Dictionary<string, object> dictionary = json.dictionaryFromJson();
-				GoogleIABManager.queryInventorySucceededEvent(GooglePurchase.fromList(dictionary["purchases"] as List<object>), GoogleSkuInfo.fromList(dictionary["skus"] as List<object>));
-			}
+			// if (GoogleIABManager.queryInventorySucceededEvent != null)
+			// {
+			// 	Dictionary<string, object> dictionary = json.dictionaryFromJson();
+			// 	GoogleIABManager.queryInventorySucceededEvent(GooglePurchase.fromList(dictionary["purchases"] as List<object>), GoogleSkuInfo.fromList(dictionary["skus"] as List<object>));
+			// }
 		}
 
 		public void queryInventoryFailed(string error)
 		{
-			GoogleIABManager.queryInventoryFailedEvent.fire(error);
+			// GoogleIABManager.queryInventoryFailedEvent.fire(error);
 		}
 
 		public void purchaseCompleteAwaitingVerification(string json)
 		{
-			if (GoogleIABManager.purchaseCompleteAwaitingVerificationEvent != null)
-			{
-				Dictionary<string, object> dictionary = json.dictionaryFromJson();
-				string arg = dictionary["purchaseData"].ToString();
-				string arg2 = dictionary["signature"].ToString();
-				GoogleIABManager.purchaseCompleteAwaitingVerificationEvent(arg, arg2);
-			}
+			// if (GoogleIABManager.purchaseCompleteAwaitingVerificationEvent != null)
+			// {
+			// 	Dictionary<string, object> dictionary = json.dictionaryFromJson();
+			// 	string arg = dictionary["purchaseData"].ToString();
+			// 	string arg2 = dictionary["signature"].ToString();
+			// 	GoogleIABManager.purchaseCompleteAwaitingVerificationEvent(arg, arg2);
+			// }
 		}
 
 		public void purchaseSucceeded(string json)
 		{
-			GoogleIABManager.purchaseSucceededEvent.fire(new GooglePurchase(json.dictionaryFromJson()));
+			// GoogleIABManager.purchaseSucceededEvent.fire(new GooglePurchase(json.dictionaryFromJson()));
 		}
 
 		public void purchaseFailed(string json)
 		{
-			if (GoogleIABManager.purchaseFailedEvent != null)
-			{
-				Dictionary<string, object> dictionary = Json.decode<Dictionary<string, object>>(json);
-				GoogleIABManager.purchaseFailedEvent(dictionary["result"].ToString(), int.Parse(dictionary["response"].ToString()));
-			}
+			// if (GoogleIABManager.purchaseFailedEvent != null)
+			// {
+			// 	Dictionary<string, object> dictionary = Json.decode<Dictionary<string, object>>(json);
+			// 	GoogleIABManager.purchaseFailedEvent(dictionary["result"].ToString(), int.Parse(dictionary["response"].ToString()));
+			// }
 		}
 
 		public void consumePurchaseSucceeded(string json)
 		{
-			if (GoogleIABManager.consumePurchaseSucceededEvent != null)
-			{
-				GoogleIABManager.consumePurchaseSucceededEvent.fire(new GooglePurchase(json.dictionaryFromJson()));
-			}
+			// if (GoogleIABManager.consumePurchaseSucceededEvent != null)
+			// {
+			// 	GoogleIABManager.consumePurchaseSucceededEvent.fire(new GooglePurchase(json.dictionaryFromJson()));
+			// }
 		}
 
 		public void consumePurchaseFailed(string error)
 		{
-			GoogleIABManager.consumePurchaseFailedEvent.fire(error);
+			// GoogleIABManager.consumePurchaseFailedEvent.fire(error);
 		}
 	}
 }

@@ -11,6 +11,7 @@ using GooglePlayGames.Native.PInvoke;
 using GooglePlayGames.OurUtils;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
+using Types = GooglePlayGames.Native.Cwrapper.Types;
 
 namespace GooglePlayGames.Native
 {
