@@ -1,5 +1,5 @@
 using System;
-using GooglePlayGames;
+// using GooglePlayGames;
 using UnityEngine;
 
 public class GUIPopup : GUIControl
@@ -195,7 +195,7 @@ public class GUIPopup : GUIControl
 		CloseButton_OnClick();
 		if (TypePopup == PopupType.MatchmakingWaiting)
 		{
-			PlayGamesPlatform.Instance.RealTime.LeaveRoom();
+			// PlayGamesPlatform.Instance.RealTime.LeaveRoom();
 		}
 	}
 }

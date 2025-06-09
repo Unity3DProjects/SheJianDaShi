@@ -256,19 +256,25 @@ public class FreeChestPopup : GUIPopup
 	{
 		base.CachedManagers.CachedGameManager.IsGamePaused = true;
 		skipButton.GetComponent<BoxCollider>().enabled = false;
-		base.CachedManagers.CachedAdvertisingManager.ShowVideo(delegate(bool isVideoShown)
-		{
+			//TODO:激励---免费宝箱
+		// base.CachedManagers.CachedAdvertisingManager.ShowVideo(delegate(bool isVideoShown)
+		// {
+		// 	base.CachedManagers.CachedGameManager.IsGamePaused = false;
+		// 	if (isVideoShown)
+		// 	{
+		// 		chestAnimation.State.SetAnimation(0, CachedAnimationUnlock, false);
+		// 		chestAnimation.State.AddAnimation(0, CachedAnimationOpen, false, 0f);
+		// 	}
+		// 	else
+		// 	{
+		// 		skipButton.GetComponent<BoxCollider>().enabled = true;
+		// 	}
+		// });
+		
 			base.CachedManagers.CachedGameManager.IsGamePaused = false;
-			if (isVideoShown)
-			{
 				chestAnimation.State.SetAnimation(0, CachedAnimationUnlock, false);
 				chestAnimation.State.AddAnimation(0, CachedAnimationOpen, false, 0f);
-			}
-			else
-			{
-				skipButton.GetComponent<BoxCollider>().enabled = true;
-			}
-		});
+
 	}
 
 	private void ChestAnimation_State_Event(Spine.AnimationState state, int trackIndex, Spine.Event e)

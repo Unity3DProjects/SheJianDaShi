@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading;
-using GooglePlayGames;
+// using GooglePlayGames;
 using MiniJSON;
 using UnityEngine;
 
@@ -1076,9 +1076,9 @@ public class MultiplayerManager : SingletonMonoBehaviour<MultiplayerManager>
 			CachedManagers.CachedGUIScreenManager.MenuScreen.OnInvitationReceived(delegate
 			{
 				SingletonMonoBehaviour<GUIPopupManager>.Instance.ShowPopup(PopupType.MatchmakingWaiting);
-				PlayGamesPlatform.Instance.RealTime.LeaveRoom();
+				// PlayGamesPlatform.Instance.RealTime.LeaveRoom();
 				wasFirstIdentifierMessageSended = false;
-				PlayGamesPlatform.Instance.RealTime.AcceptInvitation(SingletonMonoBehaviour<GameCenterManager>.Instance.CurrentInvitation.InvitationId, AndroidRealTimeMultiplayerListener.Instance);
+				// PlayGamesPlatform.Instance.RealTime.AcceptInvitation(SingletonMonoBehaviour<GameCenterManager>.Instance.CurrentInvitation.InvitationId, AndroidRealTimeMultiplayerListener.Instance);
 				invitedCharacterSet = true;
 				SendMainPlayerIdentifierMessage();
 				CheckMainCharacter();
@@ -1115,7 +1115,7 @@ public class MultiplayerManager : SingletonMonoBehaviour<MultiplayerManager>
 	{
 		if (LLMultiplayerManager.canCancelMatchmaking)
 		{
-			PlayGamesPlatform.Instance.RealTime.LeaveRoom();
+			// PlayGamesPlatform.Instance.RealTime.LeaveRoom();
 			SingletonMonoBehaviour<GUIPopupManager>.Instance.ShowPopup(PopupType.FailedToFindOpponent);
 		}
 	}

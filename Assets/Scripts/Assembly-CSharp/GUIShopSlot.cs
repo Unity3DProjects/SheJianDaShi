@@ -283,6 +283,7 @@ public class GUIShopSlot : MonoBehaviour
 			tk2dUIManager.Instance.InputEnabled = false;
 			if (!cachedShopItem.TryBuy())
 			{
+				Debug.LogError($"购买成功");
 				cachedShopItem.OnItemPurchased -= ShopItem_OnItemPurchased;
 				cachedShopItem.OnItemPurchaseFailed -= ShopItem_OnItemPurchaseFailed;
 				tk2dUIManager.Instance.InputEnabled = true;

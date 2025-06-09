@@ -141,6 +141,7 @@ public class MiniBankPopup : GUIPopup
 		{
 			bool obj = leftShopItem.GetType() != typeof(ShopItemCoins);
 			MiniBankPopup.m_OnBankItemPurchsed(obj);
+			
 		}
 	}
 }

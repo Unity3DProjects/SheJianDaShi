@@ -1,5 +1,5 @@
 using System;
-using GooglePlayGames;
+// using GooglePlayGames;
 using UnityEngine;
 
 public class InvitationPopup : GUIPopup
@@ -27,7 +27,7 @@ public class InvitationPopup : GUIPopup
 	public override void Show(Action<GUIControl> onFinished, bool immediately, float delay, bool callInvokes)
 	{
 		base.Show(onFinished, immediately, delay, callInvokes);
-		GameObject.Find("ChallengerLabel").GetComponent<tk2dTextMesh>().text = string.Format(SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey("ui.popup.invitation.description"), SingletonMonoBehaviour<GameCenterManager>.Instance.CurrentInvitation.Inviter.DisplayName);
+		GameObject.Find("ChallengerLabel").GetComponent<tk2dTextMesh>().text = string.Format(SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey("ui.popup.invitation.description"), "");
 	}
 
 	private void YesButton_OnClick()
@@ -40,7 +40,7 @@ public class InvitationPopup : GUIPopup
 	private void NoButton_OnClick()
 	{
 		SingletonMonoBehaviour<GameCenterManager>.Instance.needsToShowInvitation = false;
-		PlayGamesPlatform.Instance.RealTime.DeclineInvitation(SingletonMonoBehaviour<GameCenterManager>.Instance.CurrentInvitation.InvitationId);
+		// PlayGamesPlatform.Instance.RealTime.DeclineInvitation(SingletonMonoBehaviour<GameCenterManager>.Instance.CurrentInvitation.InvitationId);
 		Hide();
 	}
 }

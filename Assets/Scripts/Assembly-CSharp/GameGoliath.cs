@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using GoliathSimple;
+// using GoliathSimple;
 using MiniJSON;
 using Mit_Goliath_Native;
 using Mit_Goliath_Native.Utils;
@@ -160,29 +160,29 @@ public class GameGoliath : GoliathManager
 			if (PlayerPrefs.HasKey(SESSION_END_KEY))
 			{
 				Dictionary<string, object> dictionary = Json.Deserialize<Dictionary<string, object>>(PlayerPrefs.GetString(SESSION_END_KEY));
-				Session session = new Session();
-				session.SetLong(GoliathIds.Param_wallet_coins, long.Parse(dictionary[GoliathIds.Param_wallet_coins].ToString()));
-				session.Post();
+				// Session session = new Session();
+				// session.SetLong(GoliathIds.Param_wallet_coins, long.Parse(dictionary[GoliathIds.Param_wallet_coins].ToString()));
+				// session.Post();
 				PlayerPrefs.DeleteKey(SESSION_END_KEY);
 			}
 			TrackInit();
-			ClientInit clientInit = new ClientInit();
-			clientInit.Post();
+			// ClientInit clientInit = new ClientInit();
+			// clientInit.Post();
 			SessionBeginSent = true;
 		}
 	}
 
 	private void TrackInit()
 	{
-		Init init = new Init();
+		// Init init = new Init();
 		string loginType = ((!SingletonMonoBehaviour<GameCenterManager>.Instance.isAuthenticated) ? "guest" : "google");
-		init.SetLoginType(loginType);
-		init.SetInt(GoliathIds.Param_player_wins, SingletonMonoBehaviour<Managers>.Instance.CachedStatisticsManager.WinsCount);
-		init.SetLong(GoliathIds.Param_wallet_coins, SingletonMonoBehaviour<Managers>.Instance.CachedStatisticsManager.Coins);
-		init.SetLong(GoliathIds.Param_wallet_gems, SingletonMonoBehaviour<Managers>.Instance.CachedStatisticsManager.Gems);
-		init.SetInt(GoliathIds.Param_nb_characters, SingletonMonoBehaviour<ShopManager>.Instance.UnlockedCharacters.Count);
-		init.SetString(GoliathIds.Param_game_language, "en");
-		init.Post();
+		// init.SetLoginType(loginType);
+		// init.SetInt(GoliathIds.Param_player_wins, SingletonMonoBehaviour<Managers>.Instance.CachedStatisticsManager.WinsCount);
+		// init.SetLong(GoliathIds.Param_wallet_coins, SingletonMonoBehaviour<Managers>.Instance.CachedStatisticsManager.Coins);
+		// init.SetLong(GoliathIds.Param_wallet_gems, SingletonMonoBehaviour<Managers>.Instance.CachedStatisticsManager.Gems);
+		// init.SetInt(GoliathIds.Param_nb_characters, SingletonMonoBehaviour<ShopManager>.Instance.UnlockedCharacters.Count);
+		// init.SetString(GoliathIds.Param_game_language, "en");
+		// init.Post();
 	}
 
 	private void OnSessionEnd(bool sessionEndBlocked = false)
@@ -199,34 +199,34 @@ public class GameGoliath : GoliathManager
 			}
 			else
 			{
-				Session session = new Session();
-				session.SetLong(GoliathIds.Param_wallet_coins, SingletonMonoBehaviour<Managers>.Instance.CachedStatisticsManager.Coins);
-				session.Post();
+				// Session session = new Session();
+				// session.SetLong(GoliathIds.Param_wallet_coins, SingletonMonoBehaviour<Managers>.Instance.CachedStatisticsManager.Coins);
+				// session.Post();
 			}
 		}
 	}
 
 	public void TrackInAppPurchase(string purchaseId, string productId, string shopId, string productFamily, double purchaseValue, Receipt receipt, string promotionID = "")
 	{
-		InAppPurchase inAppPurchase = new InAppPurchase();
+		// InAppPurchase inAppPurchase = new InAppPurchase();
 		string empty = string.Empty;
 		string empty2 = string.Empty;
 		GoogleSkuInfo storeProductForGoogleSkuWithID = SingletonMonoBehaviour<MCInnAppsmanager>.Instance.GetStoreProductForGoogleSkuWithID(productId);
 		empty = storeProductForGoogleSkuWithID.priceCurrencyCode;
 		empty2 = ((double)storeProductForGoogleSkuWithID.priceAmountMicros / 1000000.0).ToString();
-		inAppPurchase.SetEventId(purchaseId);
-		inAppPurchase.SetProductId(shopId);
-		inAppPurchase.SetPurchaseValue(purchaseValue.ToString());
-		inAppPurchase.SetProductFamily(productFamily);
-		inAppPurchase.SetLocalCurrency(empty);
-		inAppPurchase.SetLocalPrice(empty2);
-		inAppPurchase.SetReceipt(CleanForJSON(receipt.data));
-		inAppPurchase.SetSignedReceipt(receipt.signature);
+		// inAppPurchase.SetEventId(purchaseId);
+		// inAppPurchase.SetProductId(shopId);
+		// inAppPurchase.SetPurchaseValue(purchaseValue.ToString());
+		// inAppPurchase.SetProductFamily(productFamily);
+		// inAppPurchase.SetLocalCurrency(empty);
+		// inAppPurchase.SetLocalPrice(empty2);
+		// inAppPurchase.SetReceipt(CleanForJSON(receipt.data));
+		// inAppPurchase.SetSignedReceipt(receipt.signature);
 		if (!string.IsNullOrEmpty(promotionID))
 		{
-			inAppPurchase.SetString(GoliathIds.Param_promotion_id, promotionID);
+			// inAppPurchase.SetString(GoliathIds.Param_promotion_id, promotionID);
 		}
-		inAppPurchase.Post();
+		// inAppPurchase.Post();
 	}
 
 	public void TrackInvalidInAppReceipt(string purchaseId, string productId, string shopId, string productFamily, double purchase_value, Receipt receipt, int error, string promotionID = "")
@@ -281,12 +281,12 @@ public class GameGoliath : GoliathManager
 
 	public void TrackVirtualCurrencyPurchase(GoliathIds.CurrencyName currencyName, string currencyAmount, string productId, GoliathIds.ProductFamily productFamily)
 	{
-		VirtualCurrencyPurchase virtualCurrencyPurchase = new VirtualCurrencyPurchase();
-		virtualCurrencyPurchase.SetCurrencyName(currencyName.ToString());
-		virtualCurrencyPurchase.SetCurrencyAmount(currencyAmount);
-		virtualCurrencyPurchase.SetProductId(productId);
-		virtualCurrencyPurchase.SetProductFamily(productFamily.ToString());
-		virtualCurrencyPurchase.Post();
+		// VirtualCurrencyPurchase virtualCurrencyPurchase = new VirtualCurrencyPurchase();
+		// virtualCurrencyPurchase.SetCurrencyName(currencyName.ToString());
+		// virtualCurrencyPurchase.SetCurrencyAmount(currencyAmount);
+		// virtualCurrencyPurchase.SetProductId(productId);
+		// virtualCurrencyPurchase.SetProductFamily(productFamily.ToString());
+		// virtualCurrencyPurchase.Post();
 	}
 
 	public void TrackCurrencyFlow(GoliathIds.CurrencyMovement currencyMovement, GoliathIds.Context context, GoliathIds.CurrencyName currencyName, int amount, GoliathIds.Placement placement, int currencyBefore = -1)
@@ -313,22 +313,22 @@ public class GameGoliath : GoliathManager
 
 	public void TrackMatchEnd(GoliathIds.GameMode gameMode, int matchDuration, string characterID = null, GoliathIds.MatchResult result = null, GoliathIds.MatchEndReason endReason = null)
 	{
-		Match match = new Match();
-		match.SetDuration(matchDuration);
-		match.SetString(GoliathIds.Param_game_mode, gameMode.ToString());
-		if (!string.IsNullOrEmpty(characterID))
-		{
-			match.SetString(GoliathIds.Param_character, characterID);
-		}
-		if (result != null)
-		{
-			match.SetString(GoliathIds.Param_result, result.ToString());
-		}
-		if (endReason != null)
-		{
-			match.SetString(GoliathIds.Param_end_reason, endReason.ToString());
-		}
-		match.Post();
+		// Match match = new Match();
+		// match.SetDuration(matchDuration);
+		// match.SetString(GoliathIds.Param_game_mode, gameMode.ToString());
+		// if (!string.IsNullOrEmpty(characterID))
+		// {
+		// 	match.SetString(GoliathIds.Param_character, characterID);
+		// }
+		// if (result != null)
+		// {
+		// 	match.SetString(GoliathIds.Param_result, result.ToString());
+		// }
+		// if (endReason != null)
+		// {
+		// 	match.SetString(GoliathIds.Param_end_reason, endReason.ToString());
+		// }
+		// match.Post();
 	}
 
 	public void TrackCharacterAction(string characterID, GoliathIds.Action action, GoliathIds.Origin origin, string referenceId = "")

@@ -23,6 +23,7 @@ public static class GUIDMapper
 		{
 			CustomDebug.Log("GUIDMapper.Log can't find path for Guid : " + guid);
 		}
+		Debug.LogError(value);
 		return value;
 	}
 
@@ -41,6 +42,7 @@ public static class GUIDMapper
 		{
 			return;
 		}
+		Debug.LogError("llllllllllllllmmmmmmmmmmmmmm");
 		string text = Application.streamingAssetsPath + "/guids";
 		string text2 = string.Empty;
 		bool flag = false;
@@ -66,17 +68,25 @@ public static class GUIDMapper
 			if (flag)
 			{
 				text2 = File.ReadAllText(text);
+				// Debug.LogError($"文本内容{text2}");
 			}
 		}
 		if (flag)
 		{
-			string[] array = text2.Split(new string[1] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+			// string[] array = text2.Split(new string[1] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+			string[] array = File.ReadAllLines(text);
+			
 			int i = 0;
+            Debug.LogError($"切割guids到数组后数组的长度：{array.Length}");
 			for (int num = array.Length; i < num; i++)
 			{
 				string text3 = array[i];
 				string key = text3.Substring(0, 32);
 				string value = text3.Substring(32, text3.Length - 32);
+				if (key == "7f023214c59d14bf4be59f0b7b2f548a")
+				{
+					Debug.LogError($"值为{value}。。。{text3}");
+				}
 				guidMap.Add(key, value);
 			}
 			realtimeSinceStartup = (Time.realtimeSinceStartup - realtimeSinceStartup) * 1000f;

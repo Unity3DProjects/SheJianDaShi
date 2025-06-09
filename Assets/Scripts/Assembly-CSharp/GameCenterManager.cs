@@ -5,9 +5,9 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
-using GooglePlayGames;
-using GooglePlayGames.BasicApi;
-using GooglePlayGames.BasicApi.Multiplayer;
+// using GooglePlayGames;
+// using GooglePlayGames.BasicApi;
+// using GooglePlayGames.BasicApi.Multiplayer;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -224,17 +224,17 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 
 	public bool needsToShowInvitation;
 
-	private Invitation postponedInvitation;
+	// private Invitation postponedInvitation;
 
 	private Action pendingAction;
 
-	public Invitation CurrentInvitation
-	{
-		get
-		{
-			return postponedInvitation;
-		}
-	}
+	// public Invitation CurrentInvitation
+	// {
+	// 	get
+	// 	{
+	// 		return postponedInvitation;
+	// 	}
+	// }
 
 	private string LeaderboardWinsID
 	{
@@ -265,7 +265,7 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 		get
 		{
 			ActivateClientConfiguration();
-			return PlayGamesPlatform.Instance.localUser.authenticated;
+			return true;
 		}
 	}
 
@@ -331,16 +331,16 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 		if (!isAuthenticated)
 		{
 			Debug.Log("[Cloud] - Is not authenticated");
-			PlayGamesPlatform.Instance.Authenticate(delegate(bool success)
-			{
+			// PlayGamesPlatform.Instance.Authenticate(delegate(bool success)
+			// {
 				int num = CustomPlayerPrefs.GetInt(TRIED_MANUAL_LOGIN);
-				if (!success && num < 3)
+				if (!true && num < 3)
 				{
 					Debug.Log("[Cloud] - Trying manual to login nº " + num);
 					CustomPlayerPrefs.SetInt(TRIED_MANUAL_LOGIN, num + 1);
 					LoginUser();
 				}
-				else if (success)
+				else if (true)
 				{
 					Debug.Log("[Cloud] - Logged in with silent login");
 					CloudSaveManager.Instance.LoadFromCloud();
@@ -350,7 +350,7 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 				{
 					Debug.Log("[Cloud] - Failed to login, too many attemps on manual logins");
 				}
-			}, true);
+			// }, true);
 		}
 		else
 		{
@@ -525,22 +525,22 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 		}
 	}
 
-	public void OnInvitationReceived(Invitation invitation, bool shouldAutoAccept)
-	{
-		postponedInvitation = invitation;
-		if (shouldAutoAccept)
-		{
-			LLMultiplayerManager.Instance.PlayerAcceptedInvitation(string.Empty);
-		}
-		else if (SingletonMonoBehaviour<GUIScreenManager>.Instance.ActiveScreen == GUIScreenType.Main)
-		{
-			SingletonMonoBehaviour<GUIPopupManager>.Instance.ShowPopup(PopupType.Invitation);
-		}
-		else
-		{
-			needsToShowInvitation = true;
-		}
-	}
+	// public void OnInvitationReceived(Invitation invitation, bool shouldAutoAccept)
+	// {
+	// 	// postponedInvitation = invitation;
+	// 	if (shouldAutoAccept)
+	// 	{
+	// 		LLMultiplayerManager.Instance.PlayerAcceptedInvitation(string.Empty);
+	// 	}
+	// 	else if (SingletonMonoBehaviour<GUIScreenManager>.Instance.ActiveScreen == GUIScreenType.Main)
+	// 	{
+	// 		SingletonMonoBehaviour<GUIPopupManager>.Instance.ShowPopup(PopupType.Invitation);
+	// 	}
+	// 	else
+	// 	{
+	// 		needsToShowInvitation = true;
+	// 	}
+	// }
 
 	private void LoginUser()
 	{
@@ -559,9 +559,9 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 
 	private void ActivateClientConfiguration()
 	{
-		PlayGamesClientConfiguration configuration = new PlayGamesClientConfiguration.Builder().WithInvitationDelegate(OnInvitationReceived).EnableSavedGames().Build();
-		PlayGamesPlatform.InitializeInstance(configuration);
-		PlayGamesPlatform.Activate();
+		// PlayGamesClientConfiguration configuration = new PlayGamesClientConfiguration.Builder().WithInvitationDelegate(OnInvitationReceived).EnableSavedGames().Build();
+		// PlayGamesPlatform.InitializeInstance(configuration);
+		// PlayGamesPlatform.Activate();
 	}
 
 	public CloudSaveJsonDTO loadSave(byte[] data)

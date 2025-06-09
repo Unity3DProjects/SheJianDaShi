@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public static class TextureManager
 {
@@ -53,7 +55,8 @@ public static class TextureManager
 		}
 		else
 		{
-			text = LoadTextureInternal(imagePath, doMipMaps);
+			// text = LoadTextureInternal(imagePath, doMipMaps);
+			text = LoadTextureEditor(imagePath, doMipMaps);
 		}
 		return SetupTexture(text, doMipMaps);
 	}
@@ -80,7 +83,8 @@ public static class TextureManager
 		}
 		else
 		{
-			texture2D = LoadTextureInternalAsync(imagePath, doMipMaps);
+			// texture2D = LoadTextureInternalAsync(imagePath, doMipMaps);
+			texture2D = LoadTextureEditor(imagePath, doMipMaps);
 		}
 		return SetupTexture(texture2D, doMipMaps);
 	}
@@ -126,6 +130,7 @@ public static class TextureManager
 		}
 	}
 
+
 	private static Texture2D LoadTextureInternal(string imagePath, bool doMipMaps)
 	{
 		Texture2D texture2D = null;
@@ -137,10 +142,20 @@ public static class TextureManager
 			if (wWW != null)
 			{
 				wWW.LoadImageIntoTexture(texture2D);
+
+				Debug.Log($"纹理加载成功: {imagePath} => {texture2D.width}x{texture2D.height}");
+			}
+			else
+			{
+				Debug.LogError($" 获取 WWW 失败: {imagePath}");
 			}
 		}
+
 		return texture2D;
 	}
+
+
+
 
 	private static Texture2D LoadTextureInternalAsync(string imagePath, bool doMipMaps, int preloadWidth = 4, int preloadHeight = 4)
 	{
@@ -196,7 +211,9 @@ public static class TextureManager
 		{
 			if (array == null)
 			{
-				CustomDebug.LogError("Image bytes is null");
+				
+				
+				CustomDebug.LogError($"Image bytes is null::{imagePath}");
 			}
 			else
 			{

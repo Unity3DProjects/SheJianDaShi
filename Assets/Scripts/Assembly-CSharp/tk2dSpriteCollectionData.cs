@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using UnityEngine;
 using tk2dRuntime;
+using Debug = UnityEngine.Debug;
 
 [AddComponentMenu("2D Toolkit/Backend/tk2dSpriteCollectionData")]
 public class tk2dSpriteCollectionData : MonoBehaviour
@@ -38,7 +39,7 @@ public class tk2dSpriteCollectionData : MonoBehaviour
 	[NonSerialized]
 	public Material[] materialInsts;
 
-	[NonSerialized]
+	// [NonSerialized]
 	public Texture2D[] textureInsts = new Texture2D[0];
 
 	public Texture[] textures;
@@ -359,21 +360,50 @@ public class tk2dSpriteCollectionData : MonoBehaviour
 			else
 			{
 				bool flag = false;
-				if (pngTextures.Length > 0)
+				// Debug.LogError($"尼玛{pngTextures.Length}");
+				// foreach (var VARIABLE in pngTextures)
+				// {
+				// 	Debug.LogError($"尼玛pp:{VARIABLE.name}");
+				// 	
+				// }
+				if (gameObject.name == "GUIAtlas_A8@2x")
 				{
+			    	Debug.LogError(pngTextures.Length);
+					
+				}
+				if (pngTextures.Length >0)
+				{
+					
 					flag = true;
 					textureInsts = new Texture2D[pngTextures.Length];
 					for (int j = 0; j < pngTextures.Length; j++)
 					{
+						if (pngTextures[j] == null)
+						{
+							Debug.LogError($"TextAsset引用为空：{gameObject.name}");
+							continue;
+							
+						}
+						 
+						Debug.LogError($"PngTexture:Load_{pngTextures[j].name}");
 						Texture2D texture2D = new Texture2D(4, 4, TextureFormat.ARGB32, textureMipMaps);
 						texture2D.name = string.Format("{0}PNG_{1}_{2}", internalResourcePrefix, base.name, j);
 						texture2D.LoadImage(pngTextures[j].bytes);
-						textureInsts[j] = texture2D;
+						if (texture2D.LoadImage(pngTextures[j].bytes))
+						{
+							Debug.LogError($"$成功读取：{pngTextures[j].name}");
+						}
+						else
+						{
+							Debug.LogError($"$读取失败了：{pngTextures[j].name}");
+						}
+					
 						texture2D.filterMode = textureFilterMode;
 						texture2D.Apply(textureMipMaps, true);
+						textureInsts[j] = texture2D;
 						TextAsset assetToUnload = pngTextures[j];
-						pngTextures[j] = null;
-						Resources.UnloadAsset(assetToUnload);
+						// pngTextures[j] = null;
+						// Resources.UnloadAsset(assetToUnload);
 					}
 				}
 				if (streamingTextures.Length > 0)

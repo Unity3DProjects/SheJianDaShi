@@ -33,6 +33,7 @@ public class AssetLink : Asset
 			if (fullPath == null)
 			{
 				fullPath = GUIDMapper.GUIDToAssetPath(assetGUID);
+				Debug.LogError("lllllllll"+fullPath);
 			}
 			return fullPath;
 		}
@@ -44,6 +45,7 @@ public class AssetLink : Asset
 		{
 			if (resourcePath == null)
 			{
+				Debug.LogError(assetGUID);
 				int num = FullPath.IndexOf("Resources/", StringComparison.Ordinal);
 				if (num > -1)
 				{

@@ -11,12 +11,12 @@ public class MCRateCNativeImplementation
 
 	public delegate void CancelBehaviorDelegate();
 
-	[DllImport("mcservices")]
-	public static extern void mc_rate_startWithDelegate(uint questionLimitPerVersion, double minimumActiveTimePerSession, uint minimumNumberOfSessionsStarted, double minimumDaysBetweenRatePopups, uint minimumPostiveExperiences, string titleText, string messageText, string cancelText, string rateText, EmptyCallbackDelegate ratePopupWillAppearBehaviour, EmptyCallbackDelegate ratePopupDidAppearBehaviour, EmptyCallbackDelegate ratePopupWillDisappearBehaviour, EmptyCallbackDelegate ratePopupDidDisappearBehaviour, ShowRatePopupBehaviourDelegate showRatePopupBehaviour, uint shouldUseIOSNativePopup);
+	// [DllImport("mcservices")]
+	// public static extern void mc_rate_startWithDelegate(uint questionLimitPerVersion, double minimumActiveTimePerSession, uint minimumNumberOfSessionsStarted, double minimumDaysBetweenRatePopups, uint minimumPostiveExperiences, string titleText, string messageText, string cancelText, string rateText, EmptyCallbackDelegate ratePopupWillAppearBehaviour, EmptyCallbackDelegate ratePopupDidAppearBehaviour, EmptyCallbackDelegate ratePopupWillDisappearBehaviour, EmptyCallbackDelegate ratePopupDidDisappearBehaviour, ShowRatePopupBehaviourDelegate showRatePopupBehaviour, uint shouldUseIOSNativePopup);
 
 	public static void InitRatePopup()
 	{
-		mc_rate_startWithDelegate(3u, 20.0, 2u, 0.0, 0u, string.Empty, string.Empty, string.Empty, string.Empty, null, null, null, null, ShowRatePopupBehaviourCallback, 0u);
+		// mc_rate_startWithDelegate(3u, 20.0, 2u, 0.0, 0u, string.Empty, string.Empty, string.Empty, string.Empty, null, null, null, null, ShowRatePopupBehaviourCallback, 0u);
 	}
 
 	[MonoPInvokeCallback(typeof(ShowRatePopupBehaviourDelegate))]

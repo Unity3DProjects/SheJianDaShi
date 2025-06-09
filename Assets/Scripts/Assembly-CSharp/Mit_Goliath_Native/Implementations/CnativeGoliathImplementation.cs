@@ -28,116 +28,116 @@ namespace Mit_Goliath_Native.Implementations
 
 		private static CallbackEvents callbackEvents = new CallbackEvents();
 
-		[DllImport("mcprime")]
-		public static extern void mc_connection_load_helper();
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperInit(string gameID, string apiKey, string version, string host, string hmacKey, string pathForSaveFile);
-
-		[DllImport("mcgoliath")]
-		public static extern IntPtr goliathWrapperAppVersion();
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetAppVersion(string version);
-
-		[DllImport("mcgoliath")]
-		public static extern IntPtr goliathWrapperUserID();
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetUserID(string userID);
-
-		[DllImport("mcgoliath")]
-		public static extern IntPtr goliathWrapperSessionID();
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetSessionID(string sessionID);
-
-		[DllImport("mcgoliath")]
-		public static extern IntPtr goliathWrapperHost();
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetHost(string goliathHost);
-
-		[DllImport("mcgoliath")]
-		public static extern IntPtr goliathWrapperGameID();
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetGameID(string gameID);
-
-		[DllImport("mcgoliath")]
-		public static extern IntPtr goliathWrapperAPIKey();
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetAPIKey(string apiKey);
-
-		[DllImport("mcgoliath")]
-		public static extern IntPtr goliathWrapperHmacKey();
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetHmacKey(string hmacKey);
-
-		[DllImport("mcgoliath")]
-		public static extern IntPtr goliathWrapperPathForSaveFile();
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetPathForSaveFile(string filepath);
-
-		[DllImport("mcgoliath")]
-		public static extern int goliathWrapperMaxNumberOfEventsPerPackage();
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetMaxNumberOfEventsPerPackage(int eventsNumber);
-
-		[DllImport("mcgoliath")]
-		public static extern int goliathWrapperTransmissionInterval();
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetTransmissionInterval(int interval);
-
-		[DllImport("mcgoliath")]
-		public static extern int goliathWrapperSerializationInterval();
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetSerializationInterval(int interval);
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetTransmissionSuccessCallback(TransmissionSuccessDelegate callback);
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetTransmissionFailureCallback(TransmissionFailureDelegate callback);
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetOnStartCallback(StartStopDelegate callback);
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetOnStopCallback(StartStopDelegate callback);
-
-		[DllImport("mcgoliath")]
-		public static extern int goliathWrapperPostEvent(string eventType, string eventContents);
-
-		[DllImport("mcgoliath")]
-		public static extern int goliathWrapperPostClientInitEvent(int pushNotificationsEnabled = -1, string pushToken = "", string facebookID = "", string facebookIDforBusiness = "", string googlePlusID = "", string googleGamerID = "", string miniclipID = "", string dob = "", string gender = "", int sDeviceCompromised = -1, string userID = "", string sessionID = "");
-
-		[DllImport("mcgoliath")]
-		public static extern int goliathWrapperPostConfigurationUpdateEvent(string latestVersion, string previousVersion = "");
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperAddGlobalParameter(string key, string value);
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperGetGlobalParameters(IntPtr[] keys, IntPtr[] values, ref int length);
-
-		[DllImport("mcgoliath")]
-		public static extern int goliathWrapperGetGlobalParametersSize();
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperSetGlobalParameters(string[] keys, string[] values, IntPtr length);
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperStart();
-
-		[DllImport("mcgoliath")]
-		public static extern void goliathWrapperStop();
+		// [DllImport("mcprime")]
+		// public static extern void mc_connection_load_helper();
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperInit(string gameID, string apiKey, string version, string host, string hmacKey, string pathForSaveFile);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern IntPtr goliathWrapperAppVersion();
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetAppVersion(string version);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern IntPtr goliathWrapperUserID();
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetUserID(string userID);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern IntPtr goliathWrapperSessionID();
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetSessionID(string sessionID);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern IntPtr goliathWrapperHost();
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetHost(string goliathHost);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern IntPtr goliathWrapperGameID();
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetGameID(string gameID);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern IntPtr goliathWrapperAPIKey();
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetAPIKey(string apiKey);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern IntPtr goliathWrapperHmacKey();
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetHmacKey(string hmacKey);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern IntPtr goliathWrapperPathForSaveFile();
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetPathForSaveFile(string filepath);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern int goliathWrapperMaxNumberOfEventsPerPackage();
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetMaxNumberOfEventsPerPackage(int eventsNumber);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern int goliathWrapperTransmissionInterval();
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetTransmissionInterval(int interval);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern int goliathWrapperSerializationInterval();
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetSerializationInterval(int interval);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetTransmissionSuccessCallback(TransmissionSuccessDelegate callback);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetTransmissionFailureCallback(TransmissionFailureDelegate callback);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetOnStartCallback(StartStopDelegate callback);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetOnStopCallback(StartStopDelegate callback);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern int goliathWrapperPostEvent(string eventType, string eventContents);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern int goliathWrapperPostClientInitEvent(int pushNotificationsEnabled = -1, string pushToken = "", string facebookID = "", string facebookIDforBusiness = "", string googlePlusID = "", string googleGamerID = "", string miniclipID = "", string dob = "", string gender = "", int sDeviceCompromised = -1, string userID = "", string sessionID = "");
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern int goliathWrapperPostConfigurationUpdateEvent(string latestVersion, string previousVersion = "");
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperAddGlobalParameter(string key, string value);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperGetGlobalParameters(IntPtr[] keys, IntPtr[] values, ref int length);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern int goliathWrapperGetGlobalParametersSize();
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperSetGlobalParameters(string[] keys, string[] values, IntPtr length);
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperStart();
+		//
+		// [DllImport("mcgoliath")]
+		// public static extern void goliathWrapperStop();
 
 		public void SetOnStartCallback(Action callback)
 		{
@@ -169,126 +169,140 @@ namespace Mit_Goliath_Native.Implementations
 
 		public void Setup(string gameId, string apiKey, string version, string endpointUrl, string hmacKey)
 		{
-			mc_connection_load_helper();
+			//TODO:修1_注释
+			// mc_connection_load_helper();
 			string empty = string.Empty;
-			goliathWrapperInit(gameId, apiKey, version, endpointUrl, hmacKey, empty);
-			goliathWrapperSetOnStartCallback(StartCallback);
-			goliathWrapperSetOnStopCallback(StopCallback);
-			goliathWrapperSetTransmissionSuccessCallback(TransmissionSuccessCallback);
-			goliathWrapperSetTransmissionFailureCallback(TransmissionFailureCallback);
-			goliathWrapperSetMaxNumberOfEventsPerPackage(3);
-			goliathWrapperSetTransmissionInterval(2000);
-			goliathWrapperSetSerializationInterval(4000);
+			// goliathWrapperInit(gameId, apiKey, version, endpointUrl, hmacKey, empty);
+			// goliathWrapperSetOnStartCallback(StartCallback);
+			// goliathWrapperSetOnStopCallback(StopCallback);
+			// goliathWrapperSetTransmissionSuccessCallback(TransmissionSuccessCallback);
+			// goliathWrapperSetTransmissionFailureCallback(TransmissionFailureCallback);
+			// goliathWrapperSetMaxNumberOfEventsPerPackage(3);
+			// goliathWrapperSetTransmissionInterval(2000);
+			// goliathWrapperSetSerializationInterval(4000);
 		}
 
 		public string GetAppVersion()
 		{
-			return Marshal.PtrToStringAnsi(goliathWrapperAppVersion());
+			// return Marshal.PtrToStringAnsi(goliathWrapperAppVersion());
+			return "";
 		}
 
 		public void SetAppVersion(string version)
 		{
-			goliathWrapperSetAppVersion(version);
+			// goliathWrapperSetAppVersion(version);
 		}
 
 		public string GetUserId()
 		{
-			return Marshal.PtrToStringAnsi(goliathWrapperUserID());
+			// return Marshal.PtrToStringAnsi(goliathWrapperUserID());
+			return "";
 		}
 
 		public void SetUserId(string userId)
 		{
-			goliathWrapperSetUserID(userId);
+			// goliathWrapperSetUserID(userId);
 		}
 
 		public string GetSessionId()
 		{
-			return Marshal.PtrToStringAnsi(goliathWrapperSessionID());
+			// return Marshal.PtrToStringAnsi(goliathWrapperSessionID());
+			return "";
 		}
 
 		public void SetSessionId(string sessionId)
 		{
-			goliathWrapperSetSessionID(sessionId);
+			// goliathWrapperSetSessionID(sessionId);
 		}
 
 		public string GetHost()
 		{
-			return Marshal.PtrToStringAnsi(goliathWrapperHost());
+			// return Marshal.PtrToStringAnsi(goliathWrapperHost());
+			return "";
 		}
+		
 
 		public void SetHost(string host)
 		{
-			goliathWrapperSetHost(host);
+			// goliathWrapperSetHost(host);
 		}
 
 		public string GetGameId()
 		{
-			return Marshal.PtrToStringAnsi(goliathWrapperGameID());
+			// return Marshal.PtrToStringAnsi(goliathWrapperGameID());
+			return "";
 		}
 
 		public void SetGameId(string gameId)
 		{
-			goliathWrapperSetGameID(gameId);
+			// goliathWrapperSetGameID(gameId);
 		}
 
 		public string GetApiKey()
 		{
-			return Marshal.PtrToStringAnsi(goliathWrapperAPIKey());
+			// return Marshal.PtrToStringAnsi(goliathWrapperAPIKey());
+			return "";
 		}
 
 		public void SetApiKey(string apiKey)
 		{
-			goliathWrapperSetAPIKey(apiKey);
+			// goliathWrapperSetAPIKey(apiKey);
 		}
 
 		public string GetHmacKey()
 		{
-			return Marshal.PtrToStringAnsi(goliathWrapperHmacKey());
+			// return Marshal.PtrToStringAnsi(goliathWrapperHmacKey());
+			return "";
 		}
 
 		public void SetHmacKey(string hmacKey)
 		{
-			goliathWrapperSetHmacKey(hmacKey);
+			// goliathWrapperSetHmacKey(hmacKey);
 		}
 
 		public string GetPathForSavedFile()
 		{
-			return Marshal.PtrToStringAnsi(goliathWrapperPathForSaveFile());
+			// return Marshal.PtrToStringAnsi(goliathWrapperPathForSaveFile());
+			return "";
 		}
 
 		public void SetPathForSavedFile(string path)
 		{
-			goliathWrapperSetPathForSaveFile(path);
+			// goliathWrapperSetPathForSaveFile(path);
 		}
 
 		public int GetMaxNumberOfEventsPerPackage()
 		{
-			return goliathWrapperMaxNumberOfEventsPerPackage();
+			// return goliathWrapperMaxNumberOfEventsPerPackage();
+			return 0;
 		}
 
 		public void SetMaxNumberOfEventsPerPackage(int eventsNumber)
 		{
-			goliathWrapperSetMaxNumberOfEventsPerPackage(eventsNumber);
+			// goliathWrapperSetMaxNumberOfEventsPerPackage(eventsNumber);
 		}
 
 		public int GetTransmissionInterval()
 		{
-			return goliathWrapperTransmissionInterval();
+			// return goliathWrapperTransmissionInterval();
+			return 0;
 		}
+		
 
 		public void SetTransmissionInterval(int interval)
 		{
-			goliathWrapperSetTransmissionInterval(interval);
+			// goliathWrapperSetTransmissionInterval(interval);
 		}
 
 		public int GetSerializationInterval()
 		{
-			return goliathWrapperSerializationInterval();
+			// return goliathWrapperSerializationInterval();
+			return 0;
 		}
 
 		public void SetSerializationInterval(int interval)
 		{
-			goliathWrapperSetSerializationInterval(interval);
+			// goliathWrapperSetSerializationInterval(interval);
 		}
 
 		public void SetGameName(string gameName)
@@ -306,29 +320,33 @@ namespace Mit_Goliath_Native.Implementations
 		public int PostEvent(string eventType, Dictionary<string, object> eventParameters)
 		{
 			string eventContents = Json.Serialize(eventParameters);
-			return goliathWrapperPostEvent(eventType, eventContents);
+			return 0;
+			// return goliathWrapperPostEvent(eventType, eventContents);
 		}
 
 		public int PostClientInitEvent(int pushNotificationsEnabled = -1, string pushToken = "", string facebookID = "", string facebookIDforBusiness = "", string googlePlusID = "", string googleGamerID = "", string miniclipID = "", string dob = "", string gender = "", int sDeviceCompromised = -1, string userID = "", string sessionID = "")
 		{
-			return goliathWrapperPostClientInitEvent(pushNotificationsEnabled, pushToken, facebookID, facebookIDforBusiness, googlePlusID, googleGamerID, miniclipID, dob, gender, sDeviceCompromised, userID, sessionID);
+			return 0;
+			// return goliathWrapperPostClientInitEvent(pushNotificationsEnabled, pushToken, facebookID, facebookIDforBusiness, googlePlusID, googleGamerID, miniclipID, dob, gender, sDeviceCompromised, userID, sessionID);
 		}
 
 		public int PostConfigurationUpdateEvent(string latestVersion, string previousVersion = "")
 		{
-			return goliathWrapperPostConfigurationUpdateEvent(latestVersion, previousVersion);
+			
+			// return goliathWrapperPostConfigurationUpdateEvent(latestVersion, previousVersion);
+			return 0;
 		}
 
 		public Dictionary<string, string> GetGlobalParameters()
 		{
-			int length = goliathWrapperGetGlobalParametersSize();
+			int length = 0;
 			if (length <= 0)
 			{
 				return null;
 			}
 			IntPtr[] array = new IntPtr[length];
 			IntPtr[] array2 = new IntPtr[length];
-			goliathWrapperGetGlobalParameters(array, array2, ref length);
+			// goliathWrapperGetGlobalParameters(array, array2, ref length);
 			Dictionary<string, string> dictionary = new Dictionary<string, string>();
 			for (int i = 0; i < length; i++)
 			{
@@ -353,22 +371,22 @@ namespace Mit_Goliath_Native.Implementations
 				array2[num] = globalParameter.Value.ToString();
 				num++;
 			}
-			goliathWrapperSetGlobalParameters(array, array2, new IntPtr(count));
+			// goliathWrapperSetGlobalParameters(array, array2, new IntPtr(count));
 		}
 
 		public void AddGlobalParameter(string key, string value)
 		{
-			goliathWrapperAddGlobalParameter(key, value);
+			// goliathWrapperAddGlobalParameter(key, value);
 		}
 
 		public void GoliathStart()
 		{
-			goliathWrapperStart();
+			// goliathWrapperStart();
 		}
 
 		public void GoliathStop()
 		{
-			goliathWrapperStop();
+			// goliathWrapperStop();
 		}
 
 		[MonoPInvokeCallback(typeof(StartStopDelegate))]

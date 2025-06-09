@@ -217,7 +217,7 @@ public class MCMoPubManager : MonoBehaviour
 
 	public void SetTargetedAdsConsent(bool consentWasGiven)
 	{
-		Configurator.SetUserConsentGDPR(consentWasGiven);
+		// Configurator.SetUserConsentGDPR(consentWasGiven);
 	}
 
 	private void Start()

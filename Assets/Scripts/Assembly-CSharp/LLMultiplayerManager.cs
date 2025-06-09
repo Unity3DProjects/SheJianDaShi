@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
-using GooglePlayGames;
+// using GooglePlayGames;
 using MiniJSON;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -340,20 +340,20 @@ public class LLMultiplayerManager : MonoBehaviour
 	{
 		byte[] bytes = Encoding.UTF8.GetBytes(message);
 		bool reliable = true;
-		PlayGamesPlatform.Instance.RealTime.SendMessageToAll(reliable, bytes);
+		// PlayGamesPlatform.Instance.RealTime.SendMessageToAll(reliable, bytes);
 	}
 
 	public static void FindMatch()
 	{
 		LLMultiplayerManager.m_OnFindingMatch?.Invoke();
 		SingletonMonoBehaviour<GUIPopupManager>.Instance.ShowPopup(PopupType.MatchmakingWaiting);
-		PlayGamesPlatform.Instance.RealTime.LeaveRoom();
-		PlayGamesPlatform.Instance.RealTime.CreateWithInvitationScreen(1u, 1u, 1u, AndroidRealTimeMultiplayerListener.Instance);
+		// PlayGamesPlatform.Instance.RealTime.LeaveRoom();
+		// PlayGamesPlatform.Instance.RealTime.CreateWithInvitationScreen(1u, 1u, 1u, AndroidRealTimeMultiplayerListener.Instance);
 	}
 
 	public static void StopMatch()
 	{
-		PlayGamesPlatform.Instance.RealTime.LeaveRoom();
+		// PlayGamesPlatform.Instance.RealTime.LeaveRoom();
 	}
 
 	private void LocalPlayerAuthenticated(string resultJSON)

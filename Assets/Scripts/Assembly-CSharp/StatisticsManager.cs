@@ -7,6 +7,7 @@ using System.Threading;
 using MiniJSON;
 using UnityEngine;
 using UnityEngine.Analytics;
+using Debug = UnityEngine.Debug;
 
 public class StatisticsManager : SingletonMonoBehaviour<StatisticsManager>
 {
@@ -1025,6 +1026,7 @@ public class StatisticsManager : SingletonMonoBehaviour<StatisticsManager>
 	private void Start()
 	{
 		gameStartTime = DateTime.Now;
+		Debug.LogError($"使用语言：{CurrentLanguage}");
 		LLTapjoyManager.Initialize();
 		SingletonMonoBehaviour<LocalisationManager>.Instance.ChangeLanguage(CurrentLanguage);
 		if (DateTime.Now.Subtract(LastDeviceTypeDate).Days >= 1)

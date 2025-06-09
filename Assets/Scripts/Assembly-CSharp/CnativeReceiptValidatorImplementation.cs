@@ -20,9 +20,10 @@ public class CnativeReceiptValidatorImplementation : ReceiptValidatorImplementat
 
 	public CnativeReceiptValidatorImplementation()
 	{
-		mc_rv_setInvalidReceiptCallback(InvalidReceiptCallback);
-		mc_rv_setUnableToValidateCallback(UnableToValidateCallback);
-		mc_rv_setSuccessCallback(SuccessCallback);
+		//TODO:修1_注释
+		// mc_rv_setInvalidReceiptCallback(InvalidReceiptCallback);
+		// mc_rv_setUnableToValidateCallback(UnableToValidateCallback);
+		// mc_rv_setSuccessCallback(SuccessCallback);
 	}
 
 	[DllImport("mcservices")]

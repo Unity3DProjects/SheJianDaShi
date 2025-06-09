@@ -171,7 +171,13 @@ public class RevievePopup : GUIPopup
 		else
 		{
 			buttonFree.SimulateClick();
-			base.CachedManagers.CachedAdvertisingManager.ShowVideo();
+			
+			
+			//TODO:激励——————复活
+			// base.CachedManagers.CachedAdvertisingManager.ShowVideo();
+			AdvertisingManager_OnVideoAdFinish(true);
+			
+			
 			IsOnVideoFinishEventSubscribed = true;
 			isRealTimerEnable = false;
 		}

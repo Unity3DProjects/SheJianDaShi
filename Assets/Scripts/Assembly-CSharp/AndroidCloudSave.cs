@@ -1,7 +1,7 @@
 using System;
-using GooglePlayGames;
-using GooglePlayGames.BasicApi;
-using GooglePlayGames.BasicApi.SavedGame;
+// using GooglePlayGames;
+// using GooglePlayGames.BasicApi;
+// using GooglePlayGames.BasicApi.SavedGame;
 using UnityEngine;
 
 public class AndroidCloudSave : CloudSaveImplementation
@@ -42,66 +42,66 @@ public class AndroidCloudSave : CloudSaveImplementation
 
 	public void PerformLoadFromCloud()
 	{
-		((PlayGamesPlatform)Social.Active).SavedGame.OpenWithAutomaticConflictResolution(saveName, DataSource.ReadNetworkOnly, ConflictResolutionStrategy.UseLongestPlaytime, delegate(SavedGameRequestStatus requestStatus, ISavedGameMetadata game)
-		{
-			if (requestStatus != SavedGameRequestStatus.Success)
-			{
-				isWorking = false;
-				Log(string.Format("Load to cloud callback not succeeded - Status[{0}]", requestStatus));
-			}
-			else
-			{
-				((PlayGamesPlatform)Social.Active).SavedGame.ReadBinaryData(game, LoadFromCloudCallback);
-			}
-		});
+		// ((PlayGamesPlatform)Social.Active).SavedGame.OpenWithAutomaticConflictResolution(saveName, DataSource.ReadNetworkOnly, ConflictResolutionStrategy.UseLongestPlaytime, delegate(SavedGameRequestStatus requestStatus, ISavedGameMetadata game)
+		// {
+		// 	if (requestStatus != SavedGameRequestStatus.Success)
+		// 	{
+		// 		isWorking = false;
+		// 		Log(string.Format("Load to cloud callback not succeeded - Status[{0}]", requestStatus));
+		// 	}
+		// 	else
+		// 	{
+		// 		((PlayGamesPlatform)Social.Active).SavedGame.ReadBinaryData(game, LoadFromCloudCallback);
+		// 	}
+		// });
 	}
 
 	public void PerformSaveToCloud()
 	{
-		((PlayGamesPlatform)Social.Active).SavedGame.OpenWithAutomaticConflictResolution(saveName, DataSource.ReadNetworkOnly, ConflictResolutionStrategy.UseLongestPlaytime, delegate(SavedGameRequestStatus requestStatus, ISavedGameMetadata game)
-		{
-			if (requestStatus != SavedGameRequestStatus.Success)
-			{
-				isWorking = false;
-				Log(string.Format("Save to cloud callback not succeeded - Status[{0}]", requestStatus));
-			}
-			else
-			{
-				SavedGameMetadataUpdate updateForMetadata = default(SavedGameMetadataUpdate.Builder).Build();
-				CloudSaveJsonDTO cloudSaveJsonDTO = new CloudSaveJsonDTO();
-				Log("DATA TO BE SAVED: " + cloudSaveJsonDTO.ToString());
-				byte[] updatedBinaryData = cloudSaveJsonDTO.ToBytes();
-				((PlayGamesPlatform)Social.Active).SavedGame.CommitUpdate(game, updateForMetadata, updatedBinaryData, SaveToCloudCallback);
-			}
-		});
+		// ((PlayGamesPlatform)Social.Active).SavedGame.OpenWithAutomaticConflictResolution(saveName, DataSource.ReadNetworkOnly, ConflictResolutionStrategy.UseLongestPlaytime, delegate(SavedGameRequestStatus requestStatus, ISavedGameMetadata game)
+		// {
+		// 	if (requestStatus != SavedGameRequestStatus.Success)
+		// 	{
+		// 		isWorking = false;
+		// 		Log(string.Format("Save to cloud callback not succeeded - Status[{0}]", requestStatus));
+		// 	}
+		// 	else
+		// 	{
+		// 		SavedGameMetadataUpdate updateForMetadata = default(SavedGameMetadataUpdate.Builder).Build();
+		// 		CloudSaveJsonDTO cloudSaveJsonDTO = new CloudSaveJsonDTO();
+		// 		Log("DATA TO BE SAVED: " + cloudSaveJsonDTO.ToString());
+		// 		byte[] updatedBinaryData = cloudSaveJsonDTO.ToBytes();
+		// 		((PlayGamesPlatform)Social.Active).SavedGame.CommitUpdate(game, updateForMetadata, updatedBinaryData, SaveToCloudCallback);
+		// 	}
+		// });
 	}
 
-	private void LoadFromCloudCallback(SavedGameRequestStatus status, byte[] data)
-	{
-		isWorking = false;
-		if (status != SavedGameRequestStatus.Success)
-		{
-			Log(string.Format("ReadBinaryData failed - Status[{0}]", status));
-			return;
-		}
-		hasLoadedFromCloud = true;
-		CloudSaveJsonDTO cloudSaveJsonDTO = SingletonMonoBehaviour<GameCenterManager>.Instance.loadSave(data);
-		if (cloudSaveJsonDTO != null)
-		{
-			Log("LOADED DATA: " + cloudSaveJsonDTO.ToString());
-			ApplySaveToGame(cloudSaveJsonDTO);
-			CloudSaveManager.SaveLoadedCallback();
-		}
-	}
+	// private void LoadFromCloudCallback(SavedGameRequestStatus status, byte[] data)
+	// {
+	// 	isWorking = false;
+	// 	if (status != SavedGameRequestStatus.Success)
+	// 	{
+	// 		Log(string.Format("ReadBinaryData failed - Status[{0}]", status));
+	// 		return;
+	// 	}
+	// 	hasLoadedFromCloud = true;
+	// 	CloudSaveJsonDTO cloudSaveJsonDTO = SingletonMonoBehaviour<GameCenterManager>.Instance.loadSave(data);
+	// 	if (cloudSaveJsonDTO != null)
+	// 	{
+	// 		Log("LOADED DATA: " + cloudSaveJsonDTO.ToString());
+	// 		ApplySaveToGame(cloudSaveJsonDTO);
+	// 		CloudSaveManager.SaveLoadedCallback();
+	// 	}
+	// }
 
-	private void SaveToCloudCallback(SavedGameRequestStatus status, ISavedGameMetadata game)
-	{
-		isWorking = false;
-		if (status != SavedGameRequestStatus.Success)
-		{
-			Log(string.Format("CommitUpdate failed - Status[{0}]", status));
-		}
-	}
+	// private void SaveToCloudCallback(SavedGameRequestStatus status, ISavedGameMetadata game)
+	// {
+	// 	isWorking = false;
+	// 	if (status != SavedGameRequestStatus.Success)
+	// 	{
+	// 		Log(string.Format("CommitUpdate failed - Status[{0}]", status));
+	// 	}
+	// }
 
 	public bool CanAccessCloud()
 	{
