@@ -28,6 +28,7 @@ public class tk2dSpriteCollectionData : MonoBehaviour
 
 	public tk2dSpriteDefinition[] spriteDefinitions;
 
+	[SerializeField]
 	private Dictionary<string, int> spriteNameLookupDict;
 
 	public bool premultipliedAlpha;

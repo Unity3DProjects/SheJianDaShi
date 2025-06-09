@@ -100,13 +100,16 @@ public class SubscribePopup : GUIPopup
 		switch (currentSubscribeCharacter.subscribeLinks[DateTime.Now.DayOfYear % num].type)
 		{
 		case SubscribeType.Facebook:
-			socialNetworkIconSprite.SetSprite("facebook");
+			// socialNetworkIconSprite.SetSprite("facebook");
+			socialNetworkIconSprite.SetSprite("youtube");
 			break;
 		case SubscribeType.Instagram:
-			socialNetworkIconSprite.SetSprite("instagram");
+			// socialNetworkIconSprite.SetSprite("instagram");
+			socialNetworkIconSprite.SetSprite("youtube");
 			break;
 		case SubscribeType.Twitter:
-			socialNetworkIconSprite.SetSprite("twitter");
+			// socialNetworkIconSprite.SetSprite("twitter");
+			socialNetworkIconSprite.SetSprite("youtube");
 			break;
 		}
 	}

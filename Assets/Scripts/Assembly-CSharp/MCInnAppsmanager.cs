@@ -244,6 +244,10 @@ public class MCInnAppsmanager : SingletonMonoBehaviour<MCInnAppsmanager>, Receip
 				purchacesList.AddRange(list);
 			}
 		}
+		else
+		{
+			Debug.LogError("不存在List<GooglePurchase>()列表");
+		}
 		if (PlayerPrefs.HasKey("skus_key"))
 		{
 			List<GoogleSkuInfo> list2 = JsonConvert.DeserializeObject<List<GoogleSkuInfo>>(PlayerPrefs.GetString("skus_key"));
@@ -348,6 +352,7 @@ public class MCInnAppsmanager : SingletonMonoBehaviour<MCInnAppsmanager>, Receip
 		else
 		{
 			Log("QueryInventory");
+			Debug.LogError("-------------------------------");
 			GoogleIABManager.queryInventorySucceededEvent += QueryInventorySucceded;
 			GoogleIABManager.queryInventoryFailedEvent += QueryInventoryFailed;
 			List<string> inAppPurchasesIds = SingletonMonoBehaviour<ShopManager>.Instance.GetInAppPurchasesIds(SingletonMonoBehaviour<ShopManager>.Instance.AvailableInApps);
@@ -392,6 +397,7 @@ public class MCInnAppsmanager : SingletonMonoBehaviour<MCInnAppsmanager>, Receip
 		Log("PurchaseProduct::" + productID);
 		if (!isBillingSupported && !isQueryInventoryOk && MiniclipUtils.isNetworkAvailable())
 		{
+			Debug.LogError("走不该走的--");
 			QueryInventory();
 			return;
 		}
@@ -685,5 +691,6 @@ public class MCInnAppsmanager : SingletonMonoBehaviour<MCInnAppsmanager>, Receip
 
 	private void Log(string message)
 	{
+		Debug.LogError(message);
 	}
 }

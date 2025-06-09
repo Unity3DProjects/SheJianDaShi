@@ -41,6 +41,7 @@ public class UpgradePopup : GUIPopup
 	[SerializeField]
 	private GameObject[] loadingRoots;
 
+	[SerializeField]
 	protected ShopItem shopItem;
 
 	private ShopItemUpgradeNew currentPack;

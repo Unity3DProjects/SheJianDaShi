@@ -668,7 +668,9 @@ public class ProposalManager : SingletonMonoBehaviour<ProposalManager>
 			flag &= statisticsManager.DaysSinceLastFoolishSubscribe >= 1;
 			flag &= statisticsManager.CountMatchesInDay >= minMatchesFoolishSubscribeInDay;
 			flag &= CachedManagers.CachedGUIPopupManager.ActivePopup == null || (CachedManagers.CachedGUIPopupManager.ActivePopup != null && CachedManagers.CachedGUIPopupManager.ActivePopup.TypePopup != PopupType.BuyCharacter);
-			return flag & CachedManagers.CachedRemoteManager.IsSubscriptionPopupShowed;
+			// return flag & CachedManagers.CachedRemoteManager.IsSubscriptionPopupShowed;
+			//TODO:修改---去掉VIP弹窗
+			return false;
 		}
 	}
 
@@ -1766,14 +1768,17 @@ public class ProposalManager : SingletonMonoBehaviour<ProposalManager>
 			};
 			if (!CachedManagers.CachedSubscriptionManager.IsSubscriptionActive)
 			{
-				CachedManagers.CachedAdvertisingManager.ShowVideo(delegate(bool isVideoAvailable)
-				{
-					videoCallback(isVideoAvailable);
-					if (isVideoAvailable)
-					{
-						Analytics.CustomEvent("Video_Chest_Finished");
-					}
-				});
+				//TODO:激励--双人对战结束--钥匙开宝箱
+				videoCallback(true);
+				
+				// CachedManagers.CachedAdvertisingManager.ShowVideo(delegate(bool isVideoAvailable)
+				// {
+				// 	videoCallback(isVideoAvailable);
+				// 	if (isVideoAvailable)
+				// 	{
+				// 		Analytics.CustomEvent("Video_Chest_Finished");
+				// 	}
+				// });
 			}
 			else
 			{

@@ -76,6 +76,9 @@ public class SubscribeManager : SingletonMonoBehaviour<SubscribeManager>
 	public void GetSubscribe()
 	{
 		AudioManager.PlaySingleAudioWithKey("button");
+		
+		
+		//TODO:激励---订阅获得角色
 		SubscribeForCharacter();
 	}
 
@@ -84,10 +87,28 @@ public class SubscribeManager : SingletonMonoBehaviour<SubscribeManager>
 		int num = currentSubscribeCharacter.subscribeLinks.Length;
 		if (num > 0)
 		{
-			Application.OpenURL(currentSubscribeCharacter.subscribeLinks[DateTime.Now.DayOfYear % num].id);
+			// Application.OpenURL(currentSubscribeCharacter.subscribeLinks[DateTime.Now.DayOfYear % num].id);
 			isChosenSubscribeCharacterOpened = true;
 			CustomPlayerPrefs.SetInt("unlocked_subscribe_key", (int)CurrentSubscribeCharacter.subscribeCharacter);
 		}
+
+		bool focus = true;
+		CharacterNameType characterNameType = (CharacterNameType)CustomPlayerPrefs.GetInt("unlocked_subscribe_key");
+		if (characterNameType == CharacterNameType.None || !focus || !isChosenSubscribeCharacterOpened)
+		{
+			return;
+		}
+		ShopItemCharacter shopItemCharacter = SingletonMonoBehaviour<LevelsManager>.Instance.ObjectsSpawner.GetShopItemCharacter(characterNameType);
+		if (shopItemCharacter != null && !shopItemCharacter.Availible)
+		{
+			SingletonMonoBehaviour<GiftManager>.Instance.OpenSpecialGiftCharacter(shopItemCharacter);
+			if (shopItemCharacter.Availible)
+			{
+				Analytics.CustomEvent("Subscribe_Character_" + shopItemCharacter.ShopItemID + "_Complete");
+			}
+		}
+		CustomPlayerPrefs.SetString("unlocked_subscribe_key", null);
+		isChosenSubscribeCharacterOpened = false;
 	}
 
 	public void SubscribeForGem()

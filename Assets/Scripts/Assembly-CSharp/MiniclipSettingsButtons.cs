@@ -79,7 +79,9 @@ public class MiniclipSettingsButtons : MonoBehaviour
 		{
 			Action value = buttonsCallbacks.ElementAt(i);
 			buttons.ElementAt(i).transform.GetComponentInChildren<tk2dUIItem>().OnClick += value;
+			buttons.ElementAt(i).gameObject.SetActive(false);
 		}
+		
 		ChangeLanguagePopup.OnLanguageChanged = (Action)Delegate.Combine(ChangeLanguagePopup.OnLanguageChanged, new Action(ChangeLanguagePopup_OnLanguageChanged));
 		UpdateLabelTargetedAds(SingletonMonoBehaviour<GDPRManager>.Instance.TargetedAdsConsent);
 	}

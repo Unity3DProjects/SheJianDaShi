@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Analytics;
+using Debug = UnityEngine.Debug;
 
 public class ShopItem : MonoBehaviour
 {
@@ -96,7 +97,8 @@ public class ShopItem : MonoBehaviour
 		get
 		{
 			bool flag = true;
-			return SingletonMonoBehaviour<ShopManager>.Instance.CanMakePurchase() && IsDataReceived;
+			// return SingletonMonoBehaviour<ShopManager>.Instance.CanMakePurchase() && IsDataReceived;
+			return SingletonMonoBehaviour<ShopManager>.Instance.CanMakePurchase();
 		}
 	}
 
@@ -195,11 +197,14 @@ public class ShopItem : MonoBehaviour
 	{
 		if (CanBuy)
 		{
+			Debug.LogError("购买");
 			SingletonMonoBehaviour<ShopManager>.Instance.PurchaseProduct(this);
 			return true;
 		}
 		if (!IsDataReceived)
 		{
+			
+			Debug.LogError("不能购买，走这一步");
 			SingletonMonoBehaviour<ShopManager>.Instance.CheckForNotReceivedItems();
 		}
 		return false;

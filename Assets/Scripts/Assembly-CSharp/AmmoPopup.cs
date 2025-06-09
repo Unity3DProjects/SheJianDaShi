@@ -143,7 +143,8 @@ public class AmmoPopup : GUIPopup
 		else
 		{
 			buttonFree.SimulateClick();
-			base.CachedManagers.CachedAdvertisingManager.ShowVideo();
+			//TODO:激励--获取射苹果次数
+			// base.CachedManagers.CachedAdvertisingManager.ShowVideo();
 			IsOnVideoFinishEventSubscribed = true;
 			isRealTimerEnable = false;
 		}

@@ -155,6 +155,7 @@ public class RemoveAdsPopup : GUIPopup
 	{
 		if (currentShopItem != null && !currentShopItem.Bought)
 		{
+			// ShopItem_OnItemPurchased(currentShopItem);
 			currentShopItem.OnItemPurchased += ShopItem_OnItemPurchased;
 			currentShopItem.OnItemPurchaseFailed += ShopItem_OnItemPurchaseFailed;
 			tk2dUIManager.Instance.InputEnabled = false;

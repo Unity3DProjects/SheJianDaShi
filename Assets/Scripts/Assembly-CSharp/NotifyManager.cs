@@ -57,6 +57,8 @@ public class NotifyManager : SingletonMonoBehaviour<NotifyManager>
 	{
 		get
 		{
+			CustomPlayerPrefs.SetInt("LocalNotifyEnable", 0);
+			// return CustomPlayerPrefs.GetInt("LocalNotifyEnable", 1) != 0;
 			return CustomPlayerPrefs.GetInt("LocalNotifyEnable", 1) != 0;
 		}
 		set
@@ -177,25 +179,25 @@ public class NotifyManager : SingletonMonoBehaviour<NotifyManager>
 		{
 			dateTime = dateTime.AddDays(1.0);
 		}
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.LOCAL_NOTIFICATION_BIND);
-		androidJavaClass.CallStatic(AndroidPluginNames.LOCAL_NOTIFICATION_BIND_SCHEDULE_LOCAL_NOTIFICATION, "localnotification.android.dailyNotif.title", SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey("localnotification.android.dailyNotif.title"), SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey(notificationDailyNotifContentKey.RandomObject()), "push_notification_0", (int)dateTime.Subtract(DateTime.Now).TotalSeconds);
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.LOCAL_NOTIFICATION_BIND);
+		// androidJavaClass.CallStatic(AndroidPluginNames.LOCAL_NOTIFICATION_BIND_SCHEDULE_LOCAL_NOTIFICATION, "localnotification.android.dailyNotif.title", SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey("localnotification.android.dailyNotif.title"), SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey(notificationDailyNotifContentKey.RandomObject()), "push_notification_0", (int)dateTime.Subtract(DateTime.Now).TotalSeconds);
 	}
 
 	private void RegisterDailyGiftNotification()
 	{
 		if (IsDailyGiftNotificationEnabled)
 		{
-			DateTime dateTime = Max(SingletonMonoBehaviour<GiftManager>.Instance.DateNextGift, DateTime.Now.AddMinutes(minTimeToNotificationInMinutes));
-			AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.LOCAL_NOTIFICATION_BIND);
-			androidJavaClass.CallStatic(AndroidPluginNames.LOCAL_NOTIFICATION_BIND_SCHEDULE_LOCAL_NOTIFICATION, "localnotification.android.dailyGiftNotif.title", SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey("localnotification.android.dailyGiftNotif.title"), SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey(notificationDailyGiftNotifContentKey.RandomObject()), "push_notification_0", (int)dateTime.Subtract(DateTime.Now).TotalSeconds);
+			// DateTime dateTime = Max(SingletonMonoBehaviour<GiftManager>.Instance.DateNextGift, DateTime.Now.AddMinutes(minTimeToNotificationInMinutes));
+			// AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.LOCAL_NOTIFICATION_BIND);
+			// androidJavaClass.CallStatic(AndroidPluginNames.LOCAL_NOTIFICATION_BIND_SCHEDULE_LOCAL_NOTIFICATION, "localnotification.android.dailyGiftNotif.title", SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey("localnotification.android.dailyGiftNotif.title"), SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey(notificationDailyGiftNotifContentKey.RandomObject()), "push_notification_0", (int)dateTime.Subtract(DateTime.Now).TotalSeconds);
 		}
 	}
 
 	private void RegisterFirstDailyWinNotification()
 	{
-		DateTime dateTime = Max(SingletonMonoBehaviour<StatisticsManager>.Instance.LastWinDate.AddDays(1.0), DateTime.Now.AddMinutes(minTimeToNotificationInMinutes));
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.LOCAL_NOTIFICATION_BIND);
-		androidJavaClass.CallStatic(AndroidPluginNames.LOCAL_NOTIFICATION_BIND_SCHEDULE_LOCAL_NOTIFICATION, "localnotification.android.firstDailyWin.title", SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey("localnotification.android.firstDailyWin.title"), SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey(notificationFirstDailyWinContentKey.RandomObject()), "push_notification_0", (int)dateTime.Subtract(DateTime.Now).TotalSeconds);
+		// DateTime dateTime = Max(SingletonMonoBehaviour<StatisticsManager>.Instance.LastWinDate.AddDays(1.0), DateTime.Now.AddMinutes(minTimeToNotificationInMinutes));
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.LOCAL_NOTIFICATION_BIND);
+		// androidJavaClass.CallStatic(AndroidPluginNames.LOCAL_NOTIFICATION_BIND_SCHEDULE_LOCAL_NOTIFICATION, "localnotification.android.firstDailyWin.title", SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey("localnotification.android.firstDailyWin.title"), SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey(notificationFirstDailyWinContentKey.RandomObject()), "push_notification_0", (int)dateTime.Subtract(DateTime.Now).TotalSeconds);
 	}
 
 	private void RegisterFreeChestNotification()
@@ -203,8 +205,8 @@ public class NotifyManager : SingletonMonoBehaviour<NotifyManager>
 		if (IsFreeChestNotificationEnabled)
 		{
 			DateTime dateTime = Max(DateTime.Now.AddSeconds(SingletonMonoBehaviour<ProposalManager>.Instance.FreeChestTimer.TimerInSeconds), DateTime.Now.AddMinutes(minTimeToNotificationInMinutes));
-			AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.LOCAL_NOTIFICATION_BIND);
-			androidJavaClass.CallStatic(AndroidPluginNames.LOCAL_NOTIFICATION_BIND_SCHEDULE_LOCAL_NOTIFICATION, "localnotification.freeChest", SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey("localnotification.android.freeChest.title"), SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey("localnotification.android.freeChest.checkItOut"), "push_notification_0", (int)dateTime.Subtract(DateTime.Now).TotalSeconds);
+			// AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.LOCAL_NOTIFICATION_BIND);
+			// androidJavaClass.CallStatic(AndroidPluginNames.LOCAL_NOTIFICATION_BIND_SCHEDULE_LOCAL_NOTIFICATION, "localnotification.freeChest", SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey("localnotification.android.freeChest.title"), SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey("localnotification.android.freeChest.checkItOut"), "push_notification_0", (int)dateTime.Subtract(DateTime.Now).TotalSeconds);
 		}
 	}
 

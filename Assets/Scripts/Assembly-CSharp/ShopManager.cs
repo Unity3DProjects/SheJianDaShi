@@ -489,22 +489,32 @@ public class ShopManager : SingletonMonoBehaviour<ShopManager>
 
 	public bool CanMakePurchase()
 	{
-		if (Application.internetReachability == NetworkReachability.NotReachable)
-		{
-			SingletonMonoBehaviour<GUIPopupManager>.Instance.ShowPopup(PopupType.NoInternet, true, null, true);
-			return false;
-		}
+		//TODO:修改--购买时去掉网络检测
+		// if (Application.internetReachability == NetworkReachability.NotReachable)
+		// {
+		// 	SingletonMonoBehaviour<GUIPopupManager>.Instance.ShowPopup(PopupType.NoInternet, true, null, true);
+		// 	return false;
+		// }
 		return true;
 	}
 
 	public void PurchaseProduct(ShopItem item)
 	{
+		//TODO:修改
+		item.IsDataReceived = true;
+		
+		
 		if (item.IsDataReceived && !currentPurchaseItems.Exists((ShopItem t) => t.ProductID.Equals(item.ProductID)))
 		{
 			currentPurchaseItems.Add(item);
-			SingletonMonoBehaviour<MCInnAppsmanager>.Instance.PurchaseProduct(item.ProductID);
+			
+			//TODO:修改---点击购买后把商品信息加到购买列表里
+			// SingletonMonoBehaviour<MCInnAppsmanager>.Instance.PurchaseProduct(item.ProductID);
+			MCInnAppsManager_PurchaseSuccessful(item);
 		}
 	}
+	
+	
 
 	public void RestorePurchases(Action<bool> callback)
 	{
@@ -610,6 +620,19 @@ public class ShopManager : SingletonMonoBehaviour<ShopManager>
 		ShopItem shopItem = AvailableInApps.Find((ShopItem x) => x.ProductID.Equals(purchase.productId));
 		if (shopItem != null)
 		{
+			currentPurchaseItems.Remove(shopItem);
+			shopItem.PurchaseComplete(LLTransactionState.Purchased);
+			ShopManager.m_OnTransactionCompleted?.Invoke();
+			CustomPlayerPrefs.Save();
+		}
+	}
+	private void MCInnAppsManager_PurchaseSuccessful(ShopItem purchase)
+	{
+		ShopItem shopItem = AvailableInApps.Find((ShopItem x) => x.ProductID.Equals(purchase.ProductID));
+		if (shopItem != null)
+		{
+			
+			Debug.LogError("购买成功，真牛逼啊");
 			currentPurchaseItems.Remove(shopItem);
 			shopItem.PurchaseComplete(LLTransactionState.Purchased);
 			ShopManager.m_OnTransactionCompleted?.Invoke();

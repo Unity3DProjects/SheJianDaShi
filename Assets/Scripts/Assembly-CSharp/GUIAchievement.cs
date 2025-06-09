@@ -110,7 +110,7 @@ public class GUIAchievement : MonoBehaviour
 				lockSprite.gameObject.SetActive(true);
 				countReached.gameObject.SetActive(false);
 				iconSprite.color = new Color32(90, 0, 100, byte.MaxValue);
-				iconSprite.CachedRenderer.material.SetFloat("_GrayscaleFactor", 1f);
+				iconSprite.CachedRenderer.material.SetFloat("_GrayscaleFactor", 0.7f);
 			}
 		}
 	}

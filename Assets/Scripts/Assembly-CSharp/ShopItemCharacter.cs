@@ -77,6 +77,7 @@ public class ShopItemCharacter : ShopItem
 			bool flag = base.Bought || defaultCharacter || IsTry;
 			if (IsIncludedInSubscription || IsVideoSpecialGift)
 			{
+				// return flag || false;
 				return flag || CachedManagers.CachedSubscriptionManager.IsSubscriptionActive;
 			}
 			return flag;
@@ -282,7 +283,11 @@ public class ShopItemCharacter : ShopItem
 	{
 		get
 		{
+			
+			//TODO:修改--角色获取方式--订阅改购买
+			
 			return isIncludedInSubscription;
+			// return false;
 		}
 	}
 

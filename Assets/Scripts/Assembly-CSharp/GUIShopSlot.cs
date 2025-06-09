@@ -156,6 +156,9 @@ public class GUIShopSlot : MonoBehaviour
 			stringBuilder.Append(cachedShopItem.BenefitValue);
 			stringBuilder.Append(CachedManagers.CachedLocalisationManager.GetTextByKey("ui.bank.benefit.label"));
 			benefitLabel.text = stringBuilder.ToString();
+			
+			Debug.LogError("商店全改为广告获取------------------------------------------");
+			
 			if (isAdsShopSlot)
 			{
 				if (CachedManagers.CachedStatisticsManager.FreeGemsReceived > 1)
@@ -233,7 +236,10 @@ public class GUIShopSlot : MonoBehaviour
 	{
 		if (cachedShopItem != null)
 		{
-			string priceString = cachedShopItem.PriceString;
+			string priceString = "观看视频";
+			
+			//TODO:修改-----改价格
+			Debug.LogError("修改-----改价格");
 			bool flag = !string.IsNullOrEmpty(priceString);
 			priceRoot.SetActive(flag);
 			loadingRoot.SetActive(!flag);
@@ -276,6 +282,8 @@ public class GUIShopSlot : MonoBehaviour
 
 	private void BuyButton_OnClick()
 	{
+		//TODO:激励--购买物品
+		
 		if (cachedShopItem != null)
 		{
 			cachedShopItem.OnItemPurchased += ShopItem_OnItemPurchased;
@@ -283,7 +291,7 @@ public class GUIShopSlot : MonoBehaviour
 			tk2dUIManager.Instance.InputEnabled = false;
 			if (!cachedShopItem.TryBuy())
 			{
-				Debug.LogError($"购买成功");
+				// Debug.LogError($"购买成功");
 				cachedShopItem.OnItemPurchased -= ShopItem_OnItemPurchased;
 				cachedShopItem.OnItemPurchaseFailed -= ShopItem_OnItemPurchaseFailed;
 				tk2dUIManager.Instance.InputEnabled = true;

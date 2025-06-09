@@ -541,7 +541,7 @@ public class GUICharacter : MonoBehaviour
 				Color color = new Color32(90, 0, 100, 0);
 				color.a = tk2dSprite5.color.a;
 				tk2dSprite5.color = color;
-				tk2dSprite5.CachedRenderer.material.SetFloat("_GrayscaleFactor", 1f);
+				tk2dSprite5.CachedRenderer.material.SetFloat("_GrayscaleFactor", 0.7f);
 			}
 		}
 		tk2dSprite tk2dSprite6 = UnityEngine.Object.Instantiate(circleSprite);
@@ -1040,7 +1040,7 @@ public class GUICharacter : MonoBehaviour
 				Color color = new Color32(90, 0, 100, 0);
 				color.a = value.color.a;
 				value.color = color;
-				value.CachedRenderer.material.SetFloat("_GrayscaleFactor", 1f);
+				value.CachedRenderer.material.SetFloat("_GrayscaleFactor", 0.7f);
 			}
 		}
 	}

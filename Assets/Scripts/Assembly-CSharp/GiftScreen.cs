@@ -606,25 +606,46 @@ public class GiftScreen : GUIScreen
 
 	private void ClaimButton_OnClick()
 	{
+		//TODO:激励--日常礼包-领取
+		GetReward_CompeleteVideo();
+
+		// switch (ClaimButtonsState)
+		// {
+		// case ClaimButtonsStateType.claimClaimX2:
+		// 	ClaimPerVideo(delegate
+		// 	{
+		// 		GetGift(2);
+		// 	});
+		// 	break;
+		// case ClaimButtonsStateType.claimPerVideo:
+		// 	ClaimPerVideo(delegate
+		// 	{
+		// 		GetGift();
+		// 	});
+		// 	break;
+		// default:
+		// 	GetGift();
+		// 	break;
+		// }
+	}
+
+	public void GetReward_CompeleteVideo()
+	{
 		switch (ClaimButtonsState)
 		{
-		case ClaimButtonsStateType.claimClaimX2:
-			ClaimPerVideo(delegate
-			{
-				GetGift(2);
-			});
-			break;
-		case ClaimButtonsStateType.claimPerVideo:
-			ClaimPerVideo(delegate
-			{
+			case ClaimButtonsStateType.claimClaimX2:
+					GetGift(2);
+				break;
+			case ClaimButtonsStateType.claimPerVideo:
+					GetGift();
+				break;
+			default:
 				GetGift();
-			});
-			break;
-		default:
-			GetGift();
-			break;
+				break;
 		}
 	}
+	
+	
 
 	private void GiftManager_OnGiftAvailable()
 	{

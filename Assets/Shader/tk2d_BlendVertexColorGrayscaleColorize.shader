@@ -55,7 +55,7 @@ Shader "tk2d/BlendVertexColorGrayscaleColorize" {
   Properties {
 		_MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
 		_GrayscaleFactor ("Grayscale Factor", Range(0, 1)) = 0
-		_VertexColorWeight ("Vertex Color Weight", Range(0, 1)) = 0.5
+		_VertexColorWeight ("Vertex Color Weight", Range(0, 1)) =0.1
 	}
 	SubShader {
 		Tags { "Queue"="Transparent" "RenderType"="Transparent" }

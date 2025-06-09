@@ -75,7 +75,8 @@ public static class MiniclipUtils
 
 	public static bool isNetworkAvailable()
 	{
-		return Application.internetReachability != NetworkReachability.NotReachable;
+		// return Application.internetReachability != NetworkReachability.NotReachable;
+		return true;
 	}
 
 	public static void SendToast(string message)

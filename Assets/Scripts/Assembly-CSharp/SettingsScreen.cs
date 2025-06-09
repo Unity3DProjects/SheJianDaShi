@@ -108,6 +108,7 @@ public class SettingsScreen : GUIScreen
 		soundButton.OnClick += SoundButton_OnClick;
 		musicButton.OnClick += MusicButton_OnClick;
 		notifyButton.OnClick += NotifyButton_OnClick;
+		notifyButton.gameObject.SetActive(false);
 		tk2dUIItem[] array = buttonResumes;
 		foreach (tk2dUIItem tk2dUIItem2 in array)
 		{

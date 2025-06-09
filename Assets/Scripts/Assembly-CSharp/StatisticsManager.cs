@@ -1168,10 +1168,14 @@ public class StatisticsManager : SingletonMonoBehaviour<StatisticsManager>
 				num2 = instance.MultiplayerUnlockBorder;
 				break;
 			}
-			if (num >= num2)
-			{
+			//TODO:修改--模式全解锁
+			// if (num >= num2)
+			// {
+			// 	UnlockMode(mode);
+			// }
+			
 				UnlockMode(mode);
-			}
+			
 		}
 	}
 

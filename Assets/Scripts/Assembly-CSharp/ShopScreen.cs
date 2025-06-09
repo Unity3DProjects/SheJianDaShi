@@ -134,20 +134,29 @@ public class ShopScreen : GUIScreen
 		landscapeSlots.Clear();
 		bool flag = !base.CachedManagers.CachedSubscriptionManager.IsSubscriptionActive;
 		int num = ((!flag) ? (base.CachedManagers.CachedShopManager.BankItems.Count - 1) : base.CachedManagers.CachedShopManager.BankItems.Count);
+		float F = 1.5f;
 		for (int i = 0; i < num; i++)
 		{
 			ShopItemGems shopItem = base.CachedManagers.CachedShopManager.BankItems[(!flag) ? (i + 1) : i];
+			if (!(shopItem.RewardValue == 200 || shopItem.RewardValue == 20000))
+			{
+				continue;
+			}
 			GUIShopSlot gUIShopSlot = UnityEngine.Object.Instantiate(slotPrefab);
 			gUIShopSlot.Init(shopItem, parentCell);
 			gUIShopSlot.transform.parent = landscapeScrollView.contentContainer;
 			if (SingletonMonoBehaviour<GUIOrientationManger>.Instance.CurrentRotationType == GUILayouterRotationType.Landscape)
 			{
-				gUIShopSlot.transform.localPosition = (landscapeCellsInterval * (float)i - ((float)Screen.width * GUIScreenManager.GuiScale - landscapeCellsInterval) / 2f) * Vector3.right;
+				gUIShopSlot.transform.localPosition = (landscapeCellsInterval * (float)F - ((float)Screen.width * GUIScreenManager.GuiScale - landscapeCellsInterval) / 2f) * Vector3.right;
+				// gUIShopSlot.transform.localPosition = (landscapeCellsInterval * (float)i - ((float)Screen.width * GUIScreenManager.GuiScale - landscapeCellsInterval) / 2f) * Vector3.right;
 			}
 			else
 			{
-				gUIShopSlot.transform.localPosition = (landscapeCellsInterval * (float)i - ((float)Screen.height * GUIScreenManager.GuiScale - landscapeCellsInterval) / 2f) * Vector3.right;
+				gUIShopSlot.transform.localPosition = (landscapeCellsInterval * (float)F - ((float)Screen.height * GUIScreenManager.GuiScale - landscapeCellsInterval) / 2f) * Vector3.right;
+				// gUIShopSlot.transform.localPosition = (landscapeCellsInterval * (float)i - ((float)Screen.height * GUIScreenManager.GuiScale - landscapeCellsInterval) / 2f) * Vector3.right;
 			}
+
+			F+=2;
 			gUIShopSlot.transform.localPosition += ((!GameManager.IsIPhoneX) ? 0f : additionalIPhoneXOffset) * Vector3.right;
 			gUIShopSlot.transform.localScale = Vector3.one;
 			landscapeSlots.Add(gUIShopSlot);
