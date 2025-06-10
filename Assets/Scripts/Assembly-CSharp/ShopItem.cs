@@ -203,6 +203,7 @@ public class ShopItem : MonoBehaviour
 			//TODO:激励--购买角色和物品
 			MenuScreenScrollView.CustomReward = null;
 			MenuScreenScrollView.CustomReward += RewardFun;
+			RewardFun();
 			return true;
 		}
 		if (!IsDataReceived)
@@ -213,6 +214,7 @@ public class ShopItem : MonoBehaviour
 			// return true;
 			MenuScreenScrollView.CustomReward = null;
 			MenuScreenScrollView.CustomReward += RewardFun;
+			RewardFun();
 			return false;
 		
 		}

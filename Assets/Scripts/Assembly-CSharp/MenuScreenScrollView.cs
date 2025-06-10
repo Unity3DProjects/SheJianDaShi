@@ -40,6 +40,16 @@ public class MenuScreenScrollView : GUIScreen
 		}
 	}
 
+	public  void InvokeRewardFun()
+	{
+	
+			CustomReward?.Invoke();
+			CustomReward=null;
+			base.CachedManagers.CachedTK2DUIManager.InputEnabled = true;
+	      
+		
+	}
+
 	[CompilerGenerated]
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 	private static Action<bool> m_OnCharactersInitialized;
@@ -642,6 +652,7 @@ public class MenuScreenScrollView : GUIScreen
 		{
 			tk2dUIItem16.OnClick += SubscribeButton_OnClick;
 			tk2dUIItem16.gameObject.SetActive(!base.CachedManagers.CachedSubscriptionManager.IsSubscriptionActive && matchesForShowSubscribeButtons <= base.CachedManagers.CachedStatisticsManager.MathesCount);
+			tk2dUIItem16.gameObject.SetActive(false);
 		}
 		MenuScreen.OnStartSpecialIdleAnimations += MenuScreen_OnStartSpecialIdleAnimations;
 		MenuScreen.OnSecondPlayerMustChoose += MenuScreen_OnSecondPlayerMustChoose;

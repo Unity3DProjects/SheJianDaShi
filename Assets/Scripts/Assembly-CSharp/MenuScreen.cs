@@ -1390,9 +1390,11 @@ public class MenuScreen : GUIScreen
 			popupType = ((spentBucks < cachedProposalManager.MinSpentBucksForChampionPack) ? PopupType.Upgrade : ((spentBucks <= cachedProposalManager.MaxSpentBucksForChampionPack) ? PopupType.ChampionPack : (cachedProposalManager.IsVipPackAvailable ? PopupType.None : PopupType.None)));
 			if (popupType != PopupType.None)
 			{
-				cachedProposalManager.IsShowingForcedPack = flag;
-				cachedProposalManager.IsForcedPackAvailable = false;
-				base.CachedManagers.CachedGUIPopupManager.ShowPopup(popupType);
+				
+				 cachedProposalManager.IsShowingForcedPack = flag;
+			 	 cachedProposalManager.IsForcedPackAvailable = false;
+				 base.CachedManagers.CachedGUIPopupManager.ShowPopup(popupType);
+				
 			}
 		}
 		else if (cachedProposalManager.IsNeedShowForcedTimerPopup)
@@ -1457,7 +1459,7 @@ public class MenuScreen : GUIScreen
 		GUIProposalMenu[] array = proposalsMenu;
 		foreach (GUIProposalMenu gUIProposalMenu in array)
 		{
-			if (gUIProposalMenu.TypeProposal == currentProposalMenu)
+			if ((gUIProposalMenu.TypeProposal == currentProposalMenu)&&(gUIProposalMenu.TypeProposal==ProposalMenuType.Gift||gUIProposalMenu.TypeProposal==ProposalMenuType.FreeChest))
 			{
 				gUIProposalMenu.Activate();
 			}

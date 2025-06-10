@@ -1026,7 +1026,9 @@ public class ProposalManager : SingletonMonoBehaviour<ProposalManager>
 					flag = true;
 				}
 			}
-			flag &= SingletonMonoBehaviour<ProposalManager>.Instance.IsUpgradeAvailable || SingletonMonoBehaviour<ProposalManager>.Instance.IsChampionPackAvailable || SingletonMonoBehaviour<ProposalManager>.Instance.IsVipPackAvailable;
+
+			flag &= false;
+			// flag &= SingletonMonoBehaviour<ProposalManager>.Instance.IsUpgradeAvailable || SingletonMonoBehaviour<ProposalManager>.Instance.IsChampionPackAvailable || SingletonMonoBehaviour<ProposalManager>.Instance.IsVipPackAvailable;
 			return flag & IsForcedPackAvailable;
 		}
 	}
