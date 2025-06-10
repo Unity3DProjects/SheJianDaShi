@@ -27,6 +27,19 @@ public class MenuScreenScrollView : GUIScreen
 
 	private const string MONEY_START = "Money_start";
 
+	public static Action CustomReward;
+
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+	       CustomReward?.Invoke();
+	       CustomReward=null;
+	       base.CachedManagers.CachedTK2DUIManager.InputEnabled = true;
+	      
+		}
+	}
+
 	[CompilerGenerated]
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 	private static Action<bool> m_OnCharactersInitialized;
@@ -858,84 +871,86 @@ public class MenuScreenScrollView : GUIScreen
 		{
 			return;
 		}
-		if (shopItemCharacter.CanBuyInShop)
-		{
-			if (shopItemCharacter.IsPremium && !shopItemCharacter.IsWithoutRoulette)
-			{
-				if (!shopItemCharacter.Availible)
-				{
-					bool flag = !base.CachedManagers.CachedProposalManager.AreRouletteCharactersAvailable || base.CachedManagers.CachedStatisticsManager.RoulettePlayedCharacters.Contains((int)shopItemCharacter.Infos[0].characterNameType);
-					tk2dUIItem[] array = buyCharacterOnlyBucksRouletteButtons;
-					foreach (tk2dUIItem tk2dUIItem2 in array)
-					{
-						tk2dUIItem2.gameObject.SetActive(!flag);
-					}
-					GameObject[] array2 = buyCharacterOnlyBucksNonButtonLayouter;
-					foreach (GameObject gameObject in array2)
-					{
-						gameObject.SetActive(flag);
-					}
-					tk2dSlicedSprite[] array3 = buyCharacterOnlyBucksNonButtonSprite;
-					foreach (tk2dSlicedSprite tk2dSlicedSprite2 in array3)
-					{
-						tk2dSlicedSprite2.gameObject.SetActive(flag);
-					}
-				}
-				GameObject[] array4 = buyCharacterOnlyBucksLayouter;
-				foreach (GameObject gameObject2 in array4)
-				{
-					gameObject2.SetActive(!shopItemCharacter.Availible);
-				}
-				GameObject[] array5 = buyCharacterOnlyBucksWithoutRouletteLayouter;
-				foreach (GameObject gameObject3 in array5)
-				{
-					gameObject3.SetActive(false);
-				}
-				tk2dUIItem[] array6 = buyCharacterOnCoinsButtons;
-				foreach (tk2dUIItem tk2dUIItem3 in array6)
-				{
-					tk2dUIItem3.gameObject.SetActive(false);
-				}
-				tk2dUIItem[] array7 = buyCharacterOnBucksButtons;
-				foreach (tk2dUIItem tk2dUIItem4 in array7)
-				{
-					tk2dUIItem4.gameObject.SetActive(false);
-				}
-			}
-			else if (shopItemCharacter.IsPremium && shopItemCharacter.IsWithoutRoulette)
-			{
-				GameObject[] array8 = buyCharacterOnlyBucksWithoutRouletteLayouter;
-				foreach (GameObject gameObject4 in array8)
-				{
-					gameObject4.SetActive(!shopItemCharacter.Availible);
-				}
-				GameObject[] array9 = buyCharacterOnlyBucksLayouter;
-				foreach (GameObject gameObject5 in array9)
-				{
-					gameObject5.SetActive(false);
-				}
-				tk2dUIItem[] array10 = buyCharacterOnCoinsButtons;
-				foreach (tk2dUIItem tk2dUIItem5 in array10)
-				{
-					tk2dUIItem5.gameObject.SetActive(false);
-				}
-				tk2dUIItem[] array11 = buyCharacterOnBucksButtons;
-				foreach (tk2dUIItem tk2dUIItem6 in array11)
-				{
-					tk2dUIItem6.gameObject.SetActive(false);
-				}
-			}
-			else
-			{
+		// if (shopItemCharacter.CanBuyInShop)
+		// {
+		// 	if (shopItemCharacter.IsPremium && !shopItemCharacter.IsWithoutRoulette)
+		// 	{
+		// 		if (!shopItemCharacter.Availible)
+		// 		{
+		// 			bool flag = !base.CachedManagers.CachedProposalManager.AreRouletteCharactersAvailable || base.CachedManagers.CachedStatisticsManager.RoulettePlayedCharacters.Contains((int)shopItemCharacter.Infos[0].characterNameType);
+		// 			tk2dUIItem[] array = buyCharacterOnlyBucksRouletteButtons;
+		// 			foreach (tk2dUIItem tk2dUIItem2 in array)
+		// 			{
+		// 				tk2dUIItem2.gameObject.SetActive(!flag);
+		// 			}
+		// 			GameObject[] array2 = buyCharacterOnlyBucksNonButtonLayouter;
+		// 			foreach (GameObject gameObject in array2)
+		// 			{
+		// 				gameObject.SetActive(flag);
+		// 			}
+		// 			tk2dSlicedSprite[] array3 = buyCharacterOnlyBucksNonButtonSprite;
+		// 			foreach (tk2dSlicedSprite tk2dSlicedSprite2 in array3)
+		// 			{
+		// 				tk2dSlicedSprite2.gameObject.SetActive(flag);
+		// 			}
+		// 		}
+		// 		GameObject[] array4 = buyCharacterOnlyBucksLayouter;
+		// 		foreach (GameObject gameObject2 in array4)
+		// 		{
+		// 			gameObject2.SetActive(!shopItemCharacter.Availible);
+		// 		}
+		// 		GameObject[] array5 = buyCharacterOnlyBucksWithoutRouletteLayouter;
+		// 		foreach (GameObject gameObject3 in array5)
+		// 		{
+		// 			gameObject3.SetActive(false);
+		// 		}
+		// 		tk2dUIItem[] array6 = buyCharacterOnCoinsButtons;
+		// 		foreach (tk2dUIItem tk2dUIItem3 in array6)
+		// 		{
+		// 			tk2dUIItem3.gameObject.SetActive(false);
+		// 		}
+		// 		tk2dUIItem[] array7 = buyCharacterOnBucksButtons;
+		// 		foreach (tk2dUIItem tk2dUIItem4 in array7)
+		// 		{
+		// 			tk2dUIItem4.gameObject.SetActive(false);
+		// 		}
+		// 	}
+		// 	else if (shopItemCharacter.IsPremium && shopItemCharacter.IsWithoutRoulette)
+		// 	{
+		// 		GameObject[] array8 = buyCharacterOnlyBucksWithoutRouletteLayouter;
+		// 		foreach (GameObject gameObject4 in array8)
+		// 		{
+		// 			gameObject4.SetActive(!shopItemCharacter.Availible);
+		// 		}
+		// 		GameObject[] array9 = buyCharacterOnlyBucksLayouter;
+		// 		foreach (GameObject gameObject5 in array9)
+		// 		{
+		// 			gameObject5.SetActive(false);
+		// 		}
+		// 		tk2dUIItem[] array10 = buyCharacterOnCoinsButtons;
+		// 		foreach (tk2dUIItem tk2dUIItem5 in array10)
+		// 		{
+		// 			tk2dUIItem5.gameObject.SetActive(false);
+		// 		}
+		// 		tk2dUIItem[] array11 = buyCharacterOnBucksButtons;
+		// 		foreach (tk2dUIItem tk2dUIItem6 in array11)
+		// 		{
+		// 			tk2dUIItem6.gameObject.SetActive(false);
+		// 		}
+		// 	}
+		// 	else
+		// 	{
 				tk2dUIItem[] array12 = buyCharacterOnCoinsButtons;
 				foreach (tk2dUIItem tk2dUIItem7 in array12)
 				{
+					// tk2dUIItem7.gameObject.SetActive(true);
 					tk2dUIItem7.gameObject.SetActive(!shopItemCharacter.Availible);
 				}
 				tk2dUIItem[] array13 = buyCharacterOnBucksButtons;
 				foreach (tk2dUIItem tk2dUIItem8 in array13)
 				{
 					tk2dUIItem8.gameObject.SetActive(!shopItemCharacter.Availible);
+					// tk2dUIItem8.gameObject.SetActive(true);
 				}
 				GameObject[] array14 = buyCharacterOnlyBucksLayouter;
 				foreach (GameObject gameObject6 in array14)
@@ -947,7 +962,7 @@ public class MenuScreenScrollView : GUIScreen
 				{
 					gameObject7.SetActive(false);
 				}
-			}
+			// }
 			GUILayouter[] array16 = dailySpecialLabels;
 			foreach (GUILayouter gUILayouter in array16)
 			{
@@ -983,166 +998,171 @@ public class MenuScreenScrollView : GUIScreen
 			{
 				gameObject11.SetActive(false);
 			}
-		}
-		else
-		{
-			GameObject[] array23 = buyCharacterOnlyBucksLayouter;
-			foreach (GameObject gameObject12 in array23)
-			{
-				gameObject12.SetActive(false);
-			}
-			GameObject[] array24 = buyCharacterOnlyBucksWithoutRouletteLayouter;
-			foreach (GameObject gameObject13 in array24)
-			{
-				gameObject13.SetActive(false);
-			}
-			tk2dUIItem[] array25 = buyCharacterOnCoinsButtons;
-			foreach (tk2dUIItem tk2dUIItem9 in array25)
-			{
-				tk2dUIItem9.gameObject.SetActive(false);
-			}
-			tk2dUIItem[] array26 = buyCharacterOnBucksButtons;
-			foreach (tk2dUIItem tk2dUIItem10 in array26)
-			{
-				tk2dUIItem10.gameObject.SetActive(false);
-			}
-			GUILayouter[] array27 = dailySpecialLabels;
-			foreach (GUILayouter gUILayouter4 in array27)
-			{
-				gUILayouter4.gameObject.SetActive(shopItemCharacter.IsDailySpecialGift && !shopItemCharacter.Availible);
-			}
-			GUILayouter[] array28 = legendaryTournamentLabels;
-			foreach (GUILayouter gUILayouter5 in array28)
-			{
-				gUILayouter5.gameObject.SetActive(shopItemCharacter.IsLegendaryTournamentReward && !shopItemCharacter.Availible);
-			}
-			GameObject[] array29 = buyCharacterByInviteLayouter;
-			foreach (GameObject gameObject14 in array29)
-			{
-				gameObject14.SetActive(shopItemCharacter.IsInviteReward && !shopItemCharacter.Availible);
-			}
-			GameObject[] array30 = buyCharacterBySubscribeLayouter;
-			foreach (GameObject gameObject15 in array30)
-			{
-				gameObject15.SetActive((shopItemCharacter.IsSubscribeReward || shopItemCharacter.IsOnlySubscribeReward) && !shopItemCharacter.Availible);
-			}
-			GameObject[] array31 = buyCharacterByAdsLayouter;
-			foreach (GameObject gameObject16 in array31)
-			{
-				gameObject16.SetActive(shopItemCharacter.LockedByAdsInfo.isLockedByAds && !shopItemCharacter.Availible);
-			}
-			GameObject[] array32 = buyCharacterBySubscriptionLayouter;
-			foreach (GameObject gameObject17 in array32)
-			{
-				gameObject17.SetActive(shopItemCharacter.IsIncludedInSubscription && !shopItemCharacter.Availible);
-			}
-			if (!shopItemCharacter.Availible && (shopItemCharacter.IsVideoSpecialGift || shopItemCharacter.IsMultiplayerWinsGift))
-			{
-				GUILayouter[] array33 = videoSpecialLabels;
-				foreach (GUILayouter gUILayouter6 in array33)
-				{
-					gUILayouter6.gameObject.SetActive(true);
-				}
-				GameObject[] array34 = buyCharacterOnlyBucksLayouter;
-				foreach (GameObject gameObject18 in array34)
-				{
-					gameObject18.SetActive(false);
-				}
-				GameObject[] array35 = buyCharacterOnlyBucksWithoutRouletteLayouter;
-				foreach (GameObject gameObject19 in array35)
-				{
-					gameObject19.SetActive(false);
-				}
-				ProgressBar[] array36 = videoSpecialBar;
-				foreach (ProgressBar progressBar in array36)
-				{
-					progressBar.gameObject.SetActive(false);
-				}
-				ProgressBar[] array37 = multiplayerSpecialBar;
-				foreach (ProgressBar progressBar2 in array37)
-				{
-					progressBar2.gameObject.SetActive(false);
-				}
-				StatisticsManager cachedStatisticsManager = base.CachedManagers.CachedStatisticsManager;
-				int num32 = 0;
-				string sprite = string.Empty;
-				string key = string.Empty;
-				int num33 = 0;
-				Vector3 scale = Vector3.one;
-				ProgressBar[] array38 = null;
-				if (shopItemCharacter.IsVideoSpecialGift)
-				{
-					num32 = cachedStatisticsManager.VideosWatched;
-					sprite = "get_key_icon_play";
-					key = "ui.main.shop.fireman.unlock.description";
-					num33 = cachedGiftManager.VideosForGiftCharacter;
-					array38 = videoSpecialBar;
-				}
-				else if (shopItemCharacter.IsMultiplayerWinsGift)
-				{
-					num32 = cachedStatisticsManager.MatchesWinsMultiplayer;
-					sprite = "icon_online_pvp";
-					scale = new Vector3(0.55f, 0.55f, 1f);
-					key = "ui.main.shop.santa.unlock.description";
-					num33 = cachedGiftManager.MultiplayerWinsForGiftCharacter;
-					array38 = multiplayerSpecialBar;
-				}
-				tk2dBaseSprite[] array39 = videoSpecialIcons;
-				foreach (tk2dBaseSprite tk2dBaseSprite2 in array39)
-				{
-					tk2dBaseSprite2.SetSprite(sprite);
-					tk2dBaseSprite2.scale = scale;
-				}
-				string text = string.Format("{0} {1}/{2}", base.CachedManagers.CachedLocalisationManager.GetTextByKey(key), num32, num33);
-				tk2dTextMesh[] array40 = videoSpecialTopLabel;
-				foreach (tk2dTextMesh tk2dTextMesh2 in array40)
-				{
-					tk2dTextMesh2.text = text;
-				}
-				float f = (float)num32 / (float)num33;
-				ProgressBar[] array41 = array38;
-				foreach (ProgressBar progressBar3 in array41)
-				{
-					progressBar3.gameObject.SetActive(true);
-					progressBar3.SetFillAmount(f);
-				}
-			}
-			else
-			{
-				GameObject[] array42 = buyCharacterOnlyBucksLayouter;
-				foreach (GameObject gameObject20 in array42)
-				{
-					gameObject20.SetActive(false);
-				}
-				GameObject[] array43 = buyCharacterOnlyBucksWithoutRouletteLayouter;
-				foreach (GameObject gameObject21 in array43)
-				{
-					gameObject21.SetActive(false);
-				}
-				GUILayouter[] array44 = videoSpecialLabels;
-				foreach (GUILayouter gUILayouter7 in array44)
-				{
-					gUILayouter7.gameObject.SetActive(false);
-				}
-			}
-		}
+		// }
+		// else
+		// {
+		// 	GameObject[] array23 = buyCharacterOnlyBucksLayouter;
+		// 	foreach (GameObject gameObject12 in array23)
+		// 	{
+		// 		gameObject12.SetActive(false);
+		// 	}
+		// 	GameObject[] array24 = buyCharacterOnlyBucksWithoutRouletteLayouter;
+		// 	foreach (GameObject gameObject13 in array24)
+		// 	{
+		// 		gameObject13.SetActive(false);
+		// 	}
+		// 	tk2dUIItem[] array25 = buyCharacterOnCoinsButtons;
+		// 	foreach (tk2dUIItem tk2dUIItem9 in array25)
+		// 	{
+		// 		tk2dUIItem9.gameObject.SetActive(false);
+		// 	}
+		// 	tk2dUIItem[] array26 = buyCharacterOnBucksButtons;
+		// 	foreach (tk2dUIItem tk2dUIItem10 in array26)
+		// 	{
+		// 		tk2dUIItem10.gameObject.SetActive(false);
+		// 	}
+		// 	GUILayouter[] array27 = dailySpecialLabels;
+		// 	foreach (GUILayouter gUILayouter4 in array27)
+		// 	{
+		// 		gUILayouter4.gameObject.SetActive(shopItemCharacter.IsDailySpecialGift && !shopItemCharacter.Availible);
+		// 	}
+		// 	GUILayouter[] array28 = legendaryTournamentLabels;
+		// 	foreach (GUILayouter gUILayouter5 in array28)
+		// 	{
+		// 		gUILayouter5.gameObject.SetActive(shopItemCharacter.IsLegendaryTournamentReward && !shopItemCharacter.Availible);
+		// 	}
+		// 	GameObject[] array29 = buyCharacterByInviteLayouter;
+		// 	foreach (GameObject gameObject14 in array29)
+		// 	{
+		// 		gameObject14.SetActive(shopItemCharacter.IsInviteReward && !shopItemCharacter.Availible);
+		// 	}
+		// 	GameObject[] array30 = buyCharacterBySubscribeLayouter;
+		// 	foreach (GameObject gameObject15 in array30)
+		// 	{
+		// 		gameObject15.SetActive((shopItemCharacter.IsSubscribeReward || shopItemCharacter.IsOnlySubscribeReward) && !shopItemCharacter.Availible);
+		// 	}
+		// 	GameObject[] array31 = buyCharacterByAdsLayouter;
+		// 	foreach (GameObject gameObject16 in array31)
+		// 	{
+		// 		gameObject16.SetActive(shopItemCharacter.LockedByAdsInfo.isLockedByAds && !shopItemCharacter.Availible);
+		// 	}
+		// 	GameObject[] array32 = buyCharacterBySubscriptionLayouter;
+		// 	foreach (GameObject gameObject17 in array32)
+		// 	{
+		// 		gameObject17.SetActive(shopItemCharacter.IsIncludedInSubscription && !shopItemCharacter.Availible);
+		// 	}
+		// 	if (!shopItemCharacter.Availible && (shopItemCharacter.IsVideoSpecialGift || shopItemCharacter.IsMultiplayerWinsGift))
+		// 	{
+		// 		GUILayouter[] array33 = videoSpecialLabels;
+		// 		foreach (GUILayouter gUILayouter6 in array33)
+		// 		{
+		// 			gUILayouter6.gameObject.SetActive(true);
+		// 		}
+		// 		GameObject[] array34 = buyCharacterOnlyBucksLayouter;
+		// 		foreach (GameObject gameObject18 in array34)
+		// 		{
+		// 			gameObject18.SetActive(false);
+		// 		}
+		// 		GameObject[] array35 = buyCharacterOnlyBucksWithoutRouletteLayouter;
+		// 		foreach (GameObject gameObject19 in array35)
+		// 		{
+		// 			gameObject19.SetActive(false);
+		// 		}
+		// 		ProgressBar[] array36 = videoSpecialBar;
+		// 		foreach (ProgressBar progressBar in array36)
+		// 		{
+		// 			progressBar.gameObject.SetActive(false);
+		// 		}
+		// 		ProgressBar[] array37 = multiplayerSpecialBar;
+		// 		foreach (ProgressBar progressBar2 in array37)
+		// 		{
+		// 			progressBar2.gameObject.SetActive(false);
+		// 		}
+		// 		StatisticsManager cachedStatisticsManager = base.CachedManagers.CachedStatisticsManager;
+		// 		int num32 = 0;
+		// 		string sprite = string.Empty;
+		// 		string key = string.Empty;
+		// 		int num33 = 0;
+		// 		Vector3 scale = Vector3.one;
+		// 		ProgressBar[] array38 = null;
+		// 		if (shopItemCharacter.IsVideoSpecialGift)
+		// 		{
+		// 			num32 = cachedStatisticsManager.VideosWatched;
+		// 			sprite = "get_key_icon_play";
+		// 			key = "ui.main.shop.fireman.unlock.description";
+		// 			num33 = cachedGiftManager.VideosForGiftCharacter;
+		// 			array38 = videoSpecialBar;
+		// 		}
+		// 		else if (shopItemCharacter.IsMultiplayerWinsGift)
+		// 		{
+		// 			num32 = cachedStatisticsManager.MatchesWinsMultiplayer;
+		// 			sprite = "icon_online_pvp";
+		// 			scale = new Vector3(0.55f, 0.55f, 1f);
+		// 			key = "ui.main.shop.santa.unlock.description";
+		// 			num33 = cachedGiftManager.MultiplayerWinsForGiftCharacter;
+		// 			array38 = multiplayerSpecialBar;
+		// 		}
+		// 		tk2dBaseSprite[] array39 = videoSpecialIcons;
+		// 		foreach (tk2dBaseSprite tk2dBaseSprite2 in array39)
+		// 		{
+		// 			tk2dBaseSprite2.SetSprite(sprite);
+		// 			tk2dBaseSprite2.scale = scale;
+		// 		}
+		// 		string text = string.Format("{0} {1}/{2}", base.CachedManagers.CachedLocalisationManager.GetTextByKey(key), num32, num33);
+		// 		tk2dTextMesh[] array40 = videoSpecialTopLabel;
+		// 		foreach (tk2dTextMesh tk2dTextMesh2 in array40)
+		// 		{
+		// 			tk2dTextMesh2.text = text;
+		// 		}
+		// 		float f = (float)num32 / (float)num33;
+		// 		ProgressBar[] array41 = array38;
+		// 		foreach (ProgressBar progressBar3 in array41)
+		// 		{
+		// 			progressBar3.gameObject.SetActive(true);
+		// 			progressBar3.SetFillAmount(f);
+		// 		}
+		// 	}
+		// 	else
+		// 	{
+		// 		GameObject[] array42 = buyCharacterOnlyBucksLayouter;
+		// 		foreach (GameObject gameObject20 in array42)
+		// 		{
+		// 			gameObject20.SetActive(false);
+		// 		}
+		// 		GameObject[] array43 = buyCharacterOnlyBucksWithoutRouletteLayouter;
+		// 		foreach (GameObject gameObject21 in array43)
+		// 		{
+		// 			gameObject21.SetActive(false);
+		// 		}
+		// 		GUILayouter[] array44 = videoSpecialLabels;
+		// 		foreach (GUILayouter gUILayouter7 in array44)
+		// 		{
+		// 			gUILayouter7.gameObject.SetActive(false);
+		// 		}
+		// 	}
+		// }
 		tk2dTextMesh[] array45 = buttonCoinsLabels;
 		foreach (tk2dTextMesh tk2dTextMesh3 in array45)
 		{
 			tk2dTextMesh3.text = shopItemCharacter.PriceCoinsString;
 		}
-		string priceString = shopItemCharacter.PriceString;
+		// string priceString = shopItemCharacter.PriceString;
+		string priceString ="观看视频";
 		if (string.IsNullOrEmpty(priceString))
 		{
 			tk2dTextMesh[] array46 = buttonBucksLabels;
 			foreach (tk2dTextMesh tk2dTextMesh4 in array46)
 			{
-				tk2dTextMesh4.gameObject.SetActive(false);
+				// tk2dTextMesh4.gameObject.SetActive(false);
+				
+				
+				tk2dTextMesh4.gameObject.SetActive(true);
+				tk2dTextMesh4.text = "观看视频";
 			}
 			SkeletonAnimation[] array47 = buttonBucksLoading;
 			foreach (SkeletonAnimation skeletonAnimation in array47)
 			{
-				skeletonAnimation.gameObject.SetActive(true);
+				skeletonAnimation.gameObject.SetActive(false);
 			}
 			SkeletonAnimation[] array48 = buttonOnlyBucksLoading;
 			foreach (SkeletonAnimation skeletonAnimation2 in array48)
@@ -1176,7 +1196,8 @@ public class MenuScreenScrollView : GUIScreen
 			foreach (tk2dTextMesh tk2dTextMesh5 in array53)
 			{
 				tk2dTextMesh5.gameObject.SetActive(true);
-				tk2dTextMesh5.text = shopItemCharacter.PriceString;
+				// tk2dTextMesh5.text = shopItemCharacter.PriceString;
+				tk2dTextMesh5.text = "观看视频";
 			}
 			SkeletonAnimation[] array54 = buttonBucksLoading;
 			foreach (SkeletonAnimation skeletonAnimation7 in array54)

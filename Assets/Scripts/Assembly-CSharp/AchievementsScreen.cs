@@ -100,6 +100,7 @@ public class AchievementsScreen : GUIScreen
 		foreach (tk2dUIItem tk2dUIItem2 in array)
 		{
 			tk2dUIItem2.OnClick += Achievements_OnClick;
+			tk2dUIItem2.gameObject.SetActive(false);
 		}
 		for (int j = 0; j < backButtons.Length; j++)
 		{

@@ -1387,7 +1387,7 @@ public class MenuScreen : GUIScreen
 			ProposalMenuType lastProposalWithTimerType = cachedProposalManager.LastProposalWithTimerType;
 			bool flag = cachedProposalManager.ProposalTimer.TimerInSeconds == 0f;
 			flag = flag || (lastProposalWithTimerType != ProposalMenuType.Upgrade && lastProposalWithTimerType != ProposalMenuType.VipPack && lastProposalWithTimerType != ProposalMenuType.ChampionPack);
-			popupType = ((spentBucks < cachedProposalManager.MinSpentBucksForChampionPack) ? PopupType.Upgrade : ((spentBucks <= cachedProposalManager.MaxSpentBucksForChampionPack) ? PopupType.ChampionPack : (cachedProposalManager.IsVipPackAvailable ? PopupType.VipPack : PopupType.None)));
+			popupType = ((spentBucks < cachedProposalManager.MinSpentBucksForChampionPack) ? PopupType.Upgrade : ((spentBucks <= cachedProposalManager.MaxSpentBucksForChampionPack) ? PopupType.ChampionPack : (cachedProposalManager.IsVipPackAvailable ? PopupType.None : PopupType.None)));
 			if (popupType != PopupType.None)
 			{
 				cachedProposalManager.IsShowingForcedPack = flag;

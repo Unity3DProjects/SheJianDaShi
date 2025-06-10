@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class GUIPopupManager : SingletonMonoBehaviour<GUIPopupManager>
 {
@@ -95,6 +96,7 @@ public class GUIPopupManager : SingletonMonoBehaviour<GUIPopupManager>
 
 	public GUIPopup ShowPopup(PopupType typePopup, bool force = true, GUIPopup popup = null, bool isOverlayedPopup = false, bool forceOnTop = false)
 	{
+		Debug.Log($"调用了{typePopup}");
 		GUIPopup[] popups = GetComponentsInChildren<GUIPopup>(true);
 		int maxOrder = 0;
 		for (int i = 0; i < popups.Length; i++)

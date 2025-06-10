@@ -198,17 +198,37 @@ public class ShopItem : MonoBehaviour
 		if (CanBuy)
 		{
 			Debug.LogError("购买");
-			SingletonMonoBehaviour<ShopManager>.Instance.PurchaseProduct(this);
+			// SingletonMonoBehaviour<ShopManager>.Instance.PurchaseProduct(this);
+			// return true;
+			//TODO:激励--购买角色和物品
+			MenuScreenScrollView.CustomReward = null;
+			MenuScreenScrollView.CustomReward += RewardFun;
 			return true;
 		}
 		if (!IsDataReceived)
 		{
 			
 			Debug.LogError("不能购买，走这一步");
-			SingletonMonoBehaviour<ShopManager>.Instance.CheckForNotReceivedItems();
+			// SingletonMonoBehaviour<ShopManager>.Instance.CheckForNotReceivedItems();
+			// return true;
+			MenuScreenScrollView.CustomReward = null;
+			MenuScreenScrollView.CustomReward += RewardFun;
+			return false;
+		
 		}
+		
 		return false;
 	}
+
+
+	public void RewardFun()
+	{
+		SingletonMonoBehaviour<ShopManager>.Instance.PurchaseProduct(this);
+	}
+	
+	
+	
+	
 
 	public virtual void PurchaseComplete(LLTransactionState transactionState)
 	{

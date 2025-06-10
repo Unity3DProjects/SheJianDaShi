@@ -471,6 +471,7 @@ public class ResultScreen : GUIScreen
 		foreach (tk2dUIItem tk2dUIItem2 in array)
 		{
 			tk2dUIItem2.OnClick += GameCenterButton_OnClick;
+			tk2dUIItem2.gameObject.SetActive(false);
 		}
 		tk2dUIItem[] array2 = nextButtons;
 		foreach (tk2dUIItem tk2dUIItem3 in array2)

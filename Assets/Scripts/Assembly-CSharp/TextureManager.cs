@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
+using Object = UnityEngine.Object;
 
 public static class TextureManager
 {
@@ -198,30 +199,74 @@ public static class TextureManager
 	{
 		Texture2D texture2D = new Texture2D(4, 4, TextureFormat.RGBA32, doMipMaps);
 		byte[] array = null;
-		if (File.Exists(imagePath))
+		
+		texture2D = LoadResource<Texture2D>(imagePath);
+		if (texture2D == null)
 		{
-			array = File.ReadAllBytes(imagePath);
+			Debug.LogError($"加载失败：{imagePath}");
 		}
-		else
-		{
-			texture2D = null;
-			CustomDebug.LogError("File <" + imagePath + "> does not exist");
-		}
-		if (array == null || !texture2D.LoadImage(array))
-		{
-			if (array == null)
-			{
-				
-				
-				CustomDebug.LogError($"Image bytes is null::{imagePath}");
-			}
-			else
-			{
-				CustomDebug.Log("Can't load image");
-			}
-			texture2D = null;
-		}
+		// if (File.Exists(imagePath))
+		// {
+		// 	array = File.ReadAllBytes(imagePath);
+		// 	
+		// 	//TODO:修改Texture资源加载方式
+		// 	// Texture2D 
+		// }
+		// else
+		// {
+		// 	texture2D = null;
+		// 	CustomDebug.LogError("File <" + imagePath + "> does not exist");
+		// }
+		// if (array == null || !texture2D.LoadImage(array))
+		// {
+		// 	if (array == null)
+		// 	{
+		// 		
+		// 		
+		// 		CustomDebug.LogError($"Image bytes is null::{imagePath}");
+		// 	}
+		// 	else
+		// 	{
+		// 		CustomDebug.Log("Can't load image");
+		// 	}
+		// 	texture2D = null;
+		// }
 		return texture2D;
+	}
+	
+	// 主转换方法
+	public static string ConvertToResourcePath(string fullPath)
+	{
+		
+		string trimmedPath = RemovePrefix(fullPath, "Assets/StreamingAssets/");
+        
+		
+		return RemoveExtension(trimmedPath);
+	}
+
+	// 辅助方法：移除路径前缀
+	private static string RemovePrefix(string path, string prefix)
+	{
+		return path.StartsWith(prefix) ? path.Substring(prefix.Length) : path;
+	}
+
+	
+	private static string RemoveExtension(string path)
+	{
+		
+		string directory = Path.GetDirectoryName(path);
+		string filename = Path.GetFileNameWithoutExtension(path);
+        
+		return string.IsNullOrEmpty(directory) ? filename : $"{directory}/{filename}";
+	}
+
+	
+	public static T LoadResource<T>(string fullPath) where T : Object
+	{
+		string resourcePath = ConvertToResourcePath(fullPath);
+		Debug.Log($"Loading resource at: {resourcePath}");
+		Debug.LogError($"加载成功：{resourcePath}");
+		return Resources.Load<T>(resourcePath);
 	}
 
 	private static Texture2D SetupTexture(Texture2D text, bool doMipMaps)

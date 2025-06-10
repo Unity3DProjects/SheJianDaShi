@@ -586,6 +586,7 @@ public class GUICharacter : MonoBehaviour
 				}
 				shopIconFree.Add(tk2dSprite2, tk2dSprite8);
 				shopIconFreeTransform.Add(tk2dSprite2, tk2dSprite8.CachedTransform);
+				tk2dSprite8.gameObject.SetActive(false);
 			}
 		}
 		if (CachedManagers.CachedShopManager.VipPack.Characters.Contains(shopItem))
@@ -603,6 +604,7 @@ public class GUICharacter : MonoBehaviour
 			}
 			shopIconVip.Add(tk2dSprite2, tk2dSprite9);
 			shopIconVipTransform.Add(tk2dSprite2, tk2dSprite9.CachedTransform);
+			tk2dSprite9.gameObject.SetActive(false);
 		}
 		tk2dSprite tk2dSprite10 = UnityEngine.Object.Instantiate(choiceFirstSprite);
 		tk2dSprite10.CachedTransform.parent = tk2dSprite2.transform;
