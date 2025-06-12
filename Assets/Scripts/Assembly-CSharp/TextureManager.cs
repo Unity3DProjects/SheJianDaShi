@@ -227,7 +227,7 @@ public static class TextureManager
 		// 	}
 		// 	else
 		// 	{
-		// 		CustomDebug.Log("Can't load image");
+				// CustomDebug.Log("Can't load image");
 		// 	}
 		// 	texture2D = null;
 		// }

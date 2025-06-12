@@ -9,7 +9,7 @@ public class CustomGUI : SingletonMonoBehaviour<CustomGUI>
 		{
 			if (NeedShowDebugGUI && onDebugGUI != null)
 			{
-				onDebugGUI();
+				// onDebugGUI();
 			}
 		}
 	}

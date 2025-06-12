@@ -175,7 +175,8 @@ public class RevievePopup : GUIPopup
 			
 			//TODO:激励——————复活
 			// base.CachedManagers.CachedAdvertisingManager.ShowVideo();
-			AdvertisingManager_OnVideoAdFinish(true);
+			// AdvertisingManager_OnVideoAdFinish(true);
+			ADManager.Instance.ShowAD_Reward(this.gameObject.name,nameof(GetReward_AdvertisingManager_OnVideoAdFinish));
 			
 			
 			IsOnVideoFinishEventSubscribed = true;
@@ -189,6 +190,11 @@ public class RevievePopup : GUIPopup
 		{
 			Hide();
 		}
+	}
+
+	public void GetReward_AdvertisingManager_OnVideoAdFinish()
+	{
+		AdvertisingManager_OnVideoAdFinish(true);
 	}
 
 	private void AdvertisingManager_OnVideoAdFinish(bool isVideoAvailable)

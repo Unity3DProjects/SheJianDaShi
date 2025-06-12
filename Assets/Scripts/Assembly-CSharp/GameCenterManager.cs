@@ -519,9 +519,9 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 				achievementID = "CgkIu-OZuaoTEAIQHA";
 				break;
 			}
-			Social.ReportProgress(achievementID, 100.0, delegate
-			{
-			});
+			// Social.ReportProgress(achievementID, 100.0, delegate
+			// {
+			// });
 		}
 	}
 

@@ -256,12 +256,14 @@ public class UpgradePopup : GUIPopup
 		{
 			return;
 		}
-		string priceString = shopItem.PriceString;
+		string priceString = "观看视频";
+		// string priceString = shopItem.PriceString;
 		bool flag = !string.IsNullOrEmpty(priceString);
 		tk2dTextMesh[] array = mainPriceLabels;
 		foreach (tk2dTextMesh tk2dTextMesh2 in array)
 		{
-			tk2dTextMesh2.gameObject.SetActive(flag);
+			tk2dTextMesh2.gameObject.SetActive(true);
+			// tk2dTextMesh2.gameObject.SetActive(flag);
 		}
 		tk2dTextMesh[] array2 = minorPriceLabels;
 		foreach (tk2dTextMesh tk2dTextMesh3 in array2)
@@ -271,7 +273,8 @@ public class UpgradePopup : GUIPopup
 		GameObject[] array3 = loadingRoots;
 		foreach (GameObject gameObject in array3)
 		{
-			gameObject.gameObject.SetActive(!flag);
+			gameObject.gameObject.SetActive(false);
+			// gameObject.gameObject.SetActive(!flag);
 		}
 		GameObject[] array4 = priceRoots;
 		foreach (GameObject gameObject2 in array4)
@@ -285,7 +288,7 @@ public class UpgradePopup : GUIPopup
 		tk2dTextMesh[] array5 = mainPriceLabels;
 		foreach (tk2dTextMesh tk2dTextMesh4 in array5)
 		{
-			tk2dTextMesh4.text = priceString;
+			tk2dTextMesh4.text = "观看视频领取";
 		}
 		tk2dTextMesh[] array6 = minorPriceLabels;
 		foreach (tk2dTextMesh tk2dTextMesh5 in array6)
@@ -304,6 +307,7 @@ public class UpgradePopup : GUIPopup
 			shopItem.OnItemPurchased += ShopItem_OnItemPurchased;
 			shopItem.OnItemPurchaseFailed += ShopItem_OnItemPurchaseFailed;
 			base.CachedManagers.CachedTK2DUIManager.InputEnabled = false;
+			base.CachedManagers.CachedTK2DUIManager.InputEnabled = true;
 			if (!shopItem.TryBuy())
 			{
 				shopItem.OnItemPurchased -= ShopItem_OnItemPurchased;

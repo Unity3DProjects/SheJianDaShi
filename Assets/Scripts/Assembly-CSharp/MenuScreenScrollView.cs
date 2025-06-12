@@ -8,6 +8,7 @@ using Mit_Goliath_Native.Utils;
 using Spine;
 using UnityEngine;
 using UnityEngine.Analytics;
+using Debug = UnityEngine.Debug;
 
 public class MenuScreenScrollView : GUIScreen
 {
@@ -2111,11 +2112,14 @@ public class MenuScreenScrollView : GUIScreen
 	private void PlayButton_OnClick()
 	{
 		StartCoroutine(CoroutineChooseCharacter());
+		
+		Debug.Log("开战--------------");
 	}
 
 	private void UpgradeButton_OnClick()
 	{
 		base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.UpgradeLevel, true, null, true);
+		// ADManager.Instance.ShowAD_Black();
 	}
 
 	private void SubscribeButton_OnClick()
@@ -2198,9 +2202,11 @@ public class MenuScreenScrollView : GUIScreen
 		{
 		case MenuPhase.Mode:
 			base.CachedManagers.CachedTK2DUIManager.InputEnabled = true;
+			Debug.Log("开始一");
 			break;
 		case MenuPhase.First:
 		{
+			
 			CharacterNameType characterNameType = ((shopCharacters[SelectedIndex].CharacterUpgradeInfo.upgradeLevel <= 0) ? shopCharacters[SelectedIndex].Infos[0].characterNameType : shopCharacters[SelectedIndex].CharacterUpgradeInfo.characterNameType);
 			GUICharacter firstGUICharacter = base.ObjectsSpawner.GetGUICharacter(characterNameType);
 			if (firstGUICharacter.CharacterMode == CharacterMode.Random)
@@ -2238,6 +2244,8 @@ public class MenuScreenScrollView : GUIScreen
 			base.CachedManagers.CachedTK2DUIManager.InputEnabled = true;
 			if (base.CachedManagers.CachedGameManager.CurrentGameType == GameType.VSHuman)
 			{
+				Debug.Log("开始22222222222221");
+				ADManager.Instance.ShowAD_Black();
 				if (firstGUICharacter.CharacterMode == CharacterMode.Random)
 				{
 					firstGUICharacter.StartSpecialIdleAnimations(true, true);
@@ -2246,6 +2254,7 @@ public class MenuScreenScrollView : GUIScreen
 			}
 			else if (base.CachedManagers.CachedGameManager.CurrentGameType == GameType.Multiplayer)
 			{
+				Debug.Log("开始1111111111111");
 				tk2dUIItem[] array = playButtons;
 				foreach (tk2dUIItem tk2dUIItem2 in array)
 				{
@@ -2280,6 +2289,8 @@ public class MenuScreenScrollView : GUIScreen
 			}
 			else
 			{
+				ADManager.Instance.ShowAD_Black();
+				Debug.Log("开始11111119991");
 				SetSecondCharacter();
 				base.CachedManagers.CachedGUIScreenManager.ShowScreen(GUIScreenType.Versus);
 			}
@@ -2288,6 +2299,9 @@ public class MenuScreenScrollView : GUIScreen
 		}
 		case MenuPhase.Second:
 		{
+			// Debug.Log("双人选完角色  真正开始游戏");
+			ADManager.Instance.ShowAD_Black();
+			
 			CharacterNameType characterNameType = ((shopCharacters[SelectedIndex].CharacterUpgradeInfo.upgradeLevel <= 0) ? shopCharacters[SelectedIndex].Infos[0].characterNameType : shopCharacters[SelectedIndex].CharacterUpgradeInfo.characterNameType);
 			GUICharacter secondGUICharacter = base.ObjectsSpawner.GetGUICharacter(characterNameType);
 			if ((bool)secondGUICharacter)

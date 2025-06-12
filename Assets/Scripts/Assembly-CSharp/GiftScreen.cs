@@ -607,8 +607,8 @@ public class GiftScreen : GUIScreen
 	private void ClaimButton_OnClick()
 	{
 		//TODO:激励--日常礼包-领取
-		GetReward_CompeleteVideo();
-
+		// GetReward_CompeleteVideo();
+		ADManager.Instance.ShowAD_Reward(this.gameObject.name,nameof(GetReward_CompeleteVideo));
 		// switch (ClaimButtonsState)
 		// {
 		// case ClaimButtonsStateType.claimClaimX2:

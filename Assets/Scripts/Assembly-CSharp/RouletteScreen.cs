@@ -734,39 +734,7 @@ public class RouletteScreen : GUIScreen
 	{
 		
 		//TODO:激励--领取双倍奖励（开宝箱后）
-			if (true)
-			{
-				GUIControl[] array = claimX2Controls;
-				foreach (GUIControl gUIControl in array)
-				{
-					gUIControl.Hide();
-				}
-				for (int j = 0; j < claimButtons.Length; j++)
-				{
-					claimButtons[j].gameObject.SetActive(false);
-				}
-				for (int k = 0; k < cachedSlots.Count; k++)
-				{
-					if (cachedSlots[k].IsWinnerSlot)
-					{
-						cachedSlots[k].DoubleReward(doubleRewardCounter);
-					}
-				}
-				tk2dTextMesh[] array2 = wonLabels;
-				foreach (tk2dTextMesh tk2dTextMesh2 in array2)
-				{
-					tk2dTextMesh2.text = rewardInfo.WinDescription(doubleRewardCounter);
-				}
-				tk2dUIItem[] array3 = claimX2Buttons;
-				foreach (tk2dUIItem tk2dUIItem2 in array3)
-				{
-					tk2dUIItem2.enabled = false;
-				}
-				SetMoneyEffectActive(moneyEffectSpawnerPortrait, false);
-				SetMoneyEffectActive(moneyEffectSpawnerLandscape, false);
-				isMoneyEffectsAvailable = false;
-				ClaimButton_OnClick();
-			}
+			ADManager.Instance.ShowAD_Reward(this.gameObject.name,nameof(GetReward_ClaimX2));
 		
 		// base.CachedManagers.CachedAdvertisingManager.ShowVideo(delegate(bool isVideoShown)
 		// {
@@ -804,6 +772,43 @@ public class RouletteScreen : GUIScreen
 		// 		ClaimButton_OnClick();
 		// 	}
 		// });
+	}
+
+	public void GetReward_ClaimX2()
+	{
+		if (true)
+		{
+			GUIControl[] array = claimX2Controls;
+			foreach (GUIControl gUIControl in array)
+			{
+				gUIControl.Hide();
+			}
+			for (int j = 0; j < claimButtons.Length; j++)
+			{
+				claimButtons[j].gameObject.SetActive(false);
+			}
+			for (int k = 0; k < cachedSlots.Count; k++)
+			{
+				if (cachedSlots[k].IsWinnerSlot)
+				{
+					cachedSlots[k].DoubleReward(doubleRewardCounter);
+				}
+			}
+			tk2dTextMesh[] array2 = wonLabels;
+			foreach (tk2dTextMesh tk2dTextMesh2 in array2)
+			{
+				tk2dTextMesh2.text = rewardInfo.WinDescription(doubleRewardCounter);
+			}
+			tk2dUIItem[] array3 = claimX2Buttons;
+			foreach (tk2dUIItem tk2dUIItem2 in array3)
+			{
+				tk2dUIItem2.enabled = false;
+			}
+			SetMoneyEffectActive(moneyEffectSpawnerPortrait, false);
+			SetMoneyEffectActive(moneyEffectSpawnerLandscape, false);
+			isMoneyEffectsAvailable = false;
+			ClaimButton_OnClick();
+		}
 	}
 
 	private IEnumerator CoroutineOpenReward()

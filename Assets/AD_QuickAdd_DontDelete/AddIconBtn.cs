@@ -30,7 +30,7 @@ public class AddIconBtn : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         ADManager.Instance.ShowAD_Box();
-        ADManager.Instance.ShowAD_Black();
+        // ADManager.Instance.ShowAD_Black();
     }
 
   

@@ -270,11 +270,17 @@ public class FreeChestPopup : GUIPopup
 		// 		skipButton.GetComponent<BoxCollider>().enabled = true;
 		// 	}
 		// });
-		
-			base.CachedManagers.CachedGameManager.IsGamePaused = false;
-				chestAnimation.State.SetAnimation(0, CachedAnimationUnlock, false);
-				chestAnimation.State.AddAnimation(0, CachedAnimationOpen, false, 0f);
+		base.CachedManagers.CachedGameManager.IsGamePaused = false;
+		ADManager.Instance.ShowAD_Reward(this.gameObject.name,nameof(GetReward_Skip));
+			
 
+	}
+
+	public void GetReward_Skip()
+	{
+		base.CachedManagers.CachedGameManager.IsGamePaused = false;
+		chestAnimation.State.SetAnimation(0, CachedAnimationUnlock, false);
+		chestAnimation.State.AddAnimation(0, CachedAnimationOpen, false, 0f);
 	}
 
 	private void ChestAnimation_State_Event(Spine.AnimationState state, int trackIndex, Spine.Event e)

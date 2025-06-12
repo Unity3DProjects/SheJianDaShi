@@ -418,7 +418,9 @@ public class tk2dSpriteCollectionData : MonoBehaviour
 						int preloadHeight = ((heightTextures.Length != streamingTextures.Length) ? 4 : heightTextures[k]);
 						Texture2D texture2D2 = ((!textureLoadAsync) ? TextureManager.LoadTexture(imagePath, textureMipMaps) : TextureManager.LoadTextureAsync(imagePath, textureMipMaps, preloadWidth, preloadHeight));
 						texture2D2.name = string.Format("{0}PNG_{1}_{2}", internalResourcePrefix, base.name, k);
-						texture2D2.filterMode = textureFilterMode;
+						// texture2D2.filterMode = textureFilterMode;
+						texture2D2.filterMode = FilterMode.Bilinear;
+						
 						textureInsts[k] = texture2D2;
 					}
 				}

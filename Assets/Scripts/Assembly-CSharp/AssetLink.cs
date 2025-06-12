@@ -68,6 +68,10 @@ public class AssetLink : Asset
 		{
 			if (streamingAssetPath == null)
 			{
+				if (FullPath == null)
+				{
+					return string.Empty;
+				}
 				int num = FullPath.IndexOf("StreamingAssets/", StringComparison.Ordinal);
 				if (num > -1)
 				{

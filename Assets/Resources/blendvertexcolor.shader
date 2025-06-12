@@ -49,68 +49,59 @@ Shader "tk2d/BlendVertexColor" {
 //		}
 //	}
 //}
-Properties
-	{
-		_MainTex("Base (RGB) Trans (A)", 2D) = "white" {}
-		_MainTex_ST("MainTex ST", Vector) = (1,1,0,0)
-	}
 
+	Properties 
+	{
+		_MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
+	}
+	
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" }
-		LOD 200
-
-		Pass
+		Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
+		ZWrite Off Lighting Off Cull Off Fog { Mode Off } Blend SrcAlpha OneMinusSrcAlpha
+		LOD 110
+		
+		Pass 
 		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+			CGPROGRAM
+			#pragma vertex vert_vct
+			#pragma fragment frag_mult 
+			#pragma fragmentoption ARB_precision_hint_fastest
+			#include "UnityCG.cginc"
 
-			// 变换矩阵
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+			sampler2D _MainTex;
+			float4 _MainTex_ST;
 
-			// 纹理和采样器
-			Texture2D _MainTex;
-			SamplerState sampler_MainTex;
-			float4 _MainTex_ST; // (Tiling x,y, Offset z,w)
-
-			struct VertexInput
+			struct vin_vct 
 			{
-				float3 pos : POSITION;
-				float2 uv : TEXCOORD0;
+				float4 vertex : POSITION;
 				float4 color : COLOR;
+				float2 texcoord : TEXCOORD0;
 			};
 
-			struct VertexOutput
+			struct v2f_vct
 			{
-				float4 pos : SV_POSITION;
-				float2 uv : TEXCOORD0;
-				float4 color : COLOR;
+				float4 vertex : SV_POSITION;
+				fixed4 color : COLOR;
+				float2 texcoord : TEXCOORD0;
 			};
 
-			VertexOutput vert(VertexInput input)
+			v2f_vct vert_vct(vin_vct v)
 			{
-				VertexOutput output;
-
-				// 计算 MVP（Object -> World -> VP）
-				float4 worldPos = mul(unity_ObjectToWorld, float4(input.pos, 1.0));
-				output.pos = mul(unity_MatrixVP, worldPos);
-
-				// 手动实现 TRANSFORM_TEX
-				output.uv = input.uv * _MainTex_ST.xy + _MainTex_ST.zw;
-
-				output.color = input.color;
-				return output;
+				v2f_vct o;
+				o.vertex = UnityObjectToClipPos(v.vertex);
+				o.color = v.color;
+				o.texcoord = v.texcoord;
+				return o;
 			}
 
-			float4 frag(VertexOutput input) : SV_TARGET
+			fixed4 frag_mult(v2f_vct i) : SV_Target
 			{
-				float4 texColor = _MainTex.Sample(sampler_MainTex, input.uv);
-				return texColor * input.color;
+				fixed4 col = tex2D(_MainTex, i.texcoord) * i.color;
+				return col;
 			}
-
-			ENDHLSL
-		}
+			
+			ENDCG
+		} 
 	}
 }

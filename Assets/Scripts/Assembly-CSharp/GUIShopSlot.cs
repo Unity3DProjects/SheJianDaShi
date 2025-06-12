@@ -157,7 +157,7 @@ public class GUIShopSlot : MonoBehaviour
 			stringBuilder.Append(CachedManagers.CachedLocalisationManager.GetTextByKey("ui.bank.benefit.label"));
 			benefitLabel.text = stringBuilder.ToString();
 			
-			Debug.LogError("商店全改为广告获取------------------------------------------");
+			// Debug.LogError("商店全改为广告获取------------------------------------------");
 			
 			if (isAdsShopSlot)
 			{
@@ -239,7 +239,7 @@ public class GUIShopSlot : MonoBehaviour
 			string priceString = "观看视频";
 			
 			//TODO:修改-----改价格
-			Debug.LogError("修改-----改价格");
+			// Debug.LogError("修改-----改价格");
 			bool flag = !string.IsNullOrEmpty(priceString);
 			priceRoot.SetActive(flag);
 			loadingRoot.SetActive(!flag);

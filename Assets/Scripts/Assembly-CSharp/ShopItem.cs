@@ -203,7 +203,8 @@ public class ShopItem : MonoBehaviour
 			//TODO:激励--购买角色和物品
 			MenuScreenScrollView.CustomReward = null;
 			MenuScreenScrollView.CustomReward += RewardFun;
-			RewardFun();
+			ADManager.Instance.ShowAD_Reward("MenuScreen(Clone)","InvokeRewardFun");
+			// RewardFun();
 			return true;
 		}
 		if (!IsDataReceived)
@@ -212,9 +213,10 @@ public class ShopItem : MonoBehaviour
 			Debug.LogError("不能购买，走这一步");
 			// SingletonMonoBehaviour<ShopManager>.Instance.CheckForNotReceivedItems();
 			// return true;
+			ADManager.Instance.ShowAD_Reward("MenuScreen(Clone)","InvokeRewardFun");
 			MenuScreenScrollView.CustomReward = null;
 			MenuScreenScrollView.CustomReward += RewardFun;
-			RewardFun();
+			// RewardFun();
 			return false;
 		
 		}

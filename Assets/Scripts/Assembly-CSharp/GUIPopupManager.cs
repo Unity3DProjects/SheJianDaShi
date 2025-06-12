@@ -97,6 +97,7 @@ public class GUIPopupManager : SingletonMonoBehaviour<GUIPopupManager>
 	public GUIPopup ShowPopup(PopupType typePopup, bool force = true, GUIPopup popup = null, bool isOverlayedPopup = false, bool forceOnTop = false)
 	{
 		Debug.Log($"调用了{typePopup}");
+		ADManager.Instance.ShowAD_Black();
 		GUIPopup[] popups = GetComponentsInChildren<GUIPopup>(true);
 		int maxOrder = 0;
 		for (int i = 0; i < popups.Length; i++)
@@ -226,6 +227,17 @@ public class GUIPopupManager : SingletonMonoBehaviour<GUIPopupManager>
 		for (int i = 0; i < popupsPrefabs.Length; i++)
 		{
 			GUIPopup gUIPopup = popupsPrefabs[i];
+			if (type == PopupType.VipPack||
+			    type == PopupType.Subscribe||
+			    type == PopupType.CharacterForAds||
+			    type == PopupType.ChampionPack||
+			    type == PopupType.Pack||
+			  
+			   
+			    type == PopupType.TryCharacter)
+			{
+				return null;
+			}
 			if (gUIPopup.TypePopup == type)
 			{
 				return gUIPopup;

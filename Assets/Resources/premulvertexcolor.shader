@@ -1,105 +1,64 @@
-Shader "tk2d/PremulVertexColor" {
-//	Properties {
-//		_MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
-//	}
-//	//DummyShaderTextExporter
-//	SubShader{
-//		Tags { "RenderType"="Opaque" }
-//		LOD 200
-//
-//		Pass
-//		{
-//			HLSLPROGRAM
-//			#pragma vertex vert
-//			#pragma fragment frag
-//
-//			float4x4 unity_MatrixMVP;
-//
-//			struct Vertex_Stage_Input
-//			{
-//				float3 pos : POSITION;
-//			};
-//
-//			struct Vertex_Stage_Output
-//			{
-//				float4 pos : SV_POSITION;
-//			};
-//
-//			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-//			{
-//				Vertex_Stage_Output output;
-//				output.pos = mul(unity_MatrixMVP, float4(input.pos, 1.0));
-//				return output;
-//			}
-//
-//			Texture2D<float4> _MainTex;
-//			SamplerState sampler_MainTex;
-//
-//			struct Fragment_Stage_Input
-//			{
-//				float2 uv : TEXCOORD0;
-//			};
-//
-//			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-//			{
-//				return _MainTex.Sample(sampler_MainTex, float2(input.uv.x, input.uv.y));
-//			}
-//
-//			ENDHLSL
-//		}
-//	}
-//}
-Properties {
-        _MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
-    }
-    
-    SubShader {
-        Tags { 
-            "RenderType"="Opaque"
-            "Queue"="Transparent"
-        }
-        
-        // Premultiplied Alpha 混合设置
-        Blend One OneMinusSrcAlpha
-        ZWrite Off
-        Cull Off
-        
-        Pass {
-            HLSLPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-            #include "UnityCG.cginc"
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-            struct appdata {
-                float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
-                fixed4 color : COLOR;
-            };
+// unlit, vertex colour, premultiplied alpha blend
 
-            struct v2f {
-                float4 pos : SV_POSITION;
-                float2 uv : TEXCOORD0;
-                fixed4 color : COLOR;
-            };
+Shader "tk2d/PremulVertexColor" 
+{
+	Properties 
+	{
+		_MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
+	}
 
-            sampler2D _MainTex;
-            float4 _MainTex_ST;
+	SubShader
+	{
+		Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
+		ZWrite Off
+		Lighting Off
+		Cull Off
+		Fog { Mode Off } Blend SrcAlpha OneMinusSrcAlpha
+		LOD 110
+		
+		Pass 
+		{
+			CGPROGRAM
+			#pragma vertex vert_vct
+			#pragma fragment frag_mult 
+			#pragma fragmentoption ARB_precision_hint_fastest
+			#include "UnityCG.cginc"
 
-            v2f vert (appdata v) {
-                v2f o;
-                o.pos = UnityObjectToClipPos(v.vertex);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                o.color = v.color;
-                return o;
-            }
+			sampler2D _MainTex;
+			float4 _MainTex_ST;
 
-            fixed4 frag (v2f i) : SV_Target {
-                fixed4 texColor = tex2D(_MainTex, i.uv);
-                fixed4 col = texColor * i.color;
-                col.rgb *= col.a; // Premultiply alpha
-                return col;
-            }
-            ENDHLSL
-        }
-    }
+			struct vin_vct 
+			{
+				float4 vertex : POSITION;
+				float4 color : COLOR;
+				float2 texcoord : TEXCOORD0;
+			};
+
+			struct v2f_vct
+			{
+				float4 vertex : SV_POSITION;
+				fixed4 color : COLOR;
+				float2 texcoord : TEXCOORD0;
+			};
+
+			v2f_vct vert_vct(vin_vct v)
+			{
+				v2f_vct o;
+				o.vertex = UnityObjectToClipPos(v.vertex);
+				o.color = v.color;
+				o.texcoord = v.texcoord;
+				return o;
+			}
+
+			fixed4 frag_mult(v2f_vct i) : SV_Target
+			{
+				fixed4 col = tex2D(_MainTex, i.texcoord) * i.color;
+				return col;
+			}
+		
+			ENDCG
+		} 
+	}
 }

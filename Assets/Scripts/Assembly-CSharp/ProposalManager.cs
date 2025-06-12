@@ -1736,6 +1736,31 @@ public class ProposalManager : SingletonMonoBehaviour<ProposalManager>
 		}
 	}
 
+	public void GetReward_Proposal()
+	{
+		if (true)
+		{
+			GameGoliath.Instance.TrackAdvertising(GoliathIds.AdType.VIDEO_AD, GoliathIds.AdPhase.SHOW, GoliathIds.AdReward.CHEST_ROULETTE);
+			CachedManagers.CachedRouletteManager.KeysCount++;
+		}
+		else
+		{
+			GameGoliath.Instance.TrackAdvertising(GoliathIds.AdType.VIDEO_AD, GoliathIds.AdPhase.SHOW);
+		}
+		if (IsEpicChestResultAvalaible)
+		{
+			CurrentProposalResult = ProposalResultType.Chest;
+		}
+		else
+		{
+			CurrentProposalResult = ((!true) ? ProposalResultType.Video : ProposalResultType.None);
+		}
+		if (MyEvent != null)
+		{
+			MyEvent(true);
+		}
+	}
+	public Action<bool> MyEvent;
 	public void GetProposalResult(Action<bool> callback)
 	{
 		ProposalResultType currentProposalResult = CurrentProposalResult;
@@ -1768,11 +1793,13 @@ public class ProposalManager : SingletonMonoBehaviour<ProposalManager>
 					callback(result);
 				}
 			};
+			MyEvent = null;
+			MyEvent = callback;
 			if (!CachedManagers.CachedSubscriptionManager.IsSubscriptionActive)
 			{
 				//TODO:激励--双人对战结束--钥匙开宝箱
-				videoCallback(true);
-				
+				// videoCallback(true);
+				ADManager.Instance.ShowAD_Reward(this.gameObject.name,nameof(GetReward_Proposal));
 				// CachedManagers.CachedAdvertisingManager.ShowVideo(delegate(bool isVideoAvailable)
 				// {
 				// 	videoCallback(isVideoAvailable);
@@ -1781,6 +1808,7 @@ public class ProposalManager : SingletonMonoBehaviour<ProposalManager>
 				// 		Analytics.CustomEvent("Video_Chest_Finished");
 				// 	}
 				// });
+				
 			}
 			else
 			{
