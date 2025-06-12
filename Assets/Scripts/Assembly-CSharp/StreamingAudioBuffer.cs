@@ -101,6 +101,9 @@ public class StreamingAudioBuffer : MonoBehaviour
 
 	private IEnumerator LoadClipCoroutine(string clipName, string clipPath, Action<AudioClip> onFinish)
 	{
+		
+		Debug.LogError($"从StreamingAssets加载：{clipName}————路径{clipPath}");
+		
 		int startIndex = clipPath.IndexOf("StreamingAssets", StringComparison.Ordinal);
 		if (startIndex > -1)
 		{

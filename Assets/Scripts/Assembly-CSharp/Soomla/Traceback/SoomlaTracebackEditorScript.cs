@@ -21,7 +21,7 @@ namespace Soomla.Traceback
 
 		public static GUIContent EmptyContent = new GUIContent(string.Empty);
 
-		public static JSONObject versionJson;
+		// public static JSONObject versionJson;
 
 		public static WWW www;
 

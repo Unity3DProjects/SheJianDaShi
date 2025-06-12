@@ -66,96 +66,96 @@ namespace Soomla.Traceback
 
 		private static void Initialize(string appKey, string userId, bool userIdSet, bool testMode, bool validateVersions, bool collectAdvertisingId, bool sendAttributionData)
 		{
-			UnitySingleton.GetSynchronousCodeGeneratedInstance<SoomlaTraceback>();
-			AndroidJNI.PushLocalFrame(100);
-			using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.soomla.traceback.LogUtils"))
-			{
-				androidJavaClass.SetStatic("logDebug", false);
-			}
-			AndroidJNI.PopLocalFrame(IntPtr.Zero);
-			TracebackUtils.LogDebug("SOOMLA Traceback", "SOOMLA/UNITY Initializing Traceback");
-			AndroidJNI.PushLocalFrame(100);
-			using (AndroidJavaClass androidJavaClass2 = new AndroidJavaClass("com.soomla.traceback.unity.SoomlaTraceback"))
-			{
-				AndroidJavaClass androidJavaClass3 = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-				AndroidJavaObject androidJavaObject = androidJavaClass3.GetStatic<AndroidJavaObject>("currentActivity");
-				androidJavaClass2.CallStatic("initialize", androidJavaObject, appKey, userId, userIdSet, testMode, validateVersions, collectAdvertisingId, sendAttributionData);
-			}
-			AndroidJNI.PopLocalFrame(IntPtr.Zero);
+			// UnitySingleton.GetSynchronousCodeGeneratedInstance<SoomlaTraceback>();
+			// AndroidJNI.PushLocalFrame(100);
+			// using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.soomla.traceback.LogUtils"))
+			// {
+			// 	androidJavaClass.SetStatic("logDebug", false);
+			// }
+			// AndroidJNI.PopLocalFrame(IntPtr.Zero);
+			// TracebackUtils.LogDebug("SOOMLA Traceback", "SOOMLA/UNITY Initializing Traceback");
+			// AndroidJNI.PushLocalFrame(100);
+			// using (AndroidJavaClass androidJavaClass2 = new AndroidJavaClass("com.soomla.traceback.unity.SoomlaTraceback"))
+			// {
+			// 	AndroidJavaClass androidJavaClass3 = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+			// 	AndroidJavaObject androidJavaObject = androidJavaClass3.GetStatic<AndroidJavaObject>("currentActivity");
+			// 	androidJavaClass2.CallStatic("initialize", androidJavaObject, appKey, userId, userIdSet, testMode, validateVersions, collectAdvertisingId, sendAttributionData);
+			// }
+			// AndroidJNI.PopLocalFrame(IntPtr.Zero);
 		}
 
 		public static void ChangeUserId(string userId)
 		{
-			AndroidJNI.PushLocalFrame(100);
-			using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.soomla.traceback.unity.SoomlaTraceback"))
-			{
-				androidJavaClass.CallStatic("changeUserId", userId);
-			}
-			AndroidJNI.PopLocalFrame(IntPtr.Zero);
+			// AndroidJNI.PushLocalFrame(100);
+			// using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.soomla.traceback.unity.SoomlaTraceback"))
+			// {
+			// 	androidJavaClass.CallStatic("changeUserId", userId);
+			// }
+			// AndroidJNI.PopLocalFrame(IntPtr.Zero);
 		}
 
 		public static void AddExtraUserId(string userId)
 		{
-			AndroidJNI.PushLocalFrame(100);
-			using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.soomla.traceback.unity.SoomlaTraceback"))
-			{
-				androidJavaClass.CallStatic("addExtraUserId", userId);
-			}
-			AndroidJNI.PopLocalFrame(IntPtr.Zero);
+			// AndroidJNI.PushLocalFrame(100);
+			// using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.soomla.traceback.unity.SoomlaTraceback"))
+			// {
+			// 	androidJavaClass.CallStatic("addExtraUserId", userId);
+			// }
+			// AndroidJNI.PopLocalFrame(IntPtr.Zero);
 		}
 
 		public static void SetUserConsent(bool userConsent)
 		{
-			AndroidJNI.PushLocalFrame(100);
-			using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.soomla.traceback.unity.SoomlaTraceback"))
-			{
-				androidJavaClass.CallStatic("setUserConsent", userConsent);
-			}
-			AndroidJNI.PopLocalFrame(IntPtr.Zero);
+			// AndroidJNI.PushLocalFrame(100);
+			// using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.soomla.traceback.unity.SoomlaTraceback"))
+			// {
+			// 	androidJavaClass.CallStatic("setUserConsent", userConsent);
+			// }
+			// AndroidJNI.PopLocalFrame(IntPtr.Zero);
 		}
 
 		public static void AddTags(List<string> tags)
 		{
-			AndroidJNI.PushLocalFrame(100);
-			using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.soomla.traceback.unity.SoomlaTraceback"))
-			{
-				androidJavaClass.CallStatic("addTags", jsonStringFromList(tags));
-			}
-			AndroidJNI.PopLocalFrame(IntPtr.Zero);
+			// AndroidJNI.PushLocalFrame(100);
+			// using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.soomla.traceback.unity.SoomlaTraceback"))
+			// {
+			// 	androidJavaClass.CallStatic("addTags", jsonStringFromList(tags));
+			// }
+			// AndroidJNI.PopLocalFrame(IntPtr.Zero);
 		}
 
 		public static void RemoveTags(List<string> tags)
 		{
-			AndroidJNI.PushLocalFrame(100);
-			using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.soomla.traceback.unity.SoomlaTraceback"))
-			{
-				androidJavaClass.CallStatic("removeTags", jsonStringFromList(tags));
-			}
-			AndroidJNI.PopLocalFrame(IntPtr.Zero);
+			// AndroidJNI.PushLocalFrame(100);
+			// using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.soomla.traceback.unity.SoomlaTraceback"))
+			// {
+			// 	androidJavaClass.CallStatic("removeTags", jsonStringFromList(tags));
+			// }
+			// AndroidJNI.PopLocalFrame(IntPtr.Zero);
 		}
 
 		public static void OnInAppPurchaseCompleted(string itemId, double amount, string currency)
 		{
-			AndroidJNI.PushLocalFrame(100);
-			using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.soomla.traceback.unity.SoomlaTraceback"))
-			{
-				androidJavaClass.CallStatic("onInAppPurchaseCompleted", itemId, amount, currency);
-			}
-			AndroidJNI.PopLocalFrame(IntPtr.Zero);
+			// AndroidJNI.PushLocalFrame(100);
+			// using (AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.soomla.traceback.unity.SoomlaTraceback"))
+			// {
+			// 	androidJavaClass.CallStatic("onInAppPurchaseCompleted", itemId, amount, currency);
+			// }
+			// AndroidJNI.PopLocalFrame(IntPtr.Zero);
 		}
 
 		private static string jsonStringFromList(List<string> list)
 		{
-			if (list == null || list.Count == 0)
-			{
+			// if (list == null || list.Count == 0)
+			// {
 				return string.Empty;
-			}
-			JSONObject jSONObject = new JSONObject();
-			foreach (string item in list)
-			{
-				jSONObject.Add(item);
-			}
-			return jSONObject.ToString();
+			// }
+			// // JSONObject jSONObject = new JSONObject();
+			// foreach (string item in list)
+			// {
+			// 	jSONObject.Add(item);
+			// }
+			// return jSONObject.ToString();
 		}
 	}
 }

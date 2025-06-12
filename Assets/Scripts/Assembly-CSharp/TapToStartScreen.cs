@@ -81,19 +81,20 @@ public class TapToStartScreen : MonoBehaviour
 		{
 			loaderButton[i].OnClick += LoaderButton_OnClick;
 		}
-		if (loadedTexture == null)
-		{
-			LLSplashManager.SplashData splashData = LLSplashManager.GetSplashData(true);
-			int num = (int)((float)ScreenDimentions.Width / GUIScreenManager.GuiScale);
-			int num2 = (int)((float)ScreenDimentions.Height / GUIScreenManager.GuiScale);
-			string loaderPathForWidth = GetLoaderPathForWidth(num, num2, splashData.needRotate);
-			TextureLoaded(TextureHelper.Instance.LoadImageToTexture(loaderPathForWidth, false, TextureFormat.RGB24), num2 > num);
-			SingletonMonoBehaviour<Scheduler>.Instance.CallMethodWithDelay(this, delegate
-			{
-				AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.BOWMASTERS_ACTIVITY);
-				androidJavaClass.CallStatic(AndroidPluginNames.BOWMASTERS_ACTIVITY_REMOVE_SPLASH_SCREEN);
-			}, animationAppearDelay);
-		}
+		// if (loadedTexture == null)
+		// {
+		// 	LLSplashManager.SplashData splashData = LLSplashManager.GetSplashData(true);
+		// 	int num = (int)((float)ScreenDimentions.Width / GUIScreenManager.GuiScale);
+		// 	int num2 = (int)((float)ScreenDimentions.Height / GUIScreenManager.GuiScale);
+		// 	string loaderPathForWidth = GetLoaderPathForWidth(num, num2, splashData.needRotate);
+		// 	TextureLoaded(TextureHelper.Instance.LoadImageToTexture(loaderPathForWidth, false, TextureFormat.RGB24), num2 > num);
+		// 	SingletonMonoBehaviour<Scheduler>.Instance.CallMethodWithDelay(this, delegate
+		// 	{
+		// 		// AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.BOWMASTERS_ACTIVITY);
+		// 		// androidJavaClass.CallStatic(AndroidPluginNames.BOWMASTERS_ACTIVITY_REMOVE_SPLASH_SCREEN);
+		// 	}, animationAppearDelay);
+		// }
+		LoaderButton_OnClick();
 	}
 
 	private void OnDisable()
@@ -126,8 +127,8 @@ public class TapToStartScreen : MonoBehaviour
 	{
 		string empty = string.Empty;
 		isRotateNeeded = height > width;
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.BOWMASTERS_ACTIVITY);
-		empty = androidJavaClass.CallStatic<string>(AndroidPluginNames.BOWMASTERS_ACTIVITY_GET_LOADER_NAME, new object[2] { width, height });
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.BOWMASTERS_ACTIVITY);
+		// empty = androidJavaClass.CallStatic<string>(AndroidPluginNames.BOWMASTERS_ACTIVITY_GET_LOADER_NAME, new object[2] { width, height });
 		string str = "Loader";
 		return str.AppendPathComponent(empty).AppendPathExtention("png");
 	}
@@ -153,16 +154,16 @@ public class TapToStartScreen : MonoBehaviour
 	{
 		TapToStartScreen.m_OnLoaderRemoved?.Invoke();
 		UnityEngine.Object.Destroy(base.gameObject);
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.BOWMASTERS_ACTIVITY);
-		androidJavaClass.CallStatic(AndroidPluginNames.BOWMASTERS_ACTIVITY_REMOVE_SPLASH_SCREEN);
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.BOWMASTERS_ACTIVITY);
+		// androidJavaClass.CallStatic(AndroidPluginNames.BOWMASTERS_ACTIVITY_REMOVE_SPLASH_SCREEN);
 	}
 
 	private void GUIOrientationManger_OnDeviceOrientationChanged(GUILayouterRotationType newRotation)
 	{
 		int num = (int)((float)ScreenDimentions.Width / GUIScreenManager.GuiScale);
 		int num2 = (int)((float)ScreenDimentions.Height / GUIScreenManager.GuiScale);
-		string loaderPathForWidth = GetLoaderPathForWidth(num, num2, true);
-		TextureLoaded(TextureHelper.Instance.LoadImageToTexture(loaderPathForWidth, false, TextureFormat.RGB24), num2 > num);
+		// string loaderPathForWidth = GetLoaderPathForWidth(num, num2, true);
+		// TextureLoaded(TextureHelper.Instance.LoadImageToTexture(loaderPathForWidth, false, TextureFormat.RGB24), num2 > num);
 	}
 
 	private void ShowTapToStart()
@@ -206,7 +207,7 @@ public class TapToStartScreen : MonoBehaviour
 
 	public void BackButtonPressed()
 	{
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.BOWMASTERS_ACTIVITY);
-		androidJavaClass.CallStatic(AndroidPluginNames.BOWMASTERS_ACTIVITY_SHOW_EXIT_POPUP);
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.BOWMASTERS_ACTIVITY);
+		// androidJavaClass.CallStatic(AndroidPluginNames.BOWMASTERS_ACTIVITY_SHOW_EXIT_POPUP);
 	}
 }

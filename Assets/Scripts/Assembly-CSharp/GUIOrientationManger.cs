@@ -53,14 +53,14 @@ public class GUIOrientationManger : SingletonMonoBehaviour<GUIOrientationManger>
 	protected override void Awake()
 	{
 		base.Awake();
-		if (Screen.height > Screen.width)
-		{
-			RotateToPortrait();
-		}
-		else
-		{
+		// if (Screen.height > Screen.width)
+		// {
+		// 	RotateToPortrait();
+		// }
+		// else
+		// {
 			RotateToLandscape();
-		}
+		// }
 	}
 
 	private void Update()
@@ -87,16 +87,16 @@ public class GUIOrientationManger : SingletonMonoBehaviour<GUIOrientationManger>
 
 	private void UpdateGame()
 	{
-		if (Screen.width > Screen.height && currentRotationType != GUILayouterRotationType.Landscape)
-		{
+		// if (Screen.width > Screen.height && currentRotationType != GUILayouterRotationType.Landscape)
+		// {
 			RotateToLandscape();
 			currentRotationType = GUILayouterRotationType.Landscape;
-		}
-		else if (Screen.height > Screen.width && currentRotationType != GUILayouterRotationType.Portrait)
-		{
-			RotateToPortrait();
-			currentRotationType = GUILayouterRotationType.Portrait;
-		}
+		// }
+		// else if (Screen.height > Screen.width && currentRotationType != GUILayouterRotationType.Portrait)
+		// {
+		// 	RotateToPortrait();
+		// 	currentRotationType = GUILayouterRotationType.Portrait;
+		// }
 	}
 
 	public void RotateToLandscape()

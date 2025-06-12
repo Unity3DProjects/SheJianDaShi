@@ -197,13 +197,13 @@ public static class TextureManager
 
 	private static Texture2D LoadTextureEditor(string imagePath, bool doMipMaps)
 	{
-		Texture2D texture2D = new Texture2D(4, 4, TextureFormat.RGBA32, doMipMaps);
-		byte[] array = null;
+		// Texture2D texture2D = new Texture2D(4, 4, TextureFormat.RGBA32, doMipMaps);
+		// byte[] array = null;
 		
-		texture2D = LoadResource<Texture2D>(imagePath);
+		Texture2D	texture2D = LoadResource<Texture2D>(imagePath);
 		if (texture2D == null)
 		{
-			Debug.LogError($"加载失败：{imagePath}");
+			// Debug.LogError($"加载失败：{imagePath}");
 		}
 		// if (File.Exists(imagePath))
 		// {
@@ -265,12 +265,13 @@ public static class TextureManager
 	{
 		string resourcePath = ConvertToResourcePath(fullPath);
 		Debug.Log($"Loading resource at: {resourcePath}");
-		Debug.LogError($"加载成功：{resourcePath}");
+		// Debug.LogError($"加载成功：{resourcePath}");
 		return Resources.Load<T>(resourcePath);
 	}
 
 	private static Texture2D SetupTexture(Texture2D text, bool doMipMaps)
 	{
+		doMipMaps = false;
 		Texture2D texture2D = text;
 		if (texture2D == null)
 		{
@@ -278,7 +279,7 @@ public static class TextureManager
 		}
 		if (texture2D != null)
 		{
-			texture2D.hideFlags = HideFlags.DontSave;
+			// texture2D.hideFlags = HideFlags.DontSave;
 			texture2D.wrapMode = TextureWrapMode.Clamp;
 		}
 		return texture2D;

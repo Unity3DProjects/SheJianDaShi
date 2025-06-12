@@ -8,7 +8,8 @@ public sealed class CustomDebug
 	{
 		get
 		{
-			return Debug.isDebugBuild;
+			// return Debug.isDebugBuild;
+			return true;
 		}
 	}
 

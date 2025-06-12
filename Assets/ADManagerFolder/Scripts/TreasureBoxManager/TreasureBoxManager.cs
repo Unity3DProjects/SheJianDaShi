@@ -27,8 +27,8 @@ public class TreasureBoxManager : MonoBehaviour
         float minTriggerValue = halfMaxValue - (BoxSlider.maxValue * 0.2f); // 最大值的50% - 20%
         float maxTriggerValue = halfMaxValue + (BoxSlider.maxValue * 0.2f); // 最大值的50% + 30%
         TriggerValue = Random.Range(minTriggerValue, maxTriggerValue);
-        Debug.Log(TriggerValue);
-        Debug.Log(randomIncrement);
+        // Debug.Log(TriggerValue);
+        // Debug.Log(randomIncrement);
     }
 
     private void Update()

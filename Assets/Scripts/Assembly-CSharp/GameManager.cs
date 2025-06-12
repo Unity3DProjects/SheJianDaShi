@@ -308,7 +308,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 	private void Start()
 	{
 		isGamePaused = true;
-		Application.targetFrameRate = ((DeviceInfo.CurrentClass != DeviceInfo.PerformanceClass.High) ? 30 : 60);
+		// Application.targetFrameRate = ((DeviceInfo.CurrentClass != DeviceInfo.PerformanceClass.High) ? 30 : 60);
 		IsVisibleOnGUI = true;
 		Screen.autorotateToLandscapeLeft = true;
 		Screen.autorotateToLandscapeRight = true;

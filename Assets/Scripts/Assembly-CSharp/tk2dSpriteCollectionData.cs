@@ -367,11 +367,11 @@ public class tk2dSpriteCollectionData : MonoBehaviour
 				// 	Debug.LogError($"尼玛pp:{VARIABLE.name}");
 				// 	
 				// }
-				if (gameObject.name == "GUIAtlas_A8@2x")
-				{
-			    	Debug.LogError(pngTextures.Length);
+				// if (gameObject.name == "GUIAtlas_A8@2x")
+				// {
+			    	// Debug.LogError(pngTextures.Length);
 					
-				}
+				// }
 				if (pngTextures.Length >0)
 				{
 					
@@ -381,22 +381,22 @@ public class tk2dSpriteCollectionData : MonoBehaviour
 					{
 						if (pngTextures[j] == null)
 						{
-							Debug.LogError($"TextAsset引用为空：{gameObject.name}");
+							// Debug.LogError($"TextAsset引用为空：{gameObject.name}");
 							continue;
 							
 						}
 						 
-						Debug.LogError($"PngTexture:Load_{pngTextures[j].name}");
+						// Debug.LogError($"PngTexture:Load_{pngTextures[j].name}");
 						Texture2D texture2D = new Texture2D(4, 4, TextureFormat.ARGB32, textureMipMaps);
 						texture2D.name = string.Format("{0}PNG_{1}_{2}", internalResourcePrefix, base.name, j);
 						texture2D.LoadImage(pngTextures[j].bytes);
 						if (texture2D.LoadImage(pngTextures[j].bytes))
 						{
-							Debug.LogError($"$成功读取：{pngTextures[j].name}");
+							// Debug.LogError($"$成功读取：{pngTextures[j].name}");
 						}
 						else
 						{
-							Debug.LogError($"$读取失败了：{pngTextures[j].name}");
+							// Debug.LogError($"$读取失败了：{pngTextures[j].name}");
 						}
 					
 						texture2D.filterMode = textureFilterMode;
@@ -497,8 +497,10 @@ public class tk2dSpriteCollectionData : MonoBehaviour
 				Texture2D texture2D = textureInsts[i];
 				if (texture2D != null)
 				{
-					TextureManager.UnloadTexture(texture2D);
-					UnityEngine.Object.Destroy(texture2D);
+					//TODO:销毁--------关闭销毁
+					Debug.LogWarning("卸载资源已注释");
+					// TextureManager.UnloadTexture(texture2D);
+					// UnityEngine.Object.Destroy(texture2D);
 				}
 				textureInsts[i] = null;
 			}

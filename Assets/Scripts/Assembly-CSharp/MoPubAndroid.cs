@@ -13,82 +13,82 @@ public class MoPubAndroid : MoPubBase
 
 	public static class PartnerApi
 	{
-		public static Uri CurrentConsentPrivacyPolicyUrl
-		{
-			get
-			{
-				return MoPubBase.UrlFromString(PluginClass.CallStatic<string>("getCurrentPrivacyPolicyLink", new object[1] { MoPubBase.ConsentLanguageCode }));
-			}
-		}
+		// public static Uri CurrentConsentPrivacyPolicyUrl
+		// {
+		// 	get
+		// 	{
+		// 		return MoPubBase.UrlFromString(PluginClass.CallStatic<string>("getCurrentPrivacyPolicyLink", new object[1] { MoPubBase.ConsentLanguageCode }));
+		// 	}
+		// }
 
-		public static Uri CurrentVendorListUrl
-		{
-			get
-			{
-				return MoPubBase.UrlFromString(PluginClass.CallStatic<string>("getCurrentVendorListLink", new object[1] { MoPubBase.ConsentLanguageCode }));
-			}
-		}
+		// public static Uri CurrentVendorListUrl
+		// {
+		// 	get
+		// 	{
+		// 		return MoPubBase.UrlFromString(PluginClass.CallStatic<string>("getCurrentVendorListLink", new object[1] { MoPubBase.ConsentLanguageCode }));
+		// 	}
+		// }
 
-		public static string CurrentConsentIabVendorListFormat
-		{
-			get
-			{
-				return PluginClass.CallStatic<string>("getCurrentVendorListIabFormat", new object[0]);
-			}
-		}
+		// public static string CurrentConsentIabVendorListFormat
+		// {
+		// 	get
+		// 	{
+		// 		return PluginClass.CallStatic<string>("getCurrentVendorListIabFormat", new object[0]);
+		// 	}
+		// }
 
-		public static string CurrentConsentPrivacyPolicyVersion
-		{
-			get
-			{
-				return PluginClass.CallStatic<string>("getCurrentPrivacyPolicyVersion", new object[0]);
-			}
-		}
+		// public static string CurrentConsentPrivacyPolicyVersion
+		// // {
+		// 	get
+		// 	{
+		// 		return PluginClass.CallStatic<string>("getCurrentPrivacyPolicyVersion", new object[0]);
+		// 	}
+		// }
 
-		public static string CurrentConsentVendorListVersion
-		{
-			get
-			{
-				return PluginClass.CallStatic<string>("getCurrentVendorListVersion", new object[0]);
-			}
-		}
+		// public static string CurrentConsentVendorListVersion
+		// {
+		// 	get
+		// 	{
+		// 		return PluginClass.CallStatic<string>("getCurrentVendorListVersion", new object[0]);
+		// 	}
+		// }
 
-		public static string PreviouslyConsentedIabVendorListFormat
-		{
-			get
-			{
-				return PluginClass.CallStatic<string>("getConsentedVendorListIabFormat", new object[0]);
-			}
-		}
+		// public static string PreviouslyConsentedIabVendorListFormat
+		// {
+		// 	get
+		// 	{
+		// 		return PluginClass.CallStatic<string>("getConsentedVendorListIabFormat", new object[0]);
+		// 	}
+		// }
 
-		public static string PreviouslyConsentedPrivacyPolicyVersion
-		{
-			get
-			{
-				return PluginClass.CallStatic<string>("getConsentedPrivacyPolicyVersion", new object[0]);
-			}
-		}
+		// public static string PreviouslyConsentedPrivacyPolicyVersion
+		// {
+		// 	get
+		// 	{
+		// 		return PluginClass.CallStatic<string>("getConsentedPrivacyPolicyVersion", new object[0]);
+		// 	}
+		// }
 
-		public static string PreviouslyConsentedVendorListVersion
-		{
-			get
-			{
-				return PluginClass.CallStatic<string>("getConsentedVendorListVersion", new object[0]);
-			}
-		}
+		// public static string PreviouslyConsentedVendorListVersion
+		// {
+		// 	get
+		// 	{
+		// 		return PluginClass.CallStatic<string>("getConsentedVendorListVersion", new object[0]);
+		// 	}
+		// }
 
 		public static void GrantConsent()
 		{
-			PluginClass.CallStatic("grantConsent");
+			// PluginClass.CallStatic("grantConsent");
 		}
 
 		public static void RevokeConsent()
 		{
-			PluginClass.CallStatic("revokeConsent");
+			// PluginClass.CallStatic("revokeConsent");
 		}
 	}
 
-	private static readonly AndroidJavaClass PluginClass;
+	// private static readonly AndroidJavaClass PluginClass;
 
 	private static readonly Dictionary<string, MoPubAndroidBanner> BannerPluginsDict;
 
@@ -96,92 +96,92 @@ public class MoPubAndroid : MoPubBase
 
 	private static readonly Dictionary<string, MoPubAndroidRewardedVideo> RewardedVideoPluginsDict;
 
-	public static bool IsSdkInitialized
-	{
-		get
-		{
-			return PluginClass.CallStatic<bool>("isSdkInitialized", new object[0]);
-		}
-	}
+	// public static bool IsSdkInitialized
+	// {
+	// 	get
+	// 	{
+	// 		return PluginClass.CallStatic<bool>("isSdkInitialized", new object[0]);
+	// 	}
+	// }
 
-	public static bool AllowLegitimateInterest
-	{
-		get
-		{
-			return PluginClass.CallStatic<bool>("shouldAllowLegitimateInterest", new object[0]);
-		}
-		set
-		{
-			PluginClass.CallStatic("setAllowLegitimateInterest", value);
-		}
-	}
+	// public static bool AllowLegitimateInterest
+	// {
+	// 	get
+	// 	{
+	// 		return PluginClass.CallStatic<bool>("shouldAllowLegitimateInterest", new object[0]);
+	// 	}
+	// 	set
+	// 	{
+	// 		PluginClass.CallStatic("setAllowLegitimateInterest", value);
+	// 	}
+	// }
 
-	public static LogLevel SdkLogLevel
-	{
-		get
-		{
-			return (LogLevel)PluginClass.CallStatic<int>("getLogLevel", new object[0]);
-		}
-		set
-		{
-			PluginClass.CallStatic<int>("setLogLevel", new object[1] { (int)value });
-			MoPubBase.logLevel = value;
-		}
-	}
+	// public static LogLevel SdkLogLevel
+	// {
+	// 	get
+	// 	{
+	// 		return (LogLevel)PluginClass.CallStatic<int>("getLogLevel", new object[0]);
+	// 	}
+	// 	set
+	// 	{
+	// 		PluginClass.CallStatic<int>("setLogLevel", new object[1] { (int)value });
+	// 		MoPubBase.logLevel = value;
+	// 	}
+	// }
 
-	public static bool CanCollectPersonalInfo
-	{
-		get
-		{
-			return PluginClass.CallStatic<bool>("canCollectPersonalInfo", new object[0]);
-		}
-	}
+	// public static bool CanCollectPersonalInfo
+	// {
+	// 	get
+	// 	{
+	// 		return PluginClass.CallStatic<bool>("canCollectPersonalInfo", new object[0]);
+	// 	}
+	// }
 
-	public static Consent.Status CurrentConsentStatus
-	{
-		get
-		{
-			return Consent.FromString(PluginClass.CallStatic<string>("getPersonalInfoConsentState", new object[0]));
-		}
-	}
+	// public static Consent.Status CurrentConsentStatus
+	// {
+	// 	get
+	// 	{
+	// 		return Consent.FromString(PluginClass.CallStatic<string>("getPersonalInfoConsentState", new object[0]));
+	// 	}
+	// }
 
-	public static bool ShouldShowConsentDialog
-	{
-		get
-		{
-			return PluginClass.CallStatic<bool>("shouldShowConsentDialog", new object[0]);
-		}
-	}
+	// public static bool ShouldShowConsentDialog
+	// {
+	// 	get
+	// 	{
+	// 		return PluginClass.CallStatic<bool>("shouldShowConsentDialog", new object[0]);
+	// 	}
+	// }
 
-	public static bool IsConsentDialogReady
-	{
-		get
-		{
-			return PluginClass.CallStatic<bool>("isConsentDialogReady", new object[0]);
-		}
-	}
+	// public static bool IsConsentDialogReady
+	// {
+	// 	get
+	// 	{
+	// 		return PluginClass.CallStatic<bool>("isConsentDialogReady", new object[0]);
+	// 	}
+	// }
+	//
+	// [Obsolete("Use the property name IsConsentDialogReady instead.")]
+	// public static bool IsConsentDialogLoaded
+	// {
+	// 	get
+	// 	{
+	// 		return IsConsentDialogReady;
+	// 	}
+	// }
 
-	[Obsolete("Use the property name IsConsentDialogReady instead.")]
-	public static bool IsConsentDialogLoaded
-	{
-		get
-		{
-			return IsConsentDialogReady;
-		}
-	}
-
-	public static bool? IsGdprApplicable
-	{
-		get
-		{
-			int num = PluginClass.CallStatic<int>("gdprApplies", new object[0]);
-			return (num == 0) ? ((bool?)null) : ((num <= 0) ? new bool?(false) : new bool?(true));
-		}
-	}
+	// public static bool? IsGdprApplicable
+	// {
+	// 	get
+	// 	{
+	// 		// int num = PluginClass.CallStatic<int>("gdprApplies", new object[0]);
+	// 		return (num == 0) ? ((bool?)null) : ((num <= 0) ? new bool?(false) : new bool?(true));
+	// 	}
+	// }
 
 	static MoPubAndroid()
 	{
-		PluginClass = new AndroidJavaClass("com.mopub.unity.MoPubUnityPlugin");
+		// PluginClass = new AndroidJavaClass("com.mopub.unity.MoPubUnityPlugin");
 		BannerPluginsDict = new Dictionary<string, MoPubAndroidBanner>();
 		InterstitialPluginsDict = new Dictionary<string, MoPubAndroidInterstitial>();
 		RewardedVideoPluginsDict = new Dictionary<string, MoPubAndroidRewardedVideo>();
@@ -202,7 +202,7 @@ public class MoPubAndroid : MoPubBase
 		MoPubBase.logLevel = sdkConfiguration.LogLevel;
 		MoPubLog.Log("InitializeSdk", "SDK initialization started");
 		MoPubBase.ValidateAdUnitForSdkInit(sdkConfiguration.AdUnitId);
-		PluginClass.CallStatic("initializeSdk", sdkConfiguration.AdUnitId, sdkConfiguration.AdditionalNetworksString, sdkConfiguration.MediationSettingsJson, sdkConfiguration.AllowLegitimateInterest, (int)sdkConfiguration.LogLevel, sdkConfiguration.NetworkConfigurationsJson, sdkConfiguration.MoPubRequestOptionsJson);
+		// PluginClass.CallStatic("initializeSdk", sdkConfiguration.AdUnitId, sdkConfiguration.AdditionalNetworksString, sdkConfiguration.MediationSettingsJson, sdkConfiguration.AllowLegitimateInterest, (int)sdkConfiguration.LogLevel, sdkConfiguration.NetworkConfigurationsJson, sdkConfiguration.MoPubRequestOptionsJson);
 	}
 
 	public static void LoadBannerPluginsForAdUnits(string[] bannerAdUnitIds)
@@ -234,22 +234,22 @@ public class MoPubAndroid : MoPubBase
 
 	public static void EnableLocationSupport(bool shouldUseLocation)
 	{
-		PluginClass.CallStatic("setLocationAwareness", LocationAwareness.NORMAL.ToString());
+		// PluginClass.CallStatic("setLocationAwareness", LocationAwareness.NORMAL.ToString());
 	}
 
 	public static void ReportApplicationOpen(string iTunesAppId = null)
 	{
-		PluginClass.CallStatic("reportApplicationOpen");
+		// PluginClass.CallStatic("reportApplicationOpen");
 	}
 
-	protected static string GetSdkName()
-	{
-		return "Android SDK v" + PluginClass.CallStatic<string>("getSDKVersion", new object[0]);
-	}
+	// protected static string GetSdkName()
+	// {
+	// 	return "Android SDK v" + PluginClass.CallStatic<string>("getSDKVersion", new object[0]);
+	// }
 
 	public static void AddFacebookTestDeviceId(string hashedDeviceId)
 	{
-		PluginClass.CallStatic("addFacebookTestDeviceId", hashedDeviceId);
+		// PluginClass.CallStatic("addFacebookTestDeviceId", hashedDeviceId);
 	}
 
 	public static void CreateBanner(string adUnitId, AdPosition position)
@@ -425,16 +425,16 @@ public class MoPubAndroid : MoPubBase
 		return false;
 	}
 
-	public static List<Reward> GetAvailableRewards(string adUnitId)
-	{
-		MoPubAndroidRewardedVideo value;
-		if (RewardedVideoPluginsDict.TryGetValue(adUnitId, out value))
-		{
-			return value.GetAvailableRewards();
-		}
-		MoPubBase.ReportAdUnitNotFound(adUnitId);
-		return null;
-	}
+	// public static List<Reward> GetAvailableRewards(string adUnitId)
+	// {
+	// 	MoPubAndroidRewardedVideo value;
+	// 	if (RewardedVideoPluginsDict.TryGetValue(adUnitId, out value))
+	// 	{
+	// 		return value.GetAvailableRewards();
+	// 	}
+	// 	MoPubBase.ReportAdUnitNotFound(adUnitId);
+	// 	return null;
+	// }
 
 	public static void SelectReward(string adUnitId, Reward selectedReward)
 	{
@@ -452,17 +452,17 @@ public class MoPubAndroid : MoPubBase
 	public static void LoadConsentDialog()
 	{
 		MoPubLog.Log("LoadConsentDialog", "Attempting to load consent dialog");
-		PluginClass.CallStatic("loadConsentDialog");
+		// PluginClass.CallStatic("loadConsentDialog");
 	}
 
 	public static void ShowConsentDialog()
 	{
 		MoPubLog.Log("ShowConsentDialog", "Consent dialog attempting to show");
-		PluginClass.CallStatic("showConsentDialog");
+		// PluginClass.CallStatic("showConsentDialog");
 	}
 
 	public static void ForceGdprApplicable()
 	{
-		PluginClass.CallStatic("forceGdprApplies");
+		// PluginClass.CallStatic("forceGdprApplies");
 	}
 }

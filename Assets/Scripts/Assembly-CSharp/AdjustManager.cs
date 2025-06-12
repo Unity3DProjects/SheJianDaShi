@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Prime31;
-using com.adjust.sdk;
+// using com.adjust.sdk;
 
 public class AdjustManager : SingletonMonoBehaviour<AdjustManager>
 {
@@ -54,11 +54,11 @@ public class AdjustManager : SingletonMonoBehaviour<AdjustManager>
 
 	protected override void Awake()
 	{
-		Adjust adjust = base.gameObject.AddComponent<Adjust>();
-		AdjustEnvironment environment = AdjustEnvironment.Production;
-		AdjustConfig adjustConfig = new AdjustConfig("cx197tdrwkxs", environment);
-		adjustConfig.setLogLevel(AdjustLogLevel.Error);
-		Adjust.start(adjustConfig);
+		// Adjust adjust = base.gameObject.AddComponent<Adjust>();
+		// AdjustEnvironment environment = AdjustEnvironment.Production;
+		// AdjustConfig adjustConfig = new AdjustConfig("cx197tdrwkxs", environment);
+		// adjustConfig.setLogLevel(AdjustLogLevel.Error);
+		// Adjust.start(adjustConfig);
 	}
 
 	private void OnEnable()
@@ -77,9 +77,9 @@ public class AdjustManager : SingletonMonoBehaviour<AdjustManager>
 
 	public void TrackRevenue(float amount)
 	{
-		AdjustEvent adjustEvent = new AdjustEvent("m709sy");
-		adjustEvent.setRevenue(amount, "USD");
-		Adjust.trackEvent(adjustEvent);
+		// AdjustEvent adjustEvent = new AdjustEvent("m709sy");
+		// adjustEvent.setRevenue(amount, "USD");
+		// Adjust.trackEvent(adjustEvent);
 	}
 
 	public void TrackMatchWin(int wins)
@@ -118,8 +118,8 @@ public class AdjustManager : SingletonMonoBehaviour<AdjustManager>
 
 	private void TrackEvent(string eventToken)
 	{
-		AdjustEvent adjustEvent = new AdjustEvent(eventToken);
-		Adjust.trackEvent(adjustEvent);
+		// AdjustEvent adjustEvent = new AdjustEvent(eventToken);
+		// Adjust.trackEvent(adjustEvent);
 	}
 
 	private void TapToStartScreen_OnLoaderRemoved()

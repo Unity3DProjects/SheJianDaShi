@@ -45,7 +45,7 @@ public class tk2dSpriteFromTexture : MonoBehaviour
 	{
 		Create(spriteCollectionSize, texture, anchor);
 		
-		Debug.LogError($"{gameObject.name}贴图名字：{texture.name}");
+		// Debug.LogError($"{gameObject.name}贴图名字：{texture.name}");
 	}
 
 	private void OnDestroy()

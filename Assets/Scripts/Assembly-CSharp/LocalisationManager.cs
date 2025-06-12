@@ -116,7 +116,7 @@ public class LocalisationManager : SingletonMonoBehaviour<LocalisationManager>
 			{
 				internal_allTexts = new Dictionary<string, string>();
 				string[,] array = CSVReader.SplitCsvGrid(keysFile.text);
-				Debug.LogError($"翻译文本长度 {array.Length}");
+				// Debug.LogError($"翻译文本长度 {array.Length}");
 				for (int i = 0; i < array.GetUpperBound(1); i++)
 				{
 					if (string.IsNullOrEmpty(array[0, i]))

@@ -17,13 +17,14 @@ public static class GUIDMapper
 		string value = string.Empty;
 		if (!isParse)
 		{
-			Parse();
+			// Parse();
+			ParseForResource();
 		}
 		if (!guidMap.TryGetValue(guid, out value))
 		{
 			CustomDebug.Log("GUIDMapper.Log can't find path for Guid : " + guid);
 		}
-		Debug.LogError(value);
+		// Debug.LogError(value);
 		return value;
 	}
 
@@ -32,7 +33,8 @@ public static class GUIDMapper
 	{
 		if (!isParse)
 		{
-			Parse();
+			// Parse();
+			ParseForResource();
 		}
 	}
 
@@ -42,7 +44,7 @@ public static class GUIDMapper
 		{
 			return;
 		}
-		Debug.LogError("llllllllllllllmmmmmmmmmmmmmm");
+		// Debug.LogError("llllllllllllllmmmmmmmmmmmmmm");
 		string text = Application.streamingAssetsPath + "/guids";
 		string text2 = string.Empty;
 		bool flag = false;
@@ -77,16 +79,16 @@ public static class GUIDMapper
 			string[] array = File.ReadAllLines(text);
 			
 			int i = 0;
-            Debug.LogError($"切割guids到数组后数组的长度：{array.Length}");
+            // Debug.LogError($"切割guids到数组后数组的长度：{array.Length}");
 			for (int num = array.Length; i < num; i++)
 			{
 				string text3 = array[i];
 				string key = text3.Substring(0, 32);
 				string value = text3.Substring(32, text3.Length - 32);
-				if (key == "7f023214c59d14bf4be59f0b7b2f548a")
-				{
-					Debug.LogError($"值为{value}。。。{text3}");
-				}
+				// if (key == "7f023214c59d14bf4be59f0b7b2f548a")
+				// {
+					// Debug.LogError($"值为{value}。。。{text3}");
+				// }
 				guidMap.Add(key, value);
 			}
 			realtimeSinceStartup = (Time.realtimeSinceStartup - realtimeSinceStartup) * 1000f;
@@ -97,5 +99,59 @@ public static class GUIDMapper
 			CustomDebug.LogError("GUIDMapper.Error can't find file : " + text);
 		}
 		isParse = true;
+	}
+	private static void ParseForResource()
+	{
+		if (isParse) return;
+
+		// WebGL 平台使用 Resources 加载
+		TextAsset guidsAsset = Resources.Load<TextAsset>("guids");
+    
+		if (guidsAsset == null)
+		{
+			CustomDebug.LogError("GUIDMapper.Error: Failed to load guids resource");
+			isParse = true;
+			return;
+		}
+
+		string text2 = guidsAsset.text;
+		float realtimeSinceStartup = Time.realtimeSinceStartup;
+
+		// 使用跨平台的行分割方法
+		string[] array = text2.Split(
+			new[] { "\r\n", "\r", "\n" }, 
+			StringSplitOptions.RemoveEmptyEntries
+		);
+
+		int count = 0;
+		for (int i = 0; i < array.Length; i++)
+		{
+			string text3 = array[i];
+			// 添加长度安全检查
+			if (text3.Length < 33)
+			{
+				CustomDebug.LogWarning($"Invalid line in guids: {text3}");
+				continue;
+			}
+
+			try
+			{
+				string key = text3.Substring(0, 32);
+				string value = text3.Substring(32);
+				guidMap.Add(key, value);
+				count++;
+			}
+			catch (Exception e)
+			{
+				CustomDebug.LogError($"GUIDMapper parse error on line {i}: {e.Message}");
+			}
+		}
+
+		realtimeSinceStartup = (Time.realtimeSinceStartup - realtimeSinceStartup) * 1000f;
+		CustomDebug.Log($"GUIDMapper.Parse: {realtimeSinceStartup:F6} ms, 已加载 {count} 个对象");
+		isParse = true;
+    
+		// WebGL 内存优化：显式卸载资源
+		Resources.UnloadAsset(guidsAsset);
 	}
 }

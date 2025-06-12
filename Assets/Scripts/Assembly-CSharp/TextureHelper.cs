@@ -93,7 +93,7 @@ public class TextureHelper : SingletonMonoBehaviour<TextureHelper>
 		texture2D = texture2D2;
 		if (texture2D != null)
 		{
-			texture2D.hideFlags = HideFlags.DontSave;
+			// texture2D.hideFlags = HideFlags.DontSave;
 			texture2D.wrapMode = TextureWrapMode.Clamp;
 		}
 		return texture2D;

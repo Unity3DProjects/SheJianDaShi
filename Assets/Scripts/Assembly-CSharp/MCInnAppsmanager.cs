@@ -246,7 +246,7 @@ public class MCInnAppsmanager : SingletonMonoBehaviour<MCInnAppsmanager>, Receip
 		}
 		else
 		{
-			Debug.LogError("不存在List<GooglePurchase>()列表");
+			// Debug.LogError("不存在List<GooglePurchase>()列表");
 		}
 		if (PlayerPrefs.HasKey("skus_key"))
 		{
@@ -691,6 +691,6 @@ public class MCInnAppsmanager : SingletonMonoBehaviour<MCInnAppsmanager>, Receip
 
 	private void Log(string message)
 	{
-		Debug.LogError(message);
+		// Debug.LogError(message);
 	}
 }

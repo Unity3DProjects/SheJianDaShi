@@ -16,14 +16,19 @@ public static class MiniclipUtils
 
 	public static bool IsAdvertisingIdInitialized()
 	{
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.BOWMASTERS_ACTIVITY);
-		return androidJavaClass.CallStatic<bool>("isAdvertisingIdInitialized", new object[0]);
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.BOWMASTERS_ACTIVITY);
+		// return androidJavaClass.CallStatic<bool>("isAdvertisingIdInitialized", new object[0]);
+		return false;
+
 	}
 
 	public static string GetAdvertisingId()
 	{
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.BOWMASTERS_ACTIVITY);
-		return androidJavaClass.CallStatic<string>("getAdvertisingID", new object[0]);
+		
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass(AndroidPluginNames.BOWMASTERS_ACTIVITY);
+		// return androidJavaClass.CallStatic<string>("getAdvertisingID", new object[0]);
+		return "";
+
 	}
 
 	public static string GetPlatform()
@@ -33,44 +38,52 @@ public static class MiniclipUtils
 
 	public static string GetTimeZone()
 	{
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.Utils");
-		return androidJavaClass.CallStatic<string>("getTimeZone", new object[0]);
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.Utils");
+		// return androidJavaClass.CallStatic<string>("getTimeZone", new object[0]);
+		return "";
+
 	}
 
 	public static string GetDeviceType()
 	{
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.mcgoliath.MCGoliathWrapper");
-		return androidJavaClass.CallStatic<string>("deviceType", new object[0]);
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.mcgoliath.MCGoliathWrapper");
+		// return androidJavaClass.CallStatic<string>("deviceType", new object[0]);
+		return "";
+
 	}
 
 	public static string GetSystemArchitecture()
 	{
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.mcgoliath.MCGoliathWrapper");
-		return androidJavaClass.CallStatic<string>("deviceArchitecture", new object[0]);
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.mcgoliath.MCGoliathWrapper");
+		// return androidJavaClass.CallStatic<string>("deviceArchitecture", new object[0]);
+		return "";
 	}
 
 	public static int IsDeviceJailbroken()
 	{
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.Utils");
-		return androidJavaClass.CallStatic<bool>("isDeviceRooted", new object[0]) ? 1 : 0;
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.Utils");
+		// return androidJavaClass.CallStatic<bool>("isDeviceRooted", new object[0]) ? 1 : 0;
+		return 0;
 	}
 
 	public static string GetStartNotificationId()
 	{
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.LNBindings");
-		return androidJavaClass.GetStatic<string>("localNotificationID");
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.LNBindings");
+		// return androidJavaClass.GetStatic<string>("localNotificationID");
+		return "";
+
 	}
 
 	public static void ShowReceiptValidatingPopup(string title, string text)
 	{
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.Utils");
-		androidJavaClass.CallStatic("ShowProgressDialog", title, text);
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.Utils");
+		// androidJavaClass.CallStatic("ShowProgressDialog", title, text);
 	}
 
 	public static void DismissReceiptValidatingPopup()
 	{
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.Utils");
-		androidJavaClass.CallStatic("DismissProgressDialog");
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.Utils");
+		// androidJavaClass.CallStatic("DismissProgressDialog");
 	}
 
 	public static bool isNetworkAvailable()
@@ -81,20 +94,20 @@ public static class MiniclipUtils
 
 	public static void SendToast(string message)
 	{
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.Utils");
-		androidJavaClass.CallStatic("sendToast", message);
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.Utils");
+		// androidJavaClass.CallStatic("sendToast", message);
 	}
 
 	public static void ShareAll(string message, string link)
 	{
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.Utils");
-		androidJavaClass.CallStatic("shareToAll", message, link);
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.Utils");
+		// androidJavaClass.CallStatic("shareToAll", message, link);
 	}
 
 	public static void SetGDPRConsentForThirdPartyProviders(bool isRelevant, bool targetedAds)
 	{
-		AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.Utils");
-		androidJavaClass.CallStatic("setGDPRConsentForThirdPartyProviders", isRelevant, targetedAds);
+		// AndroidJavaClass androidJavaClass = new AndroidJavaClass("com.miniclip.Utils");
+		// androidJavaClass.CallStatic("setGDPRConsentForThirdPartyProviders", isRelevant, targetedAds);
 	}
 
 	public static string ConvertStringToEncriptedHex(string text, string key)

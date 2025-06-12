@@ -10,13 +10,13 @@ public class CountryIdentify : MonoBehaviour
 
 	public static IEnumerator CheckCountry(Action<bool> callback)
 	{
-		WWW info = new WWW("https://api.playgendary.com/v1/info/checkcountry");
-		yield return info;
-		bool result = true;
-		if (!bool.TryParse(info.text, out result))
-		{
-			result = true;
-		}
+		// WWW info = new WWW("https://api.playgendary.com/v1/info/checkcountry");
+		yield return null;
+		// bool result = true;
+		// if (!bool.TryParse(info.text, out result))
+		// {
+		// 	result = true;
+		// }
 		if (callback != null)
 		{
 			callback(true);
