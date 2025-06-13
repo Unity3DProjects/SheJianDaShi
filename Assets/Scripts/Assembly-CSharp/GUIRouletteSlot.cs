@@ -306,8 +306,14 @@ public class GUIRouletteSlot : MonoBehaviour
 		{
 			slotCharacterShadow = Object.Instantiate(characterShadow);
 			slotCharacterShadow.transform.parent = characterShadowTransform;
+			slotLabelCoins = Object.Instantiate(labelCoins);
+			slotLabelCoins.transform.parent = labelCoinsParentTransform;
 			slotCharacterShadow.transform.localPosition = characterShadow.transform.localPosition;
 			characterShadowTweenColor.Target = slotCharacterShadow.gameObject;
+			float x2 = 0f;
+			x2 = labelCoinsPositionXLarge;
+			slotLabelCoins.transform.localPosition = new Vector3(-70f, 100, labelCoins.transform.localPosition.z);
+			labelCoinsTweenColor.Target = slotLabelCoins.gameObject;
 		}
 		if (tk2dSystem.IsRetina)
 		{
@@ -338,7 +344,7 @@ public class GUIRouletteSlot : MonoBehaviour
 			slotSpriteCoins.SetSprite("roulette_coins_small");
 			slotSpriteCoins.gameObject.SetActive(true);
 			slotLabelCoins.gameObject.SetActive(true);
-			slotLabelCoins.text = "+ " + SingletonMonoBehaviour<RouletteManager>.Instance.Coins1;
+			slotLabelCoins.text = "+ " + SingletonMonoBehaviour<RouletteManager>.Instance.Coins1+"\n3.45%";
 			SingletonMonoBehaviour<Scheduler>.Instance.CallMethodWithDelay(this, delegate
 			{
 				systemEffect = Object.Instantiate(CachedEffectsManager.EffectPrefabByType(EffectType.GUIRouletteCoinsIdle));
@@ -351,7 +357,7 @@ public class GUIRouletteSlot : MonoBehaviour
 			slotSpriteCoins.SetSprite("roulette_coins");
 			slotSpriteCoins.gameObject.SetActive(true);
 			slotLabelCoins.gameObject.SetActive(true);
-			slotLabelCoins.text = "+ " + SingletonMonoBehaviour<RouletteManager>.Instance.Coins2;
+			slotLabelCoins.text = "+ " + SingletonMonoBehaviour<RouletteManager>.Instance.Coins2+"\n3.45%";
 			SingletonMonoBehaviour<Scheduler>.Instance.CallMethodWithDelay(this, delegate
 			{
 				systemEffect = Object.Instantiate(CachedEffectsManager.EffectPrefabByType(EffectType.GUIRouletteCoinsIdle));
@@ -364,7 +370,7 @@ public class GUIRouletteSlot : MonoBehaviour
 			slotSpriteCoins.SetSprite("roulette_coins_large");
 			slotSpriteCoins.gameObject.SetActive(true);
 			slotLabelCoins.gameObject.SetActive(true);
-			slotLabelCoins.text = "+ " + SingletonMonoBehaviour<RouletteManager>.Instance.Coins3;
+			slotLabelCoins.text = "+ " + SingletonMonoBehaviour<RouletteManager>.Instance.Coins3+"\n3.45%";
 			SingletonMonoBehaviour<Scheduler>.Instance.CallMethodWithDelay(this, delegate
 			{
 				systemEffect = Object.Instantiate(CachedEffectsManager.EffectPrefabByType(EffectType.GUIRouletteCoinsIdle));
@@ -377,7 +383,7 @@ public class GUIRouletteSlot : MonoBehaviour
 			slotSpriteCoins.SetSprite("gem_one");
 			slotSpriteCoins.gameObject.SetActive(true);
 			slotLabelCoins.gameObject.SetActive(true);
-			slotLabelCoins.text = "+ " + SingletonMonoBehaviour<RouletteManager>.Instance.Gems1;
+			slotLabelCoins.text = "+ " + SingletonMonoBehaviour<RouletteManager>.Instance.Gems1+"\n3.45%";
 			SingletonMonoBehaviour<Scheduler>.Instance.CallMethodWithDelay(this, delegate
 			{
 				systemEffect = Object.Instantiate(CachedEffectsManager.EffectPrefabByType(EffectType.GUIRouletteCoinsIdle));
@@ -390,7 +396,7 @@ public class GUIRouletteSlot : MonoBehaviour
 			slotSpriteCoins.SetSprite("gems_2");
 			slotSpriteCoins.gameObject.SetActive(true);
 			slotLabelCoins.gameObject.SetActive(true);
-			slotLabelCoins.text = "+ " + SingletonMonoBehaviour<RouletteManager>.Instance.Gems2;
+			slotLabelCoins.text = "+ " + SingletonMonoBehaviour<RouletteManager>.Instance.Gems2+"\n3.45%";
 			SingletonMonoBehaviour<Scheduler>.Instance.CallMethodWithDelay(this, delegate
 			{
 				systemEffect = Object.Instantiate(CachedEffectsManager.EffectPrefabByType(EffectType.GUIRouletteCoinsIdle));
@@ -403,7 +409,7 @@ public class GUIRouletteSlot : MonoBehaviour
 			slotSpriteCoins.SetSprite("pinch_of_gems");
 			slotSpriteCoins.gameObject.SetActive(true);
 			slotLabelCoins.gameObject.SetActive(true);
-			slotLabelCoins.text = "+ " + SingletonMonoBehaviour<RouletteManager>.Instance.Gems3;
+			slotLabelCoins.text = "+ " + SingletonMonoBehaviour<RouletteManager>.Instance.Gems3+"\n3.45%";
 			SingletonMonoBehaviour<Scheduler>.Instance.CallMethodWithDelay(this, delegate
 			{
 				systemEffect = Object.Instantiate(CachedEffectsManager.EffectPrefabByType(EffectType.GUIRouletteCoinsIdle));
@@ -414,6 +420,8 @@ public class GUIRouletteSlot : MonoBehaviour
 			break;
 		case RouletteRewardType.Ordinary:
 			slotCharacterShadow.gameObject.SetActive(true);
+			slotLabelCoins.gameObject.SetActive(true);
+			slotLabelCoins.text = "\n3.45%";
 			if (!isWinnerSlot)
 			{
 				if (!SingletonMonoBehaviour<RouletteManager>.Instance.IsAvalaibleOrdinaryCharacters)
@@ -450,6 +458,8 @@ public class GUIRouletteSlot : MonoBehaviour
 			break;
 		case RouletteRewardType.Premium:
 			slotCharacterShadow.gameObject.SetActive(true);
+			slotLabelCoins.gameObject.SetActive(true);
+			slotLabelCoins.text = "\n3.45%";
 			if (!isWinnerSlot)
 			{
 				if (!SingletonMonoBehaviour<RouletteManager>.Instance.IsAvalaiblePremiumCharacters)

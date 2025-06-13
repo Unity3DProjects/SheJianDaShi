@@ -2420,7 +2420,7 @@ public class ProposalManager : SingletonMonoBehaviour<ProposalManager>
 				PopupType popupType = ((!(activePopup == null)) ? activePopup.TypePopup : PopupType.None);
 				if (popupType != PopupType.AutoRenewableSubscribe && popupType != PopupType.AutoRenewableSubscribeFoolish && popupType != PopupType.AutoRenewableSubscribeReward)
 				{
-					CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.AutoRenewableSubscribeFoolish, true, null, true);
+					// CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.AutoRenewableSubscribeFoolish, true, null, true);
 				}
 			}
 		}

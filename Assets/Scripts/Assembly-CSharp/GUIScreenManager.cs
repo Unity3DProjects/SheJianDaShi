@@ -220,6 +220,15 @@ public class GUIScreenManager : SingletonMonoBehaviour<GUIScreenManager>
 		base.Awake();
 		SwitchSettingsPrefab();
 	}
+	public static Action CustomReward;
+	public  void InvokeRewardFun()
+	{
+	
+		CustomReward?.Invoke();
+		CustomReward=null;
+		tk2dUIManager.Instance.InputEnabled = true;
+			
+	}
 
 	private void Start()
 	{

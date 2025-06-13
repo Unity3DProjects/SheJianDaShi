@@ -516,19 +516,7 @@ public class ADManager : ADManager_L.SingletonMono<ADManager>
                     CustomSetTime(tmp, blockTime_White);
                     break;
                 default:
-                    //其他OPPO的黑包时间是后五天
-                    tmp = now.AddDays(5);
-                    //屏蔽五天后，如果是周末，则延后到周一
-                    if (tmp.DayOfWeek == DayOfWeek.Saturday)
-                    {
-                        tmp = tmp.AddDays(2);
-                    }
-                    else if (tmp.DayOfWeek == DayOfWeek.Sunday)
-                    {
-                        tmp = tmp.AddDays(1);
-                    }
-
-                    CustomSetTime(tmp, blockTime_Black);
+                   
 
 
                     //白包则设置为打包时间的第二天
@@ -546,6 +534,19 @@ public class ADManager : ADManager_L.SingletonMono<ADManager>
                     }
 
                     CustomSetTime(tmp, blockTime_White);
+                    //其他OPPO的黑包时间是后五天
+                    tmp = tmp.AddDays(4);
+                    //屏蔽五天后，如果是周末，则延后到周一
+                    if (tmp.DayOfWeek == DayOfWeek.Saturday)
+                    {
+                        tmp = tmp.AddDays(2);
+                    }
+                    else if (tmp.DayOfWeek == DayOfWeek.Sunday)
+                    {
+                        tmp = tmp.AddDays(1);
+                    }
+
+                    CustomSetTime(tmp, blockTime_Black);
                     break;
             }
         }

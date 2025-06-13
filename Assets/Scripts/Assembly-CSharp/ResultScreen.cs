@@ -990,8 +990,8 @@ public class ResultScreen : GUIScreen
 		cachedProposalManager.GenerateProposalMenu();
 		if (cachedProposalManager.IsFoolishSubscribeAvalaible)
 		{
-			base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.AutoRenewableSubscribeFoolish);
-			base.CachedManagers.CachedStatisticsManager.LastFoolishSubscribe = DateTime.Now;
+			// base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.AutoRenewableSubscribeFoolish);
+			// base.CachedManagers.CachedStatisticsManager.LastFoolishSubscribe = DateTime.Now;
 		}
 		else if (cachedProposalManager.CurrentProposalMenu == ProposalMenuType.X2)
 		{

@@ -28,28 +28,27 @@ public class MenuScreenScrollView : GUIScreen
 
 	private const string MONEY_START = "Money_start";
 
-	public static Action CustomReward;
+
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-	       CustomReward?.Invoke();
-	       CustomReward=null;
-	       base.CachedManagers.CachedTK2DUIManager.InputEnabled = true;
-	      
-		}
+		// if (Input.GetKeyDown(KeyCode.Space))
+		// {
+	 //       CustomReward?.Invoke();
+	 //       CustomReward=null;
+	 //       base.CachedManagers.CachedTK2DUIManager.InputEnabled = true;
+	 //      
+		// }
 	}
 
-	public  void InvokeRewardFun()
-	{
-	
-			CustomReward?.Invoke();
-			CustomReward=null;
-			base.CachedManagers.CachedTK2DUIManager.InputEnabled = true;
-	      
-		
-	}
+	// public  void InvokeRewardFun()
+	// {
+	//
+	// 		CustomReward?.Invoke();
+	// 		CustomReward=null;
+	// 		base.CachedManagers.CachedTK2DUIManager.InputEnabled = true;
+	// 		
+	// }
 
 	[CompilerGenerated]
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -2124,7 +2123,7 @@ public class MenuScreenScrollView : GUIScreen
 
 	private void SubscribeButton_OnClick()
 	{
-		base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.AutoRenewableSubscribe);
+		// base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.AutoRenewableSubscribe);
 	}
 
 	private void ShopItemSubscription_OnSubscriptionActive()

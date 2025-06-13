@@ -1392,9 +1392,9 @@ public class MenuScreen : GUIScreen
 			if (popupType != PopupType.None)
 			{
 				
-				 cachedProposalManager.IsShowingForcedPack = flag;
-			 	 cachedProposalManager.IsForcedPackAvailable = false;
-				 base.CachedManagers.CachedGUIPopupManager.ShowPopup(popupType);
+				 // cachedProposalManager.IsShowingForcedPack = flag;
+			 	//  cachedProposalManager.IsForcedPackAvailable = false;
+				 // base.CachedManagers.CachedGUIPopupManager.ShowPopup(popupType);
 				
 			}
 		}
@@ -1471,8 +1471,8 @@ public class MenuScreen : GUIScreen
 		}
 		if (currentProposalMenu == ProposalMenuType.TryNew && base.CachedManagers.CachedGUIPopupManager.ActivePopup == null)
 		{
-			base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.TryCharacterProposal);
-			cachedProposalManager.LastTryCharacterGeneratedMatches = base.CachedManagers.CachedStatisticsManager.MathesCount;
+			// base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.TryCharacterProposal);
+			// cachedProposalManager.LastTryCharacterGeneratedMatches = base.CachedManagers.CachedStatisticsManager.MathesCount;
 		}
 	}
 

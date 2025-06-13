@@ -320,7 +320,7 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 			while (action != action2);
 		}
 	}
-
+	
 	private IEnumerator Start()
 	{
 		ActivateClientConfiguration();
