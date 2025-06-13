@@ -1086,6 +1086,7 @@ public class MenuScreen : GUIScreen
 		foreach (tk2dUIItem tk2dUIItem23 in array23)
 		{
 			tk2dUIItem23.OnClick += SettingsButton_OnClick;
+			tk2dUIItem23.gameObject.SetActive(false);
 		}
 		tk2dUIItem[] array24 = achievementButtons;
 		foreach (tk2dUIItem tk2dUIItem24 in array24)

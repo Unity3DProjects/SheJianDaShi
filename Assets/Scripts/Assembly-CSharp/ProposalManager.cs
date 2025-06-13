@@ -1930,13 +1930,13 @@ public class ProposalManager : SingletonMonoBehaviour<ProposalManager>
 			break;
 		}
 		case ProposalMenuType.BuyPack:
-			CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.Pack);
+			// CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.Pack);
 			break;
 		case ProposalMenuType.VipPack:
-			CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.VipPack);
+			// CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.VipPack);
 			break;
 		case ProposalMenuType.ChampionPack:
-			CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.ChampionPack);
+			// CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.ChampionPack);
 			break;
 		case ProposalMenuType.FreeCoins:
 			LastFreeCoins = DateTime.Now;

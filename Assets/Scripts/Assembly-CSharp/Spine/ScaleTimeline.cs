@@ -12,6 +12,10 @@ namespace Spine
 			float[] array = frames;
 			if (!(time < array[0]))
 			{
+				if (boneIndex > skeleton.bones.Items.Length-1)
+				{
+					return;
+				}
 				Bone bone = skeleton.bones.Items[boneIndex];
 				if (time >= array[array.Length - 3])
 				{

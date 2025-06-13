@@ -370,6 +370,7 @@ public class GUIScreenManager : SingletonMonoBehaviour<GUIScreenManager>
 					screenToShow = null;
 					shouldHideTransitionPlaneAfterDelay = true;
 				}
+				// tk2dUIManager.Instance.InputEnabled = true;
 			}));
 		};
 		if (needForceTransitionPlane)
