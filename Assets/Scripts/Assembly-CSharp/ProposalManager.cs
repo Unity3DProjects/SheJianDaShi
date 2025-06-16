@@ -1939,28 +1939,28 @@ public class ProposalManager : SingletonMonoBehaviour<ProposalManager>
 			// CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.ChampionPack);
 			break;
 		case ProposalMenuType.FreeCoins:
-			LastFreeCoins = DateTime.Now;
-			CachedManagers.CachedAdvertisingManager.ShowVideo(delegate(bool result)
-			{
-				if (result)
-				{
-					GameGoliath.Instance.TrackAdvertising(GoliathIds.AdType.VIDEO_AD, GoliathIds.AdPhase.SHOW, GoliathIds.AdReward.COINS);
-					statisticsManager.AddCoins(coinsGetFreeCoins);
-				}
-			});
+			// LastFreeCoins = DateTime.Now;
+			// CachedManagers.CachedAdvertisingManager.ShowVideo(delegate(bool result)
+			// {
+			// 	if (result)
+			// 	{
+			// 		GameGoliath.Instance.TrackAdvertising(GoliathIds.AdType.VIDEO_AD, GoliathIds.AdPhase.SHOW, GoliathIds.AdReward.COINS);
+			// 		statisticsManager.AddCoins(coinsGetFreeCoins);
+			// 	}
+			// });
 			break;
 		case ProposalMenuType.Gift:
 			currentProposal.Deactivate();
 			CachedManagers.CachedGUIScreenManager.HideCurrentAndShow(GUIScreenType.Gift);
 			break;
 		case ProposalMenuType.SuperGift:
-			CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.SuperGift);
+			// CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.SuperGift);
 			break;
 		case ProposalMenuType.Upgrade:
-			CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.Upgrade);
+			// CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.Upgrade);
 			break;
 		case ProposalMenuType.X2:
-			CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.DoubleCoins);
+			// CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.DoubleCoins);
 			break;
 		case ProposalMenuType.FreeChest:
 		{

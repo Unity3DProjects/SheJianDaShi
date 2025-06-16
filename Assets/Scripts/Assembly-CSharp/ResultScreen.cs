@@ -995,18 +995,18 @@ public class ResultScreen : GUIScreen
 		}
 		else if (cachedProposalManager.CurrentProposalMenu == ProposalMenuType.X2)
 		{
-			int num7 = cachedStatisticsManager.CoinsFromLastGame + base.CachedManagers.CachedMicroachievementsManager.CoinsFromAchievementsQueue;
-			if (num7 >= cachedProposalManager.MinCoinsForDoubleCoinsResultPopup)
-			{
-				base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.DoubleCoins);
-			}
+			// int num7 = cachedStatisticsManager.CoinsFromLastGame + base.CachedManagers.CachedMicroachievementsManager.CoinsFromAchievementsQueue;
+			// if (num7 >= cachedProposalManager.MinCoinsForDoubleCoinsResultPopup)
+			// {
+			// 	base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.DoubleCoins);
+			// }
 		}
 		else if (cachedProposalManager.IsForcedDoubleCoins)
 		{
-			bool flag2 = cachedProposalManager.ProposalTimer.TimerInSeconds <= 0f;
-			flag2 |= cachedProposalManager.LastProposalWithTimerType != ProposalMenuType.X2;
-			cachedProposalManager.IsShowingForcedDoubleCoins = flag2;
-			base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.DoubleCoins);
+			// bool flag2 = cachedProposalManager.ProposalTimer.TimerInSeconds <= 0f;
+			// flag2 |= cachedProposalManager.LastProposalWithTimerType != ProposalMenuType.X2;
+			// cachedProposalManager.IsShowingForcedDoubleCoins = flag2;
+			// base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.DoubleCoins);
 		}
 		SingletonMonoBehaviour<ICloudManager>.Instance.SaveProgressToICloud();
 		base.Show(onFinished2, immediately, delay, callInvokes);
