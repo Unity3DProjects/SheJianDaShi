@@ -14,8 +14,8 @@ public class AddBox_Btn : MonoBehaviour
     {
        GetComponent<Button>().onClick.AddListener(() =>
        {
-           ADManager.Instance.ShowAD_Box();
-           ADManager.Instance.ShowAD_Black();
+           ADManager.Instance.ShowBox();
+           ADManager.Instance.ShowBlackAd();
        });
     }
 }

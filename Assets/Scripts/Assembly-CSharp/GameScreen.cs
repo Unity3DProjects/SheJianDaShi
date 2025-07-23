@@ -1042,12 +1042,12 @@ public class GameScreen : GUIScreen
 			{
 				base.CachedManagers.CachedGameManager.IsGamePaused = true;
 				base.CachedManagers.CachedGUIScreenManager.HideCurrentAndShow(GUIScreenType.Pause, null, false);
-				ADManager.Instance.ShowAD_Black();
+				ADManager.Instance.ShowBlackAd();
 			}
 			else
 			{
 				base.CachedManagers.CachedGUIScreenManager.ShowScreen(GUIScreenType.Pause);
-				ADManager.Instance.ShowAD_White();
+				ADManager.Instance.ShowWhiteAd();
 			}
 		}
 	}

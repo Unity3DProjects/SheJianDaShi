@@ -271,7 +271,7 @@ public class FreeChestPopup : GUIPopup
 		// 	}
 		// });
 		base.CachedManagers.CachedGameManager.IsGamePaused = false;
-		ADManager.Instance.ShowAD_Reward(this.gameObject.name,nameof(GetReward_Skip));
+		ADManager.Instance.ShowRewardAD(this.gameObject.name,nameof(GetReward_Skip));
 			
 
 	}

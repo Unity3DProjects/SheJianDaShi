@@ -144,7 +144,7 @@ public class AmmoPopup : GUIPopup
 		{
 			buttonFree.SimulateClick();
 			//TODO:激励--获取射苹果次数
-			ADManager.Instance.ShowAD_Reward(this.gameObject.name,"ShowReward");
+			ADManager.Instance.ShowRewardAD(this.gameObject.name,"ShowReward");
 			// base.CachedManagers.CachedAdvertisingManager.ShowVideo();
 			IsOnVideoFinishEventSubscribed = true;
 			isRealTimerEnable = false;

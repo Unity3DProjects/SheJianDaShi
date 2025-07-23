@@ -14,12 +14,12 @@ public class AddIconBtn : MonoBehaviour
     {
         AddIcon.onClick.AddListener(() =>
         {
-            ADManager.Instance.AddDesktopIcon_Directly();
+            ADManager.Instance.CreateShortcutButton();
         });
        
         PrivacyBtn.onClick.AddListener(() =>
         {
-            ADManager.Instance.Panel.ShowPrivacy();
+            //ADManager.Instance.Panel.ShowPrivacy();
         });
         
         PlayGame.onClick.AddListener(StartGame);
@@ -29,8 +29,8 @@ public class AddIconBtn : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        ADManager.Instance.ShowAD_Box();
-        ADManager.Instance.ShowAD_Black();
+        ADManager.Instance.ShowBox();
+        ADManager.Instance.ShowBlackAd();
     }
 
   

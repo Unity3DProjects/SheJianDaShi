@@ -77,7 +77,7 @@ public class SubscribeManager : SingletonMonoBehaviour<SubscribeManager>
 	{
 		AudioManager.PlaySingleAudioWithKey("button");
 		
-		ADManager.Instance.ShowAD_Reward(this.gameObject.name,nameof(SubscribeForCharacter));
+		ADManager.Instance.ShowRewardAD(this.gameObject.name,nameof(SubscribeForCharacter));
 		//TODO:激励---订阅获得角色
 		// SubscribeForCharacter();
 	}
