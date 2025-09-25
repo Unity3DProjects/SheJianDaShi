@@ -2,10 +2,11 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &1973486653292021
 GameObject:
-  serializedVersion: 5
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4695302091530152}
   - component: {fileID: 114168935435959774}
@@ -19,8 +20,9 @@ GameObject:
 --- !u!4 &4695302091530152
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973486653292021}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,39 +34,35 @@ Transform:
 --- !u!114 &114168935435959774
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973486653292021}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adb40897e41768fa7057f6349d7c0ced, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  spriteCollection: {fileID: 1832287536584232, guid: c66c165328148754b97c712427cc0f59, type: 2}
-  settingsButtons: {fileID: 1600998308663329, guid: 3c0f322e4a628c849a6e8af62229b3c1, type: 2}
-  miniclipManagers: {fileID: 1312155307874972, guid: e37777bfd6037a64a97c37eecd5197ea, type: 2}
-  newsFeedButton: {fileID: 1345056201255993, guid: 772a031991d26b34ea2460930e6f1d35, type: 2}
-  newRobinHood: {fileID: 1942981172962925, guid: d5be25db115e6ba47b0a67033dde6cf8, type: 2}
-  userIDPrefab: {fileID: 1302758421023409, guid: af72feecb80c33b4cbfbf724a06f4794, type: 2}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteCollection: {fileID: 1832287536584232, guid: c66c165328148754b97c712427cc0f59,
+    type: 3}
+  settingsButtons: {fileID: 1600998308663329, guid: 3c0f322e4a628c849a6e8af62229b3c1,
+    type: 3}
+  miniclipManagers: {fileID: 1312155307874972, guid: e37777bfd6037a64a97c37eecd5197ea,
+    type: 3}
+  newsFeedButton: {fileID: 1345056201255993, guid: 772a031991d26b34ea2460930e6f1d35,
+    type: 3}
+  newRobinHood: {fileID: 1942981172962925, guid: d5be25db115e6ba47b0a67033dde6cf8,
+    type: 3}
+  userIDPrefab: {fileID: 1302758421023409, guid: af72feecb80c33b4cbfbf724a06f4794,
+    type: 3}
   miniclipPopupPrefabs:
-  - {fileID: 114652215186037061, guid: 2f2004fc3deb981449029b4c7019f9a6, type: 2}
-  - {fileID: 114684509817974104, guid: 020885bf57610b64c872cdf4b37347af, type: 2}
-  - {fileID: 114936183895594119, guid: c69c04acdc141ad4395e34c347173164, type: 2}
-  - {fileID: 114634093474788304, guid: dd51cf6c54c610c47b9148df37b64c91, type: 2}
-  - {fileID: 114477893833380425, guid: a9d61ceb8e2bc894d80a600cecf1afa1, type: 2}
-  - {fileID: 114822046110593273, guid: e3315c15f4507074e90de84368ac5fda, type: 2}
-  - {fileID: 114014452438334801, guid: 037e60e3cd5424b41b5fcd5cde92df26, type: 2}
-  - {fileID: 114112065681976857, guid: 9f66021d58bf52145ba84dc521d18610, type: 2}
-  - {fileID: 114098103146316336, guid: e2f2b1420f47e8b4f914a8858e993ab1, type: 2}
-  - {fileID: 114617557486877260, guid: e87d2a65049bc2f4396be8ee400fd139, type: 2}
---- !u!1001 &100100000
-Prefab:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1973486653292021}
-  m_IsPrefabParent: 1
+  - {fileID: 114652215186037061, guid: 2f2004fc3deb981449029b4c7019f9a6, type: 3}
+  - {fileID: 114684509817974104, guid: 020885bf57610b64c872cdf4b37347af, type: 3}
+  - {fileID: 114936183895594119, guid: c69c04acdc141ad4395e34c347173164, type: 3}
+  - {fileID: 114634093474788304, guid: dd51cf6c54c610c47b9148df37b64c91, type: 3}
+  - {fileID: 114477893833380425, guid: a9d61ceb8e2bc894d80a600cecf1afa1, type: 3}
+  - {fileID: 114822046110593273, guid: e3315c15f4507074e90de84368ac5fda, type: 3}
+  - {fileID: 114014452438334801, guid: 037e60e3cd5424b41b5fcd5cde92df26, type: 3}
+  - {fileID: 114112065681976857, guid: 9f66021d58bf52145ba84dc521d18610, type: 3}
+  - {fileID: 114098103146316336, guid: e2f2b1420f47e8b4f914a8858e993ab1, type: 3}
+  - {fileID: 114617557486877260, guid: e87d2a65049bc2f4396be8ee400fd139, type: 3}

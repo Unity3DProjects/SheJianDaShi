@@ -214,20 +214,21 @@ public class GUIScreenManager : SingletonMonoBehaviour<GUIScreenManager>
 			while (action != action2);
 		}
 	}
-
-	private new void Awake()
-	{
-		base.Awake();
-		SwitchSettingsPrefab();
-	}
 	public static Action CustomReward;
+
 	public  void InvokeRewardFun()
 	{
 	
 		CustomReward?.Invoke();
 		CustomReward=null;
 		tk2dUIManager.Instance.InputEnabled = true;
-			
+	      
+		
+	}
+	private new void Awake()
+	{
+		base.Awake();
+		SwitchSettingsPrefab();
 	}
 
 	private void Start()
@@ -379,7 +380,6 @@ public class GUIScreenManager : SingletonMonoBehaviour<GUIScreenManager>
 					screenToShow = null;
 					shouldHideTransitionPlaneAfterDelay = true;
 				}
-				// tk2dUIManager.Instance.InputEnabled = true;
 			}));
 		};
 		if (needForceTransitionPlane)

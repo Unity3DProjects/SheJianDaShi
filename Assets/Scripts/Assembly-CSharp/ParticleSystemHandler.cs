@@ -99,10 +99,6 @@ public class ParticleSystemHandler : MonoBehaviour
 		int i = 0;
 		for (int count = particleSystems.Count; i < count; i++)
 		{
-			if (particleSystems[i] == null)
-			{
-				continue;
-			}
 			ParticleSystem particleSystem = particleSystems[i];
 			if (particleSystem != null && particleSystem.IsAlive())
 			{

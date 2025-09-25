@@ -599,15 +599,15 @@ public class GameScreen : GUIScreen
 		uiLayerMask = LayerMask.GetMask("UI");
 		if (!SingletonMonoBehaviour<StatisticsManager>.Instance.IsPartyMastersButtonClicked)
 		{
-		// 	partyMastersButton = UnityEngine.Object.Instantiate(partyMastersButtonPrefab, partyMastersButtonRootLayouter.CachedTransform);
-		// 	partyMastersButtonRootLayouter.ResetLayouter();
-		// 	partyMastersButtonRootLayouter.Initialize();
+			partyMastersButton = UnityEngine.Object.Instantiate(partyMastersButtonPrefab, partyMastersButtonRootLayouter.CachedTransform);
+			partyMastersButtonRootLayouter.ResetLayouter();
+			partyMastersButtonRootLayouter.Initialize();
 		}
 		if (SingletonMonoBehaviour<StatisticsManager>.Instance.IsNeedShowPartyMastersAnnouncer)
 		{
-			// partyMastersAnnouncer = UnityEngine.Object.Instantiate(partyMastersAnnouncerPrefab, partyMastersAnnouncerRootLayouter.CachedTransform);
-			// partyMastersAnnouncerRootLayouter.ResetLayouter();
-			// partyMastersAnnouncerRootLayouter.Initialize();
+			partyMastersAnnouncer = UnityEngine.Object.Instantiate(partyMastersAnnouncerPrefab, partyMastersAnnouncerRootLayouter.CachedTransform);
+			partyMastersAnnouncerRootLayouter.ResetLayouter();
+			partyMastersAnnouncerRootLayouter.Initialize();
 		}
 	}
 
@@ -1042,12 +1042,12 @@ public class GameScreen : GUIScreen
 			{
 				base.CachedManagers.CachedGameManager.IsGamePaused = true;
 				base.CachedManagers.CachedGUIScreenManager.HideCurrentAndShow(GUIScreenType.Pause, null, false);
-				ADManager.Instance.ShowBlackAd();
+				ADManager.Instance.ShowAD_Black();
 			}
 			else
 			{
 				base.CachedManagers.CachedGUIScreenManager.ShowScreen(GUIScreenType.Pause);
-				ADManager.Instance.ShowWhiteAd();
+				ADManager.Instance.ShowAD_White();
 			}
 		}
 	}

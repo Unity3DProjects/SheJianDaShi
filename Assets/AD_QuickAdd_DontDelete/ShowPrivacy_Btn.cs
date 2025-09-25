@@ -10,7 +10,7 @@ public class ShowPrivacy_Btn : MonoBehaviour
     {
         GetComponent<Button>().onClick.AddListener(() =>
         {
-            //ADManager.Instance.Panel.ShowPrivacy();
+            ADManager.Instance.Panel.ShowPrivacy();
         });
     }
 

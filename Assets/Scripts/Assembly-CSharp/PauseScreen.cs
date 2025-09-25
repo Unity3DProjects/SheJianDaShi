@@ -41,8 +41,6 @@ public class PauseScreen : GUIScreen
 		buttonResume.OnClick += ButtonResume_OnClick;
 		buttonMusic.OnClick += ButtonMusic_OnClick;
 		buttonSound.OnClick += ButtonSound_OnClick;
-		buttonMusic.gameObject.SetActive(false);
-		buttonSound.gameObject.SetActive(false);
 		AudioManager.OnMusicChanged += AudioManager_OnMusicChanged;
 		AudioManager.OnSoundChanged += AudioManager_OnSoundChanged;
 		AudioManager.PlayAudioWithKey("pause_menu_appear");

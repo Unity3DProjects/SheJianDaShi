@@ -320,7 +320,7 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 			while (action != action2);
 		}
 	}
-	
+
 	private IEnumerator Start()
 	{
 		ActivateClientConfiguration();
@@ -377,7 +377,7 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 		}
 		else
 		{
-			// Social.ShowLeaderboardUI();
+			Social.ShowLeaderboardUI();
 		}
 	}
 
@@ -390,7 +390,7 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 		}
 		else
 		{
-			// Social.ShowAchievementsUI();
+			Social.ShowAchievementsUI();
 		}
 	}
 
@@ -398,9 +398,9 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 	{
 		if (isAuthenticated)
 		{
-			// Social.ReportScore(s, LeaderboardWinsID, delegate
-			// {
-			// });
+			Social.ReportScore(s, LeaderboardWinsID, delegate
+			{
+			});
 		}
 	}
 
@@ -408,9 +408,9 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 	{
 		if (isAuthenticated)
 		{
-			// Social.ReportScore(s, LeaderboardApplesID, delegate
-			// {
-			// });
+			Social.ReportScore(s, LeaderboardApplesID, delegate
+			{
+			});
 		}
 	}
 
@@ -418,9 +418,9 @@ public class GameCenterManager : SingletonMonoBehaviour<GameCenterManager>
 	{
 		if (isAuthenticated)
 		{
-			// Social.ReportScore(s, LeaderboardBirdsID, delegate
-			// {
-			// });
+			Social.ReportScore(s, LeaderboardBirdsID, delegate
+			{
+			});
 		}
 	}
 

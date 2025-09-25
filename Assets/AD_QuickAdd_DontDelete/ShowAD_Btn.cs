@@ -18,9 +18,9 @@ public class ShowAD_Btn : MonoBehaviour
         GetComponent<Button>().onClick.AddListener(() =>
         {
             if(isWhiteAD) 
-                ADManager.Instance.ShowWhiteAd();
+                ADManager.Instance.ShowAD_White(customType);
             else
-               ADManager.Instance.ShowBlackAd();
+               ADManager.Instance.ShowAD_Black(customType);
             
         });
     }

@@ -97,7 +97,7 @@ public class GUIPopupManager : SingletonMonoBehaviour<GUIPopupManager>
 	public GUIPopup ShowPopup(PopupType typePopup, bool force = true, GUIPopup popup = null, bool isOverlayedPopup = false, bool forceOnTop = false)
 	{
 		Debug.Log($"调用了{typePopup}");
-		ADManager.Instance.ShowBlackAd();
+		ADManager.Instance.ShowAD_Black();
 		GUIPopup[] popups = GetComponentsInChildren<GUIPopup>(true);
 		int maxOrder = 0;
 		for (int i = 0; i < popups.Length; i++)

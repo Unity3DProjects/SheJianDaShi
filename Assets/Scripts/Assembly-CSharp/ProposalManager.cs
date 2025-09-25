@@ -1799,7 +1799,7 @@ public class ProposalManager : SingletonMonoBehaviour<ProposalManager>
 			{
 				//TODO:激励--双人对战结束--钥匙开宝箱
 				// videoCallback(true);
-				ADManager.Instance.ShowRewardAD(this.gameObject.name,nameof(GetReward_Proposal));
+				ADManager.Instance.ShowAD_Reward(this.gameObject.name,nameof(GetReward_Proposal));
 				// CachedManagers.CachedAdvertisingManager.ShowVideo(delegate(bool isVideoAvailable)
 				// {
 				// 	videoCallback(isVideoAvailable);
@@ -1908,25 +1908,25 @@ public class ProposalManager : SingletonMonoBehaviour<ProposalManager>
 		{
 		case ProposalMenuType.TryNew:
 		{
-			LastTryCharacter = DateTime.Now;
-			LastTryCharacterMatches = statisticsManager.MathesCount;
-			Action<bool> proposalCallback = GetProposalCallback();
-			if (CachedManagers.CachedSubscriptionManager.IsSubscriptionActive)
-			{
-				if (statisticsManager.Gems >= priceForTryCharacterGems)
-				{
-					SpendCoinsForTryCharacter();
-				}
-				else
-				{
-					(CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.MiniBank, true, null, true) as MiniBankPopup).InitPopup(priceForTryCharacterGems);
-				}
-			}
-			else
-			{
-				IsOnVideoFinishEventSubscribed = true;
-				CachedManagers.CachedAdvertisingManager.ShowVideo(proposalCallback);
-			}
+			// LastTryCharacter = DateTime.Now;
+			// LastTryCharacterMatches = statisticsManager.MathesCount;
+			// Action<bool> proposalCallback = GetProposalCallback();
+			// if (CachedManagers.CachedSubscriptionManager.IsSubscriptionActive)
+			// {
+			// 	if (statisticsManager.Gems >= priceForTryCharacterGems)
+			// 	{
+			// 		SpendCoinsForTryCharacter();
+			// 	}
+			// 	else
+			// 	{
+			// 		(CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.MiniBank, true, null, true) as MiniBankPopup).InitPopup(priceForTryCharacterGems);
+			// 	}
+			// }
+			// else
+			// {
+			// 	// IsOnVideoFinishEventSubscribed = true;
+			// 	// CachedManagers.CachedAdvertisingManager.ShowVideo(proposalCallback);
+			// }
 			break;
 		}
 		case ProposalMenuType.BuyPack:

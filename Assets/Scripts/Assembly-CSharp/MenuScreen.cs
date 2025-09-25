@@ -1086,7 +1086,6 @@ public class MenuScreen : GUIScreen
 		foreach (tk2dUIItem tk2dUIItem23 in array23)
 		{
 			tk2dUIItem23.OnClick += SettingsButton_OnClick;
-			tk2dUIItem23.gameObject.SetActive(false);
 		}
 		tk2dUIItem[] array24 = achievementButtons;
 		foreach (tk2dUIItem tk2dUIItem24 in array24)
@@ -1437,7 +1436,7 @@ public class MenuScreen : GUIScreen
 		base.Show(onFinished, immediately, delay, callInvokes);
 		if (base.CachedManagers.CachedSubscriptionManager.IsSubscriptionActive && base.CachedManagers.CachedSubscriptionManager.SubscriptionRewardCount > 0 && base.CachedManagers.CachedGUIPopupManager.ActivePopup == null)
 		{
-			base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.AutoRenewableSubscribeReward, true, null, true);
+			// base.CachedManagers.CachedGUIPopupManager.ShowPopup(PopupType.AutoRenewableSubscribeReward, true, null, true);
 		}
 		CustomPlayerPrefs.Save();
 	}

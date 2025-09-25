@@ -544,9 +544,9 @@ public class Character : CharacterBase
 			health = -0.5f;
 			if ((level.GameType == GameType.VSComputer || level.GameType == GameType.Tournament) && this == level.CharacterFirst && base.CachedManagers.CachedProposalManager.IsAvalaibleMoreLife)
 			{
-				((LevelVSComputer)level).ShowRevivePopup();
-				base.CachedManagers.CachedGameManager.IsGamePaused = true;
-				return;
+				// ((LevelVSComputer)level).ShowRevivePopup();
+				// base.CachedManagers.CachedGameManager.IsGamePaused = true;
+				// return;
 			}
 			level.ForceEmittedObjectsCollidersDisable();
 			base.IsFinishHim = true;

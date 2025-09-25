@@ -734,7 +734,7 @@ public class RouletteScreen : GUIScreen
 	{
 		
 		//TODO:激励--领取双倍奖励（开宝箱后）
-			ADManager.Instance.ShowRewardAD(this.gameObject.name,nameof(GetReward_ClaimX2));
+			ADManager.Instance.ShowAD_Reward(this.gameObject.name,nameof(GetReward_ClaimX2));
 		
 		// base.CachedManagers.CachedAdvertisingManager.ShowVideo(delegate(bool isVideoShown)
 		// {
