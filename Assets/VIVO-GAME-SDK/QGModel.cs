@@ -165,13 +165,6 @@ namespace QGMiniGame
         public string confirmType; //键盘右下角confirm按钮类型，只影响按钮的文本内容
     }
 
-
-    public class ReplaceRule
-    {
-        public string oldStr;
-        public string newStr;
-    }
-
     public class SubscribeParam
     {
         public string templateIds;

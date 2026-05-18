@@ -227,7 +227,8 @@
             unityWasmDownTime: 0,
             unityWasmLoadTime: 0,
             unityCodeSize: 0,
-            unityDataSize: 0
+            unityDataSize: 0,
+            isOpenVBrotli: global.manifest && global.manifest.enableBrotli,
         },
 
         SystemInfo: function () {
@@ -339,6 +340,15 @@
                     o = t.parameters.url,
                     i = r(1),
                     a = o;
+                var qgRF;
+                if (UnityLoader.UnityInfo.isOpenVBrotli === '1' && a.indexOf("wasm.code.unityweb") !== -1) {
+                    a = a.endsWith('.br') ? a : a + '.br';
+                    UnityLoader.printLog(`downloadJob start readCompressedFile, a = ${a}'`)
+                    qgRF = n.readCompressedFile;
+                } else {
+                    UnityLoader.printLog(`downloadJob start readFile, a = ${a}'`)
+                    qgRF = n.readFile;
+                }
                 if (-1 !== o.indexOf("online_mini")) {
                     var cache_key = window.qg.getStorageSync({
                         key: 'mini_wasm_cache_url_md5',
@@ -346,38 +356,31 @@
                     })
                     a = window.qg.env.USER_DATA_PATH + "/" + cache_key
                     a += (o.indexOf("online_mini.wasm.code.unityweb") !== -1) ? '/online_mini.wasm.code.unityweb' : '/online_mini.data.unityweb'
-                    n.getFileInfo({
+                    qgRF({
                         filePath: a,
-                        success: function (e) {
-                            n.readFile({
-                                filePath: a,
-                                encoding: "binary",
-                                success: function (r) {
-                                    UnityLoader.Compression.decompress(new Uint8Array(r.data), function (e) {
-                                        t.complete(e)
-                                    }), t.parameters.onprogress && t.parameters.onprogress({
-                                        type: "progress",
-                                        loaded: e.size
-                                    }), t.parameters.onload && t.parameters.onload({
-                                        type: "load",
-                                        loaded: e.size
-                                    })
-                                },
-                                fail: function (e,c) {
-                                    UnityLoader.printError(`read file error,  filePath = ${a} msg = ${e} code = ${c}`)     
-                                }
+                        encoding: "binary",
+                        compressionAlgorithm: "br",
+                        success: function (r) {
+                            UnityLoader.recordWasmSize(a, r.data.byteLength)
+                            UnityLoader.Compression.decompress(new Uint8Array(r.data), function (e) {
+                                t.complete(e)
+                            }), t.parameters.onprogress && t.parameters.onprogress({
+                                type: "progress",
+                                loaded: r.data.byteLength
+                            }), t.parameters.onload && t.parameters.onload({
+                                type: "load",
+                                loaded: r.data.byteLength
                             })
-                            UnityLoader.recordWasmSize(a,e.length)
                         },
-                        fail: function (e) {
-                            UnityLoader.printError(`getFileInfo error,  filePath = ${a}`)
+                        fail: function (e, c) {
+                            UnityLoader.printError(`read file error,  filePath = ${a} msg = ${e} code = ${c}`)
                         }
                     })
                 } else if (-1 !== o.indexOf("http") || -1 !== o.indexOf("https")) {
                     var s = {
-                            dataUrl: "",
-                            wasmCodeUrl: ""
-                        },
+                        dataUrl: "",
+                        wasmCodeUrl: ""
+                    },
                         d = window.qg.env.USER_DATA_PATH + "/_quickgame_wasm_cacheFile";
                     if (n.accessSync(d)) {
                         s = JSON.parse(n.readFileSync(d, "utf8").data)
@@ -399,31 +402,24 @@
                     //     u = !1
                     // }
                     if (u) {
-                        n.getFileInfo({
+                        qgRF({
                             filePath: a,
-                            success: function (e) {
-                                n.readFile({
-                                    filePath: a,
-                                    encoding: "binary",
-                                    success: function (r) {
-                                        UnityLoader.Compression.decompress(new Uint8Array(r.data), function (e) {
-                                            t.complete(e)
-                                        }), t.parameters.onprogress && t.parameters.onprogress({
-                                            type: "progress",
-                                            loaded: e.size
-                                        }), t.parameters.onload && t.parameters.onload({
-                                            type: "load",
-                                            loaded: e.size
-                                        })
-                                    },
-                                    fail: function (e, c) {
-                                        UnityLoader.printError(`read file error,  filePath = ${a} msg = ${e} code = ${c}`)
-                                    }
+                            encoding: "binary",
+                            compressionAlgorithm: "br",
+                            success: function (r) {
+                                UnityLoader.recordWasmSize(a, r.data.byteLength)
+                                UnityLoader.Compression.decompress(new Uint8Array(r.data), function (e) {
+                                    t.complete(e)
+                                }), t.parameters.onprogress && t.parameters.onprogress({
+                                    type: "progress",
+                                    loaded: r.data.byteLength
+                                }), t.parameters.onload && t.parameters.onload({
+                                    type: "load",
+                                    loaded: r.data.byteLength
                                 })
-                                UnityLoader.recordWasmSize(a,e.length)
                             },
-                            fail: function (e) {
-                                UnityLoader.printError(`getFileInfo error,  filePath = ${a}`)
+                            fail: function (e, c) {
+                                UnityLoader.printError(`read file error,  filePath = ${a} msg = ${e} code = ${c}`)
                             }
                         })
                     } else {
@@ -432,28 +428,24 @@
                             url: o,
                             filePath: a,
                             success: function () {
-                                n.getFileInfo({
+                                qgRF({
                                     filePath: a,
-                                    success: function (e) {
-                                        n.readFile({
-                                            filePath: a,
-                                            encoding: "binary",
-                                            success: function (r) {
-                                                UnityLoader.Compression.decompress(new Uint8Array(r.data), function (e) {
-                                                    t.complete(e)
-                                                }), t.parameters.onload && t.parameters.onload({
-                                                    type: "load",
-                                                    loaded: e.size
-                                                })
-                                            },
-                                            fail: function (e, c) {
-                                                UnityLoader.printError(`read file error,  filePath = ${a} msg = ${e} code = ${c}`)
-                                            }
+                                    encoding: "binary",
+                                    compressionAlgorithm: "br",
+                                    success: function (r) {
+                                        UnityLoader.recordWasmSize(a, r.data.byteLength)
+                                        UnityLoader.Compression.decompress(new Uint8Array(r.data), function (e) {
+                                            t.complete(e)
+                                        }), t.parameters.onprogress && t.parameters.onprogress({
+                                            type: "progress",
+                                            loaded: r.data.byteLength
+                                        }), t.parameters.onload && t.parameters.onload({
+                                            type: "load",
+                                            loaded: r.data.byteLength
                                         })
-                                        UnityLoader.recordWasmSize(a,e.length)
                                     },
-                                    fail: function (e) {
-                                        UnityLoader.printError(`getFileInfo error,  filePath = ${a}`)
+                                    fail: function (e, c) {
+                                        UnityLoader.printError(`read file error,  filePath = ${a} msg = ${e} code = ${c}`)
                                     }
                                 })
                             },
@@ -469,31 +461,24 @@
                             })
                         });
                     }
-                } else n.getFileInfo({
+                } else qgRF({
                     filePath: a,
-                    success: function (e) {
-                        n.readFile({
-                            filePath: a,
-                            encoding: "binary",
-                            success: function (r) {
-                                UnityLoader.Compression.decompress(new Uint8Array(r.data), function (e) {
-                                    t.complete(e)
-                                }), t.parameters.onprogress && t.parameters.onprogress({
-                                    type: "progress",
-                                    loaded: e.size
-                                }), t.parameters.onload && t.parameters.onload({
-                                    type: "load",
-                                    loaded: e.size
-                                })
-                            },
-                            fail: function (e, c) {
-                                UnityLoader.printError(`read file error,  filePath = ${a} msg = ${e} code = ${c}`)
-                            }
+                    encoding: "binary",
+                    compressionAlgorithm: "br",
+                    success: function (r) {
+                        UnityLoader.recordWasmSize(a, r.data.byteLength)
+                        UnityLoader.Compression.decompress(new Uint8Array(r.data), function (e) {
+                            t.complete(e)
+                        }), t.parameters.onprogress && t.parameters.onprogress({
+                            type: "progress",
+                            loaded: r.data.byteLength
+                        }), t.parameters.onload && t.parameters.onload({
+                            type: "load",
+                            loaded: r.data.byteLength
                         })
-                        UnityLoader.recordWasmSize(a,e.length)
                     },
-                    fail: function (e) {
-                        UnityLoader.printError(`getFileInfo error,  filePath = ${a}`)
+                    fail: function (e, c) {
+                        UnityLoader.printError(`read file error,  filePath = ${a} msg = ${e} code = ${c}`)
                     }
                 })
             } else {
@@ -518,27 +503,23 @@
         },
 
         printLog: function (e) {
-            console.log("[unity adapter] :" + e)
+            console.log("[unity adapter] :", e)
         },
 
         printError: function (e) {
-            console.error("[unity adapter] :" + e)
+            console.error("[unity adapter] :", e)
         },
 
         fprintLog: function (e) {
-            if(e.indexOf("Compressed DXT") !== -1 && e.indexOf("is not supported") !== -1){
-                console.warn("[unity framework] :" + "当前游戏内纹理是DXT格式,建议使用Unity2021及以上版本将纹理压缩格式设置成ASTC，可优化游戏运行中内存从而提高流畅和稳定性")
-            }else{
-                console.log("[unity framework] :" + e)
-            }
+            console.log("[unity framework] :", e)
         },
 
         fprintError: function (e) {
-            console.error("[unity framework] :" + e)
+            console.error("[unity framework] :", e)
         },
 
         fprintWarn: function (e) {
-            console.warn("[unity framework] :" + e)
+            console.warn("[unity framework] :", e)
         },
 
         recordWasmSize: function(src,size){
@@ -550,25 +531,23 @@
         },
 
         loadModule: function (e, t) {
-
             var r = ["downloadWasmFramework"];
-
             // handle code
             UnityLoader.scheduleBuildDownloadJob(e, "downloadWasmCode", "wasmCodeUrl"),
-                UnityLoader.Job.schedule(e, "processWasmCode", ["downloadWasmCode"], UnityLoader.processWasmCodeJob),
+            UnityLoader.Job.schedule(e, "processWasmCode", ["downloadWasmCode"], UnityLoader.processWasmCodeJob),
 
-                r.push("processWasmCode"),
+            r.push("processWasmCode"),
 
-                // handle framework
-                UnityLoader.scheduleBuildDownloadJob(e, "downloadWasmFramework", "wasmFrameworkUrl"),
-                UnityLoader.Job.schedule(e, "processWasmFramework", r, UnityLoader.processWasmFrameworkJob)
+            // handle framework
+            UnityLoader.scheduleBuildDownloadJob(e, "downloadWasmFramework", "wasmFrameworkUrl"),
+            UnityLoader.Job.schedule(e, "processWasmFramework", r, UnityLoader.processWasmFrameworkJob)
 
             // handle data
-            UnityLoader.scheduleBuildDownloadJob(e, "downloadData", "dataUrl"),
-                e.preRun.push(function () {
-                    e.addRunDependency("processDataJob"),
-                        UnityLoader.Job.schedule(e, "processData", ["downloadData"], UnityLoader.processDataJob)
-                })
+            UnityLoader.scheduleBuildDownloadJob(e, "downloadData", "dataUrl"), 
+            e.preRun.push(function () {
+                e.addRunDependency("processDataJob"), 
+                UnityLoader.Job.schedule(e, "processData", ["downloadData"], UnityLoader.processDataJob)
+            })
         },
         instantiate: function (t, r) {
             function n(n) {
@@ -658,6 +637,9 @@
                     streamingAssetsUrl: function () {
                         return UnityLoader.EnvConfig.getConfig("streamingAssetsUrl")
                     },
+                    assistWasmUrl: function () {
+                        return UnityLoader.EnvConfig.getConfig("assistWasmUrl")
+                    },
                     locateFile: function (e) {
                         return "buildUnity/".concat("build.wasm" == e ? this.wasmCodeUrl : e)
                     },
@@ -715,6 +697,9 @@
                 }
             }
         },
+    }
+    window.open = function(url, target, wf) {
+        console.log('window.open is not available in this environment');
     }
 }, function (e, t) {
     var r = 0,

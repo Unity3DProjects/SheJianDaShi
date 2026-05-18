@@ -16,14 +16,17 @@ var QgGameBridge = {
 
     $mFileData: {},
 
+	QGCollectIndex: function (index) {
+    },
+
     QGLogin: function (success, fail) {
         if (typeof (qg) == 'undefined') {
             console.log("qg.minigame.jslib  qg is undefined");
             return;
         }
 
-        var successID = Pointer_stringify(success);
-        var failID = Pointer_stringify(fail);
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
 
         qg.login({
             success: function (res) {
@@ -50,8 +53,8 @@ var QgGameBridge = {
             return;
         }
 
-        var successID = Pointer_stringify(success);
-        var failID = Pointer_stringify(fail);
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
 
         qg.getUserInfo({
             success: function (res) {
@@ -78,8 +81,8 @@ var QgGameBridge = {
             return;
         }
 
-        var successID = Pointer_stringify(success);
-        var failID = Pointer_stringify(fail);
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
 
         qg.hasShortcutInstalled({
             success: function (res) {
@@ -108,9 +111,9 @@ var QgGameBridge = {
             return;
         }
 
-        var successID = Pointer_stringify(success);
-        var failID = Pointer_stringify(fail);
-        var messageStr = Pointer_stringify(message);
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
+        var messageStr = UTF8ToString(message);
 
         qg.installShortcut({
             message: messageStr,
@@ -141,9 +144,9 @@ var QgGameBridge = {
             mAdMap = new Map()
         }
 
-        var posIdStr = Pointer_stringify(posId);
-        var styleStr = Pointer_stringify(style);
-        var adIdStr = Pointer_stringify(adId);
+        var posIdStr = UTF8ToString(posId);
+        var styleStr = UTF8ToString(style);
+        var adIdStr = UTF8ToString(adId);
 
         var bannerAd;
         if (styleStr) {
@@ -193,8 +196,8 @@ var QgGameBridge = {
             mAdMap = new Map()
         }
 
-        var posIdStr = Pointer_stringify(posId);
-        var adIdStr = Pointer_stringify(adId);
+        var posIdStr = UTF8ToString(posId);
+        var adIdStr = UTF8ToString(adId);
 
         var interstitialAd = qg.createInterstitialAd({
             posId: posIdStr
@@ -234,8 +237,8 @@ var QgGameBridge = {
             mAdMap = new Map()
         }
 
-        var posIdStr = Pointer_stringify(posId);
-        var adIdStr = Pointer_stringify(adId);
+        var posIdStr = UTF8ToString(posId);
+        var adIdStr = UTF8ToString(adId);
 
         var boxBannerAd = qg.createBoxBannerAd({
             posId: posIdStr
@@ -275,9 +278,9 @@ var QgGameBridge = {
             mAdMap = new Map()
         }
 
-        var posIdStr = Pointer_stringify(posId);
-        var adIdStr = Pointer_stringify(adId);
-        var imageStr = Pointer_stringify(image);
+        var posIdStr = UTF8ToString(posId);
+        var adIdStr = UTF8ToString(adId);
+        var imageStr = UTF8ToString(image);
 
         var boxPortalAd = qg.createBoxPortalAd({
             posId: posIdStr,
@@ -325,8 +328,8 @@ var QgGameBridge = {
             mAdMap = new Map()
         }
 
-        var posIdStr = Pointer_stringify(posId);
-        var adIdStr = Pointer_stringify(adId);
+        var posIdStr = UTF8ToString(posId);
+        var adIdStr = UTF8ToString(adId);
 
         var rewardedVideoAd = qg.createRewardedVideoAd({
             posId: posIdStr
@@ -369,8 +372,8 @@ var QgGameBridge = {
             mAdMap = new Map()
         }
 
-        var posIdStr = Pointer_stringify(posId);
-        var adIdStr = Pointer_stringify(adId);
+        var posIdStr = UTF8ToString(posId);
+        var adIdStr = UTF8ToString(adId);
 
         var nativeAd = qg.createNativeAd({
             posId: posIdStr
@@ -405,9 +408,9 @@ var QgGameBridge = {
             mAdMap = new Map()
         }
 
-        var posIdStr = Pointer_stringify(posId);
-        var adIdStr = Pointer_stringify(adId);
-        var styleStr = Pointer_stringify(style);
+        var posIdStr = UTF8ToString(posId);
+        var adIdStr = UTF8ToString(adId);
+        var styleStr = UTF8ToString(style);
 
         var customAd = qg.createCustomAd({
             posId: posIdStr,
@@ -454,9 +457,9 @@ var QgGameBridge = {
             mAdMap = new Map()
         }
 
-        var successID = Pointer_stringify(success);
-        var failID = Pointer_stringify(fail);
-        var adIdStr = Pointer_stringify(adId);
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
+        var adIdStr = UTF8ToString(adId);
 
         var ad = mAdMap.get(adIdStr)
 
@@ -496,9 +499,9 @@ var QgGameBridge = {
             mAdMap = new Map()
         }
 
-        var successID = Pointer_stringify(success);
-        var failID = Pointer_stringify(fail);
-        var adIdStr = Pointer_stringify(adId);
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
+        var adIdStr = UTF8ToString(adId);
 
         var ad = mAdMap.get(adIdStr)
 
@@ -538,9 +541,9 @@ var QgGameBridge = {
             mAdMap = new Map()
         }
 
-        var successID = Pointer_stringify(success);
-        var failID = Pointer_stringify(fail);
-        var adIdStr = Pointer_stringify(adId);
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
+        var adIdStr = UTF8ToString(adId);
 
         var ad = mAdMap.get(adIdStr)
 
@@ -580,7 +583,7 @@ var QgGameBridge = {
             mAdMap = new Map()
         }
 
-        var adIdStr = Pointer_stringify(adId);
+        var adIdStr = UTF8ToString(adId);
 
         var ad = mAdMap.get(adIdStr)
 
@@ -600,8 +603,8 @@ var QgGameBridge = {
             mAdMap = new Map()
         }
 
-        var adIdStr = Pointer_stringify(adId);
-        var posIdStr = Pointer_stringify(posId);
+        var adIdStr = UTF8ToString(adId);
+        var posIdStr = UTF8ToString(posId);
 
         var ad = mAdMap.get(adIdStr)
 
@@ -622,8 +625,8 @@ var QgGameBridge = {
             mAdMap = new Map()
         }
 
-        var adIdStr = Pointer_stringify(adId);
-        var posIdStr = Pointer_stringify(posId);
+        var adIdStr = UTF8ToString(adId);
+        var posIdStr = UTF8ToString(posId);
 
         var ad = mAdMap.get(adIdStr)
 
@@ -644,7 +647,7 @@ var QgGameBridge = {
             mAdMap = new Map()
         }
 
-        var adIdStr = Pointer_stringify(adId);
+        var adIdStr = UTF8ToString(adId);
 
         var ad = mAdMap.get(adIdStr)
 
@@ -658,7 +661,7 @@ var QgGameBridge = {
             console.log("qg.minigame.jslib  qg is undefined");
             return;
         }
-        var keyStr = Pointer_stringify(key);
+        var keyStr = UTF8ToString(key);
         var valueStr = value + "";
 
         qg.setStorageSync({
@@ -672,7 +675,7 @@ var QgGameBridge = {
             console.log("qg.minigame.jslib  qg is undefined");
             return;
         }
-        var keyStr = Pointer_stringify(key);
+        var keyStr = UTF8ToString(key);
         var defaultValueStr = defaultValue + "";
 
         var result = qg.getStorageSync({
@@ -687,8 +690,8 @@ var QgGameBridge = {
             console.log("qg.minigame.jslib  qg is undefined");
             return;
         }
-        var keyStr = Pointer_stringify(key);
-        var valueStr = Pointer_stringify(value);
+        var keyStr = UTF8ToString(key);
+        var valueStr = UTF8ToString(value);
 
         qg.setStorageSync({
             key: keyStr,
@@ -701,8 +704,8 @@ var QgGameBridge = {
             console.log("qg.minigame.jslib  qg is undefined");
             return;
         }
-        var keyStr = Pointer_stringify(key);
-        var defaultValueStr = Pointer_stringify(defaultValue);
+        var keyStr = UTF8ToString(key);
+        var defaultValueStr = UTF8ToString(defaultValue);
 
         var result = qg.getStorageSync({
             key: keyStr,
@@ -721,7 +724,7 @@ var QgGameBridge = {
             console.log("qg.minigame.jslib  qg is undefined");
             return;
         }
-        var keyStr = Pointer_stringify(key);
+        var keyStr = UTF8ToString(key);
         var valueStr = value + "";
 
         qg.setStorageSync({
@@ -735,7 +738,7 @@ var QgGameBridge = {
             console.log("qg.minigame.jslib  qg is undefined");
             return;
         }
-        var keyStr = Pointer_stringify(key);
+        var keyStr = UTF8ToString(key);
         var defaultValueStr = defaultValue + "";
 
         var result = qg.getStorageSync({
@@ -758,7 +761,7 @@ var QgGameBridge = {
             console.log("qg.minigame.jslib  qg is undefined");
             return;
         }
-        var keyStr = Pointer_stringify(key);
+        var keyStr = UTF8ToString(key);
         qg.deleteStorageSync({
             key: keyStr
         })
@@ -769,7 +772,7 @@ var QgGameBridge = {
             console.log("qg.minigame.jslib  qg is undefined");
             return;
         }
-        var keyStr = Pointer_stringify(key);
+        var keyStr = UTF8ToString(key);
 
         var result = qg.getStorageSync({
             key: keyStr
@@ -785,11 +788,11 @@ var QgGameBridge = {
             return;
         }
 
-        var paramStr = Pointer_stringify(param);
-        var successID = Pointer_stringify(success);
-        var failID = Pointer_stringify(fail);
-        var cancelID = Pointer_stringify(cancel);
-        var completeID = Pointer_stringify(complete);
+        var paramStr = UTF8ToString(param);
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
+        var cancelID = UTF8ToString(cancel);
+        var completeID = UTF8ToString(complete);
 
         qg.pay({
             orderInfo: paramStr,
@@ -829,7 +832,7 @@ var QgGameBridge = {
             return;
         }
 
-        var uriStr = Pointer_stringify(uri);
+        var uriStr = UTF8ToString(uri);
         var result = qg.accessFile({
             uri: uriStr
         })
@@ -847,10 +850,10 @@ var QgGameBridge = {
             return;
         }
 
-        var uriStr = Pointer_stringify(uri);
-        var encodingStr = Pointer_stringify(encoding);
-        var successID = Pointer_stringify(success);
-        var failID = Pointer_stringify(fail);
+        var uriStr = UTF8ToString(uri);
+        var encodingStr = UTF8ToString(encoding);
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
 
 
         qg.readFile({
@@ -859,15 +862,23 @@ var QgGameBridge = {
             position: position,
             length: length,
             success: function (data) {
-                if (encodingStr == "binary") {
+                if (data.text && encodingStr == "binary") {
                     mFileData[successID] = data.text;
                 }
-                var json = JSON.stringify({
-                    callbackId: successID,
-                    textStr: data.text,
-                    encoding: encodingStr,
-                    byteLength: data.text.byteLength
-                })
+                var json;
+                if (data.text) {
+                    json = JSON.stringify({
+                        callbackId: successID,
+                        textStr: data.text,
+                        encoding: encodingStr,
+                        byteLength: data.text.byteLength
+                    })
+                } else {
+                    json = JSON.stringify({
+                        callbackId: failID,
+                        errCode: "-1"
+                    })
+                }
                 unityInstance.SendMessage(CONSTANT.ACTION_CALL_BACK_CLASS_NAME_DEFAULT, "ReadFileResponseCallback", json);
             },
             fail: function (data, code) {
@@ -880,51 +891,46 @@ var QgGameBridge = {
         })
     },
 
-    QGReadFileSyncStr: function (uri, encoding, position, length) {
+    QGReadFileSync: function (uri, encoding, position, length) {
         if (typeof (qg) == 'undefined') {
             console.log("qg.minigame.jslib  qg is undefined");
             return;
         }
-        var uriStr = Pointer_stringify(uri);
-        var encodingStr = Pointer_stringify(encoding);
-
-        const result = qg.readFileSync({
+        var uriStr = UTF8ToString(uri);
+        var encodingStr = UTF8ToString(encoding);
+        var successID = 'successID' + Math.random().toString();
+        const data = qg.readFileSync({
             uri: uriStr,
             encoding: encodingStr,
             position: position,
             length: length
         })
-
-        var bufferSize = lengthBytesUTF8(result.text) + 1;
-        var buffer = _malloc(bufferSize);
-        stringToUTF8(result.text, buffer, bufferSize);
-        return buffer;
-    },
-
-    QGReadFileSyncData: function (uri, encoding, position, length) {
-        if (typeof (qg) == 'undefined') {
-            console.log("qg.minigame.jslib  qg is undefined");
-            return;
+        var result;
+        if (data.text) {
+            if (encodingStr == "utf8") {
+                result = JSON.stringify({
+                    callbackId: successID,
+                    textStr: data.text,
+                    encoding: encodingStr,
+                    byteLength: data.text.byteLength,
+                });
+            } else {
+                mFileData[successID] = data.text;
+                result = JSON.stringify({
+                    callbackId: successID,
+                    encoding: encodingStr,
+                    byteLength: data.text.byteLength,
+                });
+            }
+        } else {
+            result = JSON.stringify({
+                callbackId: successID,
+                encoding: encodingStr
+            });
         }
-        var uriStr = Pointer_stringify(uri);
-        var encodingStr = Pointer_stringify(encoding);
-
-        const result = qg.readFileSync({
-            uri: uriStr,
-            encoding: encodingStr,
-            position: position,
-            length: length
-        })
-        var byteArray = result.text;
-        var byteArrayPtr = Module._malloc(byteArray.byteLength * byteArray.BYTES_PER_ELEMENT);
-        Module.HEAPU8.set(byteArray, byteArrayPtr);
-
-        var resultStr = byteArray.byteLength + "-" + byteArrayPtr;
-        
-        var bufferSize = lengthBytesUTF8(resultStr) + 1;
+        var bufferSize = lengthBytesUTF8(result) + 1;
         var buffer = _malloc(bufferSize);
-        stringToUTF8(resultStr, buffer, bufferSize);
-        
+        stringToUTF8(result, buffer, bufferSize);
         return buffer;
     },
 
@@ -934,7 +940,7 @@ var QgGameBridge = {
             return;
         }
 
-        var callBackIdStr = Pointer_stringify(callBackId);
+        var callBackIdStr = UTF8ToString(callBackId);
         HEAPU8.set(new Uint8Array(mFileData[callBackIdStr]), buffer);
         delete mFileData[callBackIdStr];
     },
@@ -945,11 +951,11 @@ var QgGameBridge = {
             return;
         }
 
-        var uriStr = Pointer_stringify(uri);
-        var encodingStr = Pointer_stringify(encoding);
-        var textStrFinal = Pointer_stringify(textStr);
-        var successID = Pointer_stringify(success);
-        var failID = Pointer_stringify(fail);
+        var uriStr = UTF8ToString(uri);
+        var encodingStr = UTF8ToString(encoding);
+        var textStrFinal = UTF8ToString(textStr);
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
 
         var textFinal = (encodingStr == "utf8") ? textStrFinal : HEAPU8.slice(textData, length + textData).buffer;
 
@@ -980,9 +986,9 @@ var QgGameBridge = {
             return;
         }
 
-        var uriStr = Pointer_stringify(uri);
-        var encodingStr = Pointer_stringify(encoding);
-        var textStrFinal = Pointer_stringify(textStr);
+        var uriStr = UTF8ToString(uri);
+        var encodingStr = UTF8ToString(encoding);
+        var textStrFinal = UTF8ToString(textStr);
 
         var textFinal = (encodingStr == "utf8") ? textStrFinal : HEAPU8.slice(textData, length + textData).buffer;
 
@@ -1005,11 +1011,11 @@ var QgGameBridge = {
             return;
         }
 
-        var paramStr = Pointer_stringify(param);
+        var paramStr = UTF8ToString(param);
         var paramData = JSON.parse(paramStr);
-        var successID = Pointer_stringify(success);
-        var cancelID = Pointer_stringify(cancel);
-        var completeID = Pointer_stringify(complete);
+        var successID = UTF8ToString(success);
+        var cancelID = UTF8ToString(cancel);
+        var completeID = UTF8ToString(complete);
 
         qg.showKeyboard({
             defaultValue: paramData.defaultValue,
@@ -1044,7 +1050,7 @@ var QgGameBridge = {
             console.log("qg.minigame.jslib  qg is undefined");
             return;
         }
-        var callbackID = Pointer_stringify(callback);
+        var callbackID = UTF8ToString(callback);
 
         var func = function (data) {
             var json = JSON.stringify({
@@ -1061,7 +1067,7 @@ var QgGameBridge = {
             console.log("qg.minigame.jslib  qg is undefined");
             return;
         }
-        var callbackID = Pointer_stringify(callback);
+        var callbackID = UTF8ToString(callback);
 
         var func = function (data) {
             var json = JSON.stringify({
@@ -1078,7 +1084,7 @@ var QgGameBridge = {
             console.log("qg.minigame.jslib  qg is undefined");
             return;
         }
-        var callbackID = Pointer_stringify(callback);
+        var callbackID = UTF8ToString(callback);
 
         var func = function (data) {
             var json = JSON.stringify({
@@ -1112,13 +1118,13 @@ var QgGameBridge = {
             return;
         }
 
-        var templateIdsStr = Pointer_stringify(templateIds);
-        var clientIdStr = Pointer_stringify(clientId);
-        var userIdStr = Pointer_stringify(userId);
-        var sceneStr = Pointer_stringify(scene);
-        var subDescStr = Pointer_stringify(subDesc);
-        var successID = Pointer_stringify(success);
-        var failID = Pointer_stringify(fail);
+        var templateIdsStr = UTF8ToString(templateIds);
+        var clientIdStr = UTF8ToString(clientId);
+        var userIdStr = UTF8ToString(userId);
+        var sceneStr = UTF8ToString(scene);
+        var subDescStr = UTF8ToString(subDesc);
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
 
         var templateIdsArray = templateIdsStr.split(",");
 
@@ -1153,13 +1159,13 @@ var QgGameBridge = {
             return;
         }
 
-        var templateIdsStr = Pointer_stringify(templateIds);
-        var clientIdStr = Pointer_stringify(clientId);
-        var userIdStr = Pointer_stringify(userId);
-        var sceneStr = Pointer_stringify(scene);
-        var subDescStr = Pointer_stringify(subDesc);
-        var successID = Pointer_stringify(success);
-        var failID = Pointer_stringify(fail);
+        var templateIdsStr = UTF8ToString(templateIds);
+        var clientIdStr = UTF8ToString(clientId);
+        var userIdStr = UTF8ToString(userId);
+        var sceneStr = UTF8ToString(scene);
+        var subDescStr = UTF8ToString(subDesc);
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
 
         var templateIdsArray = templateIdsStr.split(",");
 
@@ -1194,13 +1200,13 @@ var QgGameBridge = {
             return;
         }
 
-        var templateIdsStr = Pointer_stringify(templateIds);
-        var clientIdStr = Pointer_stringify(clientId);
-        var userIdStr = Pointer_stringify(userId);
-        var sceneStr = Pointer_stringify(scene);
-        var subDescStr = Pointer_stringify(subDesc);
-        var successID = Pointer_stringify(success);
-        var failID = Pointer_stringify(fail);
+        var templateIdsStr = UTF8ToString(templateIds);
+        var clientIdStr = UTF8ToString(clientId);
+        var userIdStr = UTF8ToString(userId);
+        var sceneStr = UTF8ToString(scene);
+        var subDescStr = UTF8ToString(subDesc);
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
 
         var templateIdsArray = templateIdsStr.split(",");
 
@@ -1236,8 +1242,8 @@ var QgGameBridge = {
             return;
         }
 
-        var successID = Pointer_stringify(success);
-        var failID = Pointer_stringify(fail);
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
 
         console.error("successID = " + successID + " failID = " + failID);
 
@@ -1268,6 +1274,105 @@ var QgGameBridge = {
             return true;
         }
         return false;
+    },
+    QGGetSystemInfo: function (success, fail) {
+        if (typeof (qg) == 'undefined') {
+            console.log("qg.minigame.jslib  qg is undefined");
+            return;
+        }
+
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
+
+        qg.getSystemInfo({
+            success: function (data) {
+                var res = JSON.stringify(data);
+                var json = JSON.stringify({
+                    callbackId: successID,
+                    data: res
+                })
+                unityInstance.SendMessage(CONSTANT.ACTION_CALL_BACK_CLASS_NAME_DEFAULT, "GetSystemInfoCallback", json);
+            },
+            fail: function (res) {
+                var json = JSON.stringify({
+                    callbackId: failID,
+                    errMsg: res.errMsg,
+                    errCode: res.errCode
+                })
+                unityInstance.SendMessage(CONSTANT.ACTION_CALL_BACK_CLASS_NAME_DEFAULT, "GetSystemInfoCallback", json);
+            }
+        })
+    },
+    QGGetSystemInfoSync: function () {
+        if (typeof (qg) == 'undefined') {
+            console.log("qg.minigame.jslib  qg is undefined");
+            return;
+        }
+        var data = qg.getSystemInfoSync();
+        var result = JSON.stringify(data);
+
+        var bufferSize = lengthBytesUTF8(result) + 1;
+        var buffer = _malloc(bufferSize);
+        stringToUTF8(result, buffer, bufferSize);
+
+        return buffer;
+    },
+    QGSetClipboardData: function (p, success, fail) {
+        if (typeof (qg) == 'undefined') {
+            console.log("qg.minigame.jslib  qg is undefined");
+            return;
+        }
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
+        qg.setClipboardData({
+            text: UTF8ToString(p),
+            success: function () {
+                var json = JSON.stringify({
+                    callbackId: successID,
+                })
+                unityInstance.SendMessage(CONSTANT.ACTION_CALL_BACK_CLASS_NAME_DEFAULT, "SetClipboardDataCallback", json);
+            },
+            fail: function (res) {
+                var json = JSON.stringify({
+                    callbackId: failID,
+                    errMsg: res.errMsg,
+                    errCode: res.errCode
+                })
+                unityInstance.SendMessage(CONSTANT.ACTION_CALL_BACK_CLASS_NAME_DEFAULT, "SetClipboardDataCallback", json);
+            }
+        })
+    },
+    QGGetClipboardData: function (success, fail) {
+        if (typeof (qg) == 'undefined') {
+            console.log("qg.minigame.jslib  qg is undefined");
+            return;
+        }
+        var successID = UTF8ToString(success);
+        var failID = UTF8ToString(fail);
+        qg.getClipboardData({
+            success: function (data) {
+                var json = JSON.stringify({
+                    callbackId: successID,
+                    data: data.text
+                })
+                unityInstance.SendMessage(CONSTANT.ACTION_CALL_BACK_CLASS_NAME_DEFAULT, "GetClipboardDataCallback", json);
+            },
+            fail: function (res) {
+                var json = JSON.stringify({
+                    callbackId: failID,
+                    errMsg: res.errMsg,
+                    errCode: res.errCode
+                })
+                unityInstance.SendMessage(CONSTANT.ACTION_CALL_BACK_CLASS_NAME_DEFAULT, "GetClipboardDataCallback", json);
+            }
+        })
+    },
+    QGSetPreferredFramesPerSecond: function (fps) {
+        if (typeof (qg) == 'undefined') {
+            console.log("qg.minigame.jslib  qg is undefined");
+            return;
+        }
+        qg.setPreferredFramesPerSecond(fps);
     }
 };
 

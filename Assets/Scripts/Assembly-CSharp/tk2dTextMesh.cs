@@ -60,6 +60,10 @@ public class tk2dTextMesh : tk2dBaseMesh, ISpriteCollectionForceBuild, ILayoutCe
 		}
 		set
 		{
+			if (defaultFontData == null && data.Font != null)
+			{
+				defaultFontData = data.Font;
+			}
 			data.Font = value;
 			SetNeedUpdate(UpdateFlags.UpdateAll);
 			UpdateMaterial();
@@ -83,6 +87,7 @@ public class tk2dTextMesh : tk2dBaseMesh, ISpriteCollectionForceBuild, ILayoutCe
 		set
 		{
 			data.Text = value;
+			UseCurrentLanguageFontIfNeeded();
 			SetNeedUpdate(UpdateFlags.UpdateAll);
 		}
 	}
@@ -339,6 +344,10 @@ public class tk2dTextMesh : tk2dBaseMesh, ISpriteCollectionForceBuild, ILayoutCe
 	{
 		get
 		{
+			if (defaultFontData == null && font != null)
+			{
+				defaultFontData = font;
+			}
 			return defaultFontData;
 		}
 	}
@@ -416,6 +425,7 @@ public class tk2dTextMesh : tk2dBaseMesh, ISpriteCollectionForceBuild, ILayoutCe
 
 	private void RebuildAll()
 	{
+		UseCurrentLanguageFontIfNeeded();
 		UpdateMaterial();
 		updateFlags = UpdateFlags.UpdateNone;
 		SetNeedUpdate(UpdateFlags.UpdateAll);
@@ -423,11 +433,91 @@ public class tk2dTextMesh : tk2dBaseMesh, ISpriteCollectionForceBuild, ILayoutCe
 
 	private void Awake()
 	{
-		if (font != null)
+		if (defaultFontData == null && font != null)
 		{
 			defaultFontData = font;
 		}
 		RebuildAll();
+	}
+
+	private void UseCurrentLanguageFontIfNeeded()
+	{
+		if (!Application.isPlaying || font == null || string.IsNullOrEmpty(data.Text))
+		{
+			return;
+		}
+		LocalisationManager localisationManager = SingletonMonoBehaviour<LocalisationManager>.InstanceIfExist;
+		if (localisationManager == null)
+		{
+			return;
+		}
+		tk2dFontData fontForText = GetCurrentLanguageFontForText(localisationManager);
+		if (fontForText != null && fontForText != font)
+		{
+			if (defaultFontData == null)
+			{
+				defaultFontData = font;
+			}
+			data.Font = fontForText;
+			UpdateMaterial();
+		}
+	}
+
+	private tk2dFontData GetCurrentLanguageFontForText(LocalisationManager localisationManager)
+	{
+		tk2dColoredText formattedSource = new tk2dColoredText(LocalisationManager.LocalizedStringOrSource(data.Text), data.colorS);
+		tk2dFontData fontInst = FontInst;
+		if (fontInst != null && FontHasAllChars(fontInst, formattedSource))
+		{
+			return null;
+		}
+		int num = localisationManager.DefaultLanguageFonts.IndexOf(DefaultFontData);
+		if (num >= 0 && num < localisationManager.CurrentLanguageFonts.Count)
+		{
+			tk2dFontData tk2dFontData2 = localisationManager.CurrentLanguageFonts[num];
+			if (tk2dFontData2 != null)
+			{
+				return tk2dFontData2;
+			}
+		}
+		for (int i = 0; i < localisationManager.CurrentLanguageFonts.Count; i++)
+		{
+			tk2dFontData tk2dFontData3 = localisationManager.CurrentLanguageFonts[i];
+			if (tk2dFontData3 != null && FontHasAllChars(tk2dFontData3.inst, formattedSource))
+			{
+				return tk2dFontData3;
+			}
+		}
+		for (int j = 0; j < localisationManager.FontsData.Count; j++)
+		{
+			tk2dFontData tk2dFontData4 = localisationManager.FontsData[j];
+			if (tk2dFontData4 != null && FontHasAllChars(tk2dFontData4.inst, formattedSource))
+			{
+				return tk2dFontData4;
+			}
+		}
+		return null;
+	}
+
+	private static bool FontHasAllChars(tk2dFontData fontData, tk2dColoredText source)
+	{
+		if (fontData == null)
+		{
+			return false;
+		}
+		for (int i = 0; i < source.Length; i++)
+		{
+			int num = source[i];
+			if (num == 17)
+			{
+				num = 32;
+			}
+			if (!fontData.HasCharForIndex(num))
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public Bounds GetEstimatedMeshBoundsForString(string str)

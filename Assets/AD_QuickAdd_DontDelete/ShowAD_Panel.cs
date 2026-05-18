@@ -27,17 +27,17 @@ public class ShowAD_Panel : MonoBehaviour
         if (ShowWhite)
         {
             //如果原工程没有使用到CustomType_E，不传参数也可以
-            ADManager.Instance.ShowAD_White(customType);
+            ADManager.Instance.ShowWhiteAd();
         }
         else
         {
-            ADManager.Instance.ShowAD_Black(customType);
+            ADManager.Instance.ShowBlackAd();
         }
 
         if (ShowBox)
         {
-            ADManager.Instance.ShowAD_Black();
-            ADManager.Instance.ShowAD_Box();
+            ADManager.Instance.ShowBlackAd();
+            ADManager.Instance.ShowBox();
         }
         // VivoAdManager.ShowWhiteAd();
         // TreasureBox.Instance.ShowTreasureBox();
@@ -47,7 +47,7 @@ public class ShowAD_Panel : MonoBehaviour
     {
         if (WhenPanelClose)
         {
-            ADManager.Instance.ShowAD_Black();
+            ADManager.Instance.ShowBlackAd();
         }
     }
 }

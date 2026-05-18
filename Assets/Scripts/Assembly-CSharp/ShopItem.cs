@@ -203,7 +203,7 @@ public class ShopItem : MonoBehaviour
 			//TODO:激励--购买角色和物品
 			GUIScreenManager.CustomReward = null;
 			GUIScreenManager.CustomReward += RewardFun;
-			ADManager.Instance.ShowAD_Reward("ScreenManager","InvokeRewardFun");
+			ADManager.Instance.ShowRewardAD("ScreenManager","InvokeRewardFun");
 			// RewardFun();
 			return true;
 		}
@@ -216,7 +216,7 @@ public class ShopItem : MonoBehaviour
 		
 			GUIScreenManager.CustomReward = null;
 			GUIScreenManager.CustomReward += RewardFun;
-			ADManager.Instance.ShowAD_Reward("ScreenManager","InvokeRewardFun");
+			ADManager.Instance.ShowRewardAD("ScreenManager","InvokeRewardFun");
 			// RewardFun();
 			return false;
 		

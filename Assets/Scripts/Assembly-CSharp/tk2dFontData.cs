@@ -61,6 +61,17 @@ public class tk2dFontData : MonoBehaviour
 
 	public Vector2 texelSize;
 
+	private static readonly tk2dFontChar emptyChar = new tk2dFontChar
+	{
+		p0 = Vector3.zero,
+		p1 = Vector3.zero,
+		uv0 = Vector3.zero,
+		uv1 = Vector3.zero,
+		gradientUv = new Vector2[4],
+		advance = 0f,
+		channel = 0
+	};
+
 	[HideInInspector]
 	public float invOrthoSize = 1f;
 
@@ -175,13 +186,46 @@ public class tk2dFontData : MonoBehaviour
 			{
 				num = defaultIndex;
 			}
+			if (!CharDict.ContainsKey(num))
+			{
+				num = 32;
+			}
+			if (!CharDict.ContainsKey(num))
+			{
+				return emptyChar;
+			}
 			return CharDict[num];
 		}
-		if (num >= chars.Length)
+		if (chars == null || chars.Length == 0)
+		{
+			return emptyChar;
+		}
+		if (num < 0 || num >= chars.Length || chars[num] == null)
 		{
 			num = defaultIndex;
 		}
+		if (num < 0 || num >= chars.Length || chars[num] == null)
+		{
+			num = 32;
+		}
+		if (num < 0 || num >= chars.Length || chars[num] == null)
+		{
+			return emptyChar;
+		}
 		return chars[num];
+	}
+
+	public bool HasCharForIndex(int charIndex)
+	{
+		if (charIndex == 10 || charIndex == 13 || charIndex == 9)
+		{
+			return true;
+		}
+		if (useDictionary)
+		{
+			return CharDict != null && CharDict.ContainsKey(charIndex);
+		}
+		return chars != null && charIndex >= 0 && charIndex < chars.Length && chars[charIndex] != null;
 	}
 
 	public void SetDictionary(Dictionary<int, tk2dFontChar> dict)

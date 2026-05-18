@@ -1799,7 +1799,7 @@ public class ProposalManager : SingletonMonoBehaviour<ProposalManager>
 			{
 				//TODO:激励--双人对战结束--钥匙开宝箱
 				// videoCallback(true);
-				ADManager.Instance.ShowAD_Reward(this.gameObject.name,nameof(GetReward_Proposal));
+				ADManager.Instance.ShowRewardAD(this.gameObject.name,nameof(GetReward_Proposal));
 				// CachedManagers.CachedAdvertisingManager.ShowVideo(delegate(bool isVideoAvailable)
 				// {
 				// 	videoCallback(isVideoAvailable);

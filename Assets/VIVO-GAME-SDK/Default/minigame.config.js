@@ -40,6 +40,11 @@ module.exports = function (options) {
       module_name: './store.js',
       module_path: './store.js',
       module_from: 'engine/store.js'
+    },
+    {
+      module_name: './unity-audio.js',
+      module_path: './unity-audio.js',
+      module_from: 'engine/unity-audio.js'
     }
   ]
   const copyFile = [{

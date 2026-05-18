@@ -92,6 +92,14 @@ public class LocalisationManager : SingletonMonoBehaviour<LocalisationManager>
 		}
 	}
 
+	public List<tk2dFontData> FontsData
+	{
+		get
+		{
+			return fontsData;
+		}
+	}
+
 	private TextAsset KeysFile
 	{
 		get

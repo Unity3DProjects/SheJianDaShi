@@ -6,7 +6,6 @@ namespace QGMiniGame
 {
     public class QG
     {
-        public static int SDK_VERSION = 14;
 
         #region Login  登录
         // http://minigame.vivo.com.cn/documents/#/api/service/newaccount?id=login
@@ -29,6 +28,18 @@ namespace QGMiniGame
         public static void GetUserInfo(Action<QGCommonResponse<QGUserInfoBean>> succCallback = null, Action<QGCommonResponse<QGUserInfoBean>> failCallback = null)
         {
             QGMiniGameManager.Instance.GetUserInfo(succCallback, failCallback);
+        }
+        #endregion
+
+        #region GetSystemInfo 获取系统信息
+        // https://minigame.vivo.com.cn/documents/#/api/system/system-info?id=qggetsysteminfoobject-object
+        public static void GetSystemInfo(Action<QGCommonResponse<string>> succCallback = null, Action<QGCommonResponse<string>> failCallback = null)
+        {
+            QGMiniGameManager.Instance.GetSystemInfo(succCallback, failCallback);
+        }
+        public static string GetSystemInfoSync()
+        {
+           return QGMiniGameManager.Instance.GetSystemInfoSync();
         }
         #endregion
 
@@ -480,6 +491,18 @@ namespace QGMiniGame
         public static bool IsVivoRuntime()
         {
             return QGMiniGameManager.Instance.IsVivoRuntime();
+        }
+        #endregion
+
+        #region Get/SetSystemInfo 剪贴板
+        // https://minigame.vivo.com.cn/documents/#/api/device/clipboard?id=qgsetclipboarddataobject-object
+        public static void SetClipboardData(string text, Action<QGBaseResponse> succCallback = null, Action<QGBaseResponse> failCallback = null)
+        {
+            QGMiniGameManager.Instance.SetClipboardData(text, succCallback, failCallback);
+        }
+        public static void GetClipboardData(Action<QGCommonResponse<string>> succCallback = null, Action<QGCommonResponse<string>> failCallback = null)
+        {
+            QGMiniGameManager.Instance.GetClipboardData(succCallback, failCallback);
         }
         #endregion
     }
