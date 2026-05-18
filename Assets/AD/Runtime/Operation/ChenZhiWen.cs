@@ -23,7 +23,7 @@ namespace AD.Operation
                                 .AddNode(new SetupBlack())
                                 .AddNode(new SetupBox())
                                 .AddNode(new ADDefault()),
-                            new AdSourceTypeNode(ADUtils.IsWhite, new ADDefault())),
+                            new AdTypeNode(ADUtils.IsWhite, new ADDefault())),
                         @false = new EmptyNode()
                     };
                 case EPlatform.OPPO:
@@ -39,8 +39,8 @@ namespace AD.Operation
                                 .AddNode(new SetupBlack())
                                 .AddNode(new SetupBox())
                                 .AddNode(new ADDefault()),
-                            new AdSourceTypeNode(ADUtils.IsWhite, new ADDefault())),
-                        @false = new AdSourceTypeNode(ADUtils.IsWhite, new ADDefault())
+                            new AdTypeNode(ADUtils.IsWhite, new ADDefault())),
+                        @false = new AdTypeNode(ADUtils.IsWhite, new ADDefault())
                     };
                 case EPlatform.RongYao:
                     return new IfElseNode()
@@ -55,7 +55,7 @@ namespace AD.Operation
                             .AddNode(SetupTiming.AD())
                             .AddNode(new SetupBlack())
                             .AddNode(new ADWithoutBox()),
-                        @false = new AdSourceTypeNode(ADUtils.IsWhite, new ADWithoutBox())
+                        @false = new AdTypeNode(ADUtils.IsWhite, new ADWithoutBox())
                     };
                 case EPlatform.XiaoMi:
                     return new IfElseNode()
@@ -66,7 +66,7 @@ namespace AD.Operation
                         @true = new ParallelNode()
                             .AddNode(new SetupBlack())
                             .AddNode(new ADWithoutBox()),
-                        @false = new AdSourceTypeNode(ADUtils.IsWhite, new ADWithoutBox())
+                        @false = new AdTypeNode(ADUtils.IsWhite, new ADWithoutBox())
                     };
                 case EPlatform.HuaWei:
                     return new ParallelNode()
@@ -76,7 +76,7 @@ namespace AD.Operation
                         ;
                 case EPlatform.None:
                 default:
-                    return new NoAD();
+                    return new ADNone();
             }
         }
     }

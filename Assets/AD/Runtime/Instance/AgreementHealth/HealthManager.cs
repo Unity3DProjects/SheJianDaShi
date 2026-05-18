@@ -64,18 +64,24 @@ namespace AD.Instance
                 StartCoroutine(ShowHealthUI());
             else
             {
-                OnHealthStart?.Invoke();
-                OnHealthEnd?.Invoke();
+                Call(ref OnHealthStart);
+                Call(ref OnHealthEnd);
             }
         }
 
         private IEnumerator ShowHealthUI()
         {
             yield return new WaitForEndOfFrame();
-            OnHealthStart?.Invoke();
+            Call(ref OnHealthStart);
             yield return new WaitForSeconds(3);
-            OnHealthEnd?.Invoke();
+            Call(ref OnHealthEnd);
             Hide();
+        }
+
+        private static void Call(ref Action action)
+        {
+            action?.Invoke();
+            action = null;
         }
     }
 }

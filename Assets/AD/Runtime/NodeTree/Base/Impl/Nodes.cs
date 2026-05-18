@@ -214,21 +214,27 @@ namespace AD.NodeTree
 
     public class ActionNode : BaseNode
     {
-        public Action action;
+        public Action initAction;
+        public Action<AdSourceType> callAction;
 
-        public ActionNode(Action action)
+        public ActionNode(Action initAction, Action<AdSourceType> callAction)
         {
-            this.action = action;
+            this.callAction = callAction;
         }
 
         public override void InitTree(Tree tree)
         {
-            
+        }
+
+        protected override void OnInit()
+        {
+            initAction?.Invoke();
+            base.OnInit();
         }
 
         protected override void OnCall(AdSourceType type)
         {
-            action?.Invoke();
+            callAction?.Invoke(type);
         }
     }
 }

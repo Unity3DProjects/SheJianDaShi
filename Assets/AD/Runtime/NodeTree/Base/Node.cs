@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using AD.NodeTree;
 using AD.Tools;
+using UnityEngine;
 
 namespace AD.NodeTree
 {
@@ -54,6 +55,12 @@ namespace AD.NodeTree
 
         public void Call(AdSourceType type)
         {
+#if UNITY_EDITOR
+            if (type == AdSourceType.None)
+            {
+                Debug.LogWarning("State Error");
+            }
+#endif
             if (state == NodeState.Waiting)
                 state = NodeState.Running;
             if (state == NodeState.Running)

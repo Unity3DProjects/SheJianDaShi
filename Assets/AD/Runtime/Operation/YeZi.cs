@@ -80,7 +80,7 @@ namespace AD.Operation
                                 .AddNode(SetupTiming.AD())
                                 .AddNode(new SetupBlack())
                                 .AddNode(new ADWithoutBox())
-                                .AddNode(new AdSourceTypeNode(type =>
+                                .AddNode(new AdTypeNode(type =>
                                 {
                                     switch (type)
                                     {
@@ -94,7 +94,7 @@ namespace AD.Operation
                                             return false;
                                     }
                                 }, new IntervalNode(new Tree.Key("添加桌面CD"), 60,
-                                    new ActionNode(ShortcutHepler.TryInstallShortcut))))
+                                    new ActionNode(() => { }, _ => ShortcutHepler.TryInstallShortcut()))))
                                 .AddNode(new IfElseNode()
                                 {
                                     conditionNode = new IsWorkingTimeNode(),
@@ -103,11 +103,11 @@ namespace AD.Operation
                                         new ParallelNode()
                                             .AddNode(SetupTiming.Box())
                                             .AddNode(new SetupBox())
-                                            .AddNode(new AdSourceTypeNode(ADUtils.IsBox, new ADDefault()))
+                                            .AddNode(new AdTypeNode(ADUtils.IsBox, new ADDefault()))
                                     )
                                 }),
 
-                            @false = new AdSourceTypeNode(ADUtils.IsWhite, new ADDefault())
+                            @false = new AdTypeNode(ADUtils.IsWhite, new ADDefault())
                         }
                     };
                 case EPlatform.OPPO:
@@ -122,7 +122,7 @@ namespace AD.Operation
                             .AddNode(new SetupBlack())
                             // .AddNode(new SetupBox())
                             .AddNode(new ADWithoutBox())
-                            .AddNode(new AdSourceTypeNode(type =>
+                            .AddNode(new AdTypeNode(type =>
                             {
                                 switch (type)
                                 {
@@ -136,8 +136,8 @@ namespace AD.Operation
                                         return false;
                                 }
                             }, new IntervalNode(new Tree.Key("添加桌面CD"), 90,
-                                new ActionNode(ShortcutHepler.TryInstallShortcut)))),
-                        @false = new AdSourceTypeNode(ADUtils.IsWhite, new ADWithoutBox())
+                                new ActionNode(() => { }, _ => ShortcutHepler.TryInstallShortcut())))),
+                        @false = new AdTypeNode(ADUtils.IsWhite, new ADWithoutBox())
                     };
                 case EPlatform.HuaWei:
                     return new ParallelNode()
@@ -154,7 +154,7 @@ namespace AD.Operation
                         @true = new ParallelNode()
                             .AddNode(new SetupBlack())
                             .AddNode(new ADWithoutBox()),
-                        @false = new AdSourceTypeNode(ADUtils.IsWhite, new ADWithoutBox())
+                        @false = new AdTypeNode(ADUtils.IsWhite, new ADWithoutBox())
                     };
                 case EPlatform.RongYao:
                     return new IfElseNode()
@@ -166,11 +166,11 @@ namespace AD.Operation
                             .AddNode(SetupTiming.AD())
                             .AddNode(new SetupBlack())
                             .AddNode(new ADWithoutBox()),
-                        @false = new AdSourceTypeNode(ADUtils.IsWhite, new ADWithoutBox())
+                        @false = new AdTypeNode(ADUtils.IsWhite, new ADWithoutBox())
                     };
                 case EPlatform.None:
                 default:
-                    return new NoAD();
+                    return new ADNone();
             }
         }
     }

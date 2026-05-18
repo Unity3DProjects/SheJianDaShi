@@ -33,7 +33,7 @@ namespace AD.Operation
                         @true = new ParallelNode()
                             .AddNode(new IfElseNode()
                             {
-                                conditionNode = new AdSourceTypeConditionNode(e => e == AdSourceType.GameEnd),
+                                conditionNode = new AdTypeConditionNode(e => e == AdSourceType.GameEnd),
                                 @true = new CustomUnitAD(new Tree.Key("结算模板")),
                                 @false = new ADWithoutBox()
                             })
@@ -42,9 +42,9 @@ namespace AD.Operation
                                 new ParallelNode()
                                     .AddNode(SetupTiming.Box())
                                     .AddNode(new SetupBox())
-                                    .AddNode(new AdSourceTypeNode(ADUtils.IsBox, new ADDefault())),
+                                    .AddNode(new AdTypeNode(ADUtils.IsBox, new ADDefault())),
                                 new EmptyNode())),
-                        @false = new AdSourceTypeNode(ADUtils.IsWhite, new ADDefault())
+                        @false = new AdTypeNode(ADUtils.IsWhite, new ADDefault())
                     };
                 case EPlatform.OPPO:
                     return new ParallelNode()
@@ -60,7 +60,7 @@ namespace AD.Operation
                         @true = new ParallelNode()
                             .AddNode(new SetupBlack())
                             .AddNode(new ADWithoutBox()),
-                        @false = new AdSourceTypeNode(ADUtils.IsWhite, new ADWithoutBox())
+                        @false = new AdTypeNode(ADUtils.IsWhite, new ADWithoutBox())
                     };
                 case EPlatform.RongYao:
                 case EPlatform.HuaWei:
@@ -70,7 +70,7 @@ namespace AD.Operation
                         .AddNode(new ADWithoutBox());
                 case EPlatform.None:
                 default:
-                    return new NoAD();
+                    return new ADNone();
             }
         }
     }

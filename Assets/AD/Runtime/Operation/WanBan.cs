@@ -23,8 +23,8 @@ namespace AD.Operation
                             .AddNode(SetupTiming.AddDeskPanel())
                             .AddNode(new SetupBlack())
                             .AddNode(new ADWithoutBox()),
-                            new AdSourceTypeNode(ADUtils.IsWhite, new ADWithoutBox())),
-                        @false = new AdSourceTypeNode(ADUtils.IsWhite, new ADWithoutBox())
+                            new AdTypeNode(ADUtils.IsWhite, new ADWithoutBox())),
+                        @false = new AdTypeNode(ADUtils.IsWhite, new ADWithoutBox())
                     };
                 case EPlatform.OPPO:
                     return new IfElseNode()
@@ -39,7 +39,7 @@ namespace AD.Operation
                             .AddNode(new SetupBlack())
                             .AddNode(new SetupBox())
                             .AddNode(new ADDefault()),
-                        @false = new AdSourceTypeNode(ADUtils.IsWhite, new ADDefault())
+                        @false = new AdTypeNode(ADUtils.IsWhite, new ADDefault())
                     };
                 case EPlatform.RongYao:
                     return new ParallelNode()
@@ -63,11 +63,11 @@ namespace AD.Operation
                             .AddNode(SetupTiming.AD())
                             .AddNode(new SetupBlack())
                             .AddNode(new ADWithoutBox()),
-                        @false = new AdSourceTypeNode(ADUtils.IsWhite, new ADDefault())
+                        @false = new AdTypeNode(ADUtils.IsWhite, new ADDefault())
                     };
                 case EPlatform.None:
                 default:
-                    return new NoAD();
+                    return new ADNone();
             }
         }
     }

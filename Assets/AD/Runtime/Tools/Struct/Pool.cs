@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AD.Tools
 {
-    internal class ListPool<T> : CollectionPool<List<T>, T>
+    internal sealed class ListPool<T> : CollectionPool<List<T>, T>
     {
     }
 

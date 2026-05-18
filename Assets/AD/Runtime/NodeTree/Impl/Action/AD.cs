@@ -10,6 +10,9 @@ namespace AD.NodeTree
         }
     }
 
+    /// <summary>
+    /// 接受全部广告
+    /// </summary>
     public class ADDefault : ADBaseNode
     {
         protected override void OnCall(AdSourceType type)
@@ -17,7 +20,9 @@ namespace AD.NodeTree
             ADManager.Instance.Call(type);
         }
     }
-
+    /// <summary>
+    /// 宝箱以外
+    /// </summary>
     public class ADWithoutBox : ADBaseNode
     {
         protected override void OnCall(AdSourceType type)
@@ -26,7 +31,9 @@ namespace AD.NodeTree
                 ADManager.Instance.Call(type);
         }
     }
-
+    /// <summary>
+    /// 白包
+    /// </summary>
     public class ADWhite : ADBaseNode
     {
         protected override void OnCall(AdSourceType type)
@@ -35,7 +42,9 @@ namespace AD.NodeTree
                 ADManager.Instance.Call(type);
         }
     }
-
+    /// <summary>
+    /// 黑包
+    /// </summary>
     public class ADBlack : ADBaseNode
     {
         protected override void OnCall(AdSourceType type)
@@ -44,8 +53,21 @@ namespace AD.NodeTree
                 ADManager.Instance.Call(type);
         }
     }
-
-    public class NoAD : ADBaseNode
+    /// <summary>
+    /// 只有宝箱
+    /// </summary>
+    public class ADBox : ADBaseNode
+    {
+        protected override void OnCall(AdSourceType type)
+        {
+            if (type.IsBox())
+                ADManager.Instance.Call(type);
+        }
+    }
+    /// <summary>
+    /// 无广告
+    /// </summary>
+    public class ADNone : ADBaseNode
     {
         protected override void OnCall(AdSourceType type)
         {
@@ -102,7 +124,7 @@ namespace AD.NodeTree
 
     #endregion
 
-    public class AdSourceTypeNode : BaseNode
+    public class AdTypeNode : BaseNode
     {
         private Func<AdSourceType, bool> condition;
         private INode node;
@@ -118,7 +140,7 @@ namespace AD.NodeTree
             CompleteInit();
         }
 
-        public AdSourceTypeNode(Func<AdSourceType, bool> condition, INode node)
+        public AdTypeNode(Func<AdSourceType, bool> condition, INode node)
         {
             this.condition = condition;
             this.node = node;
@@ -131,11 +153,11 @@ namespace AD.NodeTree
         }
     }
 
-    public class AdSourceTypeConditionNode : BaseNode
+    public class AdTypeConditionNode : BaseNode
     {
         private Func<AdSourceType, bool> condition;
 
-        public AdSourceTypeConditionNode(Func<AdSourceType, bool> condition)
+        public AdTypeConditionNode(Func<AdSourceType, bool> condition)
         {
             this.condition = condition;
         }

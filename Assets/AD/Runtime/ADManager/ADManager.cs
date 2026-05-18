@@ -191,6 +191,7 @@ public partial class ADManager : SingletonMonoBase<ADManager>, IADInit
     /// </summary>
     public void CreateShortcutButton()
     {
+        Debug.Log($"Current Call 添加桌面");
         AdAdapter.AddToDesktop();
     }
 
@@ -200,7 +201,7 @@ public partial class ADManager : SingletonMonoBase<ADManager>, IADInit
     public void CreateShortcutButtonBlack()
     {
         if (BlackBagManager.Instance.CanShowBlackAD)
-            AdAdapter.AddToDesktop();
+            CreateShortcutButton();
     }
 
     /// <summary>
