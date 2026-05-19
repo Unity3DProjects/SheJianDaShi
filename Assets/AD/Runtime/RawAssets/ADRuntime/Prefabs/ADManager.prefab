@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e64fa593d9622a45b2e80340e97006d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mPlatform: 1
+  mPlatform: 2
   operationType: 9
   overrideShieldType: 0
   ADParam:
@@ -55,17 +55,19 @@ MonoBehaviour:
       type: {class: ADNormalParam, ns: , asm: AD}
       data:
         bannerPosIdStr: 0
-        customPosIdStr: 4047176
-        blackCustomPosIdStr: 4047181
+        customPosIdStr: 4050231
+        blackCustomPosIdStr: 4050232
         interstitialAdId: 
         blackInterstitialAdId: 
-        rewardPosIdStr: 4047175
+        rewardPosIdStr: 4050229
         Orientation: 0
         decorator:
           decorators:
             keys:
+            - customPosIdStr
             - blackCustomPosIdStr
             values:
+            - '{"asm":"AD","type":"AD.Decorator.TimerDecorator","data":"{\"intervalSeconds\":30.0}"}'
             - '{"asm":"AD","type":"AD.Decorator.TimerDecorator","data":"{\"intervalSeconds\":30.0}"}'
 --- !u!114 &370792958
 MonoBehaviour:
@@ -82,31 +84,19 @@ MonoBehaviour:
   container:
     keys:
     - group: 
-      key: IsAfterShieldTimeNode
-    - group: 
       key: Ad
-    - group: "\u4E70\u91CF"
-      key: Ad
-    - group: "\u4E70\u91CF"
-      key: Box
     - group: 
       key: "\u6DFB\u52A0\u684C\u9762CD"
-    - group: "\u975E\u5DE5\u4F5C\u65F6\u95F4"
-      key: Box
+    - group: 
+      key: IsAfterBlackShieldTimeNode
     values:
-    - aqType: AD.NodeTree.WhiteTimeSelectValue, AD, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      data: '{"date":"2026-05-20 19:00:00"}'
     - aqType: AD.NodeTree.TimingData, AD, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       data: '{"enabled":true,"firstTime":45,"repeatTime":45}'
-    - aqType: AD.NodeTree.TimingData, AD, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      data: '{"enabled":true,"firstTime":45,"repeatTime":45}'
-    - aqType: AD.NodeTree.TimingData, AD, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      data: '{"enabled":true,"firstTime":180,"repeatTime":120}'
     - aqType: AD.NodeTree.FloatValue, AD, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       data: '{"value":60.0}'
-    - aqType: AD.NodeTree.TimingData, AD, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      data: '{"enabled":true,"firstTime":180,"repeatTime":120}'
+    - aqType: AD.NodeTree.BlackTimeSelectValue, AD, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      data: '{"date":"2026-05-22 19:00:00"}'
   overrideContainer:
     keys: []
     values: []
