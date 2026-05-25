@@ -5,6 +5,10 @@ public class FatalityDubStepGrenade : FatalityPulse
 	protected override void ExplodePart(SkeletonUtilityBone boneUtility)
 	{
 		base.ExplodePart(boneUtility);
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			return;
+		}
 		if (boneUtility == base.CachedHead)
 		{
 			Rigidbody rigidbody = base.CachedManager.CharacterRagdoll.GetRigidbody(base.CachedManager.GetUtilityBoneHead().boneName);

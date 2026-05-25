@@ -256,6 +256,10 @@ public class FatalityTurkeys : FatalityBase
 		{
 			return;
 		}
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			return;
+		}
 		SkeletonUtilityBone skeletonUtilityBone = ((!(UnityEngine.Random.value <= gutsProbability)) ? base.CachedManager.GetUtilityBoneByPosition(beakTransform.position) : CachedBody);
 		if (!(skeletonUtilityBone != null) || breakBonesNames.Contains(skeletonUtilityBone.boneName) || !(UnityEngine.Random.value <= breakProbability))
 		{

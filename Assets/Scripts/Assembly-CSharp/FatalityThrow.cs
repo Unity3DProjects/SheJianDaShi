@@ -7,6 +7,15 @@ public class FatalityThrow : FatalityBase
 
 	public override void StartFatality(CollisionInfo infoCollision)
 	{
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			if (!base.IsActive)
+			{
+				base.StartFatality(infoCollision);
+				base.CachedManager.CurrentCharacter.ApplyCharacterRagdoll();
+			}
+			return;
+		}
 		if (base.IsActive)
 		{
 			if (currentThrowParts.Contains(infoCollision.otherCollider) || base.CachedManager.CharacterRagdoll.IsActive)

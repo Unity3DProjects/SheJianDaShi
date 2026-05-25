@@ -342,6 +342,10 @@ public class MaskBase : MonoBehaviour
 
 	public void AddCutDecal(Vector2 position, Vector2 direction)
 	{
+		if (!GoreContentFilter.AllowCutMasks)
+		{
+			return;
+		}
 		if ((bool)CachedMaskSpine)
 		{
 			Decal randomCutDecal = GetRandomCutDecal();
@@ -351,6 +355,10 @@ public class MaskBase : MonoBehaviour
 
 	public void AddCutDecal(Decal decal, Vector2 position, Vector2 direction)
 	{
+		if (!GoreContentFilter.AllowCutMasks)
+		{
+			return;
+		}
 		if (!CachedMaskSpine || !decal)
 		{
 			return;
@@ -447,6 +455,10 @@ public class MaskBase : MonoBehaviour
 
 	public void FadeOut()
 	{
+		if (!GoreContentFilter.AllowCutMasks)
+		{
+			return;
+		}
 		if (cachedBoneSlots != null)
 		{
 			for (int i = 0; i < cachedBoneSlots.Count; i++)

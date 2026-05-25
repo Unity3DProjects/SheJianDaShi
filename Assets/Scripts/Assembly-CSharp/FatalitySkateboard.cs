@@ -127,6 +127,10 @@ public class FatalitySkateboard : FatalityBase
 			meshCollider.enabled = false;
 		}
 		base.CachedManager.CurrentCharacter.ApplyCharacterRagdoll();
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			return;
+		}
 		SkeletonUtilityBone utilityBoneHead = base.CachedManager.GetUtilityBoneHead();
 		SkeletonUtilityBone utilityBoneBody = base.CachedManager.GetUtilityBoneBody();
 		if (utilityBoneHead != null)

@@ -138,6 +138,10 @@ public class FatalityJackhammer : FatalityBase
 	{
 		set
 		{
+			if (value && !GoreContentFilter.AllowDismemberment)
+			{
+				return;
+			}
 			isHeadDeleted = value;
 			CachedSkeleton.FindBone("head").ScaleX = ((!isHeadDeleted) ? 1 : 0);
 			CachedSkeleton.FindBone("head").ScaleY = ((!isHeadDeleted) ? 1 : 0);
@@ -162,6 +166,21 @@ public class FatalityJackhammer : FatalityBase
 		base.CachedManager.CurrentCharacter.RemoveAllDriveIntoWeapon();
 		base.CachedManager.CurrentCharacter.StartDefaultAnimation();
 		base.CachedManager.CurrentCharacter.ApplyCharacterRagdoll();
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			SkeletonUtilityBone utilityBoneBodyForSafeRagdoll = base.CachedManager.GetUtilityBoneBody();
+			if ((bool)utilityBoneBodyForSafeRagdoll)
+			{
+				Rigidbody rigidbodyForSafeRagdoll = base.CachedManager.CharacterRagdoll.GetRigidbody(utilityBoneBodyForSafeRagdoll.boneName);
+				if ((bool)rigidbodyForSafeRagdoll)
+				{
+					rigidbodyForSafeRagdoll.velocity = Vector3.up * explodeCharacterForce * 0.25f;
+					rigidbodyForSafeRagdoll.constraints = (RigidbodyConstraints)56;
+				}
+			}
+			base.CachedMask.Activate(startFatalityCollider, startFatalityUtilityBone);
+			return;
+		}
 		SkeletonUtilityBone utilityBoneBody = base.CachedManager.GetUtilityBoneBody();
 		SkeletonUtilityBone utilityBoneHead = base.CachedManager.GetUtilityBoneHead();
 		if ((bool)utilityBoneBody)

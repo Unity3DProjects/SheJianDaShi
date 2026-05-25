@@ -176,6 +176,19 @@ public class FatalityJokerGrenade : FatalityBase
 		isExplode = true;
 		base.CachedManager.CurrentCharacter.StartDefaultAnimation();
 		base.CachedManager.CurrentCharacter.ApplyCharacterRagdoll();
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			if ((bool)CachedBody)
+			{
+				Rigidbody rigidbodyForSafeRagdoll = base.CachedManager.CharacterRagdoll.GetRigidbody(CachedBody.boneName);
+				if ((bool)rigidbodyForSafeRagdoll)
+				{
+					rigidbodyForSafeRagdoll.velocity = new Vector3(0f, explodeCharacterForce * 0.25f, 0f);
+					rigidbodyForSafeRagdoll.constraints = (RigidbodyConstraints)56;
+				}
+			}
+			return;
+		}
 		if ((bool)CachedBody)
 		{
 			Rigidbody rigidbody = base.CachedManager.CharacterRagdoll.GetRigidbody(CachedBody.boneName);

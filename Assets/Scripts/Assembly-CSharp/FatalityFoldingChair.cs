@@ -174,6 +174,11 @@ public class FatalityFoldingChair : FatalityBase
 	private IEnumerator ExplodeCharacter(float delay)
 	{
 		AudioManager.PlayAudioWithKey("pickaxe_fatality_explode");
+		if (!GoreContentFilter.AllowInternalOrgans)
+		{
+			StartCoroutine(OnCharacterExploded(standUpDelay));
+			yield break;
+		}
 		base.CachedManager.CharacterAnimation.gameObject.SetActive(false);
 		base.CachedEffect.EmitBrainEffect(base.CachedManager.CurrentCharacter.CharacterType, base.transform, CachedHead.transform.position + flashOffset, CachedHead.transform.eulerAngles);
 		for (int i = 0; i < bloodEffectMultiplier; i++)

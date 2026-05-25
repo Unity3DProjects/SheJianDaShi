@@ -136,6 +136,20 @@ public class FatalityMagicSkull : FatalityBase
 	{
 		base.CachedManager.CurrentCharacter.StartDefaultAnimation();
 		base.CachedManager.CurrentCharacter.ApplyCharacterRagdoll();
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			SkeletonUtilityBone utilityBoneBodyForSafeRagdoll = base.CachedManager.GetUtilityBoneBody();
+			if ((bool)utilityBoneBodyForSafeRagdoll)
+			{
+				Rigidbody rigidbodyForSafeRagdoll = base.CachedManager.CharacterRagdoll.GetRigidbody(utilityBoneBodyForSafeRagdoll.boneName);
+				if ((bool)rigidbodyForSafeRagdoll)
+				{
+					rigidbodyForSafeRagdoll.velocity = Vector3.up * explodeCharacterForce * 0.25f;
+					rigidbodyForSafeRagdoll.constraints = (RigidbodyConstraints)56;
+				}
+			}
+			return;
+		}
 		SkeletonUtilityBone utilityBoneBody = base.CachedManager.GetUtilityBoneBody();
 		if ((bool)utilityBoneBody)
 		{

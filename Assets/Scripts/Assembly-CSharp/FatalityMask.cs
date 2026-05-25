@@ -69,6 +69,10 @@ public class FatalityMask : MonoBehaviour
 
 	public void Activate(Collider collider, SkeletonUtilityBone utilityBone)
 	{
+		if (!GoreContentFilter.AllowCutMasks)
+		{
+			return;
+		}
 		if (cachedMaskMethod != null)
 		{
 			cachedMaskMethod(collider, utilityBone);

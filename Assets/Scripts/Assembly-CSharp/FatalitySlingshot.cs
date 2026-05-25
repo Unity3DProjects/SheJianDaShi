@@ -57,6 +57,10 @@ public class FatalitySlingshot : FatalityBase
 	{
 		base.CachedManager.CurrentCharacter.ApplyCharacterRagdoll();
 		yield return new WaitForSeconds(delayBeforeHeadSeparationNormal);
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			yield break;
+		}
 		Rigidbody rgHead = base.CachedManager.CharacterRagdoll.GetRigidbody("head");
 		if (rgHead != null)
 		{

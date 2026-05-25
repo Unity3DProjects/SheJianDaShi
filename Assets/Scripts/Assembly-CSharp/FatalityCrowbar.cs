@@ -83,6 +83,10 @@ public class FatalityCrowbar : FatalityBase
 	{
 		set
 		{
+			if (value && !GoreContentFilter.AllowDismemberment)
+			{
+				return;
+			}
 			isHeadDeleted = value;
 			if (isHeadDeleted)
 			{
@@ -174,6 +178,13 @@ public class FatalityCrowbar : FatalityBase
 		if (explodeEffectPrefab != null && !string.IsNullOrEmpty(explodeEffectPrefab.assetGUID))
 		{
 			Object.Instantiate((GameObject)explodeEffectPrefab.GetAsset(), crab.gameObject.transform.position, Quaternion.identity, SingletonMonoBehaviour<LevelsManager>.Instance.CurrentLevel.transform);
+		}
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			CrabDelete();
+			crab.gameObject.SetActive(false);
+			ExplodeCharacter();
+			yield break;
 		}
 		IsHeadDeleted = true;
 		CrabDelete();

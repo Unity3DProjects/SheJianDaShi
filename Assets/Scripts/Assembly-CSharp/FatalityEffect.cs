@@ -103,18 +103,30 @@ public class FatalityEffect : MonoBehaviour
 
 	public void EmitBrainEffect(CharacterType characterType, Transform parent, Vector3 position, Vector3 eulerAngles)
 	{
+		if (!GoreContentFilter.AllowInternalOrgans)
+		{
+			return;
+		}
 		SingletonMonoBehaviour<GameManager>.Instance.CameraController.ApplyShakeWithDuration(0.1f);
 		EmitEffect(brainEffects.Find((FatalityParticleSystemInfo obj) => obj.characterType == characterType).effectPrefab, parent, position, eulerAngles);
 	}
 
 	public void EmitGutsEffect(CharacterType characterType, Transform parent, Vector3 position, Vector3 eulerAngles)
 	{
+		if (!GoreContentFilter.AllowInternalOrgans)
+		{
+			return;
+		}
 		SingletonMonoBehaviour<GameManager>.Instance.CameraController.ApplyShakeWithDuration(0.1f);
 		EmitEffect(gutsEffects.Find((FatalityParticleSystemInfo obj) => obj.characterType == characterType).effectPrefab, parent, position, eulerAngles);
 	}
 
 	public void EmitBrain(Transform parent, Vector3 position, Vector3 direction)
 	{
+		if (!GoreContentFilter.AllowInternalOrgans)
+		{
+			return;
+		}
 		EmitObject(brainPrefab, parent, position, direction * Random.Range(minForceBrain, maxForceBrain));
 		EmitObject(eyePrefab, parent, position, direction * Random.Range(minForceEye, maxForceEye));
 		EmitObject(eyePrefab, parent, position, direction * Random.Range(minForceEye, maxForceEye));
@@ -122,6 +134,10 @@ public class FatalityEffect : MonoBehaviour
 
 	public void EmitGuts(Transform parent, Vector3 position, Vector3 direction)
 	{
+		if (!GoreContentFilter.AllowInternalOrgans)
+		{
+			return;
+		}
 		EmitObject(gutsPrefab, parent, position, direction * Random.Range(minForceGuts, maxForceGuts));
 	}
 

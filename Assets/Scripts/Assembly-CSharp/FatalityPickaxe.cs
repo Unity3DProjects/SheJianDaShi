@@ -30,6 +30,14 @@ public class FatalityPickaxe : FatalitySatelite
 	protected override void ExplodeCharacter(bool isNeedBloodEffects = true)
 	{
 		AudioManager.PlayAudioWithKey("pickaxe_fatality_explode");
+		if (!GoreContentFilter.AllowInternalOrgans)
+		{
+			base.CachedManager.CurrentCharacter.StartDefaultAnimation();
+			base.CachedManager.CurrentCharacter.ApplyCharacterRagdoll();
+			SingletonMonoBehaviour<GameManager>.Instance.CameraController.ApplyShakeWithDuration(1f);
+			PlayCrowdHappySound();
+			return;
+		}
 		base.CachedManager.CharacterAnimation.gameObject.SetActive(false);
 		base.CachedEffect.EmitBrainEffect(base.CachedManager.CurrentCharacter.CharacterType, base.transform, base.CachedHead.transform.position, base.CachedHead.transform.eulerAngles);
 		base.CachedEffect.EmitBrain(base.transform, base.CachedHead.transform.position, Vector3.up);

@@ -133,6 +133,10 @@ public class FatalityBrick : MonoBehaviour
 
 	protected void BreakAllJoint(Rigidbody rgBody)
 	{
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			return;
+		}
 		if ((bool)rgBody)
 		{
 			BreakSelfJoint(rgBody);
@@ -221,6 +225,19 @@ public class FatalityBrick : MonoBehaviour
 			SkeletonUtilityBone utilityBone = CachedManager.GetUtilityBone(coll);
 			if (utilityBone != null && utilityBone != CachedBody && !breakBonesNames.Contains(utilityBone.boneName) && Random.value <= breakProbability)
 			{
+				if (!GoreContentFilter.AllowDismemberment)
+				{
+					RemoveEventHandlers();
+					if (brickColliders != null && brickColliders.Count > 0 && brickColliders[0] != null)
+					{
+						brickColliders[0].isTrigger = false;
+					}
+					foreach (Transform item in base.transform)
+					{
+						base.gameObject.layer = LayerMask.NameToLayer("IgnoreCharacterCollisions");
+					}
+					return;
+				}
 				breakBonesNames.Add(utilityBone.boneName);
 				Rigidbody rigidbody = CachedManager.CharacterRagdoll.GetRigidbody(utilityBone.boneName);
 				Vector3 vector = new Vector3(utilityBone.transform.position.x - CachedBody.transform.position.x, utilityBone.transform.position.y - CachedBody.transform.position.y, 0f);

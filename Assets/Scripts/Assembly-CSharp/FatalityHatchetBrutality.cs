@@ -357,6 +357,10 @@ public class FatalityHatchetBrutality : FatalityBreak
 
 	public void TryBreakPart(CollisionInfo infoCollision)
 	{
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			return;
+		}
 		if (!(Random.value <= breakBoneChanse) || !(breakBoneTime <= 0f) || currentWeaponState != State.Cut)
 		{
 			return;

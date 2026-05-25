@@ -42,6 +42,10 @@ public class FatalityBreak : FatalityBase
 
 	protected virtual void BreakPart(Collider partCollider, SkeletonUtilityBone utilityBone)
 	{
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			return;
+		}
 		if (utilityBone != null && utilityBone != CachedBody && !breakBonesNames.Contains(utilityBone.boneName))
 		{
 			breakBonesNames.Add(utilityBone.boneName);

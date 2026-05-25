@@ -98,6 +98,11 @@ public class FatalityHole : FatalityBase
 			}
 		}
 		yield return new WaitForSeconds(delayAnimation);
+		if (!GoreContentFilter.AllowInternalOrgans)
+		{
+			StartCoroutine(CrashCharacter());
+			yield break;
+		}
 		base.CachedManager.CharacterAnimation.gameObject.SetActive(false);
 		yield return new WaitForSeconds(1f);
 		AudioManager.PlayAudioWithKey("magic_arrow_fatality_1");
@@ -115,6 +120,15 @@ public class FatalityHole : FatalityBase
 				obj.Volume = 0.5f;
 			}
 		});
+		if (!GoreContentFilter.AllowInternalOrgans)
+		{
+			base.CachedManager.CurrentCharacter.StartDefaultAnimation();
+			base.CachedManager.CurrentCharacter.ApplyCharacterRagdoll();
+			SingletonMonoBehaviour<GameManager>.Instance.CameraController.ApplyShakeWithDuration(1f);
+			yield return new WaitForSeconds(0.1f);
+			_003CPlayCrowdHappySound_003E__BaseCallProxy0();
+			yield break;
+		}
 		base.CachedManager.CharacterAnimation.gameObject.SetActive(false);
 		base.CachedEffect.EmitBrainEffect(base.CachedManager.CurrentCharacter.CharacterType, base.transform, CachedHead.transform.position, CachedHead.transform.eulerAngles);
 		base.CachedEffect.EmitBrain(base.transform, CachedHead.transform.position, Vector3.up);

@@ -77,6 +77,19 @@ public class FatalityPlasmaGrenade : FatalityBase
 	{
 		base.CachedManager.CurrentCharacter.ApplyCharacterRagdoll();
 		utility = base.CachedManager.GetUtilityBoneBody();
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			if ((bool)utility)
+			{
+				Rigidbody rigidbodyForSafeRagdoll = base.CachedManager.CharacterRagdoll.GetRigidbody(utility.boneName);
+				if ((bool)rigidbodyForSafeRagdoll)
+				{
+					rigidbodyForSafeRagdoll.velocity = new Vector3(explodeCharacterForce * 0.1f, explodeCharacterForce * 0.5f, 0f);
+					rigidbodyForSafeRagdoll.constraints = (RigidbodyConstraints)56;
+				}
+			}
+			return;
+		}
 		if ((bool)utility)
 		{
 			Rigidbody rigidbody = base.CachedManager.CharacterRagdoll.GetRigidbody(utility.boneName);
@@ -141,6 +154,10 @@ public class FatalityPlasmaGrenade : FatalityBase
 
 	private void FreezeParts(Rigidbody[] array)
 	{
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			return;
+		}
 		for (int i = 0; i < array.Length; i++)
 		{
 			if (array[i] != null)

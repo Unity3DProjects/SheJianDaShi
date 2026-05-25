@@ -121,7 +121,7 @@ public class MaskManager : MonoBehaviour
 		if (maskBase != null)
 		{
 			AddDecal(maskBase, info.decalType, GetClossestPont(info));
-			if (withCut)
+			if (withCut && GoreContentFilter.AllowCutMasks)
 			{
 				AddCutDecal(maskBase, info.position, info.direction);
 			}
@@ -138,6 +138,10 @@ public class MaskManager : MonoBehaviour
 
 	public void AddCutDecal(MaskBase onMask, Vector2 position, Vector2 direction)
 	{
+		if (!GoreContentFilter.AllowCutMasks)
+		{
+			return;
+		}
 		if ((bool)onMask)
 		{
 			onMask.AddCutDecal(position, direction);

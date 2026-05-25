@@ -159,6 +159,10 @@ public class FatalityCrossbarArrow : FatalityBase
 	{
 		base.CachedManager.CurrentCharacter.StartDefaultAnimation();
 		base.CachedManager.CurrentCharacter.ApplyCharacterRagdoll();
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			return;
+		}
 		SkeletonUtilityBone utilityBoneBody = base.CachedManager.GetUtilityBoneBody();
 		if ((bool)utilityBoneBody)
 		{

@@ -176,6 +176,20 @@ public class FatalityBase : MonoBehaviour
 	{
 		CachedManager.CurrentCharacter.StartDefaultAnimation();
 		CachedManager.CurrentCharacter.ApplyCharacterRagdoll();
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			SkeletonUtilityBone utilityBoneBodyForSafeRagdoll = CachedManager.GetUtilityBoneBody();
+			if ((bool)utilityBoneBodyForSafeRagdoll)
+			{
+				Rigidbody rigidbodyForSafeRagdoll = CachedManager.CharacterRagdoll.GetRigidbody(utilityBoneBodyForSafeRagdoll.boneName);
+				if ((bool)rigidbodyForSafeRagdoll)
+				{
+					rigidbodyForSafeRagdoll.velocity = new Vector3(0f, explodeForce * 0.25f, 0f);
+					rigidbodyForSafeRagdoll.constraints = (RigidbodyConstraints)56;
+				}
+			}
+			return;
+		}
 		SkeletonUtilityBone utilityBoneBody = CachedManager.GetUtilityBoneBody();
 		if (!utilityBoneBody)
 		{
@@ -223,6 +237,10 @@ public class FatalityBase : MonoBehaviour
 
 	protected virtual void BreakAllJoint(Rigidbody rgBody)
 	{
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			return;
+		}
 		if ((bool)rgBody)
 		{
 			BreakSelfJoint(rgBody);
@@ -232,6 +250,10 @@ public class FatalityBase : MonoBehaviour
 
 	protected void BreakSelfJoint(Rigidbody rgBody)
 	{
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			return;
+		}
 		if ((bool)rgBody)
 		{
 			HingeJoint component = rgBody.GetComponent<HingeJoint>();
@@ -244,6 +266,10 @@ public class FatalityBase : MonoBehaviour
 
 	protected void BreakRelativeJoint(Rigidbody rgBody)
 	{
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			return;
+		}
 		if (!rgBody || !CachedManager.CharacterRagdoll.IsActive)
 		{
 			return;

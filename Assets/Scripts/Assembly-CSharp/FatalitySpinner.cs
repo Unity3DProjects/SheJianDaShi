@@ -310,6 +310,10 @@ public class FatalitySpinner : FatalityBase
 
 	private void RemoveConnectedJoints(Rigidbody currentBody)
 	{
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			return;
+		}
 		HingeJoint component = currentBody.GetComponent<HingeJoint>();
 		if (component != null)
 		{
@@ -328,6 +332,10 @@ public class FatalitySpinner : FatalityBase
 
 	private void ApplySkeletonMask(Collider currentCollider)
 	{
+		if (!GoreContentFilter.AllowCutMasks)
+		{
+			return;
+		}
 		Collider collider = null;
 		List<Collider> partsColliders = base.CachedManager.CurrentCharacter.PartsColliders;
 		if (partsColliders.Contains(currentCollider) && base.CachedManager.GetUtilityBone(currentCollider) != null)
@@ -379,6 +387,19 @@ public class FatalitySpinner : FatalityBase
 		Vector3 point = collision.contacts[0].point;
 		if (ragdollRigidbodies.Contains(rigidbody))
 		{
+			if (!GoreContentFilter.AllowDismemberment)
+			{
+				if (!flag)
+				{
+					rigidbody.velocity = vector * forceAfterCollision;
+				}
+				else
+				{
+					rigidbody.velocity = vector * forceBodyAfterCollision;
+				}
+				AudioManager.PlayAudioWithKey("spinner_hit_character");
+				return;
+			}
 			if (!IsBodyDestroyed && rigidbody == rotatingCharacterRigidbodies[0])
 			{
 				IsBodyDestroyed = true;

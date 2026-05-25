@@ -118,6 +118,25 @@ public class FatalityRocket : FatalityBrick
 		{
 			base.CachedManager.CurrentCharacter.StartDefaultAnimation();
 			base.CachedManager.CurrentCharacter.ApplyCharacterRagdoll();
+			if (!GoreContentFilter.AllowDismemberment)
+			{
+				SkeletonUtilityBone utilityBoneBodyForSafeRagdoll = base.CachedManager.GetUtilityBoneBody();
+				if ((bool)utilityBoneBodyForSafeRagdoll)
+				{
+					Rigidbody rigidbodyForSafeRagdoll = base.CachedManager.CharacterRagdoll.GetRigidbody(utilityBoneBodyForSafeRagdoll.boneName);
+					if ((bool)rigidbodyForSafeRagdoll)
+					{
+						rigidbodyForSafeRagdoll.velocity = new Vector3(0f, explodeForce * 0.25f, 0f);
+						rigidbodyForSafeRagdoll.constraints = (RigidbodyConstraints)56;
+					}
+				}
+				if (FatalityRocket.m_OnExplode != null)
+				{
+					FatalityRocket.m_OnExplode();
+				}
+				base.gameObject.SetActive(false);
+				return;
+			}
 			SkeletonUtilityBone utilityBoneBody = base.CachedManager.GetUtilityBoneBody();
 			if ((bool)utilityBoneBody)
 			{

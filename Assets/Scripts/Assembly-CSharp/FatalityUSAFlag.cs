@@ -37,6 +37,21 @@ public class FatalityUSAFlag : FatalitySatelite
 		base.CachedManager.CurrentCharacter.RemoveAllDriveIntoWeapon();
 		base.CachedManager.CurrentCharacter.StartDefaultAnimation();
 		base.CachedManager.CurrentCharacter.ApplyCharacterRagdoll();
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			SkeletonUtilityBone utilityBoneBodyForSafeRagdoll = base.CachedManager.GetUtilityBoneBody();
+			if ((bool)utilityBoneBodyForSafeRagdoll)
+			{
+				Rigidbody rigidbodyForSafeRagdoll = base.CachedManager.CharacterRagdoll.GetRigidbody(utilityBoneBodyForSafeRagdoll.boneName);
+				if ((bool)rigidbodyForSafeRagdoll)
+				{
+					rigidbodyForSafeRagdoll.velocity = Vector3.up * explodeCharacterForce * 0.25f;
+					rigidbodyForSafeRagdoll.constraints = (RigidbodyConstraints)56;
+				}
+			}
+			base.CachedMask.Activate(startFatalityCollider, startFatalityUtilityBone);
+			return;
+		}
 		SkeletonUtilityBone utilityBoneBody = base.CachedManager.GetUtilityBoneBody();
 		if ((bool)utilityBoneBody)
 		{
@@ -107,9 +122,12 @@ public class FatalityUSAFlag : FatalitySatelite
 			fireworksEffect = (GameObject)fireworksEffectPrefab.GetInstance();
 			fireworksEffect.transform.parent = SingletonMonoBehaviour<LevelsManager>.Instance.CurrentLevel.transform;
 			fireworksEffect.transform.position = base.CachedManager.CurrentCharacter.HeadColliderBody.transform.position;
-			base.CachedManager.CurrentCharacter.RootRigidBody.velocity = Vector3.zero;
-			base.CachedManager.CurrentCharacter.RootRigidBody.isKinematic = true;
-			base.CachedManager.CurrentCharacter.SkeletonAnimation.skeleton.SetAttachment("skeleton_body", null);
+			if (GoreContentFilter.AllowDismemberment)
+			{
+				base.CachedManager.CurrentCharacter.RootRigidBody.velocity = Vector3.zero;
+				base.CachedManager.CurrentCharacter.RootRigidBody.isKinematic = true;
+				base.CachedManager.CurrentCharacter.SkeletonAnimation.skeleton.SetAttachment("skeleton_body", null);
+			}
 			for (int i = 0; i < sounds.Count; i++)
 			{
 				StartCoroutine(PlayFireworksSound(sounds[i]));

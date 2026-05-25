@@ -148,6 +148,22 @@ public class FatalityMjolnirUpgrade : FatalityBase
 	{
 		base.CachedEffect.EmitGUICameraEffects(BrutalityEffectType.Finished);
 		ApplyFatalityEffects();
+		if (!GoreContentFilter.AllowDismemberment)
+		{
+			SkeletonUtilityBone utilityBoneBodyForSafeRagdoll = base.CachedManager.GetUtilityBoneBody();
+			if ((bool)utilityBoneBodyForSafeRagdoll)
+			{
+				Rigidbody rigidbodyForSafeRagdoll = base.CachedManager.CharacterRagdoll.GetRigidbody(utilityBoneBodyForSafeRagdoll.boneName);
+				if ((bool)rigidbodyForSafeRagdoll)
+				{
+					rigidbodyForSafeRagdoll.velocity = Vector3.zero;
+					rigidbodyForSafeRagdoll.angularVelocity = Vector3.zero;
+					rigidbodyForSafeRagdoll.constraints = (RigidbodyConstraints)56;
+				}
+			}
+			AudioManager.PlayAudioWithKey("green_arrow_brutality_explode");
+			return;
+		}
 		SkeletonUtilityBone utilityBoneBody = base.CachedManager.GetUtilityBoneBody();
 		if ((bool)utilityBoneBody)
 		{
