@@ -14,7 +14,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public sealed class SpriteRTOut : MonoBehaviour
 {
-    private const string OutputPath = @"D:\UGit\bowmasters\Library\Fix\SpriteFix";
+    private const string OutputPath = @"F:\SunRui\bowmasters\Library\Fix\SpriteFix";
     private const string OutputFileName = "RuntimeSpriteData.json";
     private const string InfoFileName = "RuntimeSpriteDataInfo.txt";
 

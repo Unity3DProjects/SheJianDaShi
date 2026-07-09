@@ -103,7 +103,7 @@ public class LLLeaderboardGPGS : ILeaderboard
 		}
 	}
 
-	public Range range
+	public UnityEngine.SocialPlatforms.Range range
 	{
 		get
 		{

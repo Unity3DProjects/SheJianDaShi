@@ -25,6 +25,8 @@ public class StatisticsManager : SingletonMonoBehaviour<StatisticsManager>
 
 	private const string NEW_ADS_ADDED = "new_ads_added";
 
+	private const SystemLanguage DEFAULT_LANGUAGE = SystemLanguage.Chinese;
+
 	[CompilerGenerated]
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 	private static Action<int> m_OnCoinsChanged;
@@ -785,18 +787,29 @@ public class StatisticsManager : SingletonMonoBehaviour<StatisticsManager>
 	{
 		get
 		{
-			int num = CustomPlayerPrefs.GetInt("language_type", -1);
+			int num = CustomPlayerPrefs.GetInt(GamePrefs.LANGUAGE_TYPE, -1);
 			if (num == -1)
 			{
-				num = (int)Application.systemLanguage;
-				CustomPlayerPrefs.SetInt("language_type", num);
+				CurrentLanguage = DEFAULT_LANGUAGE;
+				return DEFAULT_LANGUAGE;
 			}
-			return (SystemLanguage)num;
+			SystemLanguage systemLanguage = (SystemLanguage)num;
+			if (!IsSupportedLanguage(systemLanguage))
+			{
+				CurrentLanguage = DEFAULT_LANGUAGE;
+				return DEFAULT_LANGUAGE;
+			}
+			return systemLanguage;
 		}
 		set
 		{
-			CustomPlayerPrefs.SetInt("language_type", (int)value);
+			CustomPlayerPrefs.SetInt(GamePrefs.LANGUAGE_TYPE, (int)value);
 		}
+	}
+
+	private static bool IsSupportedLanguage(SystemLanguage language)
+	{
+		return language == SystemLanguage.English || language == SystemLanguage.Chinese || language == SystemLanguage.ChineseSimplified || language == SystemLanguage.ChineseTraditional;
 	}
 
 	public TimeSpan CheatedTime

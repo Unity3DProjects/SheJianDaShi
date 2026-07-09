@@ -1,0 +1,70 @@
+#if Ade_Bilibili
+using WeChatWASM;
+#endif
+using Ade_Framework;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class SidebarBut : MonoBehaviour
+{
+    public static SidebarBut Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    private void Start()
+    {
+#if !Ade_TT
+        gameObject.SetActive(false);
+        return;
+#else
+        gameObject.GetComponent<Button>().onClick.AddListener(() => 
+        {
+            SidebarPlane.Instance.Show();
+        });
+        gameObject.SetActive(false);
+        LogManager.Log($"侧边栏：{AdeSDK.Instance.isSidebar}");
+        if (AdeSDK.Instance.isSidebar) Show();
+#endif
+    }
+
+    /// <summary>
+    /// 显示侧边栏按钮
+    /// </summary>
+    public void Show()
+    {
+#if !Ade_TT
+        return;
+#else
+        LogManager.Log($"侧边栏：打开1");
+        if (SidebarData.IsReWard) return;
+        LogManager.Log($"侧边栏：打开2");
+        gameObject.SetActive(true);
+#endif
+    }
+
+    /// <summary>
+    /// 关闭侧边栏按钮
+    /// </summary>
+    public void Close() 
+    {
+        gameObject.SetActive(false);
+    }
+
+}
+
+public static class SidebarData
+{
+    public static bool IsReWard 
+    {
+        get => AdeCloudPlayerPrefs.GetInt("SidebarDataIsReWard", 0) == 1;
+        set
+        {
+            AdeCloudPlayerPrefs.SetInt("SidebarDataIsReWard", value ? 1 : 0);
+            AdeCloudPlayerPrefs.Save();
+        }
+    }
+}

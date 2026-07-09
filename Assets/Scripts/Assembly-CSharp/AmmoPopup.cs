@@ -144,10 +144,10 @@ public class AmmoPopup : GUIPopup
 		{
 			buttonFree.SimulateClick();
 			//TODO:激励--获取射苹果次数
-			ADManager.Instance.ShowRewardAD(this.gameObject.name,"");
-			// base.CachedManagers.CachedAdvertisingManager.ShowVideo();
+			Debug.Log("激励--获取射苹果次数");
 			IsOnVideoFinishEventSubscribed = true;
 			isRealTimerEnable = false;
+			ADManager.Instance.ShowRewardAD(GetReward_AdvertisingManager_OnVideoAdFinish, RewardAdFailed);
 		}
 	}
 
@@ -157,6 +157,16 @@ public class AmmoPopup : GUIPopup
 		{
 			Hide();
 		}
+	}
+
+	public void GetReward_AdvertisingManager_OnVideoAdFinish()
+	{
+		AdvertisingManager_OnVideoAdFinish(true);
+	}
+
+	private void RewardAdFailed()
+	{
+		AdvertisingManager_OnVideoAdFinish(false);
 	}
 
 	private void AdvertisingManager_OnVideoAdFinish(bool isVideoAvailable)

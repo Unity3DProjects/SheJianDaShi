@@ -1245,7 +1245,7 @@ public class ResultScreen : GUIScreen
 				}
 				break;
 			}
-			key = SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey(key);
+			key = SingletonMonoBehaviour<LocalisationManager>.Instance.GetTextByKey(key).Trim();
 			tk2dBaseSprite[] array4 = flagSprites;
 			foreach (tk2dBaseSprite tk2dBaseSprite2 in array4)
 			{
