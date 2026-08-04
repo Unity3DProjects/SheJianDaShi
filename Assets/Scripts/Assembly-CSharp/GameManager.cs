@@ -307,6 +307,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
 	private void Start()
 	{
+		// Time.timeScale is global and survives scene changes.
+		Time.timeScale = 1f;
+		AudioListener.pause = false;
 		isGamePaused = true;
 		// Application.targetFrameRate = ((DeviceInfo.CurrentClass != DeviceInfo.PerformanceClass.High) ? 30 : 60);
 		IsVisibleOnGUI = true;

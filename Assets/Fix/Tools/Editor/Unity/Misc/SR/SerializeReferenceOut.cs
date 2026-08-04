@@ -23,7 +23,7 @@ public partial class SRIO : MonoBehaviour
 {
     #region const
 
-    private const string OutputPath = @"F:\SunRui\bowmasters\Library\Fix\SR";
+    private const string OutputPath = @"D:\UGit\bowmasters\Library\Fix\SR";
     private const string InfoName = "Info.txt";
     private const string SRName = "SerializeReference.txt";
 

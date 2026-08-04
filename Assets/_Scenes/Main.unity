@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 92232432}
   - component: {fileID: 92232434}
   - component: {fileID: 92232435}
-  - component: {fileID: 92232437}
   - component: {fileID: 92232436}
   - component: {fileID: 92232433}
   m_Layer: 5
@@ -198,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b474872485d46e3458e041a864b5e53a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSceneName: Game
   PlayGame: {fileID: 811590391}
 --- !u!114 &92232436
 MonoBehaviour:
@@ -225,21 +225,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &92232437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92232431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41547f19e594cbf4ba3bc103c4402907, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  privacyBtnGO: {fileID: 0}
-  addBtnGO: {fileID: 0}
-  logoutBtnGO: {fileID: 0}
 --- !u!1 &379548462
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +473,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ca59c78fa7d8ca44aa1f6a88d8646a05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7549b086cf197ff4eaa910f576ebbc41, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
